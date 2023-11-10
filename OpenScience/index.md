@@ -13,15 +13,15 @@ Our group is fully commited to open science, from developing/contributing to ope
 
 {% include section.html %}
 
-## Open source softwares for LSFM (coming soon)
+## Open source softwares
 
-{% include list.html component="card" data="tools" filters="group: featured" %}
+{% include list.html component="card" data="tools" filters="group: software" %}
 
 {% include section.html %}
 
-## Open datasets for LSFM (coming soon)
+## Open datasets
 
-{% include list.html component="card" data="tools" filters="group: more" style="small" %}
+{% include list.html component="card" data="tools" filters="group: data" style="small" %}
 
 
 {% include section.html %}

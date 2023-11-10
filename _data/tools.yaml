@@ -1,3 +1,15 @@
+- name: SOFTWARE - mmv_im2im
+  group: software
+  image: images/im2im_software.png
+  link: https://github.com/MMV-Lab/mmv_im2im
+  description: A generic toolbox for microscopy image to image transformation
+
+- name: SOFTWARE - EfficientBioAI
+  group: software
+  image: images/efficientBIO.png
+  link: https://github.com/MMV-Lab/EfficientBioAI
+  description: A toolbox for bioimaging model compression
+
 - name: SOFTWARE - 3D cell cycle classifier
   group: previous
   image: images/mitotic.png
@@ -20,7 +32,7 @@
   group: previous
   image: images/variance.png
   link: https://open.quiltdata.com/b/allencell/packages/aics/hipsc_single_cell_image_dataset
-  description: Dataset used to train the 3D mitotic classif
+  description: Dataset used to train the 3D mitotic classification
 
 - name: ZeroCostDL4Mic
   group: others
