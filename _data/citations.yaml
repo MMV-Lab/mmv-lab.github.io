@@ -1,5 +1,489 @@
 # GENERATED AUTOMATICALLY, DO NOT EDIT
 
+- id: doi:10.48550/arXiv.2308.16139
+  title: MedShapeNet -- A Large-Scale Dataset of 3D Medical Shapes for Computer Vision
+  authors:
+  - Jianning Li
+  - Antonio Pepe
+  - Christina Gsaxner
+  - Gijs Luijten
+  - Yuan Jin
+  - Narmada Ambigapathy
+  - Enrico Nasca
+  - Naida Solak
+  - Gian Marco Melito
+  - Viet Duc Vu
+  - Afaque R. Memon
+  - Xiaojun Chen
+  - Jan Stefan Kirschke
+  - Ezequiel de la Rosa
+  - Patrick Ferdinand Christ
+  - Hongwei Bran Li
+  - David G. Ellis
+  - Michele R. Aizenberg
+  - Sergios Gatidis
+  - "Thomas K\xFCstner"
+  - Nadya Shusharina
+  - Nicholas Heller
+  - Vincent Andrearczyk
+  - Adrien Depeursinge
+  - Mathieu Hatt
+  - Anjany Sekuboyina
+  - "Maximilian L\xF6ffler"
+  - Hans Liebl
+  - Reuben Dorent
+  - Tom Vercauteren
+  - Jonathan Shapey
+  - Aaron Kujawa
+  - Stefan Cornelissen
+  - Patrick Langenhuizen
+  - Achraf Ben-Hamadou
+  - Ahmed Rekik
+  - Sergi Pujades
+  - Edmond Boyer
+  - Federico Bolelli
+  - Costantino Grana
+  - Luca Lumetti
+  - Hamidreza Salehi
+  - Jun Ma
+  - Yao Zhang
+  - Ramtin Gharleghi
+  - Susann Beier
+  - Arcot Sowmya
+  - Eduardo A. Garza-Villarreal
+  - Thania Balducci
+  - Diego Angeles-Valdez
+  - Roberto Souza
+  - Leticia Rittner
+  - Richard Frayne
+  - Yuanfeng Ji
+  - Soumick Chatterjee
+  - Florian Dubost
+  - Stefanie Schreiber
+  - Hendrik Mattern
+  - Oliver Speck
+  - Daniel Haehn
+  - Christoph John
+  - "Andreas N\xFCrnberger"
+  - "Jo\xE3o Pedrosa"
+  - Carlos Ferreira
+  - Guilherme Aresta
+  - "Ant\xF3nio Cunha"
+  - "Aur\xE9lio Campilho"
+  - Yannick Suter
+  - Jose Garcia
+  - Alain Lalande
+  - Emmanuel Audenaert
+  - Claudia Krebs
+  - Timo Van Leeuwen
+  - Evie Vereecke
+  - "Rainer R\xF6hrig"
+  - "Frank H\xF6lzle"
+  - Vahid Badeli
+  - Kathrin Krieger
+  - Matthias Gunzer
+  - Jianxu Chen
+  - Amin Dada
+  - Miriam Balzer
+  - Jana Fragemann
+  - Frederic Jonske
+  - Moritz Rempe
+  - Stanislav Malorodov
+  - Fin H. Bahnsen
+  - Constantin Seibold
+  - Alexander Jaus
+  - Ana Sofia Santos
+  - Mariana Lindo
+  - "Andr\xE9 Ferreira"
+  - Victor Alves
+  - Michael Kamp
+  - Amr Abourayya
+  - Felix Nensa
+  - "Fabian H\xF6rst"
+  - Alexander Brehmer
+  - Lukas Heine
+  - Lars E. Podleska
+  - Matthias A. Fink
+  - Julius Keyl
+  - Konstantinos Tserpes
+  - Moon-Sung Kim
+  - Shireen Elhabian
+  - Hans Lamecker
+  - "D\u017Eenan Zuki\u0107"
+  - Beatriz Paniagua
+  - Christian Wachinger
+  - Martin Urschler
+  - Luc Duong
+  - Jakob Wasserthal
+  - Peter F. Hoyer
+  - Oliver Basu
+  - Thomas Maal
+  - Max J. H. Witjes
+  - Ti-chiun Chang
+  - Seyed-Ahmad Ahmadi
+  - Ping Luo
+  - Bjoern Menze
+  - Mauricio Reyes
+  - Christos Davatzikos
+  - Behrus Puladi
+  - Jens Kleesiek
+  - Jan Egger
+  publisher: arXiv
+  date: '2023-01-01'
+  link: https://doi.org/gs4c6v
+  image: ../images/medshapenet.png
+  tags:
+  - medical imaging
+  - deep learning
+  - visualization
+- id: doi:10.48550/arXiv.2308.05695
+  title: Masked Diffusion as Self-supervised Representation Learner
+  authors:
+  - Zixuan Pan
+  - Jianxu Chen
+  - Yiyu Shi
+  publisher: arXiv
+  date: '2023-01-01'
+  link: https://doi.org/gs4c6w
+  image: https://d3i71xaburhd42.cloudfront.net/72de731e88f7a6d983729d0dfafea1b41be5ac8f/4-Figure1-1.png
+  tags:
+  - deep learning
+  - segmentation
+  - diffusion models
+- id: doi:10.1038/s41592-023-01881-4
+  title: 'When seeing is not believing: application-appropriate validation matters
+    for quantitative bioimage analysis'
+  authors:
+  - Jianxu Chen
+  - Matheus P. Viana
+  - Susanne M. Rafelski
+  publisher: Nature Methods
+  date: '2023-07-01'
+  link: https://doi.org/gss3cm
+  image: ../images/seeing.png
+  tags:
+  - image analysis validation
+- id: doi:10.1038/s42256-023-00670-0
+  title: The importance of resource awareness in artificial intelligence for healthcare
+  authors:
+  - Zhenge Jia
+  - Jianxu Chen
+  - Xiaowei Xu
+  - John Kheir
+  - Jingtong Hu
+  - Han Xiao
+  - Sui Peng
+  - Xiaobo Sharon Hu
+  - Danny Chen
+  - Yiyu Shi
+  publisher: Nature Machine Intelligence
+  date: '2023-06-12'
+  link: https://doi.org/gs4c6x
+  image: ../images/resource.png
+  tags:
+  - deep learning
+  - efficiency
+- id: doi:10.48550/arXiv.2306.06152
+  title: 'EfficientBioAI: Making Bioimaging AI Models Efficient in Energy, Latency
+    and Representation'
+  authors:
+  - Yu Zhou
+  - Justin Sonneck
+  - Sweta Banerjee
+  - "Stefanie D\xF6rr"
+  - "Anika Gr\xFCneboom"
+  - Kristina Lorenz
+  - Jianxu Chen
+  publisher: arXiv
+  date: '2023-01-01'
+  link: https://doi.org/gs4c6z
+  image: ../images/efficeintBIO.png
+  extra-links:
+  - type: source
+    link: https://github.com/MMV-Lab/EfficientBioAI
+    text: source code
+  tags:
+  - deep learning
+  - efficiency
+- id: doi:10.1016/j.crmeth.2023.100436
+  title: Rapid and fully automated blood vasculature analysis in 3D light-sheet image
+    volumes of different organs
+  authors:
+  - Philippa Spangenberg
+  - Nina Hagemann
+  - Anthony Squire
+  - "Nils F\xF6rster"
+  - "Sascha D. Krau\xDF"
+  - Yachao Qi
+  - Ayan Mohamud Yusuf
+  - Jing Wang
+  - "Anika Gr\xFCneboom"
+  - Lennart Kowitz
+  - Sebastian Korste
+  - Matthias Totzeck
+  - "Z\xFClal Cibir"
+  - Ali Ata Tuz
+  - Vikramjeet Singh
+  - Devon Siemes
+  - Laura Struensee
+  - Daniel R. Engel
+  - Peter Ludewig
+  - Luiza Martins Nascentes Melo
+  - Iris Helfrich
+  - Jianxu Chen
+  - Matthias Gunzer
+  - Dirk M. Hermann
+  - Axel Mosig
+  publisher: Cell Reports Methods
+  date: '2023-03-01'
+  link: https://doi.org/gr56r8
+  image: ../images/vessel.png
+  tags:
+  - image segmentation
+  - open-source software
+- id: doi:10.48550/arXiv.2302.01790
+  title: Understanding metric-related pitfalls in image analysis validation
+  authors:
+  - Annika Reinke
+  - Minu D. Tizabi
+  - Michael Baumgartner
+  - Matthias Eisenmann
+  - "Doreen Heckmann-N\xF6tzel"
+  - A. Emre Kavur
+  - "Tim R\xE4dsch"
+  - Carole H. Sudre
+  - Laura Acion
+  - Michela Antonelli
+  - Tal Arbel
+  - Spyridon Bakas
+  - Arriel Benis
+  - Matthew Blaschko
+  - Florian Buettner
+  - M. Jorge Cardoso
+  - Veronika Cheplygina
+  - Jianxu Chen
+  - Evangelia Christodoulou
+  - Beth A. Cimini
+  - Gary S. Collins
+  - Keyvan Farahani
+  - Luciana Ferrer
+  - Adrian Galdran
+  - Bram van Ginneken
+  - Ben Glocker
+  - Patrick Godau
+  - Robert Haase
+  - Daniel A. Hashimoto
+  - Michael M. Hoffman
+  - Merel Huisman
+  - Fabian Isensee
+  - Pierre Jannin
+  - Charles E. Kahn
+  - Dagmar Kainmueller
+  - Bernhard Kainz
+  - Alexandros Karargyris
+  - Alan Karthikesalingam
+  - Hannes Kenngott
+  - Jens Kleesiek
+  - Florian Kofler
+  - Thijs Kooi
+  - Annette Kopp-Schneider
+  - Michal Kozubek
+  - Anna Kreshuk
+  - Tahsin Kurc
+  - Bennett A. Landman
+  - Geert Litjens
+  - Amin Madani
+  - Klaus Maier-Hein
+  - Anne L. Martel
+  - Peter Mattson
+  - Erik Meijering
+  - Bjoern Menze
+  - Karel G. M. Moons
+  - "Henning M\xFCller"
+  - Brennan Nichyporuk
+  - Felix Nickel
+  - Jens Petersen
+  - Susanne M. Rafelski
+  - Nasir Rajpoot
+  - Mauricio Reyes
+  - Michael A. Riegler
+  - Nicola Rieke
+  - Julio Saez-Rodriguez
+  - "Clara I. S\xE1nchez"
+  - Shravya Shetty
+  - Maarten van Smeden
+  - Ronald M. Summers
+  - Abdel A. Taha
+  - Aleksei Tiulpin
+  - Sotirios A. Tsaftaris
+  - Ben Van Calster
+  - "Ga\xEBl Varoquaux"
+  - Manuel Wiesenfarth
+  - Ziv R. Yaniv
+  - "Paul F. J\xE4ger"
+  - Lena Maier-Hein
+  publisher: arXiv
+  date: '2023-01-01'
+  link: https://doi.org/grxbwx
+  image: ../images/pitfall.png
+  tags:
+  - image analysis validation
+- id: doi:10.1038/s41586-022-05563-7
+  title: Integrated intracellular organization and its variations in human iPS cells
+  authors:
+  - Matheus P. Viana
+  - Jianxu Chen
+  - Theo A. Knijnenburg
+  - Ritvik Vasan
+  - Calysta Yan
+  - Joy E. Arakaki
+  - Matte Bailey
+  - Ben Berry
+  - Antoine Borensztejn
+  - Eva M. Brown
+  - Sara Carlson
+  - Julie A. Cass
+  - Basudev Chaudhuri
+  - Kimberly R. Cordes Metzler
+  - Mackenzie E. Coston
+  - Zach J. Crabtree
+  - Steve Davidson
+  - Colette M. DeLizo
+  - Shailja Dhaka
+  - Stephanie Q. Dinh
+  - Thao P. Do
+  - Justin Domingus
+  - Rory M. Donovan-Maiye
+  - Alexandra J. Ferrante
+  - Tyler J. Foster
+  - Christopher L. Frick
+  - Griffin Fujioka
+  - Margaret A. Fuqua
+  - Jamie L. Gehring
+  - Kaytlyn A. Gerbin
+  - Tanya Grancharova
+  - Benjamin W. Gregor
+  - Lisa J. Harrylock
+  - Amanda Haupt
+  - Melissa C. Hendershott
+  - Caroline Hookway
+  - Alan R. Horwitz
+  - H. Christopher Hughes
+  - Eric J. Isaac
+  - Gregory R. Johnson
+  - Brian Kim
+  - Andrew N. Leonard
+  - Winnie W. Leung
+  - Jordan J. Lucas
+  - Susan A. Ludmann
+  - Blair M. Lyons
+  - Haseeb Malik
+  - Ryan McGregor
+  - Gabe E. Medrash
+  - Sean L. Meharry
+  - Kevin Mitcham
+  - Irina A. Mueller
+  - Timothy L. Murphy-Stevens
+  - Aditya Nath
+  - Angelique M. Nelson
+  - Sandra A. Oluoch
+  - Luana Paleologu
+  - T. Alexander Popiel
+  - Megan M. Riel-Mehan
+  - Brock Roberts
+  - Lisa M. Schaefbauer
+  - Magdalena Schwarzl
+  - Jamie Sherman
+  - Sylvain Slaton
+  - M. Filip Sluzewski
+  - Jacqueline E. Smith
+  - Youngmee Sul
+  - Madison J. Swain-Bowden
+  - W. Joyce Tang
+  - Derek J. Thirstrup
+  - Daniel M. Toloudis
+  - Andrew P. Tucker
+  - Veronica Valencia
+  - Winfried Wiegraebe
+  - Thushara Wijeratna
+  - Ruian Yang
+  - Rebecca J. Zaunbrecher
+  - Ramon Lorenzo D. Labitigan
+  - Adrian L. Sanborn
+  - Graham T. Johnson
+  - Ruwanthi N. Gunawardane
+  - Nathalie Gaudreault
+  - Julie A. Theriot
+  - Susanne M. Rafelski
+  publisher: Nature
+  date: '2023-01-04'
+  link: https://doi.org/grkztd
+  image: ../images/cells.png
+  tags:
+  - cell biology
+  - analysis and modeling
+- id: doi:10.48550/arXiv.2209.02498
+  title: 'MMV_Im2Im: An Open Source Microscopy Machine Vision Toolbox for Image-to-Image
+    Transformation'
+  authors:
+  - Justin Sonneck
+  - Jianxu Chen
+  publisher: arXiv
+  date: '2022-01-01'
+  link: https://doi.org/grphbf
+  image: ../images/im2im.png
+  tags:
+  - open-source software
+  - deep learning
+  extra-links:
+  - type: source
+    link: https://github.com/MMV-Lab/mmv_im2im
+    text: source code
+- id: doi:10.1101/2022.11.09.515763
+  title: "Peyer\u2019s Patch B cells undergo cell death via neutrophil-released toxic\
+    \ DNA following sterile tissue injury"
+  authors:
+  - Ali A Tuz
+  - Alexander Beer
+  - Markus Gallert
+  - Dimitris Ttoouli
+  - Susmita Ghosh
+  - Sai P Sata
+  - Andreas Kraus
+  - Franziska Zwirnlein
+  - Viola Kaygusuz
+  - Vivian Lakovic
+  - Altea Qefalia
+  - Medina Antler
+  - Sebastian Korste
+  - Britta Kaltwasser
+  - Hossam Abdelrahman
+  - Ayan Mohamud-Yusuf
+  - Chen Wang
+  - Lars Haeusler
+  - Smiths Lueong
+  - Martin Stenzel
+  - Benedikt Frank
+  - "Martin K\xF6hrmann"
+  - Jens Siveke
+  - Matthias Totzeck
+  - Daniel Hoffmann
+  - "Anika Gr\xFCneboom"
+  - Nina Hagemann
+  - Anja Hasenberg
+  - Albert Sickmann
+  - Jianxu Chen
+  - Dirk M Hermann
+  - Matthias Gunzer
+  - Vikramjeet Singh
+  publisher: Cold Spring Harbor Laboratory
+  date: '2022-11-09'
+  link: https://doi.org/gs4c62
+  image: ../images/pp.png
+  tags:
+  - human-in-the-loop
+  - image segmentation
+  - immunology
 - id: doi:10.1109/BIBM49941.2020.9313428
   title: Unlabeled Data Guided Semi-supervised Histopathology Image Segmentation
   authors:
@@ -9,7 +493,7 @@
   - Lin Yang
   - Yizhe Zhang
   - Danny Z. Chen
-  publisher: IEEE BIBM
+  publisher: IEEE BIBM Conference
   date: '2020-12-16'
   link: https://doi.org/gkspnj
   image: ../images/he.png
@@ -29,10 +513,10 @@
   - Hao Zheng
   - Pengfei Gu
   - Danny Chen
-  publisher: IEEE CBMS
+  publisher: IEEE CBMS Conference
   date: '2020-07-01'
   link: https://doi.org/gkspnk
-  image: ../images/cbms.png
+  image: ../images/tracking_vis.png
   tags:
   - cell tracking
 - id: doi:10.1101/491035
@@ -56,12 +540,13 @@
   extra-links:
   - type: website
     link: https://www.allencell.org/segmenter.html
+    text: Project homepage
   - type: source
     link: https://github.com/AllenCell/aics-ml-segmentation
     text: ML segmentation source
   - type: source
     link: https://github.com/AllenCell/aics-segmentation
-    text: classic segmentation source
+    text: Classic segmentation source code
   tags:
   - image segmentation
   - 3D
@@ -75,10 +560,10 @@
   - Lin Yang
   - Yizhe Zhang
   - Danny Z. Chen
-  publisher: IEEE ISBI
+  publisher: IEEE ISBI Conference
   date: '2019-04-01'
   link: https://doi.org/gkspnn
-  image: ../images/isbi.png
+  image: ../images/cascade_vis.png
   tags:
   - image segmentation
   - 3D
@@ -94,7 +579,7 @@
   - Zhuo Zhao
   - Chaoli Wang
   - Danny Z. Chen
-  publisher: AAAI
+  publisher: AAAI Conference
   date: '2019-07-17'
   link: https://doi.org/ghkj3s
   image: ../images/aaai.png
@@ -113,7 +598,7 @@
   - Lin Yang
   - Jeremiah J. Zartman
   - Danny Z. Chen
-  publisher: IEEE ISBI
+  publisher: IEEE ISBI Conference
   date: '2018-04-01'
   link: https://doi.org/gkspqm
   image: ../images/isbi.png
@@ -127,7 +612,7 @@
   - Abhinav Grama
   - Walter J. Scheirer
   - Danny Z. Chen
-  publisher: MICCAI
+  publisher: MICCAI Conference
   date: '2017-01-01'
   link: https://doi.org/gkspqn
   image: ../images/MICCAI.png
@@ -165,9 +650,8 @@
   link: https://doi.org/gktgdk
   image: https://www.allencell.org/uploads/8/1/9/9/81996008/cellsystems-cover-fish-aics-cos-2-final-thumb_2.png
   tags:
-  - caridomyocyte
+  - cell biology
   - analysis and modeling
-  - image segmentation
 - id: url:https://papers.nips.cc/paper/2016/hash/4dcf435435894a4d0972046fc566af76-Abstract.html
   title: Combining Fully Convolutional and Recurrent Neural Networks for 3D Biomedical
     Image Segmentation
@@ -177,7 +661,7 @@
   - Y. Zhang
   - M. Alber
   - D. Chen
-  publisher: NeurIPS
+  publisher: NeurIPS Conference
   date: '2016-12-05'
   link: https://proceedings.neurips.cc/paper/2016/file/4dcf435435894a4d0972046fc566af76-Paper.pdf
   image: ../images/nips.png
@@ -293,7 +777,7 @@
   - Jianxu Chen
   - Siyuan Zhang
   - Danny Z. Chen
-  publisher: MICCAI
+  publisher: MICCAI Conference
   date: '2017-01-01'
   link: https://doi.org/gkqs4p
   image: ../images/MICCAI.png
@@ -310,7 +794,7 @@
   - Maridel Fredericksen
   - David P. Hughes
   - Danny Z. Chen
-  publisher: MICCAI
+  publisher: MICCAI Conference
   date: '2017-01-01'
   link: https://doi.org/gktgds
   image: ../images/MICCAI.png
@@ -340,7 +824,7 @@
   - Lin Yang
   - Mark S. Alber
   - Danny Z. Chen
-  publisher: IEEE ISBI
+  publisher: IEEE ISBI Conference
   date: '2016-04-01'
   link: https://doi.org/gktgvp
   image: ../images/pseudo.png
@@ -354,7 +838,7 @@
   - Shant Mahserejian
   - Mark Alber
   - Danny Z. Chen
-  publisher: MICCAI
+  publisher: MICCAI Conference
   date: '2015-01-01'
   link: https://doi.org/gktgvq
   image: ../images/MICCAI.png
@@ -384,7 +868,7 @@
   - Cameron W. Harvey
   - Mark S. Alber
   - Danny Z. Chen
-  publisher: MICCAI
+  publisher: MICCAI Conference
   date: '2014-01-01'
   link: https://doi.org/gktgvs
   image: ../images/MICCAI.png
@@ -400,7 +884,7 @@
   - John W. Weisel
   - Mark S. Alber
   - Danny Z. Chen
-  publisher: IEEE CBMS
+  publisher: IEEE CBMS Conference
   date: '2014-05-01'
   link: https://doi.org/gktgvt
   image: ../images/fibrin.png
