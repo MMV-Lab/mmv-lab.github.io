@@ -43,7 +43,7 @@ nav:
 %}
 {:.center}
 
-{% include section.html background="images/banner.svg" dark=true%}
+{% include section.html background="images/banner.png" dark=true%}
 
 We are multiple opennings for master students to work as thesis. The topics will be related bioimage analysis and machine learning.
 
