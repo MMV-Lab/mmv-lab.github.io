@@ -1,3 +1,25 @@
+- id: doi:10.21203/rs.3.rs-2362121/v1
+  image: ../images/complexeye.png
+  tags:
+    - cell biology
+    - array microscopy
+    - cell tracking
+
+- id: url:https://openreview.net/group?id=thecvf.com/ICCV/2023/Workshop/BIC
+  title: On the risk of manual annotations in 3D confocal microscopy image segmentation
+  authors:
+    - J. Sonneck
+    - S. Zhao
+    - J. Chen
+  publisher: ICCV Workshop on BioImage Computing
+  date: '2023-10-01'
+  link: https://openaccess.thecvf.com/content/ICCV2023W/BIC/papers/Sonneck_On_the_Risk_of_Manual_Annotations_in_3D_Confocal_Microscopy_ICCVW_2023_paper.pdf
+  image: ../images/nips.png
+  tags:
+    - deep learning
+    - image segmentation
+    - image analysis validation
+
 - id: doi:10.48550/arXiv.2308.16139
   image: ../images/medshapenet.png
   tags:
@@ -110,7 +132,7 @@
   publisher: IEEE ISBI Conference
 
 - id: doi:10.1609/aaai.v33i01.33015901
-  image: ../images/aaai.png
+  image: ../images/representation.png
   tags:
     - image segmentation
     - efficient annotation
@@ -151,7 +173,7 @@
     - image segmentation
 
 - id: doi:10.1128/JB.00184-19
-  image: https://journals.asm.org/cms/10.1128/JB.00184-19/asset/1a011f2b-63f1-4345-b9b7-c2046a493bfc/assets/graphic/jb.00184-19-f0003.jpeg
+  image: ../images/pseudo_bio.png
   tags:
     - cell tracking
     - analysis and modeling
