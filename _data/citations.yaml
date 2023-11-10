@@ -1,5 +1,54 @@
 # GENERATED AUTOMATICALLY, DO NOT EDIT
 
+- id: doi:10.21203/rs.3.rs-2362121/v1
+  title: ComplexEye - a multi lens array microscope for High-Throughput embedded immune
+    cell migration analysis
+  authors:
+  - Matthias Gunzer
+  - "Z\xFClal Cibir"
+  - Jacqueline Hassel
+  - Justin Sonneck
+  - Lennart Kowitz
+  - Jianxu Chen
+  - Susmita Ghosh
+  - Albert Sickmann
+  - Alexander Beer
+  - Andreas Kraus
+  - Gabriel Hallekamp
+  - Martin Rosenkranz
+  - Pascal Raffelberg
+  - Sven Olfen
+  - Kamil Smilowski
+  - Roman Burkard
+  - Karsten Seidl
+  - Anton Grabmaier
+  - Reinhard Viga
+  - Iris Helfrich
+  - Anne-Kathrin Klebl
+  - Bert Klebl
+  - Jan Eickhoff
+  publisher: Research Square Platform LLC
+  date: '2023-02-17'
+  link: https://doi.org/gs4df8
+  image: ../images/complexeye.png
+  tags:
+  - cell biology
+  - array microscopy
+  - cell tracking
+- id: url:https://openreview.net/group?id=thecvf.com/ICCV/2023/Workshop/BIC
+  title: On the risk of manual annotations in 3D confocal microscopy image segmentation
+  authors:
+  - J. Sonneck
+  - S. Zhao
+  - J. Chen
+  publisher: ICCV Workshop on BioImage Computing
+  date: '2023-10-01'
+  link: https://openaccess.thecvf.com/content/ICCV2023W/BIC/papers/Sonneck_On_the_Risk_of_Manual_Annotations_in_3D_Confocal_Microscopy_ICCVW_2023_paper.pdf
+  image: ../images/nips.png
+  tags:
+  - deep learning
+  - image segmentation
+  - image analysis validation
 - id: doi:10.48550/arXiv.2308.16139
   title: MedShapeNet -- A Large-Scale Dataset of 3D Medical Shapes for Computer Vision
   authors:
@@ -582,7 +631,7 @@
   publisher: AAAI Conference
   date: '2019-07-17'
   link: https://doi.org/ghkj3s
-  image: ../images/aaai.png
+  image: ../images/representation.png
   tags:
   - image segmentation
   - efficient annotation
@@ -682,7 +731,7 @@
   publisher: Journal of Bacteriology
   date: '2019-10-01'
   link: https://doi.org/gktgdm
-  image: https://journals.asm.org/cms/10.1128/JB.00184-19/asset/1a011f2b-63f1-4345-b9b7-c2046a493bfc/assets/graphic/jb.00184-19-f0003.jpeg
+  image: ../images/pseudo_bio.png
   tags:
   - cell tracking
   - analysis and modeling
