@@ -1,3 +1,74 @@
+- id: doi:10.48550/arXiv.2308.16139
+  image: ../images/medshapenet.png
+  tags:
+    - medical imaging
+    - deep learning
+    - visualization
+  publisher: arXiv
+
+- id: doi:10.48550/arXiv.2308.05695
+  image: https://d3i71xaburhd42.cloudfront.net/72de731e88f7a6d983729d0dfafea1b41be5ac8f/4-Figure1-1.png
+  tags:
+    - deep learning
+    - segmentation
+    - diffusion models
+  publisher: arXiv
+
+- id: doi:10.1038/s41592-023-01881-4
+  image: ../images/seeing.png
+  tags:
+    - image analysis validation
+
+- id: doi:10.1038/s42256-023-00670-0
+  image: ../images/resource.png
+  tags:
+    - deep learning
+    - efficiency
+
+- id: doi:10.48550/arXiv.2306.06152
+  image: ../images/efficeintBIO.png
+  extra-links:
+    - type: source
+      link: https://github.com/MMV-Lab/EfficientBioAI
+      text: source code
+  tags:
+    - deep learning
+    - efficiency
+
+- id: doi:10.1016/j.crmeth.2023.100436
+  image: ../images/vessel.png
+  tags:
+    - image segmentation
+    - open-source software
+
+- id: doi:10.48550/arXiv.2302.01790
+  image: ../images/pitfall.png
+  tags:
+    - image analysis validation
+
+- id: doi:10.1038/s41586-022-05563-7
+  image: ../images/cells.png
+  tags:
+    - cell biology
+    - analysis and modeling
+
+- id: doi:10.48550/arXiv.2209.02498
+  image: ../images/im2im.png
+  tags:
+    - open-source software
+    - deep learning
+  extra-links:
+    - type: source
+      link: https://github.com/MMV-Lab/mmv_im2im
+      text: source code
+
+- id: doi:10.1101/2022.11.09.515763
+  image: ../images/pp.png
+  tags:
+    - human-in-the-loop
+    - image segmentation
+    - immunology
+  
 - id: doi:10.1109/BIBM49941.2020.9313428
   image: ../images/he.png
   tags:
@@ -5,25 +76,26 @@
     - image transformation
     - image segmentation
     - unlabeled data
-  publisher: IEEE BIBM
+  publisher: IEEE BIBM Conference
 
 - id: doi:10.1109/CBMS49503.2020.00069
-  image: ../images/cbms.png
+  image: ../images/tracking_vis.png
   tags:
     - cell tracking
-  publisher: IEEE CBMS
+  publisher: IEEE CBMS Conference
 
 - id: doi:10.1101/491035
   image: https://www.allencell.org/uploads/8/1/9/9/81996008/icon-segmenter2_orig.png
   extra-links:
     - type: website
       link: https://www.allencell.org/segmenter.html
+      text: Project homepage
     - type: source
       link: https://github.com/AllenCell/aics-ml-segmentation
       text: ML segmentation source
     - type: source
       link: https://github.com/AllenCell/aics-segmentation
-      text: classic segmentation source
+      text: Classic segmentation source code
   tags:
     - image segmentation
     - 3D
@@ -31,37 +103,36 @@
   publisher: bioRxiv
 
 - id: doi:10.1109/ISBI.2019.8759430
-  image: ../images/isbi.png
+  image: ../images/cascade_vis.png
   tags:
     - image segmentation
     - 3D
-  publisher: IEEE ISBI
+  publisher: IEEE ISBI Conference
 
 - id: doi:10.1609/aaai.v33i01.33015901
   image: ../images/aaai.png
   tags:
     - image segmentation
     - efficient annotation
-  publisher: AAAI
+  publisher: AAAI Conference
 
 - id: doi:10.1109/ISBI.2018.8363724
   image: ../images/isbi.png
   tags:
     - image registration
-  publisher: IEEE ISBI
+  publisher: IEEE ISBI Conference
     
 - id: doi:10.1007/978-3-319-66185-8_3
   image: ../images/MICCAI.png
   tags:
     - image segmentation
-  publisher: MICCAI
+  publisher: MICCAI Conference
 
 - id: doi:10.1016/j.cels.2021.05.001
   image: https://www.allencell.org/uploads/8/1/9/9/81996008/cellsystems-cover-fish-aics-cos-2-final-thumb_2.png
   tags:
-    - caridomyocyte
+    - cell biology
     - analysis and modeling
-    - image segmentation
 
 - id: url:https://papers.nips.cc/paper/2016/hash/4dcf435435894a4d0972046fc566af76-Abstract.html
   title: Combining Fully Convolutional and Recurrent Neural Networks for 3D Biomedical Image Segmentation
@@ -71,7 +142,7 @@
     - Y. Zhang
     - M. Alber
     - D. Chen
-  publisher: NeurIPS
+  publisher: NeurIPS Conference
   date: '2016-12-05'
   link: https://proceedings.neurips.cc/paper/2016/file/4dcf435435894a4d0972046fc566af76-Paper.pdf
   image: ../images/nips.png
@@ -122,14 +193,14 @@
   tags:
     - image segmentation
     - human-in-the-loop
-  publisher: MICCAI
+  publisher: MICCAI Conference
 
 - id: doi:10.1007/978-3-319-66179-7_47
   image: ../images/MICCAI.png
   tags:
     - image segmentation
     - unlabeled data
-  publisher: MICCAI
+  publisher: MICCAI Conference
 
 - id: doi:10.1145/3061639.3062297
   image: ../images/gpu.png
@@ -142,14 +213,14 @@
   tags:
     - image segmentation
     - cell tracking
-  publisher: IEEE ISBI
+  publisher: IEEE ISBI Conference
 
 - id: doi:10.1007/978-3-319-24574-4_34
   image: ../images/MICCAI.png
   tags:
     - image segmentation
     - cell tracking
-  publisher: MICCAI
+  publisher: MICCAI Conference
     
 - id: doi:10.1109/ISBA.2015.7126352
   image: ../images/iris.png
@@ -163,12 +234,12 @@
   image: ../images/MICCAI.png
   tags:
     - cell tracking
-  publisher: MICCAI
+  publisher: MICCAI Conference
 
 - id: doi:10.1109/CBMS.2014.62
   image: ../images/fibrin.png
   tags:
     - image segmentation
-  publisher: IEEE CBMS
+  publisher: IEEE CBMS Conference
 
     

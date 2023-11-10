@@ -45,6 +45,19 @@ nav:
 
 {% include section.html background="images/banner.svg" dark=true%}
 
-We are multiple opennings for master students with various projects in bioimage analysis and machine learning.
+We are multiple opennings for master students to work as thesis. The topics will be related bioimage analysis and machine learning.
 
 {% include section.html %}
+
+
+# <i class="fas fa-Past."></i>Past Members
+
+{% include section.html %}
+
+{%
+  include list.html
+  data="members"
+  component="portrait"
+  filters="role: master_past"
+%}
+{:.center}

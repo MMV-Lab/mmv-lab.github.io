@@ -12,5 +12,24 @@ phd:
 
 programmer:
   icon: fas fa-code
-  text: IT/Software
+  text: IT/Software Engineer
 
+master:
+  icon: fas fa-book
+  text: Master Student
+
+postdoc_past:
+  icon: fas fa-glasses
+  text: Post-Doc
+
+phd_past:
+  icon: fas fa-graduation-cap
+  text: Ph.D.
+
+master_past:
+  icon: fas fa-book
+  text: M.S.
+
+programmer_past:
+  icon: fas fa-code
+  text: IT/Software Engineer
