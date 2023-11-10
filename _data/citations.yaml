@@ -44,7 +44,7 @@
   publisher: ICCV Workshop on BioImage Computing
   date: '2023-10-01'
   link: https://openaccess.thecvf.com/content/ICCV2023W/BIC/papers/Sonneck_On_the_Risk_of_Manual_Annotations_in_3D_Confocal_Microscopy_ICCVW_2023_paper.pdf
-  image: ../images/nips.png
+  image: ../images/nuc.png
   tags:
   - deep learning
   - image segmentation
