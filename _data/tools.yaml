@@ -6,7 +6,7 @@
 
 - name: SOFTWARE - EfficientBioAI
   group: software
-  image: images/efficientBIO.png
+  image: images/efficeintBIO.png
   link: https://github.com/MMV-Lab/EfficientBioAI
   description: A toolbox for bioimaging model compression
 

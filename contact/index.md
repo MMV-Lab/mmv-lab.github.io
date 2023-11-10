@@ -7,24 +7,15 @@ nav:
 
 # <i class="fas fa-envelope"></i>Contact
 
-Our lab is part of the [Biospectroscopy Research Department](https://www.isas.de/en/node/37588), at [the Leibniz-Institut für Analytische Wissenschaften – ISAS – e.V.](https://www.isas.de/en).
+[Our AMBIOM group](https://www.isas.de/en/research/research-groups?page=1&sort=asc&entry-id=3472c3b8-5b3f-4333-804d-10077327ea02) is part of the [Biospectroscopy Research Department](https://www.isas.de/en/research/research-groups?page=1&sort=asc&entry-id=3472c3b8-5b3f-4333-804d-10077327ea02), at [the Leibniz-Institut für Analytische Wissenschaften – ISAS – e.V.](https://www.isas.de/en).
 
 {%
   include link.html
   type="email"
   icon=""
-  text="TBA"
+  text="Email Group PI"
   tooltip=""
-  link="TBA"
-  style="button"
-%}
-{%
-  include link.html
-  type="phone"
-  icon=""
-  text="TBA"
-  tooltip=""
-  link="+1-555-867-5309"
+  link="jianxu.chen@isas.de"
   style="button"
 %}
 {%
@@ -42,22 +33,23 @@ Our lab is part of the [Biospectroscopy Research Department](https://www.isas.de
 
 ### <i class="fas fa-mail-bulk"></i>Mailing Address
 
-Address 
-TBA 
+ISAS e.V.
+Bunsen-Kirchhoff-Str. 11
+44139 Dortmund, Germany
 {:.center}
 
 {% capture col1 %}
 {%
   include figure.html
-  image="images/photo.jpg"
-  caption="ISAS building"
+  image="images/isas.png"
+  caption="ISAS (city)"
 %}
 {% endcapture %}
 {% capture col2 %}
 {%
   include figure.html
-  image="images/photo.jpg"
-  caption="Dortmund"
+  image="images/dortmund.jpg"
+  caption="City Dortmund"
 %}
 {% endcapture %}
 {% include two-col.html col1=col1 col2=col2 %}
