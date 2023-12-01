@@ -32,6 +32,6 @@ Our group is fully commited to open science, from developing/contributing to ope
 
 {% include section.html %}
 
-## Other open source tools from the community (we would hihgly recommend)
+## Other open source tools from the community (we would highly recommend)
 
 {% include list.html component="card" data="tools" filters="group: others" %}
