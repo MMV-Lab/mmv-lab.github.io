@@ -1,17 +1,13 @@
 # GENERATED AUTOMATICALLY, DO NOT EDIT
 
-- id: doi:10.21203/rs.3.rs-2362121/v1
-  title: ComplexEye - a multi lens array microscope for High-Throughput embedded immune
-    cell migration analysis
+- id: doi:10.1038/s41467-023-43765-3
+  title: 'ComplexEye: a multi-lens array microscope for high-throughput embedded immune
+    cell migration analysis'
   authors:
-  - Matthias Gunzer
   - "Z\xFClal Cibir"
   - Jacqueline Hassel
   - Justin Sonneck
   - Lennart Kowitz
-  - Jianxu Chen
-  - Susmita Ghosh
-  - Albert Sickmann
   - Alexander Beer
   - Andreas Kraus
   - Gabriel Hallekamp
@@ -20,30 +16,36 @@
   - Sven Olfen
   - Kamil Smilowski
   - Roman Burkard
+  - Iris Helfrich
+  - Ali Ata Tuz
+  - Vikramjeet Singh
+  - Susmita Ghosh
+  - Albert Sickmann
+  - Anne-Kathrin Klebl
+  - Jan Eike Eickhoff
+  - Bert Klebl
   - Karsten Seidl
+  - Jianxu Chen
   - Anton Grabmaier
   - Reinhard Viga
-  - Iris Helfrich
-  - Anne-Kathrin Klebl
-  - Bert Klebl
-  - Jan Eickhoff
-  publisher: Research Square Platform LLC
-  date: '2023-02-17'
-  link: https://doi.org/gs4df8
+  - Matthias Gunzer
+  publisher: Nature Communications
+  date: '2023-12-11'
+  link: https://doi.org/gtxnbx
   image: ../images/complexeye.png
   tags:
   - cell biology
   - array microscopy
   - cell tracking
-- id: url:https://openreview.net/group?id=thecvf.com/ICCV/2023/Workshop/BIC
+- id: doi:10.1109/ICCVW60793.2023.00421
   title: On the risk of manual annotations in 3D confocal microscopy image segmentation
   authors:
-  - J. Sonneck
-  - S. Zhao
-  - J. Chen
-  publisher: ICCV Workshop on BioImage Computing
-  date: '2023-10-01'
-  link: https://openaccess.thecvf.com/content/ICCV2023W/BIC/papers/Sonneck_On_the_Risk_of_Manual_Annotations_in_3D_Confocal_Microscopy_ICCVW_2023_paper.pdf
+  - Justin Sonneck
+  - Shuo Zhao
+  - Jianxu Chen
+  publisher: 2023 IEEE/CVF International Conference on Computer Vision Workshops (ICCVW)
+  date: '2023-10-02'
+  link: https://doi.org/gtxnbz
   image: ../images/nuc.png
   tags:
   - deep learning
@@ -194,7 +196,7 @@
   publisher: arXiv
   date: '2023-01-01'
   link: https://doi.org/gs4c6w
-  image: https://d3i71xaburhd42.cloudfront.net/72de731e88f7a6d983729d0dfafea1b41be5ac8f/4-Figure1-1.png
+  image: ../images/diffusion.png
   tags:
   - deep learning
   - segmentation
@@ -290,7 +292,7 @@
   tags:
   - image segmentation
   - open-source software
-- id: doi:10.48550/arXiv.2302.01790
+- id: doi:10.1038/s41592-023-02150-0
   title: Understanding metric-related pitfalls in image analysis validation
   authors:
   - Annika Reinke
@@ -306,21 +308,18 @@
   - Tal Arbel
   - Spyridon Bakas
   - Arriel Benis
-  - Matthew Blaschko
   - Florian Buettner
   - M. Jorge Cardoso
   - Veronika Cheplygina
   - Jianxu Chen
   - Evangelia Christodoulou
   - Beth A. Cimini
-  - Gary S. Collins
   - Keyvan Farahani
   - Luciana Ferrer
   - Adrian Galdran
   - Bram van Ginneken
   - Ben Glocker
   - Patrick Godau
-  - Robert Haase
   - Daniel A. Hashimoto
   - Michael M. Hoffman
   - Merel Huisman
@@ -330,8 +329,6 @@
   - Dagmar Kainmueller
   - Bernhard Kainz
   - Alexandros Karargyris
-  - Alan Karthikesalingam
-  - Hannes Kenngott
   - Jens Kleesiek
   - Florian Kofler
   - Thijs Kooi
@@ -344,7 +341,6 @@
   - Amin Madani
   - Klaus Maier-Hein
   - Anne L. Martel
-  - Peter Mattson
   - Erik Meijering
   - Bjoern Menze
   - Karel G. M. Moons
@@ -360,20 +356,18 @@
   - Julio Saez-Rodriguez
   - "Clara I. S\xE1nchez"
   - Shravya Shetty
-  - Maarten van Smeden
   - Ronald M. Summers
   - Abdel A. Taha
   - Aleksei Tiulpin
   - Sotirios A. Tsaftaris
   - Ben Van Calster
   - "Ga\xEBl Varoquaux"
-  - Manuel Wiesenfarth
   - Ziv R. Yaniv
   - "Paul F. J\xE4ger"
   - Lena Maier-Hein
-  publisher: arXiv
-  date: '2023-01-01'
-  link: https://doi.org/grxbwx
+  publisher: Nature Methods
+  date: '2024-02-01'
+  link: https://doi.org/gthqt5
   image: ../images/pitfall.png
   tags:
   - image analysis validation
@@ -471,15 +465,16 @@
   tags:
   - cell biology
   - analysis and modeling
-- id: doi:10.48550/arXiv.2209.02498
-  title: 'MMV_Im2Im: An Open Source Microscopy Machine Vision Toolbox for Image-to-Image
-    Transformation'
+- id: doi:10.1093/gigascience/giad120
+  title: '<i>MMV_Im2Im</i>: an open-source microscopy machine vision toolbox for image-to-image
+    transformation'
   authors:
   - Justin Sonneck
+  - Yu Zhou
   - Jianxu Chen
-  publisher: arXiv
-  date: '2022-01-01'
-  link: https://doi.org/grphbf
+  publisher: GigaScience
+  date: '2024-01-01'
+  link: https://doi.org/gtxnb2
   image: ../images/im2im.png
   tags:
   - open-source software
@@ -488,46 +483,64 @@
   - type: source
     link: https://github.com/MMV-Lab/mmv_im2im
     text: source code
-- id: doi:10.1101/2022.11.09.515763
-  title: "Peyer\u2019s Patch B cells undergo cell death via neutrophil-released toxic\
-    \ DNA following sterile tissue injury"
+- id: doi:10.1038/s44161-024-00462-8
+  title: Stroke and myocardial infarction induce neutrophil extracellular trap release
+    disrupting lymphoid organ structure and immunoglobulin secretion
   authors:
-  - Ali A Tuz
-  - Alexander Beer
-  - Markus Gallert
-  - Dimitris Ttoouli
+  - Ali A. Tuz
   - Susmita Ghosh
-  - Sai P Sata
+  - Laura Karsch
+  - Dimitris Ttoouli
+  - Sai P. Sata
+  - "\xD6zg\xFCr Ulusoy"
   - Andreas Kraus
+  - Nils Hoerenbaum
+  - Jan-Niklas Wolf
+  - Sabrina Lohmann
   - Franziska Zwirnlein
   - Viola Kaygusuz
   - Vivian Lakovic
+  - Hannah-Lea Tummes
+  - Alexander Beer
+  - Markus Gallert
+  - Stephanie Thiebes
   - Altea Qefalia
+  - "Z\xFClal Cibir"
   - Medina Antler
   - Sebastian Korste
+  - Elias Haj Yehia
+  - Lars Michel
+  - Tienush Rassaf
   - Britta Kaltwasser
   - Hossam Abdelrahman
-  - Ayan Mohamud-Yusuf
+  - Ayan Mohamud Yusuf
   - Chen Wang
+  - Dongpei Yin
   - Lars Haeusler
   - Smiths Lueong
+  - Mathis Richter
+  - Daniel R. Engel
   - Martin Stenzel
+  - Oliver Soehnlein
   - Benedikt Frank
-  - "Martin K\xF6hrmann"
-  - Jens Siveke
+  - Mialitiana Solo-Nomenjanahary
+  - "Beno\xEEt Ho-Tin-No\xE9"
+  - Jens T. Siveke
   - Matthias Totzeck
   - Daniel Hoffmann
   - "Anika Gr\xFCneboom"
   - Nina Hagemann
   - Anja Hasenberg
+  - Jean-Philippe Desilles
+  - Mikael Mazighi
   - Albert Sickmann
   - Jianxu Chen
-  - Dirk M Hermann
+  - Dirk M. Hermann
   - Matthias Gunzer
   - Vikramjeet Singh
-  publisher: Cold Spring Harbor Laboratory
-  date: '2022-11-09'
-  link: https://doi.org/gs4c62
+  publisher: Nature Cardiovascular Research
+  date: '2024-04-23'
+  link: https://doi.org/gtxnb3
   image: ../images/pp.png
   tags:
   - human-in-the-loop
