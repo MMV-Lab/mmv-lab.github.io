@@ -1,19 +1,11 @@
-- id: doi:10.21203/rs.3.rs-2362121/v1
+- id: doi:10.1038/s41467-023-43765-3
   image: ../images/complexeye.png
   tags:
     - cell biology
     - array microscopy
     - cell tracking
 
-- id: url:https://openreview.net/group?id=thecvf.com/ICCV/2023/Workshop/BIC
-  title: On the risk of manual annotations in 3D confocal microscopy image segmentation
-  authors:
-    - J. Sonneck
-    - S. Zhao
-    - J. Chen
-  publisher: ICCV Workshop on BioImage Computing
-  date: '2023-10-01'
-  link: https://openaccess.thecvf.com/content/ICCV2023W/BIC/papers/Sonneck_On_the_Risk_of_Manual_Annotations_in_3D_Confocal_Microscopy_ICCVW_2023_paper.pdf
+- id: doi:10.1109/ICCVW60793.2023.00421
   image: ../images/nuc.png
   tags:
     - deep learning
@@ -29,7 +21,7 @@
   publisher: arXiv
 
 - id: doi:10.48550/arXiv.2308.05695
-  image: https://d3i71xaburhd42.cloudfront.net/72de731e88f7a6d983729d0dfafea1b41be5ac8f/4-Figure1-1.png
+  image: ../images/diffusion.png
   tags:
     - deep learning
     - segmentation
@@ -63,7 +55,7 @@
     - image segmentation
     - open-source software
 
-- id: doi:10.48550/arXiv.2302.01790
+- id: doi:10.1038/s41592-023-02150-0
   image: ../images/pitfall.png
   tags:
     - image analysis validation
@@ -74,7 +66,7 @@
     - cell biology
     - analysis and modeling
 
-- id: doi:10.48550/arXiv.2209.02498
+- id: doi:10.1093/gigascience/giad120
   image: ../images/im2im.png
   tags:
     - open-source software
@@ -84,7 +76,7 @@
       link: https://github.com/MMV-Lab/mmv_im2im
       text: source code
 
-- id: doi:10.1101/2022.11.09.515763
+- id: doi:10.1038/s44161-024-00462-8
   image: ../images/pp.png
   tags:
     - human-in-the-loop
