@@ -111,7 +111,7 @@
   publisher: arXiv
   date: '2024-01-01'
   link: https://doi.org/g8n7q4
-  images: ../images/INIF.png
+  images: ../images/INIF.jpg
   tags:
   - image compression
   - deep learning
@@ -127,7 +127,7 @@
   publisher: IEEE ISBI Conference
   date: '2024-05-27'
   link: https://doi.org/g8n7q5
-  images: ../images/lightmycell.png
+  images: ../images/lightmycell.jpg
   tags:
   - labelfree
   - deep learning
@@ -163,7 +163,7 @@
   publisher: bioRxiv
   date: '2024-06-30'
   link: https://doi.org/g8n7q6
-  images: ../images/nucmorph.png
+  images: ../images/nucmorph.jpg
   tags:
   - cell biology
   - deep learning
