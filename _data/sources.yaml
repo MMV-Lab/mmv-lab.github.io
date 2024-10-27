@@ -1,3 +1,64 @@
+- id: doi:10.1161/ATVBAHA.123.320339
+  image: ../images/microvas.png
+  tags:
+    - vasculature
+    - image segmentation
+
+- id: doi:10.1109/ISBI56570.2024.10635226
+  image: ../images/topo.png
+  tags:
+    - vasculature
+    - topology
+
+- id: doi:10.2196/52785
+  image: ../images/avp.png
+  tags:
+    - mixed reality
+
+- id: doi:10.48550/arXiv.2408.08228
+  image: ../images/anom.png
+  tags:
+    - anomaly detection
+    - deep learning
+
+- id: doi:10.48550/arXiv.2311.01352
+  image: ../images/compression.png
+  tags:
+    - image compression
+    - deep learning
+  published: arXiv
+
+- id: doi:10.48550/arXiv.2405.19012
+  images: ../images/INIF.png
+  tags:
+    - image compression
+    - deep learning
+    - implicit neural representation
+  publisher: arXiv
+
+- id: doi:10.1109/ISBI56570.2024.10635298
+  images: ../images/lightmycell.png
+  tags:
+    - labelfree
+    - deep learning
+  publisher: IEEE ISBI Conference
+
+- id: doi:10.1101/2024.06.28.601071
+  images: ../images/nucmorph.png
+  tags:
+    - cell biology
+    - deep learning
+    - cell tracking
+  publisher: bioRxiv
+
+- id: doi:10.1038/s41592-024-02334-2
+  image: ../images/MLLM.png
+  tags:
+    - deep learning
+    - foundation model
+    - multimodal
+  publisher: Nature Methods
+
 - id: doi:10.1038/s41467-023-43765-3
   image: ../images/complexeye.png
   tags:
@@ -39,7 +100,7 @@
     - deep learning
     - efficiency
 
-- id: doi:10.48550/arXiv.2306.06152
+- id: doi:10.1038/s41592-024-02167-z
   image: ../images/efficeintBIO.png
   extra-links:
     - type: source
@@ -48,12 +109,14 @@
   tags:
     - deep learning
     - efficiency
+  publisher: Nature Methods
 
 - id: doi:10.1016/j.crmeth.2023.100436
   image: ../images/vessel.png
   tags:
     - image segmentation
     - open-source software
+    - vasculature
 
 - id: doi:10.1038/s41592-023-02150-0
   image: ../images/pitfall.png

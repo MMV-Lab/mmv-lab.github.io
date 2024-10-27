@@ -30,6 +30,10 @@ master_past:
   icon: fas fa-book
   text: M.S.
 
+scientist_past:
+  icon: fas fa-graduation-cap
+  text: RA
+
 programmer_past:
   icon: fas fa-code
   text: IT/Software Engineer

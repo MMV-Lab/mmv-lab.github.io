@@ -2,7 +2,7 @@
 name: Sweta Banerjee
 image: images/unknow.png
 description: Ph.D. Researcher
-role: phd
+role: scientist_past
 aliases:
   - S. Banerjee
   - Sweta
@@ -12,4 +12,4 @@ links:
   twitter: TBA
 ---
 
-under construction
+Ms. Sweta Banerjee was a research scientist in our group from 2022 to 2024, helping with various microscopy image analysis problems.
