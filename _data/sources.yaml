@@ -29,7 +29,7 @@
   published: arXiv
 
 - id: doi:10.48550/arXiv.2405.19012
-  images: ../images/INIF.jpg
+  image: ../images/INIF.jpg
   tags:
     - image compression
     - deep learning
@@ -37,14 +37,14 @@
   publisher: arXiv
 
 - id: doi:10.1109/ISBI56570.2024.10635298
-  images: ../images/lightmycell.jpg
+  image: ../images/lightmycell.jpg
   tags:
     - labelfree
     - deep learning
   publisher: IEEE ISBI Conference
 
 - id: doi:10.1101/2024.06.28.601071
-  images: ../images/nucmorph.jpg
+  image: ../images/nucmorph.jpg
   tags:
     - cell biology
     - deep learning
