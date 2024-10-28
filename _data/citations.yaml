@@ -116,6 +116,7 @@
   - image compression
   - deep learning
   - implicit neural representation
+  image: ../images/INIF.jpg
 - id: doi:10.1109/ISBI56570.2024.10635298
   title: 2D Label-Free Prediction of Multiple Organelles Across Different Transmitted-Light
     Microscopy Images with Bag-of-Experts
@@ -131,6 +132,7 @@
   tags:
   - labelfree
   - deep learning
+  image: ../images/lightmycell.jpg
 - id: doi:10.1101/2024.06.28.601071
   title: Colony context and size-dependent compensation mechanisms give rise to variations
     in nuclear growth trajectories
@@ -168,6 +170,7 @@
   - cell biology
   - deep learning
   - cell tracking
+  image: ../images/nucmorph.jpg
 - id: doi:10.1038/s41592-024-02334-2
   title: Multimodal large language models for bioimage analysis
   authors:
