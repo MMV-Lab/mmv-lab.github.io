@@ -92,6 +92,7 @@
   image: ../images/seeing.png
   tags:
     - image analysis validation
+  podcast: https://ambiomcloud.isas.de/index.php/s/4ndjojNJ5DZHfNs
 
 - id: doi:10.1038/s42256-023-00670-0
   image: ../images/resource.png
@@ -109,6 +110,7 @@
     - deep learning
     - efficiency
   publisher: Nature Methods
+  podcast: https://ambiomcloud.isas.de/index.php/s/m9S5QT4bdBwJCrG
 
 - id: doi:10.1016/j.crmeth.2023.100436
   image: ../images/vessel.png
