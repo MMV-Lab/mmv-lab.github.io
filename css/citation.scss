@@ -60,18 +60,6 @@
       .link {
         vertical-align: bottom;
       }
-      .podcast-link { // Style for the text-only "Podcast" link
-        display: inline-block;
-        font-weight: $semi-bold; // Use your existing variable for font weight
-        color: $primary-color; // Match with your site's theme colors
-        text-decoration: none;
-        margin-left: 10px; // Add space from other links or elements
-    
-        &:hover {
-          text-decoration: underline;
-          color: darken($primary-color, 10%); // Slightly darken on hover for visual feedback
-        }
-      }
     }
   }
 

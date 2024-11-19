@@ -126,6 +126,12 @@ source:
   tooltip: Source code
   link: $LINK
 
+podcast:
+  icon: fas fa-podcast
+  text: Podcast
+  tooltip: audible abstract
+  link: $LINK
+
 server:
   icon: fas fa-server
   text: Server
