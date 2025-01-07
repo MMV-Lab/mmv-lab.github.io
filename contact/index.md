@@ -5,73 +5,51 @@ nav:
   tooltip: Email, address, and location
 ---
 
-# {% include icon.html icon="fa-regular fa-envelope" %}Contact
+# <i class="fas fa-envelope"></i>Contact
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+[Our AMBIOM group](https://www.isas.de/en/research/research-groups?page=1&sort=asc&entry-id=3472c3b8-5b3f-4333-804d-10077327ea02) is part of the [Biospectroscopy Research Department](https://www.isas.de/en/research/research-groups?page=1&sort=asc&entry-id=3472c3b8-5b3f-4333-804d-10077327ea02), at [the Leibniz-Institut für Analytische Wissenschaften – ISAS – e.V.](https://www.isas.de/en).
 
 {%
-  include button.html
+  include link.html
   type="email"
-  text="jane@smith.com"
-  link="jane@smith.com"
+  icon=""
+  text="Email Group PI"
+  tooltip=""
+  link="jianxu.chen@isas.de"
+  style="button"
 %}
 {%
-  include button.html
-  type="phone"
-  text="(555) 867-5309"
-  link="+1-555-867-5309"
-%}
-{%
-  include button.html
+  include link.html
   type="address"
+  icon=""
+  text="Google Maps"
   tooltip="Our location on Google Maps for easy navigation"
-  link="https://www.google.com/maps"
+  link="https://goo.gl/maps/NmG3sR2fusQmG7AE9"
+  style="button"
 %}
+{:.center}
 
 {% include section.html %}
 
-{% capture col1 %}
+### <i class="fas fa-mail-bulk"></i>Mailing Address
 
-{%
-  include figure.html
-  image="images/photo.jpg"
-  caption="Lorem ipsum"
-%}
-
-{% endcapture %}
-
-{% capture col2 %}
-
-{%
-  include figure.html
-  image="images/photo.jpg"
-  caption="Lorem ipsum"
-%}
-
-{% endcapture %}
-
-{% include cols.html col1=col1 col2=col2 %}
-
-{% include section.html dark=true %}
+ISAS e.V.
+Bunsen-Kirchhoff-Str. 11
+44139 Dortmund, Germany
+{:.center}
 
 {% capture col1 %}
-Lorem ipsum dolor sit amet  
-consectetur adipiscing elit  
-sed do eiusmod tempor
+{%
+  include figure.html
+  image="images/isas.png"
+  caption="ISAS (city)"
+%}
 {% endcapture %}
-
 {% capture col2 %}
-Lorem ipsum dolor sit amet  
-consectetur adipiscing elit  
-sed do eiusmod tempor
+{%
+  include figure.html
+  image="images/dortmund.jpg"
+  caption="City Dortmund"
+%}
 {% endcapture %}
-
-{% capture col3 %}
-Lorem ipsum dolor sit amet  
-consectetur adipiscing elit  
-sed do eiusmod tempor
-{% endcapture %}
-
-{% include cols.html col1=col1 col2=col2 col3=col3 %}
+{% include two-col.html col1=col1 col2=col2 %}

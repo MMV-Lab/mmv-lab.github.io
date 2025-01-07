@@ -1,23 +1,31 @@
+### basic settings
+
 # site properties and page defaults
-title: MMV-Lab
-subtitle: 
-description: An engaging 1-3 sentence description of your lab.
+title: Microscopy Machine Vision Lab
+description: Webpage of Jianxu Chen's group
+logo: images/lab_logo.svg
 header: images/background.jpg
 footer: images/background.jpg
-proofer: false
+baseurl: 
 
 # site social media and other links
 links:
-  email: contact@MMV-Lab.com
-  orcid: 0000-0001-8713-9213
-  google-scholar: ETJoidYAAAAJ
-  github: MMV-Lab
-  twitter: MMV-Lab
-  youtube: MMV-Lab
+  email: jianxuchen.ai@gmail.com
+  google-scholar: HdolpOgAAAAJ
+  github: mmv-lab
+  twitter: JianxuChen
 
-### jekyll settings
+# automatic citations
+auto-cite:
+  plugins:
+    - name: sources
+      input:
+        - ../_data/sources.yaml
+  output: ../_data/citations.yaml
 
-# front matter defaults
+### advanced settings
+
+# default front matter parameters for markdown files
 defaults:
   # all markdown files
   - scope:
@@ -35,39 +43,31 @@ defaults:
     values:
       layout: post
 
+# collections
 collections:
-  # generate page for each member
   members:
     output: true
-  # generate page for each post
-  posts:
+  projects:
     output: true
-
-# jekyll plugins
-plugins:
-  - jekyll-spaceship
-  - jekyll-sitemap
-  - jekyll-redirect-from
-  - jekyll-feed
-  - jekyll-last-modified-at
-
-# code block syntax highlighting
-highlighter: rouge
-
-# jekyll theme
-theme: null
 
 # sass settings
 sass:
-  sass_dir: _styles
+  sass_dir: css
 
-# force jekyll to include certain files/folders
-include:
-  - _styles
-  - _scripts
+# syntax highlighting
+highlighter: rouge
 
-# force jekyll to exclude certain files/folders
-exclude:
-  - README.md
-  - LICENSE.md
-  - CITATION.cff
+# plugins
+plugins:
+  - jekyll-redirect-from
+  - jekyll-feed
+  - jekyll-sitemap
+  # - jekyll-github-metadata
+  # - jekyll-avatar
+  # - jekyll-gist
+  # - jekyll-mentions
+  # - jekyll-relative-links
+  # - jemoji
+
+# jekyll theme
+theme: null

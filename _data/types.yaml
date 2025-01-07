@@ -26,6 +26,26 @@ mascot:
   icon: fa-solid fa-dog
   description: Mascot
 
+postdoc_past:
+  icon: fas fa-glasses
+  text: Post-Doc
+
+phd_past:
+  icon: fas fa-graduation-cap
+  text: Ph.D.
+
+master_past:
+  icon: fas fa-book
+  text: M.S.
+
+scientist_past:
+  icon: fas fa-graduation-cap
+  text: RA
+
+programmer_past:
+  icon: fas fa-code
+  text: IT/Software Engineer
+
 # general
 
 link:

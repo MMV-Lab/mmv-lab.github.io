@@ -1,6 +1,1 @@
-
-# MMV-Lab's Website
-
-Visit **[mmv-lab.github.io](https://mmv-lab.github.io)** 🚀
-
-_Built with [Lab Website Template](https://greene-lab.gitbook.io/lab-website-template-docs)_
+Our group is fully dedicated to open science, such as open source softwares, open source packages, public data sharing, open access publications, etc. Meanwhile, we are proud of using open source tools. The group webpage in this repositorty is built from the template developed at the greene lab: https://github.com/greenelab/lab-website-template. Thanks!
