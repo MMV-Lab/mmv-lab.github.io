@@ -16,9 +16,6 @@ AI-based microscopy machine vision research is a highly interdisciplinary field 
 
 {% include section.html full=true %}
 
-{% include banner.html image="images/banner.png" %}
-
-{% include section.html %}
 
 # Highlights
 

@@ -5,51 +5,65 @@ nav:
   tooltip: Email, address, and location
 ---
 
-# <i class="fas fa-envelope"></i>Contact
+# {% include icon.html icon="fa-regular fa-envelope" %}Contact
 
-[Our AMBIOM group](https://www.isas.de/en/research/research-groups?page=1&sort=asc&entry-id=3472c3b8-5b3f-4333-804d-10077327ea02) is part of the [Biospectroscopy Research Department](https://www.isas.de/en/research/research-groups?page=1&sort=asc&entry-id=3472c3b8-5b3f-4333-804d-10077327ea02), at [the Leibniz-Institut für Analytische Wissenschaften – ISAS – e.V.](https://www.isas.de/en).
+[Our AMBIOM group](https://www.isas.de/en/research/research-groups?page=1&sort=asc&entry-id=3472c3b8-5b3f-4333-804d-10077327ea02) is part of the [Biospectroscopy Research Department](https://www.isas.de/en/research/research-groups?page=1&entry-id=3472c3b8-5b3f-4333-804d-10077327ea02&sort=asc), at [the Leibniz-Institut für Analytische Wissenschaften – ISAS – e.V.](https://www.isas.de/en).
 
 {%
-  include link.html
+  include button.html
   type="email"
-  icon=""
-  text="Email Group PI"
-  tooltip=""
+  text="Email group PI"
   link="jianxu.chen@isas.de"
-  style="button"
 %}
 {%
-  include link.html
-  type="address"
-  icon=""
-  text="Google Maps"
+  include button.html
+  text="Find us on Google Maps"
   tooltip="Our location on Google Maps for easy navigation"
   link="https://goo.gl/maps/NmG3sR2fusQmG7AE9"
-  style="button"
 %}
-{:.center}
 
 {% include section.html %}
 
-### <i class="fas fa-mail-bulk"></i>Mailing Address
-
-ISAS e.V.
-Bunsen-Kirchhoff-Str. 11
-44139 Dortmund, Germany
-{:.center}
-
 {% capture col1 %}
+
 {%
   include figure.html
-  image="images/isas.png"
-  caption="ISAS (city)"
+  image="images/isas.jpg"
+  caption="ISAS City"
 %}
+
 {% endcapture %}
+
 {% capture col2 %}
+
 {%
   include figure.html
   image="images/dortmund.jpg"
-  caption="City Dortmund"
+  caption="City of Dortmund"
 %}
+
 {% endcapture %}
-{% include two-col.html col1=col1 col2=col2 %}
+
+{% include cols.html col1=col1 col2=col2 %}
+
+{% include section.html dark=true %}
+
+{% capture col1 %}
+XXXXXXXX
+DDDDDDDD
+CCCCCCCC
+{% endcapture %}
+
+{% capture col2 %}
+YYYYYYYY
+AAAAAAAA
+BBBBBBBB
+PPPPPPPP
+LLLLLLLL
+{% endcapture %}
+
+{% capture col3 %}
+QQQQQQQ
+{% endcapture %}
+
+{% include cols.html col1=col1 col2=col2 col3=col3 %}
