@@ -28,7 +28,7 @@ nav:
 
 {%
   include figure.html
-  image="images/isas.jpg"
+  image="images/isas.png"
   caption="ISAS City"
 %}
 
@@ -49,17 +49,11 @@ nav:
 {% include section.html dark=true %}
 
 {% capture col1 %}
-XXXXXXXX
-DDDDDDDD
-CCCCCCCC
+
 {% endcapture %}
 
 {% capture col2 %}
-YYYYYYYY
-AAAAAAAA
-BBBBBBBB
-PPPPPPPP
-LLLLLLLL
+
 {% endcapture %}
 
 {% capture col3 %}

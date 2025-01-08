@@ -12,7 +12,6 @@ AI-based microscopy machine vision research is a highly interdisciplinary field 
 
 (Open Position!) Highly motivated PhD and Postdoc students are always welcome to inquiry about our open opportunities.
 
-{:.center}
 
 {% include section.html full=true %}
 
@@ -23,31 +22,49 @@ AI-based microscopy machine vision research is a highly interdisciplinary field 
 
 AI-based microscopy machine vision is a highly multi-disciplinary field. There are so many fanscinating problems to explore and study.
 
-[See our research landscape &nbsp;→](research)
-{:.center}
+{%
+  include button.html
+  link="research"
+  text="See our research landscape"
+  icon="fa-solid fa-arrow-right"
+  flip=true
+  style="bare"
+%}
+
 {% endcapture %}
+
 
 {%
   include feature.html
   image="images/research2.svg"
   link="research"
-  headline="Our Research"
+  title="Our Research"
   text=text
 %}
 
+
 {% capture text %}
 
-Our group is fully commited to open science, such as open source softwares/packages, public datasets, open access publications. We believe open science can lead to impactful big science.
+Our group is commited to open science, such as open source softwares/packages, public datasets, open access publications. We believe open science can lead to impactful science.
 
-[Visit our open science portal &nbsp;→](OpenScience)
-{:.center}
+{%
+  include button.html
+  link="OpenScience"
+  text="Visit our open science portal"
+  icon="fa-solid fa-arrow-right"
+  flip=true
+  style="bare"
+%}
+
 {% endcapture %}
 
 {%
   include feature.html
   image="images/open.svg"
   link="OpenScience"
-  headline="Our Resources"
+  title="Our Resources"
+  flip=true
+  style="bare"
   text=text
 %}
 
@@ -55,14 +72,21 @@ Our group is fully commited to open science, such as open source softwares/packa
 
 We are building a team with diverse background and expertises, from software enigneering, machine learning, image analysis, data analysis to microscopy and computational biomedical modeling. 
 
-[Meet our team &nbsp;→](team)
-{:.center}
+{%
+  include button.html
+  link="team"
+  text="Meet our team"
+  icon="fa-solid fa-arrow-right"
+  flip=true
+  style="bare"
+%}
+
 {% endcapture %}
 
 {%
   include feature.html
   image="images/team.svg"
   link="team"
-  headline="Our Team"
+  title="Our Team"
   text=text
 %}

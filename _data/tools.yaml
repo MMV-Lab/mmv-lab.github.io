@@ -29,7 +29,7 @@
   description: This is the classic part of Allen Cell and Structure Segmenter software
 
 - name: Data - 3D single cell dataset with cell stage annotation 
-  group: previous
+  group: data
   image: images/variance.png
   link: https://open.quiltdata.com/b/allencell/packages/aics/hipsc_single_cell_image_dataset
   description: Dataset used to train the 3D mitotic classification

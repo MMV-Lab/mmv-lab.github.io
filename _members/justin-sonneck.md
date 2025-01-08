@@ -1,6 +1,6 @@
 ---
 name: Justin Sonnect
-image: images/pic_justin.jpg
+image: images/justin_pic.jpg
 description: Ph.D. Researcher
 role: phd
 aliases:

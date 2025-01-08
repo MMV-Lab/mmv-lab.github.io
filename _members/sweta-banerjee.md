@@ -1,7 +1,7 @@
 ---
 name: Sweta Banerjee
 image: images/unknow.png
-description: Ph.D. Researcher
+description: Scientist
 role: scientist_past
 aliases:
   - S. Banerjee

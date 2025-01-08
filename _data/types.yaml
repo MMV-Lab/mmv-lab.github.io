@@ -14,17 +14,17 @@ phd:
   icon: fa-solid fa-graduation-cap
   description: PhD Student
 
-undergrad:
+master:
   icon: fa-solid fa-user-graduate
-  description: Undergraduate Student
+  description: Master Student
+
+student:
+  icon: fa-solid fa-user-graduate
+  description: School Student (Gymnasium)
 
 programmer:
   icon: fa-solid fa-code
   description: Programmer
-
-mascot:
-  icon: fa-solid fa-dog
-  description: Mascot
 
 postdoc_past:
   icon: fas fa-glasses
@@ -45,6 +45,10 @@ scientist_past:
 programmer_past:
   icon: fas fa-code
   text: IT/Software Engineer
+
+student_past:
+  icon: fa-solid fa-user-graduate
+  description: School Student (Gymnasium)
 
 # general
 
