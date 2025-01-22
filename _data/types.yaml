@@ -18,6 +18,10 @@ master:
   icon: fa-solid fa-user-graduate
   description: Master Student
 
+visit:
+  icon: fa-solid fa-robot
+  description: Visiting Scholar
+
 student:
   icon: fa-solid fa-user-graduate
   description: School Student (Gymnasium)
@@ -45,6 +49,10 @@ scientist_past:
 programmer_past:
   icon: fas fa-code
   text: IT/Software Engineer
+
+visit_past:
+  icon: fa-solid fa-robot
+  description: Visiting Scholar
 
 student_past:
   icon: fa-solid fa-user-graduate

@@ -18,6 +18,7 @@ We are building a team with diverse background and expertises, from software eni
 {% include list.html data="members" component="portrait" filter="role == 'programmer'" %}
 {% include list.html data="members" component="portrait" filter="role == 'master'" %}
 {% include list.html data="members" component="portrait" filter="role == 'student'" %}
+{% include list.html data="members" component="portrait" filter="role == 'visit'" %}
 
 # {% include icon.html icon="fa-solid fa-users" %}Past Member
 
@@ -27,6 +28,7 @@ We are building a team with diverse background and expertises, from software eni
 {% include list.html data="members" component="portrait" filter="role == 'programmer_past'" %}
 {% include list.html data="members" component="portrait" filter="role == 'master_past'" %}
 {% include list.html data="members" component="portrait" filter="role == 'student_past'" %}
+{% include list.html data="members" component="portrait" filter="role == 'visit_past'" %}
 
 
 {% include section.html background="images/background.jpg" dark=true %}
