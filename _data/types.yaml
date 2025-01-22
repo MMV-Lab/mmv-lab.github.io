@@ -70,6 +70,11 @@ website:
   text: Website
   tooltip: Website
 
+podcast:
+  icon: fa-solid fa-podcast
+  text: Podcast
+  tooltip: Podcast
+
 external:
   icon: fa-solid fa-up-right-from-square
   text: External Link
