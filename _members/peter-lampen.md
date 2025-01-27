@@ -9,7 +9,6 @@ aliases:
 links:
   google-scholar: https://scholar.google.de/citations?hl=de&user=qF43fmgAAAAJ
   email: lampen@isas.de
-  twitter: TBA
 ---
 
 **Dr. Peter Lampen** is a physicist with extensive experience in spectroscopy, planetary exploration, and scientific software development. He studied physics at the Westfälische Wilhelms-Universität Münster from October 1978 to November 1984 and earned his doctorate (Dr. rer. nat.) at the University of Essen in July 1991.  
