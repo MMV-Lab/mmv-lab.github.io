@@ -1,7 +1,7 @@
 ---
 name: Adrian Morgan Sebuliba
 image: images/unknow.png
-description: Software Enigneer
+description: Software Engineer
 role: programmer
 aliases:
   - A. Sebuliba

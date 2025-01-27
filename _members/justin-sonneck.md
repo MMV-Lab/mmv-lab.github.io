@@ -1,5 +1,5 @@
 ---
-name: Justin Sonnect
+name: Justin Sonneck
 image: images/justin_pic.jpg
 description: Ph.D. Researcher
 role: phd
