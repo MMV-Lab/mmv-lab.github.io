@@ -202,6 +202,62 @@
   orcid: 0000-0002-4655-3773
   plugin: orcid.py
   file: orcid.yaml
+- id: doi:10.48550/arXiv.2411.06575
+  title: Adaptive Kinematic Modeling for Improved Hand Posture Estimates Using a Haptic
+    Glove
+  authors:
+  - Kathrin Krieger
+  - David P. Leins
+  - Thorben Markmann
+  - Robert Haschke
+  - Jianxu Chen
+  - Matthias Gunzer
+  - Helge Ritter
+  publisher: arXiv
+  date: '2024-01-01'
+  link: https://doi.org/g83j5c
+  image: ../images/hand.png
+  tags:
+  - visualization
+  - multisensory XR
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1007/s10278-024-01094-x
+  title: Multisensory Extended Reality Applications Offer Benefits for Volumetric
+    Biomedical Image Analysis in Research and Medicine
+  authors:
+  - Kathrin Krieger
+  - Jan Egger
+  - Jens Kleesiek
+  - Matthias Gunzer
+  - Jianxu Chen
+  publisher: Journal of Imaging Informatics in Medicine
+  date: '2024-06-11'
+  link: https://doi.org/g83j5d
+  image: ../images/haptic.png
+  tags:
+  - visualization
+  - multisensory XR
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1007/s00466-024-02591-0
+  title: Deep learning without stress data on the discovery of multi-regional hyperelastic
+    properties
+  authors:
+  - Ruike Shi
+  - Haitian Yang
+  - Jianxu Chen
+  - Klaus Hackl
+  - "St\xE9phane Avril"
+  - Yiqian He
+  publisher: Computational Mechanics
+  date: '2025-01-28'
+  link: https://doi.org/g83j5f
+  image: ../images/mechanic.png
+  tags:
+  - AI for physics
+  plugin: sources.py
+  file: sources.yaml
 - id: doi:10.1161/ATVBAHA.123.320339
   title: Microvascular Network Remodeling in the Ischemic Mouse Brain Defined by Light
     Sheet Microscopy
@@ -264,7 +320,8 @@
   link: https://doi.org/g8n7qz
   image: ../images/avp.png
   tags:
-  - mixed reality
+  - visualization
+  - multisensory XR
   plugin: sources.py
   file: sources.yaml
 - id: doi:10.48550/arXiv.2408.08228
