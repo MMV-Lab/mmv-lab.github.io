@@ -1,7 +1,7 @@
 ---
 name: Lennart Kowitz
 image: images/unknow.png
-description: Software Enigneer
+description: Software Engineer
 role: programmer
 aliases:
   - L. Kowitz
