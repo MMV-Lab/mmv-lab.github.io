@@ -2,13 +2,31 @@
   group: software
   image: images/im2im_software.png
   link: https://github.com/MMV-Lab/mmv_im2im
-  description: A generic toolbox for microscopy image to image transformation
+  description: toolbox for microscopy image to image transformation
 
 - name: SOFTWARE - EfficientBioAI
   group: software
   image: images/efficeintBIO.png
   link: https://github.com/MMV-Lab/EfficientBioAI
   description: A toolbox for bioimaging model compression
+
+- name: SOFTWARE - Leonardo
+  group: software
+  image: images/leonardo.png
+  link: https://github.com/MMV-Lab/leonardo_toolset
+  description: A toolbox for LSFM destriping and fusion
+
+- name: SOFTWARE - h4track
+  group: software
+  image: images/h4track.png
+  link: https://github.com/MMV-Lab/mmv_h4tracks
+  description: napari plugin for human-in-the-loop cell tracking and analysis
+
+- name: SOFTWARE - vesselexpress
+  group: software
+  image: images/vessel.png
+  link: https://github.com/MMV-Lab/VesselExpress
+  description: A toolbox for apid vasculature analysis in 3D LSFM
 
 - name: SOFTWARE - 3D cell cycle classifier
   group: previous
@@ -27,6 +45,18 @@
   image: images/segmenter_classic.png
   link: https://github.com/AllenCell/aics-segmentation
   description: This is the classic part of Allen Cell and Structure Segmenter software
+
+- name: Data - cell migration 
+  group: data
+  image: images/cellmigration.png
+  link: https://cellmigration.isas.de/
+  description: Cell migration data portal (ISAS)
+
+- name: Data - lsfm
+  group: data
+  image: images/lsfmdata.png
+  link: https://lsfm.isas.de/
+  description: Lightsheet Fluorescence Microscopy (LSFM) data portal (ISAS)
 
 - name: Data - 3D single cell dataset with cell stage annotation 
   group: data
