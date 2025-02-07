@@ -9,6 +9,7 @@ aliases:
 links:
   google-scholar: NQGPCI0AAAAJ
   email: zhaoshuoofcourse@gmail.com
+  twitter: TBA
 ---
 
 Shuo Zhao received his Bachelor's and Master's degrees from Harbin Engineering University in China.
