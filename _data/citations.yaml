@@ -1,1053 +1,6 @@
 # DO NOT EDIT, GENERATED AUTOMATICALLY
 
-- id: doi:10.1007/s00466-024-02591-0
-  title: Deep learning without stress data on the discovery of multi-regional hyperelastic
-    properties
-  authors:
-  - Ruike Shi
-  - Haitian Yang
-  - Jianxu Chen
-  - Klaus Hackl
-  - "St\xE9phane Avril"
-  - Yiqian He
-  publisher: Computational Mechanics
-  date: '2025-01-28'
-  link: https://doi.org/g83j5f
-  orcid: 0000-0002-8500-1357
-  plugin: sources.py
-  file: sources.yaml
-  image: ../images/mechanic.png
-  tags:
-  - AI for physics
-- id: doi:10.2196/52785
-  title: Is the Apple Vision Pro the Ultimate Display? A First Perspective and Survey
-    on Entering the Wonderland of Precision Medicine
-  authors:
-  - Jan Egger
-  - Christina Gsaxner
-  - Gijs Luijten
-  - Jianxu Chen
-  - Xiaojun Chen
-  - Jiang Bian
-  - Jens Kleesiek
-  - Behrus Puladi
-  publisher: JMIR Serious Games
-  date: '2024-09-18'
-  link: https://doi.org/g8n7qz
-  orcid: 0000-0002-8500-1357
-  plugin: sources.py
-  file: sources.yaml
-  image: ../images/avp.png
-  tags:
-  - visualization
-  - multisensory XR
-- id: doi:10.1038/s41592-024-02334-2
-  title: Multimodal large language models for bioimage analysis
-  authors:
-  - Shanghang Zhang
-  - Gaole Dai
-  - Tiejun Huang
-  - Jianxu Chen
-  publisher: Nature Methods
-  date: '2024-08-01'
-  link: https://doi.org/g8n7q7
-  orcid: 0000-0002-8500-1357
-  plugin: sources.py
-  file: sources.yaml
-  image: ../images/MLLM.png
-  tags:
-  - deep learning
-  - foundation model
-  - multimodal
-- id: doi:10.1101/2024.06.28.601071
-  title: Colony context and size-dependent compensation mechanisms give rise to variations
-    in nuclear growth trajectories
-  authors:
-  - Julie C. Dixon
-  - Christopher L. Frick
-  - Chantelle L. Leveille
-  - Philip Garrison
-  - Peyton A. Lee
-  - Saurabh S. Mogre
-  - Benjamin Morris
-  - Nivedita Nivedita
-  - Ritvik Vasan
-  - Jianxu Chen
-  - Cameron L. Fraser
-  - Clare R. Gamlin
-  - Leigh K. Harris
-  - Melissa C. Hendershott
-  - Graham T. Johnson
-  - Kyle N. Klein
-  - Sandra A. Oluoch
-  - Derek J. Thirstrup
-  - M. Filip Sluzewski
-  - Lyndsay Wilhelm
-  - Ruian Yang
-  - Daniel M. Toloudis
-  - Matheus P. Viana
-  - Julie A. Theriot
-  - Susanne M. Rafelski
-  publisher: Cold Spring Harbor Laboratory
-  date: '2024-06-30'
-  link: https://doi.org/g8n7q6
-  orcid: 0000-0002-8500-1357
-  plugin: orcid.py
-  file: orcid.yaml
-- id: doi:10.1101/2024.05.24.595656
-  title: 2D Label-free Prediction of Multiple Organelles Across Different Transmitted-light
-    Microscopy Images with Bag-of-Experts
-  authors:
-  - Yu Zhou
-  - Shuo Zhao
-  - Justin Sonneck
-  - Jianxu Chen
-  publisher: Cold Spring Harbor Laboratory
-  date: '2024-05-24'
-  link: https://doi.org/g833x2
-  orcid: 0000-0002-8500-1357
-  plugin: orcid.py
-  file: orcid.yaml
-- id: doi:10.1161/atvbaha.123.320339
-  title: Microvascular Network Remodeling in the Ischemic Mouse Brain Defined by Light
-    Sheet Microscopy
-  authors:
-  - Nina Hagemann
-  - Yachao Qi
-  - Ayan Mohamud Yusuf
-  - AnRan Li
-  - Anthony Squire
-  - Tobias Tertel
-  - Bernd Giebel
-  - Peter Ludewig
-  - Philippa Spangenberg
-  - Jianxu Chen
-  - Axel Mosig
-  - Matthias Gunzer
-  - Dirk M. Hermann
-  publisher: Arteriosclerosis, Thrombosis, and Vascular Biology
-  date: '2024-04-01'
-  link: https://doi.org/g8n7qw
-  orcid: 0000-0002-8500-1357
-  plugin: orcid.py
-  file: orcid.yaml
-- id: doi:10.1038/s41592-023-02150-0
-  title: Understanding metric-related pitfalls in image analysis validation
-  authors:
-  - Annika Reinke
-  - Minu D. Tizabi
-  - Michael Baumgartner
-  - Matthias Eisenmann
-  - "Doreen Heckmann-N\xF6tzel"
-  - A. Emre Kavur
-  - "Tim R\xE4dsch"
-  - Carole H. Sudre
-  - Laura Acion
-  - Michela Antonelli
-  - Tal Arbel
-  - Spyridon Bakas
-  - Arriel Benis
-  - Florian Buettner
-  - M. Jorge Cardoso
-  - Veronika Cheplygina
-  - Jianxu Chen
-  - Evangelia Christodoulou
-  - Beth A. Cimini
-  - Keyvan Farahani
-  - Luciana Ferrer
-  - Adrian Galdran
-  - Bram van Ginneken
-  - Ben Glocker
-  - Patrick Godau
-  - Daniel A. Hashimoto
-  - Michael M. Hoffman
-  - Merel Huisman
-  - Fabian Isensee
-  - Pierre Jannin
-  - Charles E. Kahn
-  - Dagmar Kainmueller
-  - Bernhard Kainz
-  - Alexandros Karargyris
-  - Jens Kleesiek
-  - Florian Kofler
-  - Thijs Kooi
-  - Annette Kopp-Schneider
-  - Michal Kozubek
-  - Anna Kreshuk
-  - Tahsin Kurc
-  - Bennett A. Landman
-  - Geert Litjens
-  - Amin Madani
-  - Klaus Maier-Hein
-  - Anne L. Martel
-  - Erik Meijering
-  - Bjoern Menze
-  - Karel G. M. Moons
-  - "Henning M\xFCller"
-  - Brennan Nichyporuk
-  - Felix Nickel
-  - Jens Petersen
-  - Susanne M. Rafelski
-  - Nasir Rajpoot
-  - Mauricio Reyes
-  - Michael A. Riegler
-  - Nicola Rieke
-  - Julio Saez-Rodriguez
-  - "Clara I. S\xE1nchez"
-  - Shravya Shetty
-  - Ronald M. Summers
-  - Abdel A. Taha
-  - Aleksei Tiulpin
-  - Sotirios A. Tsaftaris
-  - Ben Van Calster
-  - "Ga\xEBl Varoquaux"
-  - Ziv R. Yaniv
-  - "Paul F. J\xE4ger"
-  - Lena Maier-Hein
-  publisher: Nature Methods
-  date: '2024-02-01'
-  link: https://doi.org/gthqt5
-  orcid: 0000-0002-8500-1357
-  plugin: sources.py
-  file: sources.yaml
-  image: ../images/pitfall.png
-  tags:
-  - image analysis validation
-- id: doi:10.1038/s41592-024-02167-z
-  title: 'EfficientBioAI: making bioimaging AI models efficient in energy and latency'
-  authors:
-  - Yu Zhou
-  - Jiajun Cao
-  - Justin Sonneck
-  - Sweta Banerjee
-  - "Stefanie D\xF6rr"
-  - "Anika Gr\xFCneboom"
-  - Kristina Lorenz
-  - Shanghang Zhang
-  - Jianxu Chen
-  publisher: Nature Methods
-  date: '2024-01-24'
-  link: https://doi.org/g8n7q8
-  orcid: 0000-0002-8500-1357
-  plugin: sources.py
-  file: sources.yaml
-  image: ../images/efficeintBIO.png
-  tags:
-  - deep learning
-  - efficiency
-  buttons:
-  - type: source
-    link: https://github.com/MMV-Lab/EfficientBioAI
-    text: source code
-  - type: podcast
-    link: https://ambiomcloud.isas.de/index.php/s/m9S5QT4bdBwJCrG
-    text: AI-generated Podcast (by Google NotebookLLM)
-- id: doi:10.1093/gigascience/giad120
-  title: '<i>MMV_Im2Im</i>: an open-source microscopy machine vision toolbox for image-to-image
-    transformation'
-  authors:
-  - Justin Sonneck
-  - Yu Zhou
-  - Jianxu Chen
-  publisher: GigaScience
-  date: '2024-01-01'
-  link: https://doi.org/gtxnb2
-  orcid: 0000-0002-8500-1357
-  plugin: sources.py
-  file: sources.yaml
-  image: ../images/im2im.png
-  tags:
-  - open-source software
-  - deep learning
-  buttons:
-  - type: source
-    link: https://github.com/MMV-Lab/mmv_im2im
-    text: source code
-- id: doi:10.1017/S2633903X24000151
-  title: 'Deep-learning-based image compression for microscopy images: An empirical
-    study'
-  authors:
-  - Yu Zhou
-  - Jan Sollmann
-  - Jianxu Chen
-  publisher: Biological Imaging
-  date: '2024-01-01'
-  link: https://doi.org/g83j5x
-  orcid: 0000-0002-8500-1357
-  plugin: sources.py
-  file: sources.yaml
-  image: ../images/compression.png
-  tags:
-  - image compression
-  - deep learning
-  published: arXiv
-- id: doi:10.1038/s41467-023-43765-3
-  title: 'ComplexEye: a multi-lens array microscope for high-throughput embedded immune
-    cell migration analysis'
-  authors:
-  - "Z\xFClal Cibir"
-  - Jacqueline Hassel
-  - Justin Sonneck
-  - Lennart Kowitz
-  - Alexander Beer
-  - Andreas Kraus
-  - Gabriel Hallekamp
-  - Martin Rosenkranz
-  - Pascal Raffelberg
-  - Sven Olfen
-  - Kamil Smilowski
-  - Roman Burkard
-  - Iris Helfrich
-  - Ali Ata Tuz
-  - Vikramjeet Singh
-  - Susmita Ghosh
-  - Albert Sickmann
-  - Anne-Kathrin Klebl
-  - Jan Eike Eickhoff
-  - Bert Klebl
-  - Karsten Seidl
-  - Jianxu Chen
-  - Anton Grabmaier
-  - Reinhard Viga
-  - Matthias Gunzer
-  publisher: Nature Communications
-  date: '2023-12-11'
-  link: https://doi.org/gtxnbx
-  orcid: 0000-0002-8500-1357
-  plugin: sources.py
-  file: sources.yaml
-  image: ../images/complexeye.png
-  tags:
-  - cell biology
-  - array microscopy
-  - cell tracking
-- id: doi:10.2196/preprints.52785
-  title: Is the Apple Vision Pro the Ultimate Display? A First Perspective and Survey
-    on Entering the Wonderland of Precision Medicine (Preprint)
-  authors:
-  - Jan Egger
-  - Christina Gsaxner
-  - Gijs Luijten
-  - Jianxu Chen
-  - Xiaojun Chen
-  - Jiang Bian
-  - Jens Kleesiek
-  - Behrus Puladi
-  publisher: JMIR Publications Inc.
-  date: '2023-09-15'
-  link: https://doi.org/g833x3
-  orcid: 0000-0002-8500-1357
-  plugin: orcid.py
-  file: orcid.yaml
-- id: doi:10.1038/s41592-023-01881-4
-  title: 'When seeing is not believing: application-appropriate validation matters
-    for quantitative bioimage analysis'
-  authors:
-  - Jianxu Chen
-  - Matheus P. Viana
-  - Susanne M. Rafelski
-  publisher: Nature Methods
-  date: '2023-07-01'
-  link: https://doi.org/gss3cm
-  orcid: 0000-0002-8500-1357
-  plugin: sources.py
-  file: sources.yaml
-  image: ../images/seeing.png
-  tags:
-  - image analysis validation
-  buttons:
-  - type: podcast
-    link: https://ambiomcloud.isas.de/index.php/s/4ndjojNJ5DZHfNs
-    text: AI-generated Podcast (by Google NotebookLLM)
-- id: doi:10.1038/s42256-023-00670-0
-  title: The importance of resource awareness in artificial intelligence for healthcare
-  authors:
-  - Zhenge Jia
-  - Jianxu Chen
-  - Xiaowei Xu
-  - John Kheir
-  - Jingtong Hu
-  - Han Xiao
-  - Sui Peng
-  - Xiaobo Sharon Hu
-  - Danny Chen
-  - Yiyu Shi
-  publisher: Nature Machine Intelligence
-  date: '2023-06-12'
-  link: https://doi.org/gs4c6x
-  orcid: 0000-0002-8500-1357
-  plugin: sources.py
-  file: sources.yaml
-  image: ../images/resource.png
-  tags:
-  - deep learning
-  - efficiency
-- id: doi:10.1016/j.crmeth.2023.100436
-  title: Rapid and fully automated blood vasculature analysis in 3D light-sheet image
-    volumes of different organs
-  authors:
-  - Philippa Spangenberg
-  - Nina Hagemann
-  - Anthony Squire
-  - "Nils F\xF6rster"
-  - "Sascha D. Krau\xDF"
-  - Yachao Qi
-  - Ayan Mohamud Yusuf
-  - Jing Wang
-  - "Anika Gr\xFCneboom"
-  - Lennart Kowitz
-  - Sebastian Korste
-  - Matthias Totzeck
-  - "Z\xFClal Cibir"
-  - Ali Ata Tuz
-  - Vikramjeet Singh
-  - Devon Siemes
-  - Laura Struensee
-  - Daniel R. Engel
-  - Peter Ludewig
-  - Luiza Martins Nascentes Melo
-  - Iris Helfrich
-  - Jianxu Chen
-  - Matthias Gunzer
-  - Dirk M. Hermann
-  - Axel Mosig
-  publisher: Cell Reports Methods
-  date: '2023-03-01'
-  link: https://doi.org/gr56r8
-  orcid: 0000-0002-8500-1357
-  plugin: sources.py
-  file: sources.yaml
-  image: ../images/vessel.png
-  tags:
-  - image segmentation
-  - open-source software
-  - vasculature
-- id: doi:10.1038/s41586-022-05563-7
-  title: Integrated intracellular organization and its variations in human iPS cells
-  authors:
-  - Matheus P. Viana
-  - Jianxu Chen
-  - Theo A. Knijnenburg
-  - Ritvik Vasan
-  - Calysta Yan
-  - Joy E. Arakaki
-  - Matte Bailey
-  - Ben Berry
-  - Antoine Borensztejn
-  - Eva M. Brown
-  - Sara Carlson
-  - Julie A. Cass
-  - Basudev Chaudhuri
-  - Kimberly R. Cordes Metzler
-  - Mackenzie E. Coston
-  - Zach J. Crabtree
-  - Steve Davidson
-  - Colette M. DeLizo
-  - Shailja Dhaka
-  - Stephanie Q. Dinh
-  - Thao P. Do
-  - Justin Domingus
-  - Rory M. Donovan-Maiye
-  - Alexandra J. Ferrante
-  - Tyler J. Foster
-  - Christopher L. Frick
-  - Griffin Fujioka
-  - Margaret A. Fuqua
-  - Jamie L. Gehring
-  - Kaytlyn A. Gerbin
-  - Tanya Grancharova
-  - Benjamin W. Gregor
-  - Lisa J. Harrylock
-  - Amanda Haupt
-  - Melissa C. Hendershott
-  - Caroline Hookway
-  - Alan R. Horwitz
-  - H. Christopher Hughes
-  - Eric J. Isaac
-  - Gregory R. Johnson
-  - Brian Kim
-  - Andrew N. Leonard
-  - Winnie W. Leung
-  - Jordan J. Lucas
-  - Susan A. Ludmann
-  - Blair M. Lyons
-  - Haseeb Malik
-  - Ryan McGregor
-  - Gabe E. Medrash
-  - Sean L. Meharry
-  - Kevin Mitcham
-  - Irina A. Mueller
-  - Timothy L. Murphy-Stevens
-  - Aditya Nath
-  - Angelique M. Nelson
-  - Sandra A. Oluoch
-  - Luana Paleologu
-  - T. Alexander Popiel
-  - Megan M. Riel-Mehan
-  - Brock Roberts
-  - Lisa M. Schaefbauer
-  - Magdalena Schwarzl
-  - Jamie Sherman
-  - Sylvain Slaton
-  - M. Filip Sluzewski
-  - Jacqueline E. Smith
-  - Youngmee Sul
-  - Madison J. Swain-Bowden
-  - W. Joyce Tang
-  - Derek J. Thirstrup
-  - Daniel M. Toloudis
-  - Andrew P. Tucker
-  - Veronica Valencia
-  - Winfried Wiegraebe
-  - Thushara Wijeratna
-  - Ruian Yang
-  - Rebecca J. Zaunbrecher
-  - Ramon Lorenzo D. Labitigan
-  - Adrian L. Sanborn
-  - Graham T. Johnson
-  - Ruwanthi N. Gunawardane
-  - Nathalie Gaudreault
-  - Julie A. Theriot
-  - Susanne M. Rafelski
-  publisher: Nature
-  date: '2023-01-04'
-  link: https://doi.org/grkztd
-  orcid: 0000-0002-8500-1357
-  plugin: sources.py
-  file: sources.yaml
-  image: ../images/cells.png
-  tags:
-  - cell biology
-  - analysis and modeling
-- id: doi:10.1109/tmi.2022.3169449
-  title: "H-EMD: A Hierarchical Earth Mover\u2019s Distance Method for Instance Segmentation"
-  authors:
-  - Peixian Liang
-  - Yizhe Zhang
-  - Yifan Ding
-  - Jianxu Chen
-  - Chinedu S. Madukoma
-  - Tim Weninger
-  - Joshua D. Shrout
-  - Danny Z. Chen
-  publisher: IEEE Transactions on Medical Imaging
-  date: '2022-10-01'
-  link: https://doi.org/g833x4
-  orcid: 0000-0002-8500-1357
-  plugin: orcid.py
-  file: orcid.yaml
-- id: doi:10.48550/ARXIV.2209.02498
-  title: 'MMV_Im2Im: An Open Source Microscopy Machine Vision Toolbox for Image-to-Image
-    Transformation'
-  authors:
-  - Justin Sonneck
-  - Jianxu Chen
-  publisher: arXiv
-  date: '2022-01-01'
-  link: https://doi.org/grphbf
-  orcid: 0000-0002-8500-1357
-  plugin: orcid.py
-  file: orcid.yaml
-- id: doi:10.1016/j.cels.2021.05.001
-  title: 'Cell states beyond transcriptomics: Integrating structural organization
-    and gene expression in hiPSC-derived cardiomyocytes'
-  authors:
-  - Kaytlyn A. Gerbin
-  - Tanya Grancharova
-  - Rory M. Donovan-Maiye
-  - Melissa C. Hendershott
-  - Helen G. Anderson
-  - Jackson M. Brown
-  - Jianxu Chen
-  - Stephanie Q. Dinh
-  - Jamie L. Gehring
-  - Gregory R. Johnson
-  - HyeonWoo Lee
-  - Aditya Nath
-  - Angelique M. Nelson
-  - M. Filip Sluzewski
-  - Matheus P. Viana
-  - Calysta Yan
-  - Rebecca J. Zaunbrecher
-  - Kimberly R. Cordes Metzler
-  - Nathalie Gaudreault
-  - Theo A. Knijnenburg
-  - Susanne M. Rafelski
-  - Julie A. Theriot
-  - Ruwanthi N. Gunawardane
-  publisher: Cell Systems
-  date: '2021-06-01'
-  link: https://doi.org/gktgdk
-  orcid: 0000-0002-8500-1357
-  plugin: sources.py
-  file: sources.yaml
-  image: https://www.allencell.org/uploads/8/1/9/9/81996008/cellsystems-cover-fish-aics-cos-2-final-thumb_2.png
-  tags:
-  - cell biology
-  - analysis and modeling
-- id: doi:10.1109/bibm49941.2020.9313428
-  title: Unlabeled Data Guided Semi-supervised Histopathology Image Segmentation
-  authors:
-  - Hongxiao Wang
-  - Hao Zheng
-  - Jianxu Chen
-  - Lin Yang
-  - Yizhe Zhang
-  - Danny Z. Chen
-  publisher: 2020 IEEE International Conference on Bioinformatics and Biomedicine
-    (BIBM)
-  date: '2020-12-16'
-  link: https://doi.org/gkspnj
-  orcid: 0000-0002-8500-1357
-  plugin: orcid.py
-  file: orcid.yaml
-- id: doi:10.1101/2020.12.08.415562
-  title: 'Robust integrated intracellular organization of the human iPS cell: where,
-    how much, and how variable'
-  authors:
-  - Matheus P. Viana
-  - Jianxu Chen
-  - Theo A. Knijnenburg
-  - Ritvik Vasan
-  - Calysta Yan
-  - Joy E. Arakaki
-  - Matte Bailey
-  - Ben Berry
-  - Antoine Borensztejn
-  - Jackson M. Brown
-  - Sara Carlson
-  - Julie A. Cass
-  - Basudev Chaudhuri
-  - Kimberly R. Cordes Metzler
-  - Mackenzie E. Coston
-  - Zach J. Crabtree
-  - Steve Davidson
-  - Colette M. DeLizo
-  - Shailja Dhaka
-  - Stephanie Q. Dinh
-  - Thao P. Do
-  - Justin Domingus
-  - Rory M. Donovan-Maiye
-  - Tyler J. Foster
-  - Christopher L. Frick
-  - Griffin Fujioka
-  - Margaret A. Fuqua
-  - Jamie L. Gehring
-  - Kaytlyn A. Gerbin
-  - Tanya Grancharova
-  - Benjamin W. Gregor
-  - Lisa J. Harrylock
-  - Amanda Haupt
-  - Melissa C. Hendershott
-  - Caroline Hookway
-  - Alan R. Horwitz
-  - Chris Hughes
-  - Eric J. Isaac
-  - Gregory R. Johnson
-  - Brian Kim
-  - Andrew N. Leonard
-  - Winnie W. Leung
-  - Jordan J. Lucas
-  - Susan A. Ludmann
-  - Blair M. Lyons
-  - Haseeb Malik
-  - Ryan McGregor
-  - Gabe E. Medrash
-  - Sean L. Meharry
-  - Kevin Mitcham
-  - Irina A. Mueller
-  - Timothy L. Murphy-Stevens
-  - Aditya Nath
-  - Angelique M. Nelson
-  - Luana Paleologu
-  - T. Alexander Popiel
-  - Megan M. Riel-Mehan
-  - Brock Roberts
-  - Lisa M. Schaefbauer
-  - Magdalena Schwarzl
-  - Jamie Sherman
-  - Sylvain Slaton
-  - M. Filip Sluzewski
-  - Jacqueline E. Smith
-  - Youngmee Sul
-  - Madison J. Swain-Bowden
-  - W. Joyce Tang
-  - Derek J. Thirstrup
-  - Daniel M. Toloudis
-  - Andrew P. Tucker
-  - Veronica Valencia
-  - Winfried Wiegraebe
-  - Thushara Wijeratna
-  - Ruian Yang
-  - Rebecca J. Zaunbrecher
-  - Graham T. Johnson
-  - Ruwanthi N. Gunawardane
-  - Nathalie Gaudreault
-  - Julie A. Theriot
-  - Susanne M. Rafelski
-  publisher: Cold Spring Harbor Laboratory
-  date: '2020-12-10'
-  link: https://doi.org/gqdkdk
-  orcid: 0000-0002-8500-1357
-  plugin: orcid.py
-  file: orcid.yaml
-- id: doi:10.1109/cbms49503.2020.00069
-  title: 'InTracker: An Integrated Detector-Tracker Framework for Cell Detection and
-    Tracking'
-  authors:
-  - Peixian Liang
-  - Jianxu Chen
-  - Yizhe Zhang
-  - Hongxiao Wang
-  - Hao Zheng
-  - Pengfei Gu
-  - Danny Chen
-  publisher: 2020 IEEE 33rd International Symposium on Computer-Based Medical Systems
-    (CBMS)
-  date: '2020-07-01'
-  link: https://doi.org/gkspnk
-  orcid: 0000-0002-8500-1357
-  plugin: orcid.py
-  file: orcid.yaml
-- id: doi:10.1128/jb.00184-19
-  title: Single Cells Exhibit Differing Behavioral Phases during Early Stages of Pseudomonas
-    aeruginosa Swarming
-  authors:
-  - Chinedu S. Madukoma
-  - Peixian Liang
-  - Aleksandar Dimkovikj
-  - Jianxu Chen
-  - Shaun W. Lee
-  - Danny Z. Chen
-  - Joshua D. Shrout
-  publisher: Journal of Bacteriology
-  date: '2019-10-01'
-  link: https://doi.org/gktgdm
-  orcid: 0000-0002-8500-1357
-  plugin: orcid.py
-  file: orcid.yaml
-- id: doi:10.1609/aaai.v33i01.33015901
-  title: Biomedical Image Segmentation via Representative Annotation
-  authors:
-  - Hao Zheng
-  - Lin Yang
-  - Jianxu Chen
-  - Jun Han
-  - Yizhe Zhang
-  - Peixian Liang
-  - Zhuo Zhao
-  - Chaoli Wang
-  - Danny Z. Chen
-  publisher: AAAI Conference
-  date: '2019-07-17'
-  link: https://doi.org/ghkj3s
-  orcid: 0000-0002-8500-1357
-  plugin: sources.py
-  file: sources.yaml
-  image: ../images/representation.png
-  tags:
-  - image segmentation
-  - efficient annotation
-- id: doi:10.1109/isbi.2019.8759430
-  title: 'Cascade Decoder: A Universal Decoding Method For Biomedical Image Segmentation'
-  authors:
-  - Peixian Liang
-  - Jianxu Chen
-  - Hao Zheng
-  - Lin Yang
-  - Yizhe Zhang
-  - Danny Z. Chen
-  publisher: 2019 IEEE 16th International Symposium on Biomedical Imaging (ISBI 2019)
-  date: '2019-04-01'
-  link: https://doi.org/gkspnn
-  orcid: 0000-0002-8500-1357
-  plugin: orcid.py
-  file: orcid.yaml
-- id: doi:10.1016/j.bpj.2019.01.007
-  title: Decoding Calcium Signaling Dynamics during Drosophila Wing Disc Development
-  authors:
-  - Pavel A. Brodskiy
-  - Qinfeng Wu
-  - Dharsan K. Soundarrajan
-  - Francisco J. Huizar
-  - Jianxu Chen
-  - Peixian Liang
-  - Cody Narciso
-  - Megan K. Levis
-  - Ninfamaria Arredondo-Walsh
-  - Danny Z. Chen
-  - Jeremiah J. Zartman
-  publisher: Biophysical Journal
-  date: '2019-02-01'
-  link: https://doi.org/gktgdn
-  orcid: 0000-0002-8500-1357
-  plugin: sources.py
-  file: sources.yaml
-  image: https://marlin-prod.literatumonline.com/cms/attachment/aa948b9d-5119-43c5-8bd7-a12cc5331c0d/gr4.jpg
-  tags:
-  - image registration
-  - analysis and modeling
-- id: doi:10.1101/491035
-  title: 'The Allen Cell and Structure Segmenter: a new open source toolkit for segmenting
-    3D intracellular structures in fluorescence microscopy images'
-  authors:
-  - Jianxu Chen
-  - Liya Ding
-  - Matheus P. Viana
-  - HyeonWoo Lee
-  - M. Filip Sluezwski
-  - Benjamin Morris
-  - Melissa C. Hendershott
-  - Ruian Yang
-  - Irina A. Mueller
-  - Susanne M. Rafelski
-  publisher: bioRxiv
-  date: '2018-12-08'
-  link: https://doi.org/gkspnm
-  orcid: 0000-0002-8500-1357
-  plugin: sources.py
-  file: sources.yaml
-  image: https://www.allencell.org/uploads/8/1/9/9/81996008/icon-segmenter2_orig.png
-  buttons:
-  - type: website
-    link: https://www.allencell.org/segmenter.html
-    text: Project homepage
-  - type: source
-    link: https://github.com/AllenCell/aics-ml-segmentation
-    text: ML segmentation source
-  - type: source
-    link: https://github.com/AllenCell/aics-segmentation
-    text: Classic segmentation source code
-  tags:
-  - image segmentation
-  - 3D
-  - tool
-- id: doi:10.1007/s13246-018-0703-2
-  title: 'Special section: Advances in artificial intelligence in biomedical image
-    analysis'
-  authors: []
-  publisher: Australasian Physical &amp; Engineering Sciences in Medicine
-  date: '2018-11-29'
-  link: https://doi.org/g833x5
-  orcid: 0000-0002-8500-1357
-  plugin: orcid.py
-  file: orcid.yaml
-- id: doi:10.1109/isbi.2018.8363724
-  title: A new registration approach for dynamic analysis of calcium signals in organs
-  authors:
-  - Peixian Liang
-  - Jianxu Chen
-  - Pavel A. Brodskiy
-  - Qinfeng Wu
-  - Yejia Zhang
-  - Yizhe Zhang
-  - Lin Yang
-  - Jeremiah J. Zartman
-  - Danny Z. Chen
-  publisher: 2018 IEEE 15th International Symposium on Biomedical Imaging (ISBI 2018)
-  date: '2018-04-01'
-  link: https://doi.org/gkspqm
-  orcid: 0000-0002-8500-1357
-  plugin: orcid.py
-  file: orcid.yaml
-- id: doi:10.1016/j.matbio.2016.10.007
-  title: Compression-induced structural and mechanical changes of fibrin-collagen
-    composites
-  authors:
-  - O.V. Kim
-  - R.I. Litvinov
-  - J. Chen
-  - D.Z. Chen
-  - J.W. Weisel
-  - M.S. Alber
-  publisher: Matrix Biology
-  date: '2017-07-01'
-  link: https://doi.org/gktgdp
-  orcid: 0000-0002-8500-1357
-  plugin: sources.py
-  file: sources.yaml
-  image: https://ars.els-cdn.com/content/image/1-s2.0-S0945053X16302517-gr8.sml
-  tags:
-  - image segmentation
-  - analysis and modeling
-- id: doi:10.1145/3061639.3062297
-  title: Optimizing Memory Efficiency for Convolution Kernels on Kepler GPUs
-  authors:
-  - Xiaoming Chen
-  - Jianxu Chen
-  - Danny Z. Chen
-  - Xiaobo Sharon Hu
-  publisher: ACM Design Automation Conference
-  date: '2017-06-18'
-  link: https://doi.org/gktgvn
-  orcid: 0000-0002-8500-1357
-  plugin: sources.py
-  file: sources.yaml
-  image: ../images/gpu.png
-  tags:
-  - hardware/software co-design
-- id: doi:10.1007/978-3-319-66179-7_47
-  title: Deep Adversarial Networks for Biomedical Image Segmentation Utilizing Unannotated
-    Images
-  authors:
-  - Yizhe Zhang
-  - Lin Yang
-  - Jianxu Chen
-  - Maridel Fredericksen
-  - David P. Hughes
-  - Danny Z. Chen
-  publisher: MICCAI Conference
-  date: '2017-01-01'
-  link: https://doi.org/gktgds
-  orcid: 0000-0002-8500-1357
-  plugin: sources.py
-  file: sources.yaml
-  image: ../images/MICCAI.png
-  tags:
-  - image segmentation
-  - unlabeled data
-- id: doi:10.1007/978-3-319-66185-8_3
-  title: Neuron Segmentation Using Deep Complete Bipartite Networks
-  authors:
-  - Jianxu Chen
-  - Sreya Banerjee
-  - Abhinav Grama
-  - Walter J. Scheirer
-  - Danny Z. Chen
-  publisher: MICCAI Conference
-  date: '2017-01-01'
-  link: https://doi.org/gkspqn
-  orcid: 0000-0002-8500-1357
-  plugin: sources.py
-  file: sources.yaml
-  image: ../images/MICCAI.png
-  tags:
-  - image segmentation
-- id: doi:10.1007/978-3-319-66179-7_46
-  title: 'Suggestive Annotation: A Deep Active Learning Framework for Biomedical Image
-    Segmentation'
-  authors:
-  - Lin Yang
-  - Yizhe Zhang
-  - Jianxu Chen
-  - Siyuan Zhang
-  - Danny Z. Chen
-  publisher: MICCAI Conference
-  date: '2017-01-01'
-  link: https://doi.org/gkqs4p
-  orcid: 0000-0002-8500-1357
-  plugin: sources.py
-  file: sources.yaml
-  image: ../images/MICCAI.png
-  tags:
-  - image segmentation
-  - human-in-the-loop
-- id: doi:10.1109/TMI.2016.2548490
-  title: A Hybrid Approach for Segmentation and Tracking of Myxococcus Xanthus Swarms
-  authors:
-  - Jianxu Chen
-  - Mark S. Alber
-  - Danny Z. Chen
-  publisher: IEEE Transactions on Medical Imaging
-  date: '2016-09-01'
-  link: https://doi.org/gktgdq
-  orcid: 0000-0002-8500-1357
-  plugin: sources.py
-  file: sources.yaml
-  image: ../images/myxo.png
-  tags:
-  - image segmentation
-  - cell tracking
-- id: doi:10.1103/physrevlett.117.028301
-  title: "Kinetic Transition Networks for the Thomson Problem and Smale\u2019s Seventh\
-    \ Problem"
-  authors:
-  - Dhagash Mehta
-  - Jianxu Chen
-  - Danny Z. Chen
-  - Halim Kusumaatmaja
-  - David J. Wales
-  publisher: Physical Review Letters
-  date: '2016-07-06'
-  link: https://doi.org/gktgdr
-  orcid: 0000-0002-8500-1357
-  plugin: orcid.py
-  file: orcid.yaml
-- id: doi:10.1109/tifs.2016.2535901
-  title: Iris Recognition Based on Human-Interpretable Features
-  authors:
-  - Jianxu Chen
-  - Feng Shen
-  - Danny Ziyi Chen
-  - Patrick J. Flynn
-  publisher: IEEE Transactions on Information Forensics and Security
-  date: '2016-07-01'
-  link: https://doi.org/f8jtrt
-  orcid: 0000-0002-8500-1357
-  plugin: orcid.py
-  file: orcid.yaml
-- id: doi:10.1109/isbi.2016.7493426
-  title: Segmentation and tracking of Pseudomonas aeruginosa for cell dynamics analysis
-    in time-lapse images
-  authors:
-  - Jianxu Chen
-  - Yiqing Cai
-  - Chen Wei
-  - Lin Yang
-  - Mark S. Alber
-  - Danny Z. Chen
-  publisher: 2016 IEEE 13th International Symposium on Biomedical Imaging (ISBI)
-  date: '2016-04-01'
-  link: https://doi.org/gktgvp
-  orcid: 0000-0002-8500-1357
-  plugin: orcid.py
-  file: orcid.yaml
-- id: doi:10.48550/ARXIV.1612.03217
-  title: Automatic Lymphocyte Detection in H&amp;E Images with Deep Neural Networks
-  authors:
-  - Jianxu Chen
-  - Chukka Srinivas
-  publisher: arXiv
-  date: '2016-01-01'
-  link: https://doi.org/g833x6
-  orcid: 0000-0002-8500-1357
-  plugin: orcid.py
-  file: orcid.yaml
-- id: doi:10.1109/cbms.2014.62
-  title: An Automated Approach for Fibrin Network Segmentation and Structure Identification
-    in 3D Confocal Microscopy Images
-  authors:
-  - Jianxu Chen
-  - Oleg V. Kim
-  - Rustem I. Litvinov
-  - John W. Weisel
-  - Mark S. Alber
-  - Danny Z. Chen
-  publisher: 2014 IEEE 27th International Symposium on Computer-Based Medical Systems
-  date: '2014-05-01'
-  link: https://doi.org/gktgvt
-  orcid: 0000-0002-8500-1357
-  plugin: orcid.py
-  file: orcid.yaml
-- id: doi:10.1007/978-3-319-10470-6_15
-  title: "A Matching Model Based on Earth Mover\u2019s Distance for Tracking Myxococcus\
-    \ Xanthus"
-  authors:
-  - Jianxu Chen
-  - Cameron W. Harvey
-  - Mark S. Alber
-  - Danny Z. Chen
-  publisher: MICCAI Conference
-  date: '2014-01-01'
-  link: https://doi.org/gktgvs
-  orcid: 0000-0002-8500-1357
-  plugin: sources.py
-  file: sources.yaml
-  image: ../images/MICCAI.png
-  tags:
-  - cell tracking
-- id: url:https://openreview.net/forum?id=VK8SuRaJfX
-  title: The Four Color Theorem for Cell Instance Segmentation
+- title: The Four Color Theorem for Cell Instance Segmentation
   authors:
   - Y. Zhang
   - Y. Zhou
@@ -1103,6 +56,24 @@
   - multisensory XR
   plugin: sources.py
   file: sources.yaml
+- id: doi:10.1007/s00466-024-02591-0
+  title: Deep learning without stress data on the discovery of multi-regional hyperelastic
+    properties
+  authors:
+  - Ruike Shi
+  - Haitian Yang
+  - Jianxu Chen
+  - Klaus Hackl
+  - "St\xE9phane Avril"
+  - Yiqian He
+  publisher: Computational Mechanics
+  date: '2025-01-28'
+  link: https://doi.org/g83j5f
+  image: ../images/mechanic.png
+  tags:
+  - AI for physics
+  plugin: sources.py
+  file: sources.yaml
 - id: doi:10.1161/ATVBAHA.123.320339
   title: Microvascular Network Remodeling in the Ischemic Mouse Brain Defined by Light
     Sheet Microscopy
@@ -1148,6 +119,27 @@
   - topology
   plugin: sources.py
   file: sources.yaml
+- id: doi:10.2196/52785
+  title: Is the Apple Vision Pro the Ultimate Display? A First Perspective and Survey
+    on Entering the Wonderland of Precision Medicine
+  authors:
+  - Jan Egger
+  - Christina Gsaxner
+  - Gijs Luijten
+  - Jianxu Chen
+  - Xiaojun Chen
+  - Jiang Bian
+  - Jens Kleesiek
+  - Behrus Puladi
+  publisher: JMIR Serious Games
+  date: '2024-09-18'
+  link: https://doi.org/g8n7qz
+  image: ../images/avp.png
+  tags:
+  - visualization
+  - multisensory XR
+  plugin: sources.py
+  file: sources.yaml
 - id: doi:10.48550/arXiv.2408.08228
   title: 'Rethinking Medical Anomaly Detection in Brain MRI: An Image Quality Assessment
     Perspective'
@@ -1167,6 +159,23 @@
   tags:
   - anomaly detection
   - deep learning
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1017/S2633903X24000151
+  title: 'Deep-learning-based image compression for microscopy images: An empirical
+    study'
+  authors:
+  - Yu Zhou
+  - Jan Sollmann
+  - Jianxu Chen
+  publisher: Biological Imaging
+  date: '2024-01-01'
+  link: https://doi.org/g83j5x
+  image: ../images/compression.png
+  tags:
+  - image compression
+  - deep learning
+  published: arXiv
   plugin: sources.py
   file: sources.yaml
 - id: doi:10.48550/arXiv.2405.19012
@@ -1247,6 +256,62 @@
   tags:
   - cell biology
   - deep learning
+  - cell tracking
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1038/s41592-024-02334-2
+  title: Multimodal large language models for bioimage analysis
+  authors:
+  - Shanghang Zhang
+  - Gaole Dai
+  - Tiejun Huang
+  - Jianxu Chen
+  publisher: Nature Methods
+  date: '2024-08-01'
+  link: https://doi.org/g8n7q7
+  image: ../images/MLLM.png
+  tags:
+  - deep learning
+  - foundation model
+  - multimodal
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1038/s41467-023-43765-3
+  title: 'ComplexEye: a multi-lens array microscope for high-throughput embedded immune
+    cell migration analysis'
+  authors:
+  - "Z\xFClal Cibir"
+  - Jacqueline Hassel
+  - Justin Sonneck
+  - Lennart Kowitz
+  - Alexander Beer
+  - Andreas Kraus
+  - Gabriel Hallekamp
+  - Martin Rosenkranz
+  - Pascal Raffelberg
+  - Sven Olfen
+  - Kamil Smilowski
+  - Roman Burkard
+  - Iris Helfrich
+  - Ali Ata Tuz
+  - Vikramjeet Singh
+  - Susmita Ghosh
+  - Albert Sickmann
+  - Anne-Kathrin Klebl
+  - Jan Eike Eickhoff
+  - Bert Klebl
+  - Karsten Seidl
+  - Jianxu Chen
+  - Anton Grabmaier
+  - Reinhard Viga
+  - Matthias Gunzer
+  publisher: Nature Communications
+  date: '2023-12-11'
+  link: https://doi.org/gtxnbx
+  image: ../images/complexeye.png
+  tags:
+  - cell biology
+  - array microscopy
   - cell tracking
   plugin: sources.py
   file: sources.yaml
@@ -1452,6 +517,311 @@
   - diffusion models
   plugin: sources.py
   file: sources.yaml
+- id: doi:10.1038/s41592-023-01881-4
+  title: 'When seeing is not believing: application-appropriate validation matters
+    for quantitative bioimage analysis'
+  authors:
+  - Jianxu Chen
+  - Matheus P. Viana
+  - Susanne M. Rafelski
+  publisher: Nature Methods
+  date: '2023-07-01'
+  link: https://doi.org/gss3cm
+  image: ../images/seeing.png
+  tags:
+  - image analysis validation
+  buttons:
+  - type: podcast
+    link: https://ambiomcloud.isas.de/index.php/s/4ndjojNJ5DZHfNs
+    text: AI-generated Podcast (by Google NotebookLLM)
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1038/s42256-023-00670-0
+  title: The importance of resource awareness in artificial intelligence for healthcare
+  authors:
+  - Zhenge Jia
+  - Jianxu Chen
+  - Xiaowei Xu
+  - John Kheir
+  - Jingtong Hu
+  - Han Xiao
+  - Sui Peng
+  - Xiaobo Sharon Hu
+  - Danny Chen
+  - Yiyu Shi
+  publisher: Nature Machine Intelligence
+  date: '2023-06-12'
+  link: https://doi.org/gs4c6x
+  image: ../images/resource.png
+  tags:
+  - deep learning
+  - efficiency
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1038/s41592-024-02167-z
+  title: 'EfficientBioAI: making bioimaging AI models efficient in energy and latency'
+  authors:
+  - Yu Zhou
+  - Jiajun Cao
+  - Justin Sonneck
+  - Sweta Banerjee
+  - "Stefanie D\xF6rr"
+  - "Anika Gr\xFCneboom"
+  - Kristina Lorenz
+  - Shanghang Zhang
+  - Jianxu Chen
+  publisher: Nature Methods
+  date: '2024-01-24'
+  link: https://doi.org/g8n7q8
+  image: ../images/efficeintBIO.png
+  tags:
+  - deep learning
+  - efficiency
+  buttons:
+  - type: source
+    link: https://github.com/MMV-Lab/EfficientBioAI
+    text: source code
+  - type: podcast
+    link: https://ambiomcloud.isas.de/index.php/s/m9S5QT4bdBwJCrG
+    text: AI-generated Podcast (by Google NotebookLLM)
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1016/j.crmeth.2023.100436
+  title: Rapid and fully automated blood vasculature analysis in 3D light-sheet image
+    volumes of different organs
+  authors:
+  - Philippa Spangenberg
+  - Nina Hagemann
+  - Anthony Squire
+  - "Nils F\xF6rster"
+  - "Sascha D. Krau\xDF"
+  - Yachao Qi
+  - Ayan Mohamud Yusuf
+  - Jing Wang
+  - "Anika Gr\xFCneboom"
+  - Lennart Kowitz
+  - Sebastian Korste
+  - Matthias Totzeck
+  - "Z\xFClal Cibir"
+  - Ali Ata Tuz
+  - Vikramjeet Singh
+  - Devon Siemes
+  - Laura Struensee
+  - Daniel R. Engel
+  - Peter Ludewig
+  - Luiza Martins Nascentes Melo
+  - Iris Helfrich
+  - Jianxu Chen
+  - Matthias Gunzer
+  - Dirk M. Hermann
+  - Axel Mosig
+  publisher: Cell Reports Methods
+  date: '2023-03-01'
+  link: https://doi.org/gr56r8
+  image: ../images/vessel.png
+  tags:
+  - image segmentation
+  - open-source software
+  - vasculature
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1038/s41592-023-02150-0
+  title: Understanding metric-related pitfalls in image analysis validation
+  authors:
+  - Annika Reinke
+  - Minu D. Tizabi
+  - Michael Baumgartner
+  - Matthias Eisenmann
+  - "Doreen Heckmann-N\xF6tzel"
+  - A. Emre Kavur
+  - "Tim R\xE4dsch"
+  - Carole H. Sudre
+  - Laura Acion
+  - Michela Antonelli
+  - Tal Arbel
+  - Spyridon Bakas
+  - Arriel Benis
+  - Florian Buettner
+  - M. Jorge Cardoso
+  - Veronika Cheplygina
+  - Jianxu Chen
+  - Evangelia Christodoulou
+  - Beth A. Cimini
+  - Keyvan Farahani
+  - Luciana Ferrer
+  - Adrian Galdran
+  - Bram van Ginneken
+  - Ben Glocker
+  - Patrick Godau
+  - Daniel A. Hashimoto
+  - Michael M. Hoffman
+  - Merel Huisman
+  - Fabian Isensee
+  - Pierre Jannin
+  - Charles E. Kahn
+  - Dagmar Kainmueller
+  - Bernhard Kainz
+  - Alexandros Karargyris
+  - Jens Kleesiek
+  - Florian Kofler
+  - Thijs Kooi
+  - Annette Kopp-Schneider
+  - Michal Kozubek
+  - Anna Kreshuk
+  - Tahsin Kurc
+  - Bennett A. Landman
+  - Geert Litjens
+  - Amin Madani
+  - Klaus Maier-Hein
+  - Anne L. Martel
+  - Erik Meijering
+  - Bjoern Menze
+  - Karel G. M. Moons
+  - "Henning M\xFCller"
+  - Brennan Nichyporuk
+  - Felix Nickel
+  - Jens Petersen
+  - Susanne M. Rafelski
+  - Nasir Rajpoot
+  - Mauricio Reyes
+  - Michael A. Riegler
+  - Nicola Rieke
+  - Julio Saez-Rodriguez
+  - "Clara I. S\xE1nchez"
+  - Shravya Shetty
+  - Ronald M. Summers
+  - Abdel A. Taha
+  - Aleksei Tiulpin
+  - Sotirios A. Tsaftaris
+  - Ben Van Calster
+  - "Ga\xEBl Varoquaux"
+  - Ziv R. Yaniv
+  - "Paul F. J\xE4ger"
+  - Lena Maier-Hein
+  publisher: Nature Methods
+  date: '2024-02-01'
+  link: https://doi.org/gthqt5
+  image: ../images/pitfall.png
+  tags:
+  - image analysis validation
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1038/s41586-022-05563-7
+  title: Integrated intracellular organization and its variations in human iPS cells
+  authors:
+  - Matheus P. Viana
+  - Jianxu Chen
+  - Theo A. Knijnenburg
+  - Ritvik Vasan
+  - Calysta Yan
+  - Joy E. Arakaki
+  - Matte Bailey
+  - Ben Berry
+  - Antoine Borensztejn
+  - Eva M. Brown
+  - Sara Carlson
+  - Julie A. Cass
+  - Basudev Chaudhuri
+  - Kimberly R. Cordes Metzler
+  - Mackenzie E. Coston
+  - Zach J. Crabtree
+  - Steve Davidson
+  - Colette M. DeLizo
+  - Shailja Dhaka
+  - Stephanie Q. Dinh
+  - Thao P. Do
+  - Justin Domingus
+  - Rory M. Donovan-Maiye
+  - Alexandra J. Ferrante
+  - Tyler J. Foster
+  - Christopher L. Frick
+  - Griffin Fujioka
+  - Margaret A. Fuqua
+  - Jamie L. Gehring
+  - Kaytlyn A. Gerbin
+  - Tanya Grancharova
+  - Benjamin W. Gregor
+  - Lisa J. Harrylock
+  - Amanda Haupt
+  - Melissa C. Hendershott
+  - Caroline Hookway
+  - Alan R. Horwitz
+  - H. Christopher Hughes
+  - Eric J. Isaac
+  - Gregory R. Johnson
+  - Brian Kim
+  - Andrew N. Leonard
+  - Winnie W. Leung
+  - Jordan J. Lucas
+  - Susan A. Ludmann
+  - Blair M. Lyons
+  - Haseeb Malik
+  - Ryan McGregor
+  - Gabe E. Medrash
+  - Sean L. Meharry
+  - Kevin Mitcham
+  - Irina A. Mueller
+  - Timothy L. Murphy-Stevens
+  - Aditya Nath
+  - Angelique M. Nelson
+  - Sandra A. Oluoch
+  - Luana Paleologu
+  - T. Alexander Popiel
+  - Megan M. Riel-Mehan
+  - Brock Roberts
+  - Lisa M. Schaefbauer
+  - Magdalena Schwarzl
+  - Jamie Sherman
+  - Sylvain Slaton
+  - M. Filip Sluzewski
+  - Jacqueline E. Smith
+  - Youngmee Sul
+  - Madison J. Swain-Bowden
+  - W. Joyce Tang
+  - Derek J. Thirstrup
+  - Daniel M. Toloudis
+  - Andrew P. Tucker
+  - Veronica Valencia
+  - Winfried Wiegraebe
+  - Thushara Wijeratna
+  - Ruian Yang
+  - Rebecca J. Zaunbrecher
+  - Ramon Lorenzo D. Labitigan
+  - Adrian L. Sanborn
+  - Graham T. Johnson
+  - Ruwanthi N. Gunawardane
+  - Nathalie Gaudreault
+  - Julie A. Theriot
+  - Susanne M. Rafelski
+  publisher: Nature
+  date: '2023-01-04'
+  link: https://doi.org/grkztd
+  image: ../images/cells.png
+  tags:
+  - cell biology
+  - analysis and modeling
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1093/gigascience/giad120
+  title: '<i>MMV_Im2Im</i>: an open-source microscopy machine vision toolbox for image-to-image
+    transformation'
+  authors:
+  - Justin Sonneck
+  - Yu Zhou
+  - Jianxu Chen
+  publisher: GigaScience
+  date: '2024-01-01'
+  link: https://doi.org/gtxnb2
+  image: ../images/im2im.png
+  tags:
+  - open-source software
+  - deep learning
+  buttons:
+  - type: source
+    link: https://github.com/MMV-Lab/mmv_im2im
+    text: source code
+  plugin: sources.py
+  file: sources.yaml
 - id: doi:10.1038/s44161-024-00462-8
   title: Stroke and myocardial infarction induce neutrophil extracellular trap release
     disrupting lymphoid organ structure and immunoglobulin secretion
@@ -1556,6 +926,40 @@
   - cell tracking
   plugin: sources.py
   file: sources.yaml
+- id: doi:10.1101/491035
+  title: 'The Allen Cell and Structure Segmenter: a new open source toolkit for segmenting
+    3D intracellular structures in fluorescence microscopy images'
+  authors:
+  - Jianxu Chen
+  - Liya Ding
+  - Matheus P. Viana
+  - HyeonWoo Lee
+  - M. Filip Sluezwski
+  - Benjamin Morris
+  - Melissa C. Hendershott
+  - Ruian Yang
+  - Irina A. Mueller
+  - Susanne M. Rafelski
+  publisher: bioRxiv
+  date: '2018-12-08'
+  link: https://doi.org/gkspnm
+  image: https://www.allencell.org/uploads/8/1/9/9/81996008/icon-segmenter2_orig.png
+  buttons:
+  - type: website
+    link: https://www.allencell.org/segmenter.html
+    text: Project homepage
+  - type: source
+    link: https://github.com/AllenCell/aics-ml-segmentation
+    text: ML segmentation source
+  - type: source
+    link: https://github.com/AllenCell/aics-segmentation
+    text: Classic segmentation source code
+  tags:
+  - image segmentation
+  - 3D
+  - tool
+  plugin: sources.py
+  file: sources.yaml
 - id: doi:10.1109/ISBI.2019.8759430
   title: 'Cascade Decoder: A Universal Decoding Method For Biomedical Image Segmentation'
   authors:
@@ -1572,6 +976,27 @@
   tags:
   - image segmentation
   - 3D
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1609/aaai.v33i01.33015901
+  title: Biomedical Image Segmentation via Representative Annotation
+  authors:
+  - Hao Zheng
+  - Lin Yang
+  - Jianxu Chen
+  - Jun Han
+  - Yizhe Zhang
+  - Peixian Liang
+  - Zhuo Zhao
+  - Chaoli Wang
+  - Danny Z. Chen
+  publisher: AAAI Conference
+  date: '2019-07-17'
+  link: https://doi.org/ghkj3s
+  image: ../images/representation.png
+  tags:
+  - image segmentation
+  - efficient annotation
   plugin: sources.py
   file: sources.yaml
 - id: doi:10.1109/ISBI.2018.8363724
@@ -1594,8 +1019,59 @@
   - image registration
   plugin: sources.py
   file: sources.yaml
-- id: url:https://papers.nips.cc/paper/2016/hash/4dcf435435894a4d0972046fc566af76-Abstract.html
-  title: Combining Fully Convolutional and Recurrent Neural Networks for 3D Biomedical
+- id: doi:10.1007/978-3-319-66185-8_3
+  title: Neuron Segmentation Using Deep Complete Bipartite Networks
+  authors:
+  - Jianxu Chen
+  - Sreya Banerjee
+  - Abhinav Grama
+  - Walter J. Scheirer
+  - Danny Z. Chen
+  publisher: MICCAI Conference
+  date: '2017-01-01'
+  link: https://doi.org/gkspqn
+  image: ../images/MICCAI.png
+  tags:
+  - image segmentation
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1016/j.cels.2021.05.001
+  title: 'Cell states beyond transcriptomics: Integrating structural organization
+    and gene expression in hiPSC-derived cardiomyocytes'
+  authors:
+  - Kaytlyn A. Gerbin
+  - Tanya Grancharova
+  - Rory M. Donovan-Maiye
+  - Melissa C. Hendershott
+  - Helen G. Anderson
+  - Jackson M. Brown
+  - Jianxu Chen
+  - Stephanie Q. Dinh
+  - Jamie L. Gehring
+  - Gregory R. Johnson
+  - HyeonWoo Lee
+  - Aditya Nath
+  - Angelique M. Nelson
+  - M. Filip Sluzewski
+  - Matheus P. Viana
+  - Calysta Yan
+  - Rebecca J. Zaunbrecher
+  - Kimberly R. Cordes Metzler
+  - Nathalie Gaudreault
+  - Theo A. Knijnenburg
+  - Susanne M. Rafelski
+  - Julie A. Theriot
+  - Ruwanthi N. Gunawardane
+  publisher: Cell Systems
+  date: '2021-06-01'
+  link: https://doi.org/gktgdk
+  image: https://www.allencell.org/uploads/8/1/9/9/81996008/cellsystems-cover-fish-aics-cos-2-final-thumb_2.png
+  tags:
+  - cell biology
+  - analysis and modeling
+  plugin: sources.py
+  file: sources.yaml
+- title: Combining Fully Convolutional and Recurrent Neural Networks for 3D Biomedical
     Image Segmentation
   authors:
   - J. Chen
@@ -1633,6 +1109,63 @@
   - bacteria
   plugin: sources.py
   file: sources.yaml
+- id: doi:10.1016/j.bpj.2019.01.007
+  title: Decoding Calcium Signaling Dynamics during Drosophila Wing Disc Development
+  authors:
+  - Pavel A. Brodskiy
+  - Qinfeng Wu
+  - Dharsan K. Soundarrajan
+  - Francisco J. Huizar
+  - Jianxu Chen
+  - Peixian Liang
+  - Cody Narciso
+  - Megan K. Levis
+  - Ninfamaria Arredondo-Walsh
+  - Danny Z. Chen
+  - Jeremiah J. Zartman
+  publisher: Biophysical Journal
+  date: '2019-02-01'
+  link: https://doi.org/gktgdn
+  image: https://marlin-prod.literatumonline.com/cms/attachment/aa948b9d-5119-43c5-8bd7-a12cc5331c0d/gr4.jpg
+  tags:
+  - image registration
+  - analysis and modeling
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1016/j.matbio.2016.10.007
+  title: Compression-induced structural and mechanical changes of fibrin-collagen
+    composites
+  authors:
+  - O.V. Kim
+  - R.I. Litvinov
+  - J. Chen
+  - D.Z. Chen
+  - J.W. Weisel
+  - M.S. Alber
+  publisher: Matrix Biology
+  date: '2017-07-01'
+  link: https://doi.org/gktgdp
+  image: https://ars.els-cdn.com/content/image/1-s2.0-S0945053X16302517-gr8.sml
+  tags:
+  - image segmentation
+  - analysis and modeling
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1109/TMI.2016.2548490
+  title: A Hybrid Approach for Segmentation and Tracking of Myxococcus Xanthus Swarms
+  authors:
+  - Jianxu Chen
+  - Mark S. Alber
+  - Danny Z. Chen
+  publisher: IEEE Transactions on Medical Imaging
+  date: '2016-09-01'
+  link: https://doi.org/gktgdq
+  image: ../images/myxo.png
+  tags:
+  - image segmentation
+  - cell tracking
+  plugin: sources.py
+  file: sources.yaml
 - id: doi:10.1103/PhysRevLett.117.028301
   title: "Kinetic Transition Networks for the Thomson Problem and Smale\u2019s Seventh\
     \ Problem"
@@ -1665,6 +1198,58 @@
   - human-in-the-loop
   - image recognition
   - forensics
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1007/978-3-319-66179-7_46
+  title: 'Suggestive Annotation: A Deep Active Learning Framework for Biomedical Image
+    Segmentation'
+  authors:
+  - Lin Yang
+  - Yizhe Zhang
+  - Jianxu Chen
+  - Siyuan Zhang
+  - Danny Z. Chen
+  publisher: MICCAI Conference
+  date: '2017-01-01'
+  link: https://doi.org/gkqs4p
+  image: ../images/MICCAI.png
+  tags:
+  - image segmentation
+  - human-in-the-loop
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1007/978-3-319-66179-7_47
+  title: Deep Adversarial Networks for Biomedical Image Segmentation Utilizing Unannotated
+    Images
+  authors:
+  - Yizhe Zhang
+  - Lin Yang
+  - Jianxu Chen
+  - Maridel Fredericksen
+  - David P. Hughes
+  - Danny Z. Chen
+  publisher: MICCAI Conference
+  date: '2017-01-01'
+  link: https://doi.org/gktgds
+  image: ../images/MICCAI.png
+  tags:
+  - image segmentation
+  - unlabeled data
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1145/3061639.3062297
+  title: Optimizing Memory Efficiency for Convolution Kernels on Kepler GPUs
+  authors:
+  - Xiaoming Chen
+  - Jianxu Chen
+  - Danny Z. Chen
+  - Xiaobo Sharon Hu
+  publisher: ACM Design Automation Conference
+  date: '2017-06-18'
+  link: https://doi.org/gktgvn
+  image: ../images/gpu.png
+  tags:
+  - hardware/software co-design
   plugin: sources.py
   file: sources.yaml
 - id: doi:10.1109/ISBI.2016.7493426
@@ -1717,6 +1302,22 @@
   - human-in-the-loop
   - image recognition
   - forensics
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1007/978-3-319-10470-6_15
+  title: "A Matching Model Based on Earth Mover\u2019s Distance for Tracking Myxococcus\
+    \ Xanthus"
+  authors:
+  - Jianxu Chen
+  - Cameron W. Harvey
+  - Mark S. Alber
+  - Danny Z. Chen
+  publisher: MICCAI Conference
+  date: '2014-01-01'
+  link: https://doi.org/gktgvs
+  image: ../images/MICCAI.png
+  tags:
+  - cell tracking
   plugin: sources.py
   file: sources.yaml
 - id: doi:10.1109/CBMS.2014.62
