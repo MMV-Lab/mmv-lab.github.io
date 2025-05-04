@@ -88,17 +88,12 @@
   - Matheus P. Viana
   - Julie A. Theriot
   - Susanne M. Rafelski
-  publisher: bioRxiv
+  publisher: Cold Spring Harbor Laboratory
   date: '2024-06-30'
   link: https://doi.org/g8n7q6
   orcid: 0000-0002-8500-1357
-  plugin: sources.py
-  file: sources.yaml
-  image: ../images/nucmorph.jpg
-  tags:
-  - cell biology
-  - deep learning
-  - cell tracking
+  plugin: orcid.py
+  file: orcid.yaml
 - id: doi:10.1101/2024.05.24.595656
   title: 2D Label-free Prediction of Multiple Organelles Across Different Transmitted-light
     Microscopy Images with Bag-of-Experts
@@ -1051,6 +1046,25 @@
   image: ../images/MICCAI.png
   tags:
   - cell tracking
+- id: url:https://openreview.net/forum?id=VK8SuRaJfX
+  title: The Four Color Theorem for Cell Instance Segmentation
+  authors:
+  - Y. Zhang
+  - Y. Zhou
+  - Y. Wang
+  - J. Xiao
+  - Z. Wang
+  - Y. Zhang
+  - J. Chen
+  publisher: Forty-second International Conference on Machine Learning
+  date: '2025-05-01'
+  link: https://openreview.net/forum?id=VK8SuRaJfX
+  image: ../images/four_color.png
+  tags:
+  - deep learning
+  - image segmentation
+  plugin: sources.py
+  file: sources.yaml
 - id: doi:10.48550/arXiv.2411.06575
   title: Adaptive Kinematic Modeling for Improved Hand Posture Estimates Using a Haptic
     Glove
@@ -1195,6 +1209,45 @@
   tags:
   - labelfree
   - deep learning
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1016/j.cels.2025.101265
+  title: Colony context and size-dependent compensation mechanisms give rise to variations
+    in nuclear growth trajectories
+  authors:
+  - Julie C. Dixon
+  - Christopher L. Frick
+  - Chantelle L. Leveille
+  - Philip Garrison
+  - Peyton A. Lee
+  - Saurabh S. Mogre
+  - Benjamin Morris
+  - Nivedita Nivedita
+  - Ritvik Vasan
+  - Jianxu Chen
+  - Cameron L. Fraser
+  - Clare R. Gamlin
+  - Leigh K. Harris
+  - Melissa C. Hendershott
+  - Graham T. Johnson
+  - Kyle N. Klein
+  - Sandra A. Oluoch
+  - Derek J. Thirstrup
+  - M. Filip Sluzewski
+  - Lyndsay Wilhelm
+  - Ruian Yang
+  - Daniel M. Toloudis
+  - Matheus P. Viana
+  - Julie A. Theriot
+  - Susanne M. Rafelski
+  publisher: Cell Systems
+  date: '2025-05-01'
+  link: https://doi.org/g9hb6j
+  image: ../images/nucmorph.jpg
+  tags:
+  - cell biology
+  - deep learning
+  - cell tracking
   plugin: sources.py
   file: sources.yaml
 - id: doi:10.1109/ICCVW60793.2023.00421
