@@ -1,3 +1,21 @@
+- id: url:https://openreview.net/forum?id=VK8SuRaJfX
+  title: The Four Color Theorem for Cell Instance Segmentation
+  authors:
+    - Y. Zhang
+    - Y. Zhou
+    - Y. Wang
+    - J. Xiao
+    - Z. Wang
+    - Y. Zhang
+    - J. Chen
+  publisher: Forty-second International Conference on Machine Learning
+  date: '2025-05-01'
+  link: https://openreview.net/forum?id=VK8SuRaJfX
+  image: ../images/four_color.png
+  tags:
+    - deep learning
+    - image segmentation
+
 - id: doi:10.48550/arXiv.2411.06575
   image: ../images/hand.png
   tags:
@@ -61,13 +79,12 @@
     - deep learning
   publisher: IEEE ISBI Conference
 
-- id: doi:10.1101/2024.06.28.601071
+- id: doi:10.1016/j.cels.2025.101265
   image: ../images/nucmorph.jpg
   tags:
     - cell biology
     - deep learning
     - cell tracking
-  publisher: bioRxiv
 
 - id: doi:10.1038/s41592-024-02334-2
   image: ../images/MLLM.png
