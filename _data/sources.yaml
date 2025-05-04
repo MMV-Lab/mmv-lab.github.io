@@ -1,5 +1,4 @@
-- id: url:https://openreview.net/forum?id=VK8SuRaJfX
-  title: The Four Color Theorem for Cell Instance Segmentation
+- title: The Four Color Theorem for Cell Instance Segmentation
   authors:
     - Y. Zhang
     - Y. Zhou
@@ -252,8 +251,7 @@
     - cell biology
     - analysis and modeling
 
-- id: url:https://papers.nips.cc/paper/2016/hash/4dcf435435894a4d0972046fc566af76-Abstract.html
-  title: Combining Fully Convolutional and Recurrent Neural Networks for 3D Biomedical Image Segmentation
+- title: Combining Fully Convolutional and Recurrent Neural Networks for 3D Biomedical Image Segmentation
   authors:
     - J. Chen
     - L. Yang
