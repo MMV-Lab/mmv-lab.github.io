@@ -1,7 +1,7 @@
 ---
 name: Jianxu Chen
 image: images/jianxu_pic.jpg
-role: pi
+role: principal-investigator
 aliases:
   - J. Chen
   - Jianxu
