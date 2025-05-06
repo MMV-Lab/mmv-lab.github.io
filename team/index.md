@@ -7,12 +7,19 @@ nav:
 
 # {% include icon.html icon="fa-solid fa-users" %}Team
 
+<<<<<<< HEAD
 
 We are building a team with diverse background and expertises, from software enigneering, machine learning, image analysis, data analysis to computational modeling. We are multiple opennings for master students to work as thesis. The topics will be related bioimage analysis and machine learning.
+=======
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+>>>>>>> template/main
 
 {% include section.html %}
 
 {% include list.html data="members" component="portrait" filter="role == 'pi'" %}
+<<<<<<< HEAD
 {% include list.html data="members" component="portrait" filter="role == 'postdoc'" %}
 {% include list.html data="members" component="portrait" filter="role == 'phd'" %}
 {% include list.html data="members" component="portrait" filter="role == 'programmer'" %}
@@ -45,6 +52,23 @@ JOIN US!!
 {% include figure.html image="images/group_2.jpg" caption="2023 summer team-game event"%}
 {% include figure.html image="images/group_3.jpg" caption="2023 winter gathering at Christmas market"%}
 {% include figure.html image="images/group_4.jpg" caption="2024 summer retreat in Essen"%}
+=======
+{% include list.html data="members" component="portrait" filter="role != 'pi'" %}
+
+{% include section.html background="images/background.jpg" dark=true %}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+{% include section.html %}
+
+{% capture content %}
+
+{% include figure.html image="images/photo.jpg" %}
+{% include figure.html image="images/photo.jpg" %}
+{% include figure.html image="images/photo.jpg" %}
+>>>>>>> template/main
 
 {% endcapture %}
 

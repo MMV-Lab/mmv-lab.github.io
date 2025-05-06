@@ -27,6 +27,7 @@
 
 :root {
   // font families
+<<<<<<< HEAD
   --title: "Ubuntu", sans-serif;
   --heading: "Roboto Condensed", sans-serif;
   --body: "Roboto Condensed", sans-serif;
@@ -36,6 +37,17 @@
   --large: 1.3rem;
   --xl: 1.5rem;
   --xxl: 1.7rem;
+=======
+  --title: "Barlow", sans-serif;
+  --heading: "Barlow", sans-serif;
+  --body: "Barlow", sans-serif;
+  --code: "Roboto Mono", monospace;
+
+  // font sizes
+  --large: 1.2rem;
+  --xl: 1.4rem;
+  --xxl: 1.6rem;
+>>>>>>> template/main
 
   // font weights
   --thin: 200;
