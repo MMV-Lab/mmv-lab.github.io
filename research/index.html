@@ -37,6 +37,10 @@
 
 
 
+
+
+
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Research | Microscopy Machine Vision Lab</title>
@@ -86,13 +90,13 @@
 <!-- automatically get url from fonts used in theme file -->
 
 <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?display=swap&&family=Roboto+Condensed:ital,wght@0,200;0,400;0,500;0,600;1,200;1,400;1,500;1,600&amp;family=Roboto+Mono:ital,wght@0,200;0,400;0,500;0,600;1,200;1,400;1,500;1,600&amp;family=Ubuntu:ital,wght@0,200;0,400;0,500;0,600;1,200;1,400;1,500;1,600" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?display=swap&&family=Barlow:ital,wght@0,200;0,400;0,500;0,600;1,200;1,400;1,500;1,600&amp;family=Roboto+Mono:ital,wght@0,200;0,400;0,500;0,600;1,200;1,400;1,500;1,600" rel="stylesheet">
 
 <!-- Font Awesome icons (load asynchronously due to size) -->
 
-<link href="https://use.fontawesome.com/releases/v6.5.0/css/all.css" rel="stylesheet" media="none" onload="this.removeAttribute('media'); this.onload = null;">
+<link href="https://use.fontawesome.com/releases/v6.7.0/css/all.css" rel="stylesheet" media="none" onload="this.removeAttribute('media'); this.onload = null;">
 <noscript>
-  <link href="https://use.fontawesome.com/releases/v6.5.0/css/all.css" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v6.7.0/css/all.css" rel="stylesheet">
 </noscript>
 
   <!-- third party styles -->
@@ -380,7 +384,8 @@
     
       <span class="logo">
         
-          <?xml version="1.0" encoding="UTF-8"?>
+          &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="375pt" height="374.999991pt" viewbox="0 0 375 374.999991" version="1.2">
 <defs>
 <g>
@@ -641,10 +646,68 @@
   <use xlink:href="#glyph1-7" x="260.283327" y="288.268047"></use>
 </g>
 </g>
+=======
+<svg xmlns="http://www.w3.org/2000/svg" viewbox="-40 -60 80 100">
+  <style>
+    .bubble {
+      animation: float 2s ease-out both infinite var(--delay);
+    }
+    @keyframes float {
+      0% {
+        opacity: 0;
+      }
+      50% {
+        transform: translateY(0);
+        opacity: 0;
+      }
+      75% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-40px);
+      }
+    }
+  </style>
+  <g fill="currentColor" opacity="0.5">
+    <circle class="bubble" cx="0" cy="-10" r="3" style="--delay: 0.1s"></circle>
+    <circle class="bubble" cx="0" cy="-10" r="3" style="--delay: 0.4s"></circle>
+    <circle class="bubble" cx="0" cy="-10" r="3" style="--delay: 1.1s"></circle>
+  </g>
+  <path fill="#38bdf8" d="
+      M 0 -22.5
+      L -19.5 -11.25
+      L -19.5 11.25
+      L 0 22.5
+      L 19.5 11.25
+      L 19.5 -11.25
+      z
+    "></path>
+  <path fill="#bae6fd" d="
+      M 0 -22.5
+      L -19.5 -11.25
+      L 0 0
+      L 19.5 -11.25
+      z
+    "></path>
+  <path fill="none" stroke="currentColor" stroke-width="5" d="
+      M -18 -53
+      L -10 -53
+      L -10 -29.2
+      L -30.3 -17.5
+      L -30.3 17.5
+      L 0 35
+      L 30.3 17.5
+      L 30.3 -17.5
+      L 10 -29.2
+      L 10 -53
+      L 18 -53
+    "></path>
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; template/main
 </svg>
 
         
-      </span>
+      </svg></span>
     
     
       <span class="title-text" data-tooltip="Home">
@@ -670,6 +733,12 @@
       
         <a href="/OpenScience/" data-tooltip="Software, datasets, and more">
           Open-Science-Portal
+        </a>
+      
+    
+      
+        <a href="/projects/" data-tooltip="Software, datasets, and more">
+          Projects
         </a>
       
     
@@ -726,9 +795,9 @@
 
   <section class="background" data-size="page">
     <!--
-  background: ;
-  dark: ;
-  size: ;
+  <background></background>
+  <dark></dark>
+  <size></size>
 -->
   </section>
 
@@ -738,9 +807,9 @@
 
   <section class="background" data-size="page">
     <!--
-  background: ;
-  dark: ;
-  size: ;
+  <background></background>
+  <dark></dark>
+  <size></size>
 -->
 
 <div class="search-box">
@@ -841,7 +910,7 @@
          · 
         <span class="citation-date">01 May 2025</span>
          · 
-        <span class="citation-id">url:https://openreview.net/forum?id=VK8SuRaJfX</span>
+        <span class="citation-id">[no id info]</span>
       </div>
 
       
@@ -1048,46 +1117,6 @@
 <div class="citation-container">
   <div class="citation">
     
-      <a href="https://doi.org/g8n7q6" class="citation-image" aria-label="Colony context and size-dependent compensation mechanisms give rise to variations in nuclear growth trajectories">
-        <img src="" alt="Colony context and size-dependent compensation mechanisms give rise to variations in nuclear growth trajectories" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
-      </a>
-    
-
-    <div class="citation-text">
-      
-      
-
-      <a href="https://doi.org/g8n7q6" class="citation-title">
-        Colony context and size-dependent compensation mechanisms give rise to variations in nuclear growth trajectories
-      </a>
-
-      <div class="citation-authors" data-tooltip="Julie C. Dixon, Christopher L. Frick, Chantelle L. Leveille, Philip Garrison, Peyton A. Lee, Saurabh S. Mogre, Benjamin Morris, Nivedita Nivedita, Ritvik Vasan, Jianxu Chen, Cameron L. Fraser, Clare R. Gamlin, Leigh K. Harris, Melissa C. Hendershott, Graham T. Johnson, Kyle N. Klein, Sandra A. Oluoch, Derek J. Thirstrup, M. Filip Sluzewski, Lyndsay Wilhelm, Ruian Yang, Daniel M. Toloudis, Matheus P. Viana, Julie A. Theriot, Susanne M. Rafelski" tabindex="0">
-        Julie C. Dixon, Christopher L. Frick, Chantelle L. Leveille, Philip Garrison, Peyton A. Lee, …, Ruian Yang, Daniel M. Toloudis, Matheus P. Viana, Julie A. Theriot, Susanne M. Rafelski
-
-      </div>
-
-      <div class="citation-details">
-        <span class="citation-publisher">Cold Spring Harbor Laboratory</span>
-         · 
-        <span class="citation-date">30 Jun 2024</span>
-         · 
-        <span class="citation-id">doi:10.1101/2024.06.28.601071</span>
-      </div>
-
-      
-        
-
-        
-
-        
-      
-    </div>
-  </div>
-</div>
-
-<div class="citation-container">
-  <div class="citation">
-    
       <a href="https://doi.org/g83j5d" class="citation-image" aria-label="Multisensory Extended Reality Applications Offer Benefits for Volumetric Biomedical Image Analysis in Research and Medicine">
         <img src="/images/haptic.png" alt="Multisensory Extended Reality Applications Offer Benefits for Volumetric Biomedical Image Analysis in Research and Medicine" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
       </a>
@@ -1259,46 +1288,6 @@
 <div class="citation-container">
   <div class="citation">
     
-      <a href="https://doi.org/g833x2" class="citation-image" aria-label="2D Label-free Prediction of Multiple Organelles Across Different Transmitted-light Microscopy Images with Bag-of-Experts">
-        <img src="" alt="2D Label-free Prediction of Multiple Organelles Across Different Transmitted-light Microscopy Images with Bag-of-Experts" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
-      </a>
-    
-
-    <div class="citation-text">
-      
-      
-
-      <a href="https://doi.org/g833x2" class="citation-title">
-        2D Label-free Prediction of Multiple Organelles Across Different Transmitted-light Microscopy Images with Bag-of-Experts
-      </a>
-
-      <div class="citation-authors" tabindex="0">
-        Yu Zhou, Shuo Zhao, Justin Sonneck, Jianxu Chen
-
-      </div>
-
-      <div class="citation-details">
-        <span class="citation-publisher">Cold Spring Harbor Laboratory</span>
-         · 
-        <span class="citation-date">24 May 2024</span>
-         · 
-        <span class="citation-id">doi:10.1101/2024.05.24.595656</span>
-      </div>
-
-      
-        
-
-        
-
-        
-      
-    </div>
-  </div>
-</div>
-
-<div class="citation-container">
-  <div class="citation">
-    
       <a href="https://doi.org/gtxnb3" class="citation-image" aria-label="Stroke and myocardial infarction induce neutrophil extracellular trap release disrupting lymphoid organ structure and immunoglobulin secretion">
         <img src="/images/pp.png" alt="Stroke and myocardial infarction induce neutrophil extracellular trap release disrupting lymphoid organ structure and immunoglobulin secretion" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
       </a>
@@ -1407,46 +1396,6 @@
     
   </div>
 
-
-        
-      
-    </div>
-  </div>
-</div>
-
-<div class="citation-container">
-  <div class="citation">
-    
-      <a href="https://doi.org/g8n7qw" class="citation-image" aria-label="Microvascular Network Remodeling in the Ischemic Mouse Brain Defined by Light Sheet Microscopy">
-        <img src="" alt="Microvascular Network Remodeling in the Ischemic Mouse Brain Defined by Light Sheet Microscopy" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
-      </a>
-    
-
-    <div class="citation-text">
-      
-      
-
-      <a href="https://doi.org/g8n7qw" class="citation-title">
-        Microvascular Network Remodeling in the Ischemic Mouse Brain Defined by Light Sheet Microscopy
-      </a>
-
-      <div class="citation-authors" data-tooltip="Nina Hagemann, Yachao Qi, Ayan Mohamud Yusuf, AnRan Li, Anthony Squire, Tobias Tertel, Bernd Giebel, Peter Ludewig, Philippa Spangenberg, Jianxu Chen, Axel Mosig, Matthias Gunzer, Dirk M. Hermann" tabindex="0">
-        Nina Hagemann, Yachao Qi, Ayan Mohamud Yusuf, AnRan Li, Anthony Squire, …, Philippa Spangenberg, Jianxu Chen, Axel Mosig, Matthias Gunzer, Dirk M. Hermann
-
-      </div>
-
-      <div class="citation-details">
-        <span class="citation-publisher">Arteriosclerosis, Thrombosis, and Vascular Biology</span>
-         · 
-        <span class="citation-date">01 Apr 2024</span>
-         · 
-        <span class="citation-id">doi:10.1161/atvbaha.123.320339</span>
-      </div>
-
-      
-        
-
-        
 
         
       
@@ -1601,6 +1550,82 @@
 <div class="citation-container">
   <div class="citation">
     
+      <a href="https://doi.org/gtxnb2" class="citation-image" aria-label="i MMV Im2Im i : an open-source microscopy machine vision toolbox for image-to-image transformation">
+        <img src="/images/im2im.png" alt="i MMV Im2Im i : an open-source microscopy machine vision toolbox for image-to-image transformation" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
+      </a>
+    
+
+    <div class="citation-text">
+      
+      
+
+      <a href="https://doi.org/gtxnb2" class="citation-title">
+        <i>MMV_Im2Im</i>: an open-source microscopy machine vision toolbox for image-to-image transformation
+      </a>
+
+      <div class="citation-authors" tabindex="0">
+        Justin Sonneck, Yu Zhou, Jianxu Chen
+
+      </div>
+
+      <div class="citation-details">
+        <span class="citation-publisher">GigaScience</span>
+         · 
+        <span class="citation-date">01 Jan 2024</span>
+         · 
+        <span class="citation-id">doi:10.1093/gigascience/giad120</span>
+      </div>
+
+      
+        
+
+        
+          <div class="citation-buttons">
+            
+              
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://github.com/MMV-Lab/mmv_im2im" data-tooltip="Source code" data-style="bare" aria-label="Source code">
+      <i class="icon fa-solid fa-code"></i>
+      
+        <span>source code</span>
+      
+    </a>
+  </div>
+
+
+            
+          </div>
+        
+
+        
+          
+
+
+  <div class="tags" data-link="/research/">
+    
+      <a href="/research/?search=%22tag:%20open-source-software%22" class="tag" data-tooltip='Show items with the tag "open-source-software"'>
+        open-source-software
+      </a>
+    
+      <a href="/research/?search=%22tag:%20deep-learning%22" class="tag" data-tooltip='Show items with the tag "deep-learning"'>
+        deep-learning
+      </a>
+    
+  </div>
+
+
+        
+      
+    </div>
+  </div>
+</div>
+
+<div class="citation-container">
+  <div class="citation">
+    
       <a href="https://doi.org/g8n7q4" class="citation-image" aria-label="Implicit Neural Image Field for Biological Microscopy Image Compression">
         <img src="/images/INIF.jpg" alt="Implicit Neural Image Field for Biological Microscopy Image Compression" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
       </a>
@@ -1648,6 +1673,63 @@
     
       <a href="/research/?search=%22tag:%20implicit-neural-representation%22" class="tag" data-tooltip='Show items with the tag "implicit-neural-representation"'>
         implicit-neural-representation
+      </a>
+    
+  </div>
+
+
+        
+      
+    </div>
+  </div>
+</div>
+
+<div class="citation-container">
+  <div class="citation">
+    
+      <a href="https://doi.org/g83j5x" class="citation-image" aria-label="Deep-learning-based image compression for microscopy images: An empirical study">
+        <img src="/images/compression.png" alt="Deep-learning-based image compression for microscopy images: An empirical study" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
+      </a>
+    
+
+    <div class="citation-text">
+      
+      
+
+      <a href="https://doi.org/g83j5x" class="citation-title">
+        Deep-learning-based image compression for microscopy images: An empirical study
+      </a>
+
+      <div class="citation-authors" tabindex="0">
+        Yu Zhou, Jan Sollmann, Jianxu Chen
+
+      </div>
+
+      <div class="citation-details">
+        <span class="citation-publisher">Biological Imaging</span>
+         · 
+        <span class="citation-date">01 Jan 2024</span>
+         · 
+        <span class="citation-id">doi:10.1017/S2633903X24000151</span>
+      </div>
+
+      
+        
+
+        
+
+        
+          
+
+
+  <div class="tags" data-link="/research/">
+    
+      <a href="/research/?search=%22tag:%20image-compression%22" class="tag" data-tooltip='Show items with the tag "image-compression"'>
+        image-compression
+      </a>
+    
+      <a href="/research/?search=%22tag:%20deep-learning%22" class="tag" data-tooltip='Show items with the tag "deep-learning"'>
+        deep-learning
       </a>
     
   </div>
@@ -1773,139 +1855,6 @@
   </div>
 </div>
 
-<div class="citation-container">
-  <div class="citation">
-    
-      <a href="https://doi.org/g83j5x" class="citation-image" aria-label="Deep-learning-based image compression for microscopy images: An empirical study">
-        <img src="/images/compression.png" alt="Deep-learning-based image compression for microscopy images: An empirical study" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
-      </a>
-    
-
-    <div class="citation-text">
-      
-      
-
-      <a href="https://doi.org/g83j5x" class="citation-title">
-        Deep-learning-based image compression for microscopy images: An empirical study
-      </a>
-
-      <div class="citation-authors" tabindex="0">
-        Yu Zhou, Jan Sollmann, Jianxu Chen
-
-      </div>
-
-      <div class="citation-details">
-        <span class="citation-publisher">Biological Imaging</span>
-         · 
-        <span class="citation-date">01 Jan 2024</span>
-         · 
-        <span class="citation-id">doi:10.1017/S2633903X24000151</span>
-      </div>
-
-      
-        
-
-        
-
-        
-          
-
-
-  <div class="tags" data-link="/research/">
-    
-      <a href="/research/?search=%22tag:%20image-compression%22" class="tag" data-tooltip='Show items with the tag "image-compression"'>
-        image-compression
-      </a>
-    
-      <a href="/research/?search=%22tag:%20deep-learning%22" class="tag" data-tooltip='Show items with the tag "deep-learning"'>
-        deep-learning
-      </a>
-    
-  </div>
-
-
-        
-      
-    </div>
-  </div>
-</div>
-
-<div class="citation-container">
-  <div class="citation">
-    
-      <a href="https://doi.org/gtxnb2" class="citation-image" aria-label="i MMV Im2Im i : an open-source microscopy machine vision toolbox for image-to-image transformation">
-        <img src="/images/im2im.png" alt="i MMV Im2Im i : an open-source microscopy machine vision toolbox for image-to-image transformation" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
-      </a>
-    
-
-    <div class="citation-text">
-      
-      
-
-      <a href="https://doi.org/gtxnb2" class="citation-title">
-        <i>MMV_Im2Im</i>: an open-source microscopy machine vision toolbox for image-to-image transformation
-      </a>
-
-      <div class="citation-authors" tabindex="0">
-        Justin Sonneck, Yu Zhou, Jianxu Chen
-
-      </div>
-
-      <div class="citation-details">
-        <span class="citation-publisher">GigaScience</span>
-         · 
-        <span class="citation-date">01 Jan 2024</span>
-         · 
-        <span class="citation-id">doi:10.1093/gigascience/giad120</span>
-      </div>
-
-      
-        
-
-        
-          <div class="citation-buttons">
-            
-              
-
-
-
-  <div class="button-wrapper">
-    <a class="button" href="https://github.com/MMV-Lab/mmv_im2im" data-tooltip="Source code" data-style="bare" aria-label="Source code">
-      <i class="icon fa-solid fa-code"></i>
-      
-        <span>source code</span>
-      
-    </a>
-  </div>
-
-
-            
-          </div>
-        
-
-        
-          
-
-
-  <div class="tags" data-link="/research/">
-    
-      <a href="/research/?search=%22tag:%20open-source-software%22" class="tag" data-tooltip='Show items with the tag "open-source-software"'>
-        open-source-software
-      </a>
-    
-      <a href="/research/?search=%22tag:%20deep-learning%22" class="tag" data-tooltip='Show items with the tag "deep-learning"'>
-        deep-learning
-      </a>
-    
-  </div>
-
-
-        
-      
-    </div>
-  </div>
-</div>
-
 <h3 id="2023">2023</h3>
 
 <div class="citation-container">
@@ -1972,6 +1921,86 @@
 <div class="citation-container">
   <div class="citation">
     
+      <a href="https://doi.org/gs6kmr" class="citation-image" aria-label="The Monarch Initiative in 2024: an analytic platform integrating phenotypes, genes and diseases across species">
+        <img src="" alt="The Monarch Initiative in 2024: an analytic platform integrating phenotypes, genes and diseases across species" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
+      </a>
+    
+
+    <div class="citation-text">
+      
+      
+
+      <a href="https://doi.org/gs6kmr" class="citation-title">
+        The Monarch Initiative in 2024: an analytic platform integrating phenotypes, genes and diseases across species
+      </a>
+
+      <div class="citation-authors" data-tooltip="Tim E Putman, Kevin Schaper, Nicolas Matentzoglu, Vincent P Rubinetti, Faisal S Alquaddoomi, Corey Cox, J Harry Caufield, Glass Elsarboukh, Sarah Gehrke, Harshad Hegde, Justin T Reese, Ian Braun, Richard M Bruskiewich, Luca Cappelletti, Seth Carbon, Anita R Caron, Lauren E Chan, Christopher G Chute, Katherina G Cortes, Vinícius De Souza, Tommaso Fontana, Nomi L Harris, Emily L Hartley, Eric Hurwitz, Julius O B Jacobsen, Madan Krishnamurthy, Bryan J Laraway, James A McLaughlin, Julie A McMurry, Sierra A T Moxon, Kathleen R Mullen, Shawn T O’Neil, Kent A Shefchek, Ray Stefancsik, Sabrina Toro, Nicole A Vasilevsky, Ramona L Walls, Patricia L Whetzel, David Osumi-Sutherland, Damian Smedley, Peter N Robinson, Christopher J Mungall, Melissa A Haendel, Monica C Munoz-Torres" tabindex="0">
+        Tim E Putman, Kevin Schaper, Nicolas Matentzoglu, Vincent P Rubinetti, Faisal S Alquaddoomi, …, Damian Smedley, Peter N Robinson, Christopher J Mungall, Melissa A Haendel, Monica C Munoz-Torres
+
+      </div>
+
+      <div class="citation-details">
+        <span class="citation-publisher">Nucleic Acids Research</span>
+         · 
+        <span class="citation-date">24 Nov 2023</span>
+         · 
+        <span class="citation-id">doi:10.1093/nar/gkad1082</span>
+      </div>
+
+      
+        
+
+        
+
+        
+      
+    </div>
+  </div>
+</div>
+
+<div class="citation-container">
+  <div class="citation">
+    
+      <a href="https://doi.org/gsvf5z" class="citation-image" aria-label="Integration of 168,000 samples reveals global patterns of the human gut microbiome">
+        <img src="" alt="Integration of 168,000 samples reveals global patterns of the human gut microbiome" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
+      </a>
+    
+
+    <div class="citation-text">
+      
+      
+
+      <a href="https://doi.org/gsvf5z" class="citation-title">
+        Integration of 168,000 samples reveals global patterns of the human gut microbiome
+      </a>
+
+      <div class="citation-authors" tabindex="0">
+        Richard J. Abdill, Samantha P. Graham, Vincent Rubinetti, Frank W. Albert, Casey S. Greene, Sean Davis, Ran Blekhman
+
+      </div>
+
+      <div class="citation-details">
+        <span class="citation-publisher">Cold Spring Harbor Laboratory</span>
+         · 
+        <span class="citation-date">11 Oct 2023</span>
+         · 
+        <span class="citation-id">doi:10.1101/2023.10.11.560955</span>
+      </div>
+
+      
+        
+
+        
+
+        
+      
+    </div>
+  </div>
+</div>
+
+<div class="citation-container">
+  <div class="citation">
+    
       <a href="https://doi.org/gtxnbz" class="citation-image" aria-label="On the risk of manual annotations in 3D confocal microscopy image segmentation">
         <img src="/images/nuc.png" alt="On the risk of manual annotations in 3D confocal microscopy image segmentation" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
       </a>
@@ -2023,46 +2052,6 @@
     
   </div>
 
-
-        
-      
-    </div>
-  </div>
-</div>
-
-<div class="citation-container">
-  <div class="citation">
-    
-      <a href="https://doi.org/g833x3" class="citation-image" aria-label="Is the Apple Vision Pro the Ultimate Display A First Perspective and Survey on Entering the Wonderland of Precision Medicine Preprint">
-        <img src="" alt="Is the Apple Vision Pro the Ultimate Display A First Perspective and Survey on Entering the Wonderland of Precision Medicine Preprint" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
-      </a>
-    
-
-    <div class="citation-text">
-      
-      
-
-      <a href="https://doi.org/g833x3" class="citation-title">
-        Is the Apple Vision Pro the Ultimate Display? A First Perspective and Survey on Entering the Wonderland of Precision Medicine (Preprint)
-      </a>
-
-      <div class="citation-authors" tabindex="0">
-        Jan Egger, Christina Gsaxner, Gijs Luijten, Jianxu Chen, Xiaojun Chen, Jiang Bian, Jens Kleesiek, Behrus Puladi
-
-      </div>
-
-      <div class="citation-details">
-        <span class="citation-publisher">JMIR Publications Inc.</span>
-         · 
-        <span class="citation-date">15 Sep 2023</span>
-         · 
-        <span class="citation-id">doi:10.2196/preprints.52785</span>
-      </div>
-
-      
-        
-
-        
 
         
       
@@ -2202,6 +2191,46 @@
 <div class="citation-container">
   <div class="citation">
     
+      <a href="https://doi.org/gr5hb5" class="citation-image" aria-label="MyGeneset.info: an interactive and programmatic platform for community-curated and user-created collections of genes">
+        <img src="" alt="MyGeneset.info: an interactive and programmatic platform for community-curated and user-created collections of genes" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
+      </a>
+    
+
+    <div class="citation-text">
+      
+      
+
+      <a href="https://doi.org/gr5hb5" class="citation-title">
+        MyGeneset.info: an interactive and programmatic platform for community-curated and user-created collections of genes
+      </a>
+
+      <div class="citation-authors" tabindex="0">
+        Ricardo Avila, Vincent Rubinetti, Xinghua Zhou, Dongbo Hu, Zhongchao Qian, Marco Alvarado Cano, Everaldo Rodolpho, Ginger Tsueng, Casey Greene, Chunlei Wu
+
+      </div>
+
+      <div class="citation-details">
+        <span class="citation-publisher">Nucleic Acids Research</span>
+         · 
+        <span class="citation-date">18 Apr 2023</span>
+         · 
+        <span class="citation-id">doi:10.1093/nar/gkad289</span>
+      </div>
+
+      
+        
+
+        
+
+        
+      
+    </div>
+  </div>
+</div>
+
+<div class="citation-container">
+  <div class="citation">
+    
       <a href="https://doi.org/gr56r8" class="citation-image" aria-label="Rapid and fully automated blood vasculature analysis in 3D light-sheet image volumes of different organs">
         <img src="/images/vessel.png" alt="Rapid and fully automated blood vasculature analysis in 3D light-sheet image volumes of different organs" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
       </a>
@@ -2253,6 +2282,46 @@
     
   </div>
 
+
+        
+      
+    </div>
+  </div>
+</div>
+
+<div class="citation-container">
+  <div class="citation">
+    
+      <a href="https://doi.org/grmcb9" class="citation-image" aria-label="Hetnet connectivity search provides rapid insights into how two biomedical entities are related">
+        <img src="" alt="Hetnet connectivity search provides rapid insights into how two biomedical entities are related" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
+      </a>
+    
+
+    <div class="citation-text">
+      
+      
+
+      <a href="https://doi.org/grmcb9" class="citation-title">
+        Hetnet connectivity search provides rapid insights into how two biomedical entities are related
+      </a>
+
+      <div class="citation-authors" data-tooltip="Daniel S. Himmelstein, Michael Zietz, Vincent Rubinetti, Kyle Kloster, Benjamin J. Heil, Faisal Alquaddoomi, Dongbo Hu, David N. Nicholson, Yun Hao, Blair D. Sullivan, Michael W. Nagle, Casey S. Greene" tabindex="0">
+        Daniel S. Himmelstein, Michael Zietz, Vincent Rubinetti, Kyle Kloster, Benjamin J. Heil, …, David N. Nicholson, Yun Hao, Blair D. Sullivan, Michael W. Nagle, Casey S. Greene
+
+      </div>
+
+      <div class="citation-details">
+        <span class="citation-publisher">Cold Spring Harbor Laboratory</span>
+         · 
+        <span class="citation-date">07 Jan 2023</span>
+         · 
+        <span class="citation-id">doi:10.1101/2023.01.05.522941</span>
+      </div>
+
+      
+        
+
+        
 
         
       
@@ -2444,8 +2513,8 @@
 <div class="citation-container">
   <div class="citation">
     
-      <a href="https://doi.org/g833x4" class="citation-image" aria-label="H-EMD: A Hierarchical Earth Mover s Distance Method for Instance Segmentation">
-        <img src="" alt="H-EMD: A Hierarchical Earth Mover s Distance Method for Instance Segmentation" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
+      <a href="https://doi.org/gsd85n" class="citation-image" aria-label="Hetnet connectivity search provides rapid insights into how biomedical entities are related">
+        <img src="" alt="Hetnet connectivity search provides rapid insights into how biomedical entities are related" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
       </a>
     
 
@@ -2453,21 +2522,21 @@
       
       
 
-      <a href="https://doi.org/g833x4" class="citation-title">
-        H-EMD: A Hierarchical Earth Mover’s Distance Method for Instance Segmentation
+      <a href="https://doi.org/gsd85n" class="citation-title">
+        Hetnet connectivity search provides rapid insights into how biomedical entities are related
       </a>
 
-      <div class="citation-authors" tabindex="0">
-        Peixian Liang, Yizhe Zhang, Yifan Ding, Jianxu Chen, Chinedu S. Madukoma, Tim Weninger, Joshua D. Shrout, Danny Z. Chen
+      <div class="citation-authors" data-tooltip="Daniel S Himmelstein, Michael Zietz, Vincent Rubinetti, Kyle Kloster, Benjamin J Heil, Faisal Alquaddoomi, Dongbo Hu, David N Nicholson, Yun Hao, Blair D Sullivan, Michael W Nagle, Casey S Greene" tabindex="0">
+        Daniel S Himmelstein, Michael Zietz, Vincent Rubinetti, Kyle Kloster, Benjamin J Heil, …, David N Nicholson, Yun Hao, Blair D Sullivan, Michael W Nagle, Casey S Greene
 
       </div>
 
       <div class="citation-details">
-        <span class="citation-publisher">IEEE Transactions on Medical Imaging</span>
+        <span class="citation-publisher">GigaScience</span>
          · 
-        <span class="citation-date">01 Oct 2022</span>
+        <span class="citation-date">28 Dec 2022</span>
          · 
-        <span class="citation-id">doi:10.1109/tmi.2022.3169449</span>
+        <span class="citation-id">doi:10.1093/gigascience/giad047</span>
       </div>
 
       
@@ -2484,8 +2553,8 @@
 <div class="citation-container">
   <div class="citation">
     
-      <a href="https://doi.org/grphbf" class="citation-image" aria-label="MMV Im2Im: An Open Source Microscopy Machine Vision Toolbox for Image-to-Image Transformation">
-        <img src="" alt="MMV Im2Im: An Open Source Microscopy Machine Vision Toolbox for Image-to-Image Transformation" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
+      <a href="https://doi.org/gstx7j" class="citation-image" aria-label="MolEvolvR: A web-app for characterizing proteins using molecular evolution and phylogeny">
+        <img src="" alt="MolEvolvR: A web-app for characterizing proteins using molecular evolution and phylogeny" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
       </a>
     
 
@@ -2493,21 +2562,21 @@
       
       
 
-      <a href="https://doi.org/grphbf" class="citation-title">
-        MMV_Im2Im: An Open Source Microscopy Machine Vision Toolbox for Image-to-Image Transformation
+      <a href="https://doi.org/gstx7j" class="citation-title">
+        MolEvolvR: A web-app for characterizing proteins using molecular evolution and phylogeny
       </a>
 
-      <div class="citation-authors" tabindex="0">
-        Justin Sonneck, Jianxu Chen
+      <div class="citation-authors" data-tooltip="Jacob D Krol, Joseph T Burke, Samuel Z Chen, Lo M Sosinski, Faisal S Alquaddoomi, Evan P Brenner, Ethan P Wolfe, Vincent P Rubinetti, Shaddai Amolitos, Kellen M Reason, John B Johnston, Janani Ravi" tabindex="0">
+        Jacob D Krol, Joseph T Burke, Samuel Z Chen, Lo M Sosinski, Faisal S Alquaddoomi, …, Vincent P Rubinetti, Shaddai Amolitos, Kellen M Reason, John B Johnston, Janani Ravi
 
       </div>
 
       <div class="citation-details">
-        <span class="citation-publisher">arXiv</span>
+        <span class="citation-publisher">Cold Spring Harbor Laboratory</span>
          · 
-        <span class="citation-date">01 Jan 2022</span>
+        <span class="citation-date">22 Feb 2022</span>
          · 
-        <span class="citation-id">doi:10.48550/ARXIV.2209.02498</span>
+        <span class="citation-id">doi:10.1101/2022.02.18.461833</span>
       </div>
 
       
@@ -2650,86 +2719,6 @@
 <div class="citation-container">
   <div class="citation">
     
-      <a href="https://doi.org/gkspnj" class="citation-image" aria-label="Unlabeled Data Guided Semi-supervised Histopathology Image Segmentation">
-        <img src="" alt="Unlabeled Data Guided Semi-supervised Histopathology Image Segmentation" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
-      </a>
-    
-
-    <div class="citation-text">
-      
-      
-
-      <a href="https://doi.org/gkspnj" class="citation-title">
-        Unlabeled Data Guided Semi-supervised Histopathology Image Segmentation
-      </a>
-
-      <div class="citation-authors" tabindex="0">
-        Hongxiao Wang, Hao Zheng, Jianxu Chen, Lin Yang, Yizhe Zhang, Danny Z. Chen
-
-      </div>
-
-      <div class="citation-details">
-        <span class="citation-publisher">2020 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)</span>
-         · 
-        <span class="citation-date">16 Dec 2020</span>
-         · 
-        <span class="citation-id">doi:10.1109/bibm49941.2020.9313428</span>
-      </div>
-
-      
-        
-
-        
-
-        
-      
-    </div>
-  </div>
-</div>
-
-<div class="citation-container">
-  <div class="citation">
-    
-      <a href="https://doi.org/gqdkdk" class="citation-image" aria-label="Robust integrated intracellular organization of the human iPS cell: where, how much, and how variable">
-        <img src="" alt="Robust integrated intracellular organization of the human iPS cell: where, how much, and how variable" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
-      </a>
-    
-
-    <div class="citation-text">
-      
-      
-
-      <a href="https://doi.org/gqdkdk" class="citation-title">
-        Robust integrated intracellular organization of the human iPS cell: where, how much, and how variable
-      </a>
-
-      <div class="citation-authors" data-tooltip="Matheus P. Viana, Jianxu Chen, Theo A. Knijnenburg, Ritvik Vasan, Calysta Yan, Joy E. Arakaki, Matte Bailey, Ben Berry, Antoine Borensztejn, Jackson M. Brown, Sara Carlson, Julie A. Cass, Basudev Chaudhuri, Kimberly R. Cordes Metzler, Mackenzie E. Coston, Zach J. Crabtree, Steve Davidson, Colette M. DeLizo, Shailja Dhaka, Stephanie Q. Dinh, Thao P. Do, Justin Domingus, Rory M. Donovan-Maiye, Tyler J. Foster, Christopher L. Frick, Griffin Fujioka, Margaret A. Fuqua, Jamie L. Gehring, Kaytlyn A. Gerbin, Tanya Grancharova, Benjamin W. Gregor, Lisa J. Harrylock, Amanda Haupt, Melissa C. Hendershott, Caroline Hookway, Alan R. Horwitz, Chris Hughes, Eric J. Isaac, Gregory R. Johnson, Brian Kim, Andrew N. Leonard, Winnie W. Leung, Jordan J. Lucas, Susan A. Ludmann, Blair M. Lyons, Haseeb Malik, Ryan McGregor, Gabe E. Medrash, Sean L. Meharry, Kevin Mitcham, Irina A. Mueller, Timothy L. Murphy-Stevens, Aditya Nath, Angelique M. Nelson, Luana Paleologu, T. Alexander Popiel, Megan M. Riel-Mehan, Brock Roberts, Lisa M. Schaefbauer, Magdalena Schwarzl, Jamie Sherman, Sylvain Slaton, M. Filip Sluzewski, Jacqueline E. Smith, Youngmee Sul, Madison J. Swain-Bowden, W. Joyce Tang, Derek J. Thirstrup, Daniel M. Toloudis, Andrew P. Tucker, Veronica Valencia, Winfried Wiegraebe, Thushara Wijeratna, Ruian Yang, Rebecca J. Zaunbrecher, Graham T. Johnson, Ruwanthi N. Gunawardane, Nathalie Gaudreault, Julie A. Theriot, Susanne M. Rafelski" tabindex="0">
-        Matheus P. Viana, Jianxu Chen, Theo A. Knijnenburg, Ritvik Vasan, Calysta Yan, …, Graham T. Johnson, Ruwanthi N. Gunawardane, Nathalie Gaudreault, Julie A. Theriot, Susanne M. Rafelski
-
-      </div>
-
-      <div class="citation-details">
-        <span class="citation-publisher">Cold Spring Harbor Laboratory</span>
-         · 
-        <span class="citation-date">10 Dec 2020</span>
-         · 
-        <span class="citation-id">doi:10.1101/2020.12.08.415562</span>
-      </div>
-
-      
-        
-
-        
-
-        
-      
-    </div>
-  </div>
-</div>
-
-<div class="citation-container">
-  <div class="citation">
-    
       <a href="https://doi.org/gkspnk" class="citation-image" aria-label="InTracker: An Integrated Detector-Tracker Framework for Cell Detection and Tracking">
         <img src="/images/tracking_vis.png" alt="InTracker: An Integrated Detector-Tracker Framework for Cell Detection and Tracking" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
       </a>
@@ -2783,8 +2772,8 @@
 <div class="citation-container">
   <div class="citation">
     
-      <a href="https://doi.org/gkspnk" class="citation-image" aria-label="InTracker: An Integrated Detector-Tracker Framework for Cell Detection and Tracking">
-        <img src="" alt="InTracker: An Integrated Detector-Tracker Framework for Cell Detection and Tracking" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
+      <a href="https://doi.org/gg2mjh" class="citation-image" aria-label="Compressing gene expression data using multiple latent space dimensionalities learns complementary biological representations">
+        <img src="" alt="Compressing gene expression data using multiple latent space dimensionalities learns complementary biological representations" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
       </a>
     
 
@@ -2792,21 +2781,21 @@
       
       
 
-      <a href="https://doi.org/gkspnk" class="citation-title">
-        InTracker: An Integrated Detector-Tracker Framework for Cell Detection and Tracking
+      <a href="https://doi.org/gg2mjh" class="citation-title">
+        Compressing gene expression data using multiple latent space dimensionalities learns complementary biological representations
       </a>
 
       <div class="citation-authors" tabindex="0">
-        Peixian Liang, Jianxu Chen, Yizhe Zhang, Hongxiao Wang, Hao Zheng, Pengfei Gu, Danny Chen
+        Gregory P. Way, Michael Zietz, Vincent Rubinetti, Daniel S. Himmelstein, Casey S. Greene
 
       </div>
 
       <div class="citation-details">
-        <span class="citation-publisher">2020 IEEE 33rd International Symposium on Computer-Based Medical Systems (CBMS)</span>
+        <span class="citation-publisher">Genome Biology</span>
          · 
-        <span class="citation-date">01 Jul 2020</span>
+        <span class="citation-date">11 May 2020</span>
          · 
-        <span class="citation-id">doi:10.1109/cbms49503.2020.00069</span>
+        <span class="citation-id">doi:10.1186/s13059-020-02021-3</span>
       </div>
 
       
@@ -2886,46 +2875,6 @@
 <div class="citation-container">
   <div class="citation">
     
-      <a href="https://doi.org/gktgdm" class="citation-image" aria-label="Single Cells Exhibit Differing Behavioral Phases during Early Stages of Pseudomonas aeruginosa Swarming">
-        <img src="" alt="Single Cells Exhibit Differing Behavioral Phases during Early Stages of Pseudomonas aeruginosa Swarming" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
-      </a>
-    
-
-    <div class="citation-text">
-      
-      
-
-      <a href="https://doi.org/gktgdm" class="citation-title">
-        Single Cells Exhibit Differing Behavioral Phases during Early Stages of Pseudomonas aeruginosa Swarming
-      </a>
-
-      <div class="citation-authors" tabindex="0">
-        Chinedu S. Madukoma, Peixian Liang, Aleksandar Dimkovikj, Jianxu Chen, Shaun W. Lee, Danny Z. Chen, Joshua D. Shrout
-
-      </div>
-
-      <div class="citation-details">
-        <span class="citation-publisher">Journal of Bacteriology</span>
-         · 
-        <span class="citation-date">01 Oct 2019</span>
-         · 
-        <span class="citation-id">doi:10.1128/jb.00184-19</span>
-      </div>
-
-      
-        
-
-        
-
-        
-      
-    </div>
-  </div>
-</div>
-
-<div class="citation-container">
-  <div class="citation">
-    
       <a href="https://doi.org/ghkj3s" class="citation-image" aria-label="Biomedical Image Segmentation via Representative Annotation">
         <img src="/images/representation.png" alt="Biomedical Image Segmentation via Representative Annotation" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
       </a>
@@ -2973,6 +2922,46 @@
     
   </div>
 
+
+        
+      
+    </div>
+  </div>
+</div>
+
+<div class="citation-container">
+  <div class="citation">
+    
+      <a href="https://doi.org/c7np" class="citation-image" aria-label="Open collaborative writing with Manubot">
+        <img src="" alt="Open collaborative writing with Manubot" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
+      </a>
+    
+
+    <div class="citation-text">
+      
+      
+
+      <a href="https://doi.org/c7np" class="citation-title">
+        Open collaborative writing with Manubot
+      </a>
+
+      <div class="citation-authors" tabindex="0">
+        Daniel S. Himmelstein, Vincent Rubinetti, David R. Slochower, Dongbo Hu, Venkat S. Malladi, Casey S. Greene, Anthony Gitter
+
+      </div>
+
+      <div class="citation-details">
+        <span class="citation-publisher">PLOS Computational Biology</span>
+         · 
+        <span class="citation-date">24 Jun 2019</span>
+         · 
+        <span class="citation-id">doi:10.1371/journal.pcbi.1007128</span>
+      </div>
+
+      
+        
+
+        
 
         
       
@@ -3040,8 +3029,8 @@
 <div class="citation-container">
   <div class="citation">
     
-      <a href="https://doi.org/gkspnn" class="citation-image" aria-label="Cascade Decoder: A Universal Decoding Method For Biomedical Image Segmentation">
-        <img src="" alt="Cascade Decoder: A Universal Decoding Method For Biomedical Image Segmentation" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
+      <a href="https://doi.org/gfxjxf" class="citation-image" aria-label="Sequential compression of gene expression across dimensionalities and methods reveals no single best method or dimensionality">
+        <img src="" alt="Sequential compression of gene expression across dimensionalities and methods reveals no single best method or dimensionality" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
       </a>
     
 
@@ -3049,21 +3038,21 @@
       
       
 
-      <a href="https://doi.org/gkspnn" class="citation-title">
-        Cascade Decoder: A Universal Decoding Method For Biomedical Image Segmentation
+      <a href="https://doi.org/gfxjxf" class="citation-title">
+        Sequential compression of gene expression across dimensionalities and methods reveals no single best method or dimensionality
       </a>
 
       <div class="citation-authors" tabindex="0">
-        Peixian Liang, Jianxu Chen, Hao Zheng, Lin Yang, Yizhe Zhang, Danny Z. Chen
+        Gregory P. Way, Michael Zietz, Vincent Rubinetti, Daniel S. Himmelstein, Casey S. Greene
 
       </div>
 
       <div class="citation-details">
-        <span class="citation-publisher">2019 IEEE 16th International Symposium on Biomedical Imaging (ISBI 2019)</span>
+        <span class="citation-publisher">Cold Spring Harbor Laboratory</span>
          · 
-        <span class="citation-date">01 Apr 2019</span>
+        <span class="citation-date">11 Mar 2019</span>
          · 
-        <span class="citation-id">doi:10.1109/isbi.2019.8759430</span>
+        <span class="citation-id">doi:10.1101/573782</span>
       </div>
 
       
@@ -3249,46 +3238,6 @@
 <div class="citation-container">
   <div class="citation">
     
-      <a href="https://doi.org/g833x5" class="citation-image" aria-label="Special section: Advances in artificial intelligence in biomedical image analysis">
-        <img src="" alt="Special section: Advances in artificial intelligence in biomedical image analysis" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
-      </a>
-    
-
-    <div class="citation-text">
-      
-      
-
-      <a href="https://doi.org/g833x5" class="citation-title">
-        Special section: Advances in artificial intelligence in biomedical image analysis
-      </a>
-
-      <div class="citation-authors" tabindex="0">
-        
-
-      </div>
-
-      <div class="citation-details">
-        <span class="citation-publisher">Australasian Physical &amp; Engineering Sciences in Medicine</span>
-         · 
-        <span class="citation-date">29 Nov 2018</span>
-         · 
-        <span class="citation-id">doi:10.1007/s13246-018-0703-2</span>
-      </div>
-
-      
-        
-
-        
-
-        
-      
-    </div>
-  </div>
-</div>
-
-<div class="citation-container">
-  <div class="citation">
-    
       <a href="https://doi.org/gkspqm" class="citation-image" aria-label="A new registration approach for dynamic analysis of calcium signals in organs">
         <img src="/images/isbi.png" alt="A new registration approach for dynamic analysis of calcium signals in organs" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
       </a>
@@ -3332,46 +3281,6 @@
     
   </div>
 
-
-        
-      
-    </div>
-  </div>
-</div>
-
-<div class="citation-container">
-  <div class="citation">
-    
-      <a href="https://doi.org/gkspqm" class="citation-image" aria-label="A new registration approach for dynamic analysis of calcium signals in organs">
-        <img src="" alt="A new registration approach for dynamic analysis of calcium signals in organs" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
-      </a>
-    
-
-    <div class="citation-text">
-      
-      
-
-      <a href="https://doi.org/gkspqm" class="citation-title">
-        A new registration approach for dynamic analysis of calcium signals in organs
-      </a>
-
-      <div class="citation-authors" tabindex="0">
-        Peixian Liang, Jianxu Chen, Pavel A. Brodskiy, Qinfeng Wu, Yejia Zhang, Yizhe Zhang, Lin Yang, Jeremiah J. Zartman, Danny Z. Chen
-
-      </div>
-
-      <div class="citation-details">
-        <span class="citation-publisher">2018 IEEE 15th International Symposium on Biomedical Imaging (ISBI 2018)</span>
-         · 
-        <span class="citation-date">01 Apr 2018</span>
-         · 
-        <span class="citation-id">doi:10.1109/isbi.2018.8363724</span>
-      </div>
-
-      
-        
-
-        
 
         
       
@@ -3494,6 +3403,63 @@
 <div class="citation-container">
   <div class="citation">
     
+      <a href="https://doi.org/gktgds" class="citation-image" aria-label="Deep Adversarial Networks for Biomedical Image Segmentation Utilizing Unannotated Images">
+        <img src="/images/MICCAI.png" alt="Deep Adversarial Networks for Biomedical Image Segmentation Utilizing Unannotated Images" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
+      </a>
+    
+
+    <div class="citation-text">
+      
+      
+
+      <a href="https://doi.org/gktgds" class="citation-title">
+        Deep Adversarial Networks for Biomedical Image Segmentation Utilizing Unannotated Images
+      </a>
+
+      <div class="citation-authors" tabindex="0">
+        Yizhe Zhang, Lin Yang, Jianxu Chen, Maridel Fredericksen, David P. Hughes, Danny Z. Chen
+
+      </div>
+
+      <div class="citation-details">
+        <span class="citation-publisher">MICCAI Conference</span>
+         · 
+        <span class="citation-date">01 Jan 2017</span>
+         · 
+        <span class="citation-id">doi:10.1007/978-3-319-66179-7_47</span>
+      </div>
+
+      
+        
+
+        
+
+        
+          
+
+
+  <div class="tags" data-link="/research/">
+    
+      <a href="/research/?search=%22tag:%20image-segmentation%22" class="tag" data-tooltip='Show items with the tag "image-segmentation"'>
+        image-segmentation
+      </a>
+    
+      <a href="/research/?search=%22tag:%20unlabeled-data%22" class="tag" data-tooltip='Show items with the tag "unlabeled-data"'>
+        unlabeled-data
+      </a>
+    
+  </div>
+
+
+        
+      
+    </div>
+  </div>
+</div>
+
+<div class="citation-container">
+  <div class="citation">
+    
       <a href="https://doi.org/gkqs4p" class="citation-image" aria-label="Suggestive Annotation: A Deep Active Learning Framework for Biomedical Image Segmentation">
         <img src="/images/MICCAI.png" alt="Suggestive Annotation: A Deep Active Learning Framework for Biomedical Image Segmentation" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
       </a>
@@ -3601,63 +3567,6 @@
   </div>
 </div>
 
-<div class="citation-container">
-  <div class="citation">
-    
-      <a href="https://doi.org/gktgds" class="citation-image" aria-label="Deep Adversarial Networks for Biomedical Image Segmentation Utilizing Unannotated Images">
-        <img src="/images/MICCAI.png" alt="Deep Adversarial Networks for Biomedical Image Segmentation Utilizing Unannotated Images" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
-      </a>
-    
-
-    <div class="citation-text">
-      
-      
-
-      <a href="https://doi.org/gktgds" class="citation-title">
-        Deep Adversarial Networks for Biomedical Image Segmentation Utilizing Unannotated Images
-      </a>
-
-      <div class="citation-authors" tabindex="0">
-        Yizhe Zhang, Lin Yang, Jianxu Chen, Maridel Fredericksen, David P. Hughes, Danny Z. Chen
-
-      </div>
-
-      <div class="citation-details">
-        <span class="citation-publisher">MICCAI Conference</span>
-         · 
-        <span class="citation-date">01 Jan 2017</span>
-         · 
-        <span class="citation-id">doi:10.1007/978-3-319-66179-7_47</span>
-      </div>
-
-      
-        
-
-        
-
-        
-          
-
-
-  <div class="tags" data-link="/research/">
-    
-      <a href="/research/?search=%22tag:%20image-segmentation%22" class="tag" data-tooltip='Show items with the tag "image-segmentation"'>
-        image-segmentation
-      </a>
-    
-      <a href="/research/?search=%22tag:%20unlabeled-data%22" class="tag" data-tooltip='Show items with the tag "unlabeled-data"'>
-        unlabeled-data
-      </a>
-    
-  </div>
-
-
-        
-      
-    </div>
-  </div>
-</div>
-
 <h3 id="2016">2016</h3>
 
 <div class="citation-container">
@@ -3686,7 +3595,7 @@
          · 
         <span class="citation-date">05 Dec 2016</span>
          · 
-        <span class="citation-id">url:https://papers.nips.cc/paper/2016/hash/4dcf435435894a4d0972046fc566af76-Abstract.html</span>
+        <span class="citation-id">[no id info]</span>
       </div>
 
       
@@ -3830,46 +3739,6 @@
 <div class="citation-container">
   <div class="citation">
     
-      <a href="https://doi.org/gktgdr" class="citation-image" aria-label="Kinetic Transition Networks for the Thomson Problem and Smale s Seventh Problem">
-        <img src="" alt="Kinetic Transition Networks for the Thomson Problem and Smale s Seventh Problem" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
-      </a>
-    
-
-    <div class="citation-text">
-      
-      
-
-      <a href="https://doi.org/gktgdr" class="citation-title">
-        Kinetic Transition Networks for the Thomson Problem and Smale’s Seventh Problem
-      </a>
-
-      <div class="citation-authors" tabindex="0">
-        Dhagash Mehta, Jianxu Chen, Danny Z. Chen, Halim Kusumaatmaja, David J. Wales
-
-      </div>
-
-      <div class="citation-details">
-        <span class="citation-publisher">Physical Review Letters</span>
-         · 
-        <span class="citation-date">06 Jul 2016</span>
-         · 
-        <span class="citation-id">doi:10.1103/physrevlett.117.028301</span>
-      </div>
-
-      
-        
-
-        
-
-        
-      
-    </div>
-  </div>
-</div>
-
-<div class="citation-container">
-  <div class="citation">
-    
       <a href="https://doi.org/f8jtrt" class="citation-image" aria-label="Iris Recognition Based on Human-Interpretable Features">
         <img src="/images/iris.png" alt="Iris Recognition Based on Human-Interpretable Features" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
       </a>
@@ -3931,46 +3800,6 @@
 <div class="citation-container">
   <div class="citation">
     
-      <a href="https://doi.org/f8jtrt" class="citation-image" aria-label="Iris Recognition Based on Human-Interpretable Features">
-        <img src="" alt="Iris Recognition Based on Human-Interpretable Features" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
-      </a>
-    
-
-    <div class="citation-text">
-      
-      
-
-      <a href="https://doi.org/f8jtrt" class="citation-title">
-        Iris Recognition Based on Human-Interpretable Features
-      </a>
-
-      <div class="citation-authors" tabindex="0">
-        Jianxu Chen, Feng Shen, Danny Ziyi Chen, Patrick J. Flynn
-
-      </div>
-
-      <div class="citation-details">
-        <span class="citation-publisher">IEEE Transactions on Information Forensics and Security</span>
-         · 
-        <span class="citation-date">01 Jul 2016</span>
-         · 
-        <span class="citation-id">doi:10.1109/tifs.2016.2535901</span>
-      </div>
-
-      
-        
-
-        
-
-        
-      
-    </div>
-  </div>
-</div>
-
-<div class="citation-container">
-  <div class="citation">
-    
       <a href="https://doi.org/gktgvp" class="citation-image" aria-label="Segmentation and tracking of Pseudomonas aeruginosa for cell dynamics analysis in time-lapse images">
         <img src="/images/pseudo.png" alt="Segmentation and tracking of Pseudomonas aeruginosa for cell dynamics analysis in time-lapse images" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
       </a>
@@ -4018,86 +3847,6 @@
     
   </div>
 
-
-        
-      
-    </div>
-  </div>
-</div>
-
-<div class="citation-container">
-  <div class="citation">
-    
-      <a href="https://doi.org/gktgvp" class="citation-image" aria-label="Segmentation and tracking of Pseudomonas aeruginosa for cell dynamics analysis in time-lapse images">
-        <img src="" alt="Segmentation and tracking of Pseudomonas aeruginosa for cell dynamics analysis in time-lapse images" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
-      </a>
-    
-
-    <div class="citation-text">
-      
-      
-
-      <a href="https://doi.org/gktgvp" class="citation-title">
-        Segmentation and tracking of Pseudomonas aeruginosa for cell dynamics analysis in time-lapse images
-      </a>
-
-      <div class="citation-authors" tabindex="0">
-        Jianxu Chen, Yiqing Cai, Chen Wei, Lin Yang, Mark S. Alber, Danny Z. Chen
-
-      </div>
-
-      <div class="citation-details">
-        <span class="citation-publisher">2016 IEEE 13th International Symposium on Biomedical Imaging (ISBI)</span>
-         · 
-        <span class="citation-date">01 Apr 2016</span>
-         · 
-        <span class="citation-id">doi:10.1109/isbi.2016.7493426</span>
-      </div>
-
-      
-        
-
-        
-
-        
-      
-    </div>
-  </div>
-</div>
-
-<div class="citation-container">
-  <div class="citation">
-    
-      <a href="https://doi.org/g833x6" class="citation-image" aria-label="Automatic Lymphocyte Detection in H amp;E Images with Deep Neural Networks">
-        <img src="" alt="Automatic Lymphocyte Detection in H amp;E Images with Deep Neural Networks" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
-      </a>
-    
-
-    <div class="citation-text">
-      
-      
-
-      <a href="https://doi.org/g833x6" class="citation-title">
-        Automatic Lymphocyte Detection in H&amp;E Images with Deep Neural Networks
-      </a>
-
-      <div class="citation-authors" tabindex="0">
-        Jianxu Chen, Chukka Srinivas
-
-      </div>
-
-      <div class="citation-details">
-        <span class="citation-publisher">arXiv</span>
-         · 
-        <span class="citation-date">01 Jan 2016</span>
-         · 
-        <span class="citation-id">doi:10.48550/ARXIV.1612.03217</span>
-      </div>
-
-      
-        
-
-        
 
         
       
@@ -4273,46 +4022,6 @@
     
   </div>
 
-
-        
-      
-    </div>
-  </div>
-</div>
-
-<div class="citation-container">
-  <div class="citation">
-    
-      <a href="https://doi.org/gktgvt" class="citation-image" aria-label="An Automated Approach for Fibrin Network Segmentation and Structure Identification in 3D Confocal Microscopy Images">
-        <img src="" alt="An Automated Approach for Fibrin Network Segmentation and Structure Identification in 3D Confocal Microscopy Images" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
-      </a>
-    
-
-    <div class="citation-text">
-      
-      
-
-      <a href="https://doi.org/gktgvt" class="citation-title">
-        An Automated Approach for Fibrin Network Segmentation and Structure Identification in 3D Confocal Microscopy Images
-      </a>
-
-      <div class="citation-authors" tabindex="0">
-        Jianxu Chen, Oleg V. Kim, Rustem I. Litvinov, John W. Weisel, Mark S. Alber, Danny Z. Chen
-
-      </div>
-
-      <div class="citation-details">
-        <span class="citation-publisher">2014 IEEE 27th International Symposium on Computer-Based Medical Systems</span>
-         · 
-        <span class="citation-date">01 May 2014</span>
-         · 
-        <span class="citation-id">doi:10.1109/cbms.2014.62</span>
-      </div>
-
-      
-        
-
-        
 
         
       
