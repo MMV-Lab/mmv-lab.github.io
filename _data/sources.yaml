@@ -21,6 +21,17 @@
     - visualization
     - multisensory XR
 
+- id: doi:10.1609/aaai.v39i10.33116
+  image: ../images/nuc_mamba.png
+  tags:
+    - image segmentation
+    - deep learning
+
+- id: doi:10.4230/DagRep.14.1.90
+  image: ../images/Dagstuhl.png
+  tags:
+    - image analysis validation
+
 - id: doi:10.1007/s10278-024-01094-x
   image: ../images/haptic.png
   tags:
