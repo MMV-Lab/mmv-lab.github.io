@@ -12,7 +12,7 @@ We are building a team with diverse background and expertises, from software eni
 
 {% include section.html %}
 
-{% include list.html data="members" component="portrait" filter="role == 'pi'" %}
+{% include list.html data="members" component="portrait" filter="role == 'principal-investigator'" %}
 {% include list.html data="members" component="portrait" filter="role == 'postdoc'" %}
 {% include list.html data="members" component="portrait" filter="role == 'phd'" %}
 {% include list.html data="members" component="portrait" filter="role == 'programmer'" %}
@@ -45,6 +45,7 @@ JOIN US!!
 {% include figure.html image="images/group_2.jpg" caption="2023 summer team-game event"%}
 {% include figure.html image="images/group_3.jpg" caption="2023 winter gathering at Christmas market"%}
 {% include figure.html image="images/group_4.jpg" caption="2024 summer retreat in Essen"%}
+{% include figure.html image="images/group_5.jpg" caption="2025 Spring in front of our institute"%}
 
 {% endcapture %}
 
