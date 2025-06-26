@@ -38,6 +38,179 @@
   - multisensory XR
   plugin: sources.py
   file: sources.yaml
+- id: doi:10.1038/s44303-025-00092-0
+  title: Rethinking deep learning in bioimaging through a data centric lens
+  authors:
+  - Jiajun Cao
+  - Jan Wenzel
+  - Shanghang Zhang
+  - Josephine Lampe
+  - Hongxiao Wang
+  - Jiachen Yao
+  - Zhicheng Zhang
+  - Shuo Zhao
+  - Yu Zhou
+  - Chao Chen
+  - Markus Schwaninger
+  - Jufeng Yang
+  - Danny Z. Chen
+  - Jianxu Chen
+  publisher: npj Imaging
+  date: '2025-06-26'
+  link: https://doi.org/g9rhg8
+  image: ../images/datacentric.png
+  tags:
+  - deep learning
+  - validation
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1101/2025.06.12.659342
+  title: Uncertainty-aware quantitative analysis of high-throughput live cell migration
+    data
+  authors:
+  - Simo Kitanovski
+  - Shannon Conroy
+  - Justin Sonneck
+  - Madeleine Dorsch
+  - Sebastian Urban
+  - Jianxu Chen
+  - "Barbara M. Gr\xFCner"
+  - Daniel Hoffmann
+  publisher: Cold Spring Harbor Laboratory
+  date: '2025-06-17'
+  link: https://doi.org/g9rhg9
+  image: ../images/motion.png
+  tags:
+  - cell tracking
+  - cell biology
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1021/acs.analchem.5c01513
+  title: 'MSI-Explorer: Napari-Powered Tool for Mass Spectrometry Imaging Data Analysis'
+  authors:
+  - Nay Min Min Thaw Saw
+  - Lennart Kowitz
+  - Peter Lampen
+  - Siva Swapna Kasarla
+  - Antonia Fecke
+  - Jianxu Chen
+  - Prasad Phapale
+  publisher: Analytical Chemistry
+  date: '2025-06-06'
+  link: https://doi.org/g9rhhb
+  image: ../images/msi_explore.png
+  tags:
+  - napari
+  - MSI
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1007/978-3-658-47422-5_48
+  title: Active Learning Pipeline for Biomedical Image Instance Segmentation with
+    Minimal Human Intervention
+  authors:
+  - Shuo Zhao
+  - Yu Zhou
+  - Jianxu Chen
+  publisher: Informatik aktuell
+  date: '2025-01-01'
+  link: https://doi.org/g9rhhc
+  image: ../images/active_learning_pipeline.png
+  tags:
+  - active learning
+  - image segmentation
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1093/jleuko/qiae250
+  title: 'Risk beyond neutropenia: insights into neutrophil migration from newly diagnosed
+    AML until late after allogeneic stem cell transplantation'
+  authors:
+  - "Z\xFClal Cibir"
+  - Alexander Beer
+  - Andreas Kraus
+  - Aleksandra Pillibeit
+  - Dana Bludau
+  - Haji Abdulla
+  - Nina Rosa Neuendorff
+  - Justin Sonneck
+  - Lennart Kowitz
+  - Stefanie Riese
+  - Ali Ata Tuz
+  - Jianxu Chen
+  - Maxim Cherneha
+  - Dietrich W Beelen
+  - H Christian Reinhardt
+  - Matthias Gunzer
+  - Amin T Turki
+  publisher: Journal of Leukocyte Biology
+  date: '2025-02-01'
+  link: https://doi.org/g9rhhd
+  image: ../images/neutrophil_risk.png
+  tags:
+  - cell tracking
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.21203/rs.3.rs-5853941/v1
+  title: 'Leonardo: A Toolset to Remove Sample-Induced Aberrations in Light Sheet
+    Microscopy Images'
+  authors:
+  - Tingying Peng
+  - Yu Liu
+  - "Gesine M\xFCller"
+  - Lennart Kowitz
+  - Tomas Chobola
+  - Kurt Weiss
+  - Paul Maier
+  - Jie Luo
+  - "Malte Roe\xDFing"
+  - Martin Stenzel
+  - "Anika Gr\xFCneboom"
+  - Johannes Paetzold
+  - "Ali Ert\xFCrk"
+  - Nassir Navab
+  - Carsten Marr
+  - Jianxu Chen
+  - Jan Huisken
+  publisher: Springer Science and Business Media LLC
+  date: '2025-01-24'
+  link: https://doi.org/g9rhhf
+  image: ../images/leonardo.png
+  tags:
+  - LSFM
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1186/s12974-025-03356-z
+  title: Inhibition of tumour necrosis factor alpha by Etanercept attenuates Shiga
+    toxin-induced brain pathology
+  authors:
+  - Robin Christ
+  - Devon Siemes
+  - Shuo Zhao
+  - Lars Widera
+  - Philippa Spangenberg
+  - Julia Lill
+  - Stephanie Thiebes
+  - Jenny Bottek
+  - Lars Borgards
+  - Andreia G. Pinho
+  - Nuno A. Silva
+  - Susana Monteiro
+  - Selina K. Jorch
+  - Matthias Gunzer
+  - Bente Siebels
+  - Hannah Voss
+  - "Hartmut Schl\xFCter"
+  - Olga Shevchuk
+  - Jianxu Chen
+  - Daniel R. Engel
+  publisher: Journal of Neuroinflammation
+  date: '2025-02-07'
+  link: https://doi.org/g9rhhg
+  image: ../images/brain_seg.png
+  tags:
+  - active learning
+  - image segmentation
+  plugin: sources.py
+  file: sources.yaml
 - id: doi:10.1609/aaai.v39i10.33116
   title: Category Prompt Mamba Network for Nuclei Segmentation and Classification
   authors:
