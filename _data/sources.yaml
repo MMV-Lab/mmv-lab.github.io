@@ -39,6 +39,12 @@
     - napari
     - MSI
 
+- id: doi:10.1016/j.bpj.2024.11.3305
+  image: ../images/nuc.png
+  tags:
+    - deep learning
+    - open-source software
+
 - id: doi:10.1007/978-3-658-47422-5_48
   image: ../images/active_learning_pipeline.png
   tags:
