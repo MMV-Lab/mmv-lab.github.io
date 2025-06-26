@@ -21,6 +21,46 @@
     - visualization
     - multisensory XR
 
+- id: doi:10.1038/s44303-025-00092-0
+  image: ../images/datacentric.png
+  tags:
+    - deep learning
+    - validation
+
+- id: doi:10.1101/2025.06.12.659342
+  image: ../images/motion.png
+  tags:
+    - cell tracking
+    - cell biology
+
+- id: doi:10.1021/acs.analchem.5c01513
+  image: ../images/msi_explore.png
+  tags:
+    - napari
+    - MSI
+
+- id: doi:10.1007/978-3-658-47422-5_48
+  image: ../images/active_learning_pipeline.png
+  tags:
+    - active learning
+    - image segmentation
+
+- id: doi:10.1093/jleuko/qiae250
+  image: ../images/neutrophil_risk.png
+  tags:
+    - cell tracking
+
+- id: doi:10.21203/rs.3.rs-5853941/v1
+  image: ../images/leonardo.png
+  tags:
+    - LSFM
+
+- id: doi:10.1186/s12974-025-03356-z
+  image: ../images/brain_seg.png
+  tags:
+    - active learning
+    - image segmentation
+
 - id: doi:10.1609/aaai.v39i10.33116
   image: ../images/nuc_mamba.png
   tags:
