@@ -1,3 +1,18 @@
+- id: doi:10.1038/s43588-025-00889-4
+  image: ../images/hand.png
+  tags:
+    - image compression
+    - deep learning
+    - implicit neural representation
+
+- id: doi:10.1038/s44303-025-00117-8
+  image: ../images/autoqc.png
+  tags:
+    - diffusion models
+    - microscopy quality control
+    - anomaly detection
+    - benchmark
+
 - title: The Four Color Theorem for Cell Instance Segmentation
   authors:
     - Y. Zhang
@@ -118,15 +133,6 @@
   tags:
     - image compression
     - deep learning
-  published: arXiv
-
-- id: doi:10.48550/arXiv.2405.19012
-  image: ../images/INIF.jpg
-  tags:
-    - image compression
-    - deep learning
-    - implicit neural representation
-  publisher: arXiv
 
 - id: doi:10.1109/ISBI56570.2024.10635298
   image: ../images/lightmycell.jpg
@@ -163,13 +169,12 @@
     - image segmentation
     - image analysis validation
 
-- id: doi:10.48550/arXiv.2308.16139
+- id: doi:10.1515/bmt-2024-0396
   image: ../images/medshapenet.png
   tags:
     - medical imaging
     - deep learning
     - visualization
-  publisher: arXiv
 
 - id: doi:10.48550/arXiv.2308.05695
   image: ../images/diffusion.png
