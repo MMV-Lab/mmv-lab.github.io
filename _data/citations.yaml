@@ -104,6 +104,32 @@
   - MSI
   plugin: sources.py
   file: sources.yaml
+- id: doi:10.1016/j.bpj.2024.11.3305
+  title: BPS2025 - Enhancing microscopy image analysis with streamlined deep learning-based
+    3D segmentation
+  authors:
+  - Suraj Mishra
+  - Sandra Oluoch
+  - Benjamin Morris
+  - Amil Khan
+  - Brian Kim
+  - Chris Hughes
+  - Daniel Saelid
+  - Thao Do
+  - Ritvik Vasan
+  - Jianxu Chen
+  - Matheus Palhares Viana
+  - Graham Johnson
+  - Susanne M. Rafelski
+  publisher: Biophysical Journal
+  date: '2025-02-01'
+  link: https://doi.org/g9rhmv
+  image: ../images/nuc.png
+  tags:
+  - deep learning
+  - open-source software
+  plugin: sources.py
+  file: sources.yaml
 - id: doi:10.1007/978-3-658-47422-5_48
   title: Active Learning Pipeline for Biomedical Image Instance Segmentation with
     Minimal Human Intervention
