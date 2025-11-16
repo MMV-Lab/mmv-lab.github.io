@@ -26,7 +26,7 @@
   group: software
   image: images/vessel.png
   link: https://github.com/MMV-Lab/VesselExpress
-  description: A toolbox for apid vasculature analysis in 3D LSFM
+  description: A toolbox for rapid vasculature analysis in 3D LSFM
 
 - name: SOFTWARE - 3D cell cycle classifier
   group: previous
