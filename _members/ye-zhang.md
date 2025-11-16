@@ -2,7 +2,7 @@
 name: Ye Zhang
 image: images/unknow.png
 description: Visiting Scholar
-role: visit
+role: visit_past
 aliases:
   - Y. Zhang
   - Ye

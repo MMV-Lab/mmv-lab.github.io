@@ -2,7 +2,7 @@
 name: Adrian Morgan Sebuliba
 image: images/unknow.png
 description: Software Engineer
-role: programmer
+role: programmer_past
 aliases:
   - A. Sebuliba
   - Adrian
@@ -12,4 +12,4 @@ links:
   twitter: TBA
 ---
 
-under construction
+Adrian was a software engineer at AMBIOM and built the early prototype of AMBIOM data portal.

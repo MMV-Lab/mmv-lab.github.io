@@ -2,7 +2,7 @@
 name: Kathrin Krieger
 image: images/unknow.png
 description: Postdoc Researcher
-role: postdoc
+role: postdoc_past
 aliases:
   - K. Krieger
   - Kathrin
