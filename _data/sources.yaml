@@ -1,3 +1,38 @@
+- id: doi:10.1109/BIBM66473.2025.11356626
+  image: ../images/bibm_exit.png
+  tags:
+    - quality control
+    - outlier detection
+
+- id: doi:10.1109/BIBM66473.2025.11356754
+  image: ../images/bibm_efficiency.png
+  tags:
+    - image segmentation
+    - active learning
+
+- id: doi:10.1109/BIBM66473.2025.11356914
+  image: ../images/bibm_anom.png
+  tags:
+    - image segmentation
+    - anomaly detection
+
+- id: doi:10.1109/TMI.2025.3621093
+  image: ../images/segdevil.png
+  tags:
+    - image segmentation
+    - deep learning
+
+- id: doi:10.1371/journal.pcbi.1014472
+  image: ../images/motion.png
+  tags:
+    - cell tracking
+    - cell biology
+
+- id: doi:10.1038/s44303-026-00178-3
+  image: ../images/flowroi.png
+  tags:
+    - image compression
+
 - id: doi:10.1038/s43588-025-00889-4
   image: ../images/INIF.jpg
   tags:
@@ -41,12 +76,6 @@
   tags:
     - deep learning
     - validation
-
-- id: doi:10.1101/2025.06.12.659342
-  image: ../images/motion.png
-  tags:
-    - cell tracking
-    - cell biology
 
 - id: doi:10.1021/acs.analchem.5c01513
   image: ../images/msi_explore.png
