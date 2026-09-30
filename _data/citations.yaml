@@ -1,5 +1,133 @@
 # DO NOT EDIT, GENERATED AUTOMATICALLY
 
+- id: doi:10.1109/BIBM66473.2025.11356626
+  title: Multi-Exit Class Activation Map Guided Feature Masking for Unsupervised Out-of-Distribution
+    Detection in Medical Imaging
+  authors:
+  - Zixuan Pan
+  - Yu-Jen Chen
+  - Jun Xia
+  - Max Ficco
+  - Jianxu Chen
+  - Tsung-Yi Ho
+  - Yiyu Shi
+  publisher: 2025 IEEE International Conference on Bioinformatics and Biomedicine
+    (BIBM)
+  date: '2025-12-15'
+  link: https://doi.org/hck3ph
+  image: ../images/bibm_exit.png
+  tags:
+  - quality control
+  - outlier detection
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1109/BIBM66473.2025.11356754
+  title: 'Data Efficiency and Transfer Robustness in Biomedical Image Segmentation:
+    A Study of Redundancy and Forgetting with Cellpose'
+  authors:
+  - Shuo Zhao
+  - Jianxu Chen
+  publisher: 2025 IEEE International Conference on Bioinformatics and Biomedicine
+    (BIBM)
+  date: '2025-12-15'
+  link: https://doi.org/hck3pk
+  image: ../images/bibm_efficiency.png
+  tags:
+  - image segmentation
+  - active learning
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1109/BIBM66473.2025.11356914
+  title: 'Rethinking Medical Anomaly Detection in Brain MRI: An Image Quality Assessment
+    Perspective'
+  authors:
+  - Zixuan Pan
+  - Jun Xia
+  - Zheyu Yan
+  - Guoyue Xu
+  - Yifan Qin
+  - Xueyang Li
+  - Yawen Wu
+  - Zhenge Jia
+  - Jianxu Chen
+  - Yiyu Shi
+  publisher: 2025 IEEE International Conference on Bioinformatics and Biomedicine
+    (BIBM)
+  date: '2025-12-15'
+  link: https://doi.org/hck3pn
+  image: ../images/bibm_anom.png
+  tags:
+  - image segmentation
+  - anomaly detection
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1109/TMI.2025.3621093
+  title: 'Cell Instance Segmentation: The Devil Is in the Boundaries'
+  authors:
+  - Peixian Liang
+  - Yifan Ding
+  - Yizhe Zhang
+  - Jianxu Chen
+  - Hao Zheng
+  - Hongxiao Wang
+  - Yejia Zhang
+  - Guangyu Meng
+  - Tim Weninger
+  - Michael Niemier
+  - X. Sharon Hu
+  - Danny Z. Chen
+  publisher: IEEE Transactions on Medical Imaging
+  date: '2026-04-01'
+  link: https://doi.org/hck3pq
+  image: ../images/segdevil.png
+  tags:
+  - image segmentation
+  - deep learning
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1371/journal.pcbi.1014472
+  title: Uncertainty-aware quantitative analysis of high-throughput live cell migration
+    data
+  authors:
+  - Simo Kitanovski
+  - Shannon Conroy
+  - Justin Sonneck
+  - Lukas Claas
+  - Madeleine Dorsch
+  - Sebastian Urban
+  - Jianxu Chen
+  - Markus Kaiser
+  - "Barbara M. Gr\xFCner"
+  - Daniel Hoffmann
+  publisher: PLOS Computational Biology
+  date: '2026-07-13'
+  link: https://doi.org/hck3pr
+  image: ../images/motion.png
+  tags:
+  - cell tracking
+  - cell biology
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1038/s44303-026-00178-3
+  title: 'FlowRoI: fast optical-flow-based Roi extraction for high-throughput immune
+    cell image compression'
+  authors:
+  - Xiaowei Xu
+  - Justin Sonneck
+  - Hongxiao Wang
+  - Roman Burkard
+  - "Hendrik W\xF6hrle"
+  - Anton Grabmaier
+  - Matthias Gunzer
+  - Jianxu Chen
+  publisher: npj Imaging
+  date: '2026-07-11'
+  link: https://doi.org/hck3ps
+  image: ../images/flowroi.png
+  tags:
+  - image compression
+  plugin: sources.py
+  file: sources.yaml
 - id: doi:10.1038/s43588-025-00889-4
   title: Implicit neural image field for biological microscopy image compression
   authors:
@@ -110,27 +238,6 @@
   tags:
   - deep learning
   - validation
-  plugin: sources.py
-  file: sources.yaml
-- id: doi:10.1101/2025.06.12.659342
-  title: Uncertainty-aware quantitative analysis of high-throughput live cell migration
-    data
-  authors:
-  - Simo Kitanovski
-  - Shannon Conroy
-  - Justin Sonneck
-  - Madeleine Dorsch
-  - Sebastian Urban
-  - Jianxu Chen
-  - "Barbara M. Gr\xFCner"
-  - Daniel Hoffmann
-  publisher: Cold Spring Harbor Laboratory
-  date: '2025-06-17'
-  link: https://doi.org/g9rhg9
-  image: ../images/motion.png
-  tags:
-  - cell tracking
-  - cell biology
   plugin: sources.py
   file: sources.yaml
 - id: doi:10.1021/acs.analchem.5c01513
@@ -311,7 +418,7 @@
   - Florian Jug
   - Susanne Rafelski
   - Shanghang Zhang
-  publisher: "Schloss Dagstuhl \u2013 Leibniz-Zentrum f\xFCr Informatik"
+  publisher: Dagstuhl Reports (DagRep)
   date: '2024-01-01'
   link: https://doi.org/g9rbhb
   image: ../images/Dagstuhl.png
@@ -589,8 +696,8 @@
   plugin: sources.py
   file: sources.yaml
 - id: doi:10.1515/bmt-2024-0396
-  title: "<i>MedShapeNet</i>\_\u2013 a large-scale dataset of 3D medical shapes for\
-    \ computer vision"
+  title: "<i>MedShapeNet</i>\n                    \_\u2013 a large-scale dataset of\
+    \ 3D medical shapes for computer vision"
   authors:
   - Jianning Li
   - Zongwei Zhou
