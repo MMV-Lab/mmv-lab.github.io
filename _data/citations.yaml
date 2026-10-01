@@ -1,5 +1,184 @@
 # DO NOT EDIT, GENERATED AUTOMATICALLY
 
+- id: doi:10.1080/07366205.2026.2730974
+  title: Recent advances in deep learning for biological microscopy image analysis
+    beyond segmentation
+  authors:
+  - Kewen Cao
+  - Chenbo Gao
+  - Xiaohui Zhang
+  - Xianli Pan
+  - Jianxu Chen
+  - Hongxiao Wang
+  publisher: BioTechniques
+  date: '2026-09-12'
+  link: https://doi.org/hck8kf
+  image: ../images/bioreview.png
+  tags:
+  - bioimage analysis
+  - deep learning
+  - survey
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1038/s41592-026-03130-w
+  title: Search, organize, aggregate and share image data with BioFile Finder (BFF)
+  authors:
+  - Sean L. Meharry
+  - Antoine Borensztejn
+  - Nathalie Gaudreault
+  - Jordan Lucas
+  - Gabe Medrash
+  - Lisa Schaefbauer
+  - Daniel Toloudis
+  - Anya Wallace
+  - Brian Whitney
+  - Lyndsay Wilhelm
+  - Yoav Ben-Simon
+  - Jean-Marie Burel
+  - Jianxu Chen
+  - Kevin W. Eliceiri
+  - "Anika Gr\xFCneboom"
+  - Koji Kyoda
+  - Josh Moore
+  - William Moore
+  - Shuichi Onami
+  - Davide Panzeri
+  - Curtis T. Rueden
+  - Bosiljka Tasic
+  - Graham T. Johnson
+  publisher: Nature Methods
+  date: '2026-06-15'
+  link: https://doi.org/hck8kg
+  image: ../images/bff.png
+  tags:
+  - microscopy data management
+  - infrastructure
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1145/3807503.3819478
+  title: 'Beyond Binning: Resolution-Preserving MS1 Pretraining for Clinical Proteomics
+    Classification'
+  authors:
+  - Yu Zhou
+  - Vladimir Vutov
+  - Susmita Ghosh
+  - Fabienne Meier-Abt
+  - Sibylle Pfammatter
+  - Sandra Kummer
+  - Odit Gutwein
+  - Rosary Yao
+  - Thorsten Zenz
+  - Matthias Gunzer
+  - Junyan Lu
+  - Jianxu Chen
+  publisher: Proceedings of the 17th ACM International Conference on Bioinformatics,
+    Computational Biology and Health Informatics
+  date: '2026-06-30'
+  link: https://doi.org/hck8kh
+  image: ../images/binning.png
+  tags:
+  - bioinformatics
+  - pretraining
+  - mass spectrometry
+  - proteomics
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.48550/arXiv.2606.02080
+  title: 'Agentic-J: An AI Agent for Biological Microscopy Image Analysis'
+  authors:
+  - Lukas Johanns
+  - Marilin Moor
+  - Davide Panzeri
+  - Yu Zhou
+  - Xinyi Chen
+  - Nora F. K. Pauly
+  - Zixuan Pan
+  - Matthias Gunzer
+  - "Andreas M\xFCller"
+  - Yiyu Shi
+  - Hedi Peterson
+  - Jianxu Chen
+  publisher: arXiv
+  date: '2026-01-01'
+  link: https://doi.org/hck8kj
+  image: ../images/agenticj.png
+  tags:
+  - agentic system
+  - bioimage analysis
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1002/advs.76236
+  title: CD177 Deficiency Defines a Stable Subtype of Human Neutrophil Granulocytes
+    with Tumor Promoting Activity
+  authors:
+  - Marcel Jung
+  - Alexander Beer
+  - Susmita Ghosh
+  - Ekaterina Pylaeva
+  - Belal Alshaar
+  - Tobias Tertel
+  - "Nils Bastian Leimk\xFChler"
+  - Thomas Schroeder
+  - Janine Gronewold
+  - Nina Hagemann
+  - Ayan Mohamud Yusuf
+  - Benedikt Frank
+  - Yiqiao Zhang
+  - Dennis Nagel
+  - "Kim Schloe\xDFer"
+  - Laura Karsch
+  - Emily Hedtfeld
+  - Sabrina Lohmann
+  - Kathrin Blank
+  - Andreas Kraus
+  - Max Krumbein
+  - Nastassia Kabankova
+  - Hongxiao Wang
+  - Almke Bader
+  - Mathis Richter
+  - Fengjun Zhang
+  - Raphael Chevre
+  - Bernd Giebel
+  - Stephan Lang
+  - "Anika Gr\xFCneboom"
+  - "Daniela Maier\u2010Begandt"
+  - Anja Hasenberg
+  - Oliver Soehnlein
+  - Hans Christian Reinhardt
+  - Sven Heiles
+  - Jianxu Chen
+  - Jadwiga Jablonska
+  - Albert Sickmann
+  - Dirk M. Hermann
+  - Matthias Gunzer
+  publisher: Advanced Science
+  date: '2026-06-22'
+  link: https://doi.org/hck8kk
+  image: ../images/cd177.png
+  tags:
+  - image segmentation
+  - biomedical application
+  plugin: sources.py
+  file: sources.yaml
+- title: 'SGI: Structured 2D Gaussians for Efficient and Compact Large Image Representation'
+  authors:
+  - Z. Pan
+  - K. Tang
+  - J. Xia
+  - Y. Qin
+  - L. Gu
+  - C. Wang
+  - J. Chen
+  - Y. Shi
+  publisher: IEEE CVPR
+  date: '2026-06-03'
+  link: https://openaccess.thecvf.com/content/CVPR2026/html/Pan_SGI_Structured_2D_Gaussians_for_Efficient_and_Compact_Large_Image_CVPR_2026_paper.html
+  image: ../images/sgi.png
+  tags:
+  - image compression
+  - gaussian splatting
+  plugin: sources.py
+  file: sources.yaml
 - id: doi:10.1109/BIBM66473.2025.11356626
   title: Multi-Exit Class Activation Map Guided Feature Masking for Unsupervised Out-of-Distribution
     Detection in Medical Imaging
