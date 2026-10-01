@@ -1,3 +1,54 @@
+- id: doi:10.1080/07366205.2026.2730974
+  image: ../images/bioreview.png
+  tags:
+    - bioimage analysis
+    - deep learning
+    - survey
+
+- id: doi:10.1038/s41592-026-03130-w
+  image: ../images/bff.png
+  tags:
+    - microscopy data management
+    - infrastructure
+
+- id: doi:10.1145/3807503.3819478
+  image: ../images/binning.png
+  tags:
+    - bioinformatics
+    - pretraining
+    - mass spectrometry
+    - proteomics
+
+- id: doi:10.48550/arXiv.2606.02080
+  image: ../images/agenticj.png
+  tags:
+    - agentic system
+    - bioimage analysis
+
+- id: doi:10.1002/advs.76236
+  image: ../images/cd177.png
+  tags:
+    - image segmentation
+    - biomedical application
+
+- title: SGI: Structured 2D Gaussians for Efficient and Compact Large Image Representation
+  authors:
+    - Z. Pan
+    - K. Tang
+    - J. Xia
+    - Y. Qin
+    - L. Gu
+    - C. Wang
+    - J. Chen
+    - Y. Shi
+  publisher: IEEE CVPR
+  date: '2026-06-03'
+  link: https://openaccess.thecvf.com/content/CVPR2026/html/Pan_SGI_Structured_2D_Gaussians_for_Efficient_and_Compact_Large_Image_CVPR_2026_paper.html
+  image: ../images/sgi.png
+  tags:
+    - image compression
+    - gaussian splatting
+
 - id: doi:10.1109/BIBM66473.2025.11356626
   image: ../images/bibm_exit.png
   tags:

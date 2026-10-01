@@ -2,7 +2,7 @@
 name: Xiaowei Xu
 image: images/unknow.png
 description: Visiting Scholar
-role: visit
+role: visit-past
 aliases:
   - X. Xu
   - Xiaowei
