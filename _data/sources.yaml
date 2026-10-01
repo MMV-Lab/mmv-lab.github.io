@@ -31,7 +31,7 @@
     - image segmentation
     - biomedical application
 
-- title: SGI: Structured 2D Gaussians for Efficient and Compact Large Image Representation
+- title: 'SGI: Structured 2D Gaussians for Efficient and Compact Large Image Representation'
   authors:
     - Z. Pan
     - K. Tang
@@ -99,7 +99,7 @@
     - anomaly detection
     - benchmark
 
-- title: The Four Color Theorem for Cell Instance Segmentation
+- title: 'The Four Color Theorem for Cell Instance Segmentation'
   authors:
     - Y. Zhang
     - Y. Zhou
