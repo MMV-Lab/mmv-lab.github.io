@@ -2,7 +2,7 @@
 name: Hongxiao Wang
 image: images/unknow.png
 description: Visiting Scholar
-role: visit
+role: visit_past
 aliases:
   - H. Wang
   - Hongxiao

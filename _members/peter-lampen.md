@@ -2,7 +2,7 @@
 name: Peter Lampen
 image: images/unknow.png
 description: Software Engineer
-role: programmer
+role: programmer_past
 aliases:
   - P. Lampen
   - Peter
