@@ -4,6 +4,8 @@ utility functions for cite process and plugins
 
 import subprocess
 import json
+from urllib.parse import quote
+from urllib.request import Request, urlopen
 import yaml
 from yaml.loader import SafeLoader
 from pathlib import Path
@@ -171,6 +173,47 @@ def save_data(path, data):
     except Exception:
         raise Exception("Can't write to file")
 
+def crossref_citation_fallback(_id):
+    """Fallback to Crossref metadata when Manubot or DOI resolution fails."""
+    if not _id or not _id.lower().startswith("doi:"):
+        return None
+    doi = _id.split(":", 1)[1]
+    url = "https://api.crossref.org/works/" + quote(doi)
+    request = Request(
+        url=url,
+        headers={"User-Agent": "mmv-lab.github.io-citation-bot/1.0"},
+    )
+    try:
+        with urlopen(request, timeout=30) as response:
+            payload = json.load(response)
+    except Exception:
+        return None
+
+    message = get_safe(payload, "message", {})
+    title = get_safe(message, "title", [""])[0]
+    authors = get_safe(message, "author", [])
+    issued = get_safe(message, "published-print", get_safe(message, "published-online", get_safe(message, "issued", {})))
+    date_parts = get_safe(issued, "date-parts", [[None]])
+    year = date_parts[0][0] if date_parts and date_parts[0] else ""
+    month = date_parts[0][1] if len(date_parts[0]) > 1 else "1"
+    day = date_parts[0][2] if len(date_parts[0]) > 2 else "1"
+
+    citation = {
+        "title": title or "",
+        "author": [
+            {
+                "given": get_safe(author, "given", "").strip(),
+                "family": get_safe(author, "family", "").strip(),
+            }
+            for author in authors
+        ],
+        "container-title": get_safe(message, "container-title", [""])[0],
+        "publisher": get_safe(message, "publisher", ""),
+        "URL": get_safe(message, "URL", ""),
+        "issued": {"date-parts": [[year, month, day]] if year else [[None, None, None]]},
+    }
+    return citation
+
 
 @log_cache
 @cache.memoize(name="manubot", expire=90 * (60 * 60 * 24))
@@ -179,19 +222,17 @@ def cite_with_manubot(_id):
     generate citation data for source id with Manubot
     """
 
-    # run Manubot
     try:
         commands = ["manubot", "cite", _id, "--log-level=WARNING"]
-        output = subprocess.Popen(commands, stdout=subprocess.PIPE).communicate()
-    except Exception as e:
-        log(e, indent=3)
-        raise Exception("Manubot could not generate citation")
-
-    # parse results as json
-    try:
-        manubot = json.loads(output[0])[0]
+        output = subprocess.Popen(commands, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+        stdout = output[0] or b""
+        if not stdout:
+            raise ValueError("No stdout from Manubot")
+        manubot = json.loads(stdout)[0]
     except Exception:
-        raise Exception("Couldn't parse Manubot response")
+        manubot = crossref_citation_fallback(_id)
+        if not manubot:
+            raise Exception("Manubot could not generate citation")
 
     # new citation with only needed info
     citation = {}

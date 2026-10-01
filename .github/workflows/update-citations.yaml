@@ -28,9 +28,6 @@ jobs:
     timeout-minutes: 60
 
     steps:
-      - name: Debug dump
-        uses: crazy-max/ghaction-dump-context@v2
-
       - name: Checkout branch contents
         if: github.event.action != 'closed'
         uses: actions/checkout@v4
@@ -58,7 +55,7 @@ jobs:
       - name: Build updated citations
         if: github.event.action != 'closed'
         run: python _cite/cite.py
-        timeout-minutes: 15
+        timeout-minutes: 60
 
       - name: Commit cache
         if: failure()
