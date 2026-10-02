@@ -18,6 +18,10 @@ master:
   icon: fa-solid fa-user-graduate
   description: Master Student
 
+bachelor:
+  icon: fa-solid fa-user-graduate
+  description: Bachelor Student
+
 visit:
   icon: fa-solid fa-robot
   description: Visiting Scholar
@@ -41,6 +45,10 @@ phd_past:
 master_past:
   icon: fas fa-book
   text: M.S.
+
+bachelor_past:
+  icon: fa-solid fa-user-graduate
+  description: B.S.
 
 scientist_past:
   icon: fas fa-graduation-cap

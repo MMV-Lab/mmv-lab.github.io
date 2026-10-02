@@ -1,6 +1,6 @@
 ---
 name: Shuo Zhao
-image: images/unknown.jpg
+image: images/unknown.png
 description: Ph.D. Researcher
 role: phd_past
 aliases:
@@ -16,4 +16,3 @@ Shuo Zhao received his Bachelor's and Master's degrees from Harbin Engineering U
 
 After joining ISAS, Shuo has been dedicated to advancing biomedical image analysis, focusing on semantic segmentation and active learning. Through this project, he aims to enhance the efficiency of biomedical image analysis and ultimately make life easier.
 
-See [full CV](../asset/CV_Shuo.pdf)
