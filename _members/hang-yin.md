@@ -1,6 +1,6 @@
 ---
 name: Hang Yin
-image: images/hang-yin.jpg
+image: images/hang_pic.jpg
 description: Ph.D. Researcher
 role: phd
 aliases:
