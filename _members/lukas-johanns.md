@@ -1,6 +1,6 @@
 ---
 name: Lukas Johanns
-image: images/lukas_pic.png
+image: images/lukas_pic.jpg
 description: Ph.D. Researcher
 role: phd
 aliases:
