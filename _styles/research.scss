@@ -1,0 +1,171 @@
+---
+---
+
+// Research page: theme overview tiles + theme blocks
+
+.rs-lead {
+  font-size: var(--large);
+  text-align: center;
+  max-width: 720px;
+  margin: 10px auto 30px;
+}
+
+.rs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 30px 0 50px;
+}
+
+.rs-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px;
+  border-radius: var(--rounded);
+  background: var(--background-alt);
+  box-shadow: var(--shadow);
+  border-top: 4px solid var(--primary);
+  color: var(--text) !important;
+  text-decoration: none !important;
+  transition: transform 0.15s ease;
+}
+
+.rs-tile:hover {
+  transform: translateY(-3px);
+}
+
+.rs-tile .rs-num {
+  font-family: var(--heading);
+  font-weight: var(--bold);
+  color: var(--primary);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+}
+
+.rs-tile .rs-tile-title {
+  font-family: var(--heading);
+  font-weight: var(--semi-bold);
+  font-size: var(--large);
+  line-height: 1.25;
+}
+
+.rs-tile .rs-tile-hook {
+  color: var(--dark-gray);
+  font-size: 0.95rem;
+}
+
+.rs-tile[data-outlook] {
+  border-top-color: #a855f7;
+}
+
+.rs-tile[data-outlook] .rs-num {
+  color: #a855f7;
+}
+
+.rs-theme {
+  margin: 50px 0;
+  padding-left: 24px;
+  border-left: 4px solid var(--primary);
+  scroll-margin-top: 80px;
+}
+
+.rs-theme h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 0 0 6px !important;
+  text-align: left !important;
+}
+
+.rs-theme h2 .rs-num {
+  color: var(--primary);
+  font-size: 1.8rem;
+  font-weight: var(--bold);
+}
+
+.rs-hook {
+  font-family: var(--heading);
+  font-size: var(--large);
+  font-weight: var(--semi-bold);
+  color: var(--primary);
+  text-align: left !important;
+  margin: 0 0 12px !important;
+}
+
+.rs-label {
+  font-size: 0.8rem;
+  font-weight: var(--bold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gray);
+  margin: 18px 0 8px !important;
+}
+
+.rs-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 !important;
+}
+
+.rs-pills a,
+.rs-pills span {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--light-gray);
+  background: var(--background);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-decoration: none !important;
+}
+
+.rs-pills a:hover {
+  border-color: var(--primary);
+}
+
+.rs-pills em {
+  color: var(--gray);
+  font-style: normal;
+}
+
+.rs-rows {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 12px 20px;
+  align-items: start;
+  margin-top: 16px;
+}
+
+.rs-rows > .rs-row-name {
+  font-weight: var(--semi-bold);
+  padding-top: 4px;
+  text-align: left;
+}
+
+.rs-theme[data-outlook] {
+  border-left-color: #a855f7;
+  padding: 28px 28px 28px 32px;
+  border-radius: var(--rounded);
+  background: linear-gradient(135deg, rgba(7, 149, 217, 0.10), rgba(168, 85, 247, 0.12));
+}
+
+.rs-theme[data-outlook] h2 .rs-num,
+.rs-theme[data-outlook] .rs-hook {
+  color: #a855f7;
+}
+
+.rs-theme[data-outlook] .rs-hook {
+  font-size: var(--xl);
+}
+
+@media (max-width: 900px) {
+  .rs-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .rs-grid { grid-template-columns: 1fr; }
+  .rs-rows { grid-template-columns: 1fr; gap: 6px; }
+  .rs-rows > .rs-row-name { padding-top: 10px; }
+}

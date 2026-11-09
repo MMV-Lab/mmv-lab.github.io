@@ -1,3 +1,34 @@
+- id: doi:10.48550/arXiv.2609.34274
+  image: ../images/biabench.png
+  tags:
+    - benchmark
+    - dataset
+    - AI agents
+
+- id: doi:10.48550/arXiv.2603.28334
+  image: ../images/infl.png
+  tags:
+    - federated learning
+    - multiomics
+
+- title: 'Orochi: Versatile Biomedical Image Processor'
+  authors:
+    - G. Dai
+    - C. Zhou
+    - Y. Zhou
+    - R. Zhang
+    - Y. Zhang
+    - C. Hou
+    - T. Huang
+    - J. Chen
+    - S. Zhang
+  publisher: NeurIPS 2025
+  date: '2025-12-01'
+  link: https://openreview.net/forum?id=Rtd6GoJcoT
+  image: ../images/orochi.png
+  tags:
+    - foundation model
+
 - id: doi:10.1080/07366205.2026.2730974
   image: ../images/bioreview.png
   tags:
