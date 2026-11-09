@@ -1,5 +1,73 @@
 # DO NOT EDIT, GENERATED AUTOMATICALLY
 
+- id: doi:10.48550/arXiv.2609.34274
+  title: 'BIABench: Evaluating AI agents on real-world bioimage analysis tasks'
+  authors:
+  - Zixuan Pan
+  - Davide Panzeri
+  - Lukas Johanns
+  - Marilin Moor
+  - Yu Zhou
+  - Hedi Peterson
+  - Yiyu Shi
+  - Jianxu Chen
+  publisher: arXiv
+  date: '2026-01-01'
+  link: https://doi.org/hcrxp9
+  image: ../images/biabench.png
+  tags:
+  - benchmark
+  - dataset
+  - AI agents
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.48550/arXiv.2603.28334
+  title: Key-Embedded Privacy for Decentralized AI in Biomedical Omics
+  authors:
+  - Rongyu Zhang
+  - Hongyu Dong
+  - Gaole Dai
+  - Ziqi Qiao
+  - Shenli Zheng
+  - Yuan Zhang
+  - Aosong Cheng
+  - Xiaowei Chi
+  - Jincai Luo
+  - Pin Li
+  - Li Du
+  - Dan Wang
+  - Yuan Du
+  - Xudong Xing
+  - Jianxu Chen
+  - Shanghang Zhang
+  publisher: arXiv
+  date: '2026-01-01'
+  link: https://doi.org/hcrxqb
+  image: ../images/infl.png
+  tags:
+  - federated learning
+  - multiomics
+  plugin: sources.py
+  file: sources.yaml
+- title: 'Orochi: Versatile Biomedical Image Processor'
+  authors:
+  - G. Dai
+  - C. Zhou
+  - Y. Zhou
+  - R. Zhang
+  - Y. Zhang
+  - C. Hou
+  - T. Huang
+  - J. Chen
+  - S. Zhang
+  publisher: NeurIPS 2025
+  date: '2025-12-01'
+  link: https://openreview.net/forum?id=Rtd6GoJcoT
+  image: ../images/orochi.png
+  tags:
+  - foundation model
+  plugin: sources.py
+  file: sources.yaml
 - id: doi:10.1080/07366205.2026.2730974
   title: Recent advances in deep learning for biological microscopy image analysis
     beyond segmentation
