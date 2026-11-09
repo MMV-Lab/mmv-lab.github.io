@@ -2,7 +2,7 @@
 
 # site properties and page defaults
 title: Microscopy Machine Vision Lab
-description: Webpage of AMBIOM group at ISAS
+description: Microscopy Machine Vision Lab (MMV Lab), the AMBIOM group at ISAS in Dortmund, Germany
 header: images/header-2.jpg
 footer: images/banner.png
 proofer: false
@@ -29,18 +29,10 @@ defaults:
       type: "members"
     values:
       layout: member
-  # markdown files in /_posts
-  - scope:
-      type: "posts"
-    values:
-      layout: post
 
 collections:
   # generate page for each member
   members:
-    output: true
-  # generate page for each post
-  posts:
     output: true
 
 # jekyll plugins

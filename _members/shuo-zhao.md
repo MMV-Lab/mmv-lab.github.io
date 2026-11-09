@@ -1,6 +1,6 @@
 ---
 name: Shuo Zhao
-image: images/unknown.png
+image: images/unknow.png
 description: Ph.D. Researcher
 role: phd_past
 aliases:

@@ -1,82 +1,257 @@
-- name: SOFTWARE - mmv_im2im
+- title: mmv_im2im
   group: software
   image: images/im2im_software.png
   link: https://github.com/MMV-Lab/mmv_im2im
   description: toolbox for microscopy image to image transformation
 
-- name: SOFTWARE - EfficientBioAI
+- title: EfficientBioAI
   group: software
   image: images/efficeintBIO.png
   link: https://github.com/MMV-Lab/EfficientBioAI
   description: A toolbox for bioimaging model compression
 
-- name: SOFTWARE - Leonardo
+- title: Leonardo
   group: software
   image: images/leonardo.png
   link: https://github.com/MMV-Lab/leonardo_toolset
   description: A toolbox for LSFM destriping and fusion
 
-- name: SOFTWARE - h4track
+- title: mmv_h4tracks
   group: software
   image: images/h4track.png
   link: https://github.com/MMV-Lab/mmv_h4tracks
   description: napari plugin for human-in-the-loop cell tracking and analysis
 
-- name: SOFTWARE - vesselexpress
+- title: VesselExpress
   group: software
   image: images/vessel.png
   link: https://github.com/MMV-Lab/VesselExpress
   description: A toolbox for rapid vasculature analysis in 3D LSFM
 
-- name: SOFTWARE - 3D cell cycle classifier
+- title: Agentic-J
+  group: software
+  image: images/agenticj.png
+  link: https://github.com/MMV-Lab/Agentic-J
+  subtitle: arXiv 2026
+  description: AI agent for ImageJ/Fiji that turns natural-language requests into documented, reproducible analysis scripts
+
+- title: Orochi
+  group: software
+  image: images/orochi.png
+  link: https://github.com/daviddaiiiii/Orochi-Versatile-Biomedical-Image-Processor
+  subtitle: NeurIPS 2025
+  description: Versatile foundation model for biomedical image processing
+
+- title: BioFile Finder
+  group: software
+  image: images/bff.png
+  link: https://github.com/AllenInstitute/biofile-finder
+  subtitle: Nature Methods 2026
+  description: Web app to search, organize, aggregate and share image data via metadata ([web app](https://bff.allencell.org), [our portal scripts](https://github.com/MMV-Lab/ambiom-bff-portals))
+
+- title: AutoQC
+  group: software
+  image: images/autoqc.png
+  link: https://github.com/MMV-Lab/mmv_AutoQC
+  subtitle: npj Imaging 2025
+  description: Diffusion-model-based automatic quality control for high-throughput microscopy
+
+- title: INIF
+  group: software
+  image: images/INIF.jpg
+  link: https://github.com/PKU-HMI/INIF
+  subtitle: Nature Computational Science 2025
+  description: Implicit neural image fields for microscopy image compression
+
+- title: SGI
+  group: software
+  image: images/sgi.png
+  link: https://github.com/zx-pan/SGI
+  subtitle: CVPR 2026
+  description: Structured 2D Gaussians for efficient, compact representation of large images
+
+- title: FlowRoI
+  group: software
+  image: images/flowroi.png
+  link: https://github.com/MMV-Lab/FlowROI
+  subtitle: npj Imaging 2026
+  description: Optical-flow-based RoI extraction for compressing high-throughput immune cell videos
+
+- title: Microscopy image compression benchmark
+  group: software
+  image: images/compression.png
+  link: https://github.com/MMV-Lab/data-compression
+  subtitle: Biological Imaging 2024
+  description: Deep-learning-based compression for microscopy images, with [trained checkpoints](https://zenodo.org/records/13134355)
+
+- title: Ceb
+  group: software
+  image: images/segdevil.png
+  link: https://github.com/pxliang/Ceb
+  subtitle: IEEE TMI
+  description: Boundary-based cell instance segmentation
+
+- title: cellmig
+  group: software
+  image: images/motion.png
+  link: https://bioconductor.org/packages/cellmig
+  subtitle: PLOS Computational Biology 2026
+  description: R/Bioconductor package for uncertainty-aware Bayesian analysis of live cell migration ([source](https://github.com/snaketron/cellmig))
+
+- title: ComplexEye analysis
+  group: software
+  image: images/complexeye.png
+  link: https://github.com/MMV-Lab/complex_eye_analysis
+  subtitle: Nature Communications 2023
+  description: Cell segmentation and tracking pipeline for the ComplexEye array microscope
+
+- title: MSI-Explorer
+  group: software
+  image: images/msi_explore.png
+  link: https://github.com/MMV-Lab/MSI-Explorer
+  subtitle: Analytical Chemistry 2025
+  description: napari-powered tool for mass spectrometry imaging data analysis
+
+- title: INFL
+  group: software
+  image: images/infl.png
+  link: https://github.com/RoyZry98/INFL-Pytorch
+  subtitle: arXiv 2026
+  description: Implicit neural federated learning for privacy-preserved omics analysis ([data](https://doi.org/10.6084/m9.figshare.30763670))
+
+- title: Masked Diffusion Model (MDM)
+  group: software
+  image: images/diffusion.png
+  link: https://github.com/zx-pan/mdm
+  subtitle: arXiv 2023
+  description: Masked diffusion as a self-supervised representation learner for segmentation
+
+- title: MRI anomaly detection (IQA)
+  group: software
+  image: images/anom.png
+  link: https://github.com/zx-pan/MedAnomalyDetection-IQA
+  subtitle: IEEE BIBM 2025
+  description: Rethinking brain MRI anomaly detection from an image quality assessment perspective
+
+- title: Active learning pipeline
+  group: software
+  image: images/active_learning_pipeline.png
+  link: https://github.com/MMV-Lab/AL_BioMed_img_seg
+  subtitle: BVM 2025
+  description: Data-centric active learning for biomedical image instance segmentation
+
+- title: Segmentation data efficiency
+  group: software
+  image: images/bibm_efficiency.png
+  link: https://github.com/MMV-Lab/biomedseg-efficiency
+  subtitle: IEEE BIBM 2025
+  description: Code for studying redundancy and forgetting in biomedical segmentation with Cellpose
+
+- title: Manual annotation risk
+  group: software
+  image: images/nuc.png
+  link: https://github.com/MMV-Lab/manual_annotations_risk
+  subtitle: ICCV Workshops 2023
+  description: Code for "On the risk of manual annotations in 3D confocal microscopy image segmentation"
+
+- title: LightMyCells
+  group: software
+  image: images/lightmycell.jpg
+  link: https://github.com/MMV-Lab/LightMyCells
+  subtitle: IEEE ISBI 2024
+  description: Our solution to the LightMyCells challenge for label-free organelle prediction
+
+- title: NucMorph analysis
+  group: software
+  image: images/nucmorph.jpg
+  link: https://github.com/AllenCell/nuc-morph-analysis
+  subtitle: Cell Systems 2025
+  description: Analysis code for nuclear growth trajectories in hiPS cell colonies
+
+- title: 3D cell cycle classifier
   group: previous
   image: images/mitotic.png
   link: https://github.com/AllenCell/image_classifier_3d
   description: mitotic classifier
 
-- name: SOFTWARE - Iterative ML segmentation for 3D microscopy images
+- title: Iterative ML segmentation for 3D microscopy images
   group: previous
   image: images/segmenter_ml.png
   link: https://github.com/AllenCell/aics-ml-segmentation
   description: This is the ML part of Allen Cell and Structure Segmenter software
 
-- name: SOFTWARE - Classic image segmentation for 3D microscopy images
+- title: Classic image segmentation for 3D microscopy images
   group: previous
   image: images/segmenter_classic.png
   link: https://github.com/AllenCell/aics-segmentation
   description: This is the classic part of Allen Cell and Structure Segmenter software
 
-- name: Data - cell migration 
+- title: Cell migration data portal
   group: data
   image: images/cellmigration.png
   link: https://cellmigration.isas.de/
   description: Cell migration data portal (ISAS)
 
-- name: Data - lsfm
+- title: LSFM data portal
   group: data
   image: images/lsfmdata.png
   link: https://lsfm.isas.de/
   description: Lightsheet Fluorescence Microscopy (LSFM) data portal (ISAS)
 
-- name: Data - 3D single cell dataset with cell stage annotation 
+- title: BIABench
+  group: data
+  image: images/biabench.png
+  link: https://huggingface.co/datasets/BIABench/BIABench
+  subtitle: arXiv 2026
+  description: Benchmark of end-to-end bioimage analysis tasks for evaluating AI agents ([code](https://github.com/BIABench/BIABench), [project page](https://biabench.github.io))
+
+- title: AutoQC-Bench
+  group: data
+  image: images/autoqc.png
+  link: https://doi.org/10.6019/S-BIAD2133
+  subtitle: npj Imaging 2025
+  description: About 8,000 brightfield neutrophil images labelled for quality issues (BioImage Archive)
+
+- title: ComplexEye migration movies
+  group: data
+  image: images/complexeye.png
+  link: https://doi.org/10.5281/zenodo.7962144
+  subtitle: Nature Communications 2023
+  description: Raw time-lapse movies of immune cell migration from the ComplexEye array microscope
+
+- title: Neutrophil tracking videos
+  group: data
+  image: images/flowroi.png
+  link: https://www.ebi.ac.uk/biostudies/bioimages/studies/S-BIAD2196
+  subtitle: BioImage Archive
+  description: Brightfield neutrophil videos from ComplexEye, used for cell tracking and FlowRoI compression
+
+- title: MedShapeNet
+  group: data
+  image: images/medshapenet.png
+  link: https://medshapenet.ikim.nrw/
+  subtitle: Biomedical Engineering 2024
+  description: Large-scale collection of 3D medical shapes for computer vision (web interface and Python API)
+
+- title: 3D single-cell dataset with cell-stage annotation
   group: data
   image: images/variance.png
   link: https://open.quiltdata.com/b/allencell/packages/aics/hipsc_single_cell_image_dataset
   description: Dataset used to train the 3D mitotic classification
 
-- name: ZeroCostDL4Mic
+- title: ZeroCostDL4Mic
   group: others
   image: https://henriqueslab.github.io/images/ZeroCostDL4Mic.jpg
   link: https://github.com/HenriquesLab/ZeroCostDL4Mic
   description: A collection of self-explanatory Jupyter Notebooks for Google Colab that features an easy-to-use graphical user interface. A good resource for learning deep learning applications in microscopy image analysis.
 
-- name: napari
+- title: napari
   group: others
   image: images/napari.png
   link: https://napari.org/
   description: A fast, interactive, multi-dimensional image viewer for Python, designed for browsing, annotating, and analyzing large multi-dimensional images
 
-- name: BioImage Model Zoo
+- title: BioImage Model Zoo
   group: others
   image: https://bioimage.io/docs/bioimage-io-paper-figure-1.png
   link: https://bioimage.io/#/

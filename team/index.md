@@ -8,7 +8,7 @@ nav:
 # {% include icon.html icon="fa-solid fa-users" %}Team
 
 
-We are building a team with diverse background and expertises, from software enigneering, machine learning, image analysis, data analysis to computational modeling. We are multiple opennings for master students to work as thesis. The topics will be related bioimage analysis and machine learning.
+We are building a team with diverse backgrounds and expertise, from software engineering, machine learning, image analysis, and data analysis to computational modeling. We have multiple openings for master's theses on topics related to bioimage analysis and machine learning.
 
 {% include section.html %}
 

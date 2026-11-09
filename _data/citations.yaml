@@ -1145,7 +1145,7 @@
   buttons:
   - type: podcast
     link: https://ambiomcloud.isas.de/index.php/s/4ndjojNJ5DZHfNs
-    text: AI-generated Podcast (by Google NotebookLLM)
+    text: AI-generated Podcast (by Google NotebookLM)
   plugin: sources.py
   file: sources.yaml
 - id: doi:10.1038/s42256-023-00670-0
@@ -1195,7 +1195,7 @@
     text: source code
   - type: podcast
     link: https://ambiomcloud.isas.de/index.php/s/m9S5QT4bdBwJCrG
-    text: AI-generated Podcast (by Google NotebookLLM)
+    text: AI-generated Podcast (by Google NotebookLM)
   plugin: sources.py
   file: sources.yaml
 - id: doi:10.1016/j.crmeth.2023.100436
