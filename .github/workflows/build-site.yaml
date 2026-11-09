@@ -52,5 +52,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
           folder: _site
-          clean-exclude: ${{ env.PREVIEWS_FOLDER }}
           force: false
