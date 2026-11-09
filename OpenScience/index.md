@@ -9,30 +9,42 @@ nav:
 
 We are fully committed to open science: open-source software, public datasets and benchmarks built for AI research, and open-access publications. Open science makes impactful science. Below you find the tools and data released with our papers, earlier open-science work by our group members, and a curated list of community tools we highly recommend.
 
+{% assign n_sw = site.data.tools | data_filter: "group == 'software'" | size %}
+{% assign n_data = site.data.tools | data_filter: "group == 'data'" | size %}
+{% assign n_prev = site.data.tools | data_filter: "group == 'previous'" | size %}
+{% assign n_oth = site.data.tools | data_filter: "group == 'others'" | size %}
+
+<div class="os-jump">
+  <a href="#software"><i class="fa-solid fa-code"></i> Software <b>{{ n_sw }}</b></a>
+  <a href="#data"><i class="fa-solid fa-database"></i> Datasets <b>{{ n_data }}</b></a>
+  <a href="#earlier-work"><i class="fa-solid fa-clock-rotate-left"></i> Earlier work <b>{{ n_prev }}</b></a>
+  <a href="#community"><i class="fa-solid fa-heart"></i> Community picks <b>{{ n_oth }}</b></a>
+</div>
+
 {% include section.html %}
 
 {% include search-box.html %}
 
 {% include search-info.html %}
 
-## Open-source software
+<h2 id="software">Open-source software</h2>
 
-{% include list.html component="card" data="tools" filter="group == 'software'" %}
-
-{% include section.html %}
-
-## Open datasets
-
-{% include list.html component="card" data="tools" filter="group == 'data'" %}
+{% include os-grid.html group="software" %}
 
 {% include section.html %}
 
-## Other open science works from our group members
+<h2 id="data">Open datasets</h2>
 
-{% include list.html component="card" data="tools" filter="group == 'previous'" %}
+{% include os-grid.html group="data" %}
 
 {% include section.html %}
 
-## Recommended open-source tools from the community
+<h2 id="earlier-work">Earlier work by our group members</h2>
 
-{% include list.html component="card" data="tools" filter="group == 'others'" %}
+{% include os-grid.html group="previous" %}
+
+{% include section.html %}
+
+<h2 id="community">Recommended tools from the community</h2>
+
+{% include os-grid.html group="others" %}

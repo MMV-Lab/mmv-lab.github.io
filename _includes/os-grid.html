@@ -1,0 +1,34 @@
+{% comment %}
+  Compact, equal-height card grid for the Open Science portal.
+  usage: {% include os-grid.html group="software" %}
+{% endcomment %}
+{% assign filter = "group == '" | append: include.group | append: "'" %}
+{% assign items = site.data.tools | data_filter: filter %}
+<div class="os-grid">
+  {% for d in items %}
+    {% if d.link contains "github.com" %}
+      {% assign icon = "fa-brands fa-github" %}{% assign label = "Code" %}
+    {% elsif d.link contains "bioconductor" %}
+      {% assign icon = "fa-solid fa-box-open" %}{% assign label = "Package" %}
+    {% elsif d.link contains "huggingface" or d.link contains "zenodo" or d.link contains "biostudies" or d.link contains "S-BIAD" or d.link contains "quilt" %}
+      {% assign icon = "fa-solid fa-database" %}{% assign label = "Data" %}
+    {% else %}
+      {% assign icon = "fa-solid fa-arrow-up-right-from-square" %}{% assign label = "Website" %}
+    {% endif %}
+    {% assign img = d.image %}
+    {% unless img contains "://" %}{% assign img = img | relative_url %}{% endunless %}
+    <div class="card os-card">
+      <a class="os-card-image" href="{{ d.link }}" aria-label="{{ d.title }}">
+        <img src="{{ img }}" alt="{{ d.title }}" loading="lazy" {% include fallback.html %}>
+      </a>
+      <div class="os-card-body">
+        <a class="os-card-title" href="{{ d.link }}">{{ d.title }}</a>
+        {% if d.subtitle %}<span class="os-card-venue">{{ d.subtitle }}</span>{% endif %}
+        {% if d.description %}
+          <p class="os-card-desc">{{ d.description | markdownify | remove: "<p>" | remove: "</p>" | strip }}</p>
+        {% endif %}
+        <a class="os-card-link" href="{{ d.link }}"><i class="{{ icon }}"></i> {{ label }}</a>
+      </div>
+    </div>
+  {% endfor %}
+</div>
