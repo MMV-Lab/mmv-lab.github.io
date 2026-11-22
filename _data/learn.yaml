@@ -1,0 +1,161 @@
+# Web apps shown on the Learn-with-AI pages.
+#
+# One entry per card:
+#   title:        card title (required)
+#   subtitle:     small line under the title (optional)
+#   group:        which section the card appears in (required), one of
+#                   ai | microscopy | multi-omics | bio-med          -> /learn-with-ai/
+#                   fun-chinese | fun-french | fun-german-adults |
+#                   fun-german-students | fun-math | fun-tech         -> /learn-with-ai/more-fun/
+#   link:         where the card goes. A path inside this repo
+#                 (e.g. learn-with-ai/apps/my-app/) or a full https:// URL.
+#                 Leave it out and the card is shown as a "Coming soon" placeholder.
+#   description:  one or two sentences (optional)
+#   image:        thumbnail, e.g. images/my-app.png (optional)
+#   icon:         Font Awesome icon used when there is no image (optional)
+#
+# To publish a new app: put its folder under learn-with-ai/apps/, then replace
+# one of the placeholder entries below (or add a new entry) and give it a link.
+
+# ---------- Learn about AI ----------
+
+- title: Coming soon
+  group: ai
+  icon: fa-solid fa-brain
+  description: An interactive app on this topic is in the making.
+
+- title: Coming soon
+  group: ai
+  icon: fa-solid fa-brain
+  description: An interactive app on this topic is in the making.
+
+- title: Coming soon
+  group: ai
+  icon: fa-solid fa-brain
+  description: An interactive app on this topic is in the making.
+
+# ---------- Learn about Microscopy ----------
+
+- title: Coming soon
+  group: microscopy
+  icon: fa-solid fa-microscope
+  description: An interactive app on this topic is in the making.
+
+- title: Coming soon
+  group: microscopy
+  icon: fa-solid fa-microscope
+  description: An interactive app on this topic is in the making.
+
+- title: Coming soon
+  group: microscopy
+  icon: fa-solid fa-microscope
+  description: An interactive app on this topic is in the making.
+
+# ---------- Learn about Multi-omics ----------
+
+- title: Coming soon
+  group: multi-omics
+  icon: fa-solid fa-dna
+  description: An interactive app on this topic is in the making.
+
+- title: Coming soon
+  group: multi-omics
+  icon: fa-solid fa-dna
+  description: An interactive app on this topic is in the making.
+
+- title: Coming soon
+  group: multi-omics
+  icon: fa-solid fa-dna
+  description: An interactive app on this topic is in the making.
+
+# ---------- Learn about Biology and Medicine ----------
+
+- title: Coming soon
+  group: bio-med
+  icon: fa-solid fa-heart-pulse
+  description: An interactive app on this topic is in the making.
+
+- title: Coming soon
+  group: bio-med
+  icon: fa-solid fa-heart-pulse
+  description: An interactive app on this topic is in the making.
+
+- title: Coming soon
+  group: bio-med
+  icon: fa-solid fa-heart-pulse
+  description: An interactive app on this topic is in the making.
+
+# ---------- More fun: Learning Chinese ----------
+
+- title: 三十四块拼中国
+  subtitle: 34 pieces make China
+  group: fun-chinese
+  link: learn-with-ai/apps/province-chant/
+  image: images/learn_province_chant.png
+  icon: fa-solid fa-map-location-dot
+  description: A rhythmic chant that takes you around the map of China, one stop at a time, until you know all 34 province-level regions. With pinyin, karaoke-style lyrics, and a quiz. In Chinese.
+
+- title: Coming soon
+  group: fun-chinese
+  icon: fa-solid fa-language
+  description: An interactive app on this topic is in the making.
+
+# ---------- More fun: Learning French ----------
+
+- title: Coming soon
+  group: fun-french
+  icon: fa-solid fa-language
+  description: An interactive app on this topic is in the making.
+
+- title: Coming soon
+  group: fun-french
+  icon: fa-solid fa-language
+  description: An interactive app on this topic is in the making.
+
+# ---------- More fun: Learning German (for adults) ----------
+
+- title: Coming soon
+  group: fun-german-adults
+  icon: fa-solid fa-language
+  description: An interactive app on this topic is in the making.
+
+- title: Coming soon
+  group: fun-german-adults
+  icon: fa-solid fa-language
+  description: An interactive app on this topic is in the making.
+
+# ---------- More fun: Learning German (for students) ----------
+
+- title: Coming soon
+  group: fun-german-students
+  icon: fa-solid fa-language
+  description: An interactive app on this topic is in the making.
+
+- title: Coming soon
+  group: fun-german-students
+  icon: fa-solid fa-language
+  description: An interactive app on this topic is in the making.
+
+# ---------- More fun: Learning Math ----------
+
+- title: Coming soon
+  group: fun-math
+  icon: fa-solid fa-square-root-variable
+  description: An interactive app on this topic is in the making.
+
+- title: Coming soon
+  group: fun-math
+  icon: fa-solid fa-square-root-variable
+  description: An interactive app on this topic is in the making.
+
+# ---------- More fun: Learning tech skills ----------
+
+- title: Coming soon
+  group: fun-tech
+  icon: fa-solid fa-laptop-code
+  description: An interactive app on this topic is in the making.
+
+- title: Coming soon
+  group: fun-tech
+  icon: fa-solid fa-laptop-code
+  description: An interactive app on this topic is in the making.

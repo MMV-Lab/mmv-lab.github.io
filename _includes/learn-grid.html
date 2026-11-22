@@ -1,0 +1,42 @@
+{%- comment -%}
+  Card grid for the Learn-with-AI pages. Cards come from _data/learn.yaml.
+  usage: {% include learn-grid.html group="ai" %}
+  An entry without a link is shown as a "Coming soon" placeholder.
+{%- endcomment -%}
+{%- assign filter = "group == '" | append: include.group | append: "'" -%}
+{%- assign items = site.data.learn | data_filter: filter -%}
+<div class="lw-grid">
+  {%- for d in items -%}
+    {%- assign icon = d.icon | default: "fa-solid fa-shapes" -%}
+    {%- if d.link -%}
+      {%- assign href = d.link -%}
+      {%- unless href contains "://" -%}{%- assign href = href | relative_url -%}{%- endunless %}
+  <a class="lw-card" href="{{ href }}" target="_blank" rel="noopener">
+    <span class="lw-card-thumb">
+      {%- if d.image -%}
+        {%- assign img = d.image -%}
+        {%- unless img contains "://" -%}{%- assign img = img | relative_url -%}{%- endunless -%}
+        <img src="{{ img }}" alt="" loading="lazy">
+      {%- else -%}
+        <i class="{{ icon }}"></i>
+      {%- endif -%}
+    </span>
+    <span class="lw-card-body">
+      <span class="lw-card-title">{{ d.title }}</span>
+      {%- if d.subtitle -%}<span class="lw-card-sub">{{ d.subtitle }}</span>{%- endif -%}
+      {%- if d.description -%}<span class="lw-card-desc">{{ d.description }}</span>{%- endif -%}
+      <span class="lw-card-cta">Open the app <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+    </span>
+  </a>
+    {%- else %}
+  <div class="lw-card" data-placeholder>
+    <span class="lw-card-thumb"><i class="{{ icon }}"></i></span>
+    <span class="lw-card-body">
+      <span class="lw-card-title">{{ d.title | default: "Coming soon" }}</span>
+      {%- if d.subtitle -%}<span class="lw-card-sub">{{ d.subtitle }}</span>{%- endif -%}
+      {%- if d.description -%}<span class="lw-card-desc">{{ d.description }}</span>{%- endif -%}
+    </span>
+  </div>
+    {%- endif -%}
+  {%- endfor %}
+</div>
