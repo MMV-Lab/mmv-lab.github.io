@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Werkzeugkasten für Schule und Netz</title>
+<style>
+/* fonts are served from the fonts/ folder next to this file; nothing is loaded from other sites */
+@font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/atkinson-hyperlegible-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/atkinson-hyperlegible-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/atkinson-hyperlegible-latin-ext-700-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/atkinson-hyperlegible-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Bricolage Grotesque";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/bricolage-grotesque-latin-ext-600-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Bricolage Grotesque";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/bricolage-grotesque-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Bricolage Grotesque";font-style:normal;font-weight:800;font-display:swap;src:url(fonts/bricolage-grotesque-latin-ext-800-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Bricolage Grotesque";font-style:normal;font-weight:800;font-display:swap;src:url(fonts/bricolage-grotesque-latin-800-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+/* Layout idea: a workshop shadow board. Three tool outlines hang on a pegboard and fill in as missions are finished; each workbench below holds the missions for one tool. */
+:root{
+  --bg:#F0F3F5; --board:#DCE4E9; --hole:#B4C2CB; --surface:#FFFFFF;
+  --ink:#16202B; --muted:#556470; --line:#C8D2D9;
+  --tape:#FFC629; --tape-ink:#2A2000;
+  --ki:#2457E6; --lern:#0B7F58; --rede:#C9411F;
+  --good:#17804A; --bad:#B93424;
+  --display:"Bricolage Grotesque","Arial Narrow",system-ui,sans-serif;
+  --body:"Atkinson Hyperlegible","Segoe UI","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#111920; --board:#1A252F; --hole:#0B1116; --surface:#1E2A35;
+    --ink:#EEF3F6; --muted:#A3B3BF; --line:#33434F;
+    --tape:#FFC629; --tape-ink:#2A2000;
+    --ki:#86A8FF; --lern:#4FD1A1; --rede:#FF8E70;
+    --good:#5AD08F; --bad:#FF8A7A;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#111920; --board:#1A252F; --hole:#0B1116; --surface:#1E2A35;
+  --ink:#EEF3F6; --muted:#A3B3BF; --line:#33434F;
+  --tape:#FFC629; --tape-ink:#2A2000;
+  --ki:#86A8FF; --lern:#4FD1A1; --rede:#FF8E70;
+  --good:#5AD08F; --bad:#FF8A7A;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.5}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.08;letter-spacing:-.01em}
+p{margin:0}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--tape);outline-offset:2px}
+.wrap{max-width:720px;margin:0 auto;padding:16px 16px 56px;display:flex;flex-direction:column;gap:20px}
+.t-ki{--c:var(--ki)} .t-lern{--c:var(--lern)} .t-rede{--c:var(--rede)}
+
+/* ---------- Start: the shadow board ---------- */
+.board{background:radial-gradient(circle,var(--hole) 2px,transparent 2.6px) 11px 11px/22px 22px,var(--board);border-radius:20px;padding:26px 20px 22px;display:flex;flex-direction:column;gap:18px}
+.tape{align-self:flex-start;background:var(--tape);color:var(--tape-ink);font-weight:700;font-size:.875rem;padding:3px 12px;transform:rotate(-2deg);box-shadow:0 1px 0 rgba(0,0,0,.18)}
+.board h1{font-weight:800;font-size:clamp(2.3rem,10.5vw,3.9rem)}
+.board .sub{max-width:34ch;font-size:1.0625rem}
+.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.slot{background:var(--surface);border-radius:14px;padding:12px 6px 10px;display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;position:relative}
+.slot::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--hole);position:absolute;top:6px}
+.slot svg{width:60px;height:60px;margin-top:8px}
+.slot .nm{font-family:var(--display);font-weight:600;font-size:.98rem;line-height:1.15}
+.slot .st{font-size:.8125rem;color:var(--muted)}
+.tool-svg{fill:none;stroke:var(--muted);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:3 6}
+.tool-svg.have{stroke:var(--c);stroke-width:4;stroke-dasharray:none;fill:color-mix(in srgb,var(--c) 16%,transparent)}
+.slot.have .st{color:var(--c);font-weight:700}
+
+.bench{background:var(--surface);border-radius:18px;border-top:8px solid var(--c);padding:18px 18px 16px;display:flex;flex-direction:column;gap:12px}
+.bench .kick{font-size:.875rem;font-weight:700;color:var(--c)}
+.bench h2{font-weight:800;font-size:1.55rem}
+.bench .meta{color:var(--muted);font-size:.9375rem}
+.go{align-self:flex-start;background:var(--c);color:var(--surface);border:0;border-radius:999px;padding:11px 22px;font-weight:700;font-size:1.0625rem}
+.go:hover{filter:brightness(1.08)}
+.later{border-top:1px dashed var(--line);padding-top:10px;font-size:.9375rem;color:var(--muted)}
+.later ul{margin:4px 0 0;padding-left:1.1em}
+.parents{background:var(--surface);border-radius:14px;padding:12px 16px;font-size:.9375rem}
+.parents summary{font-weight:700;cursor:pointer}
+.parents p{margin-top:10px;max-width:65ch}
+
+/* ---------- Mission ---------- */
+.mhead{display:flex;align-items:center;gap:12px}
+.back{background:none;border:2px solid var(--line);border-radius:999px;padding:6px 14px;font-size:.9375rem;white-space:nowrap}
+.mhead .mt{font-family:var(--display);font-weight:600;font-size:1.02rem;line-height:1.15;color:var(--c)}
+.prog{display:flex;gap:4px}
+.prog i{flex:1;height:8px;border-radius:4px;background:var(--line)}
+.prog i.on{background:var(--c)}
+.card{background:var(--surface);border-radius:18px;padding:22px 18px;display:flex;flex-direction:column;gap:14px}
+.card h2{font-weight:800;font-size:1.5rem}
+.card .lead{color:var(--muted)}
+.card p{max-width:60ch}
+.quote{font-family:var(--display);font-weight:600;font-size:1.3rem;border-left:5px solid var(--tape);padding:4px 0 4px 12px}
+.opts,.rows,.facts{display:flex;flex-direction:column;gap:10px}
+.opt{text-align:left;background:var(--surface);border:2px solid var(--line);border-radius:12px;padding:12px 14px;min-height:48px}
+.opt:hover{border-color:var(--c)}
+.opt.ok{border-color:var(--good);background:color-mix(in srgb,var(--good) 14%,var(--surface));font-weight:700}
+.opt.no{border-color:var(--bad);color:var(--muted);text-decoration:line-through;text-decoration-color:var(--bad)}
+.opt.sel{border-color:var(--c);background:color-mix(in srgb,var(--c) 14%,var(--surface))}
+.locked .opt{pointer-events:none}
+.fb{border-radius:12px;padding:12px 14px;border-left:6px solid var(--line);background:var(--bg)}
+.fb:empty{display:none}
+.fb.good{border-left-color:var(--good)} .fb.bad{border-left-color:var(--bad)}
+.fb b{display:block}
+.bars{display:flex;flex-direction:column;gap:6px;margin-top:10px;font-size:.9375rem}
+.bars div{display:grid;grid-template-columns:5.5em 1fr 3em;align-items:center;gap:8px}
+.bars span.bar{height:12px;border-radius:6px;background:var(--c);min-width:3px}
+.bars span.n{font-variant-numeric:tabular-nums;text-align:right}
+.bars small{color:var(--muted)}
+.row{border:2px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:10px}
+.row .two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.row .two .opt{text-align:center;padding:9px 6px;font-size:.9375rem}
+.row.placed{border-color:var(--good)}
+.row .tag{font-weight:700;color:var(--good);font-size:.9375rem}
+.row .note{font-size:.9375rem;color:var(--muted)}
+.seq{margin:0;padding:0;list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:8px}
+.seq:empty,.opts:empty{display:none}
+.seq li{counter-increment:s;display:grid;grid-template-columns:2em 1fr;gap:8px;align-items:start;border-radius:12px;padding:10px 12px;background:color-mix(in srgb,var(--c) 12%,var(--surface))}
+.seq li::before{content:counter(s);font-family:var(--display);font-weight:800;color:var(--c);font-size:1.2rem;line-height:1.2}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips .opt{min-height:44px;padding:8px 12px}
+.shake{animation:shake .3s}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.fact{border-radius:12px;padding:12px 14px;background:color-mix(in srgb,var(--c) 12%,var(--surface));font-weight:700}
+.parts{display:grid;grid-template-columns:1fr 3fr 1fr;gap:6px;text-align:center;font-size:.875rem}
+.parts div{border-radius:10px;padding:14px 4px;background:color-mix(in srgb,var(--c) 16%,var(--surface));font-weight:700;overflow-wrap:anywhere}
+.parts small{display:block;font-weight:400;color:var(--muted)}
+.days{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.day{border:2px solid var(--line);border-radius:12px;background:var(--surface);padding:8px 2px;display:flex;flex-direction:column;align-items:center;gap:6px;min-height:132px}
+.day b{font-family:var(--display)}
+.day .stack{display:flex;flex-direction:column-reverse;gap:4px;flex:1;width:70%}
+.day .stack i{height:16px;border-radius:5px;background:var(--c)}
+.day.test{border-style:dashed;justify-content:center;color:var(--muted);font-size:.875rem;text-align:center}
+.planbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.nav{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}
+.next{background:var(--ink);color:var(--bg);border:0;border-radius:999px;padding:12px 28px;font-weight:700;font-size:1.0625rem}
+.next:disabled{opacity:.35;cursor:default}
+.ghost{background:none;border:2px solid var(--line);border-radius:999px;padding:10px 20px;font-weight:700}
+
+/* ---------- Tool earned ---------- */
+.won{align-items:center;text-align:center;background:radial-gradient(circle,var(--hole) 2px,transparent 2.6px) 11px 11px/22px 22px,var(--board)}
+.won svg{width:120px;height:120px;transform-origin:50% 0;animation:hang 1.1s cubic-bezier(.3,1.4,.5,1) both}
+@keyframes hang{0%{transform:translateY(-70px) rotate(-18deg);opacity:0}45%{transform:translateY(0) rotate(9deg);opacity:1}70%{transform:rotate(-5deg)}100%{transform:rotate(0)}}
+.won h2{font-size:2rem}
+.memo{background:var(--surface);border-radius:14px;padding:16px;text-align:left;width:100%;display:flex;flex-direction:column;gap:8px}
+.memo h3{font-size:1.05rem;font-weight:600;color:var(--c)}
+.memo ol{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:4px;font-weight:700}
+@media (prefers-reduced-motion:reduce){.won svg,.shake{animation:none}}
+</style>
+</head>
+<body>
+<main class="wrap" id="app"></main>
+<script>
+"use strict";
+/* ================= Content ================= */
+const ICON = {
+  ki:   '<circle cx="27" cy="27" r="16"/><path d="M39 39l15 15"/><path d="M18 25a10 10 0 0 1 8-8"/>',
+  lern: '<path d="M9 30h46v20a4 4 0 0 1-4 4H13a4 4 0 0 1-4-4z"/><path d="M15 30V19h34v11"/><path d="M21 19v-8h22v8"/><path d="M26 42h12"/>',
+  rede: '<path d="M10 26v12h9l23 13V13L19 26z"/><path d="M21 38l3 15h8l-3-11"/><path d="M50 24c4 4 4 12 0 16"/>'
+};
+const TRACKS = {
+  ki:   {name:'KI & Netz', tool:'Die Lupe', later:['Fake oder echt? Bilder und Quellen prüfen','Starke Prompts bauen','Deine Daten, dein Schutz']},
+  lern: {name:'Lernen lernen', tool:'Der Karteikasten', later:['Fokus und Pausen','Notizen, die wirklich helfen','Klassenarbeiten planen']},
+  rede: {name:'Reden & Auftreten', tool:'Das Megafon', later:['Lampenfieber zähmen','Gute Fragen stellen, gut zuhören','Teamarbeit ohne Streit']}
+};
+const MISSIONS = [
+{
+  id:'ki-orakel', track:'ki', title:'KI ist kein Orakel', min:6,
+  blurb:'Wie ein Chatbot zu seinen Antworten kommt, warum er sich irren kann und was nicht in den Chat gehört.',
+  steps:[
+    {type:'info', h:'So tickt ein Chatbot', ps:[
+      'Ein KI-Chatbot hat riesige Mengen an Texten verarbeitet. Dabei hat er gelernt, welche Wörter oft aufeinander folgen.',
+      'Wenn du ihm schreibst, berechnet er Stück für Stück, welches Wort als Nächstes wahrscheinlich gut passt.',
+      'Er schlägt also nicht in einem geprüften Lexikon nach. Er baut Sätze, die gut klingen. Meistens stimmen sie. Manchmal nicht.',
+      'Manche Chatbots können zusätzlich im Internet suchen. Fehler passieren trotzdem.']},
+    {type:'choice', lead:'Spiel selbst den Chatbot.', q:'Welches Wort kommt als Nächstes?', quote:'»Die Hauptstadt von Frankreich ist …«',
+      opts:[{t:'Lyon', fb:'Lyon ist eine große Stadt in Frankreich, steht an dieser Stelle aber fast nie.'},{t:'Paris', ok:1},{t:'Baguette', fb:'Lecker, aber keine Stadt.'}],
+      fb:'In fast allen Texten steht an dieser Stelle »Paris«. Hier ist das häufigste Wort auch das richtige.',
+      bars:[['Paris',97],['Lyon',2],['Baguette',1]]},
+    {type:'choice', lead:'Jetzt wird es kniffliger.', q:'Was ist richtig?', quote:'»Die Hauptstadt von Australien ist …«',
+      opts:[{t:'Sydney', fb:'Sydney ist die bekannteste Stadt Australiens, aber nicht die Hauptstadt.'},{t:'Melbourne', fb:'Auch eine bekannte Stadt, aber nicht die Hauptstadt.'},{t:'Canberra', ok:1}],
+      fb:'Canberra ist die Hauptstadt. Sydney kommt in Texten über Australien aber viel öfter vor. An solchen Stellen können Sprachmodelle stolpern: Das Bekannte wirkt wahrscheinlicher als das Richtige. Bei dieser berühmten Frage liegen heutige Chatbots meist richtig. Bei selteneren Themen passieren solche Fehler wirklich.'},
+    {type:'pick', block:1, h:'Finde den Fehler', lead:'Ein Chatbot schreibt über den Mount Everest. Ein Satz ist falsch. Tippe ihn an.',
+      tokens:[{t:'Der Mount Everest ist der höchste Berg der Erde.'},{t:'Sein Gipfel liegt rund 8.849 Meter über dem Meer.'},{t:'Er liegt in den Alpen, an der Grenze zwischen Österreich und Italien.', ok:1}],
+      miss:'Dieser Satz stimmt. Schau dir die anderen noch mal an.',
+      fb:'Der Mount Everest liegt im Himalaya, an der Grenze zwischen Nepal und China. Der falsche Satz klingt genauso sicher wie die richtigen. Das nennt man eine Halluzination: Die KI schreibt etwas Falsches und merkt es selbst nicht.'},
+    {type:'sort', h:'Was darf in den Chat?', lead:'Alles, was du in einen Chatbot tippst, landet auf den Computern einer Firma und kann dort gespeichert werden.',
+      cats:['Ist okay','Bleibt privat'],
+      items:[
+        {t:'»Erklär mir Bruchrechnen mit einem Beispiel.«', c:0},
+        {t:'Meine Adresse und meine Handynummer', c:1},
+        {t:'Ideen für eine Abenteuergeschichte', c:0},
+        {t:'Mein Passwort fürs Schulportal', c:1, note:'Ein Passwort gehört in keinen Chat, auch nicht zu Freunden.'},
+        {t:'Ein Foto von meiner Freundin', c:1, note:'Bilder von anderen darfst du nur mit ihrer Erlaubnis weitergeben.'},
+        {t:'Vokabeln, die ich üben will', c:0}],
+      fb:'Schulstoff und Ideen sind okay. Alles, womit man dich oder andere finden oder erkennen kann, bleibt draußen.'},
+    {type:'sort', h:'Lerncoach oder Abkürzung?', lead:'Mit KI kannst du schlauer werden. Oder du lässt sie die Arbeit machen und lernst nichts dabei.',
+      cats:['Macht mich schlauer','Nimmt mir das Lernen ab'],
+      items:[
+        {t:'»Frag mich zehn Englisch-Vokabeln ab.«', c:0},
+        {t:'»Schreib meinen Aufsatz über die Ferien.«', c:1},
+        {t:'»Erklär mir das noch mal mit einem anderen Beispiel.«', c:0},
+        {t:'»Gib mir nur die Lösungen für Seite 42.«', c:1},
+        {t:'»Ich habe so gerechnet. Wo steckt mein Fehler?«', c:0}],
+      fb:'Dein Gehirn wächst nur an dem, was es selbst tut. Und wenn du einen KI-Text als deinen eigenen abgibst, ist das geschummelt. Frag deine Lehrerin oder deinen Lehrer, was erlaubt ist.'},
+    {type:'choice', lead:'Kurzer Check, Frage 1 von 3', q:'Was macht ein KI-Chatbot, wenn er antwortet?',
+      opts:[{t:'Er schlägt die Antwort in einem geprüften Lexikon nach.', fb:'Nein. Er hat kein eingebautes Lexikon, in dem jede Antwort geprüft wurde.'},{t:'Er berechnet, welche Wörter wahrscheinlich gut passen.', ok:1},{t:'Ein Mensch tippt heimlich die Antwort.', fb:'Nein, da sitzt niemand. Die Antwort wird berechnet.'}],
+      fb:'Genau. Deshalb klingt die Antwort flüssig, auch wenn sie mal falsch ist.'},
+    {type:'choice', lead:'Kurzer Check, Frage 2 von 3', q:'Ein Chatbot nennt dir für dein Referat eine Jahreszahl. Was tust du?',
+      opts:[{t:'Ich prüfe sie in einer zweiten Quelle, zum Beispiel im Schulbuch oder Lexikon.', ok:1},{t:'Ich übernehme sie. Die KI klingt sicher.', fb:'Sicher klingen und richtig sein sind zwei verschiedene Dinge.'},{t:'Ich stelle dieselbe Frage noch mal. Kommt dasselbe, stimmt es.', fb:'Dieselbe KI kann denselben Fehler zweimal machen.'}],
+      fb:'Richtig. Zahlen, Namen und Daten prüfst du immer in einer zweiten Quelle.'},
+    {type:'choice', lead:'Kurzer Check, Frage 3 von 3', q:'Viele Chatbots haben ein Mindestalter. Was stimmt?',
+      opts:[{t:'Für Chatbots gibt es keine Altersregeln.', fb:'Doch. Die Regeln stehen in den Nutzungsbedingungen der Anbieter.'},{t:'Alle Chatbots sind ab 6 Jahren erlaubt.', fb:'Nein, das Mindestalter liegt deutlich höher.'},{t:'Viele sind erst ab 13 erlaubt, manche erst ab 18.', ok:1}],
+      fb:'Stimmt. Klär mit deinen Eltern, was du nutzen darfst, und probier KI am besten gemeinsam mit ihnen aus.'},
+    {type:'tool', memo:['KI klingt sicher, auch wenn sie falschliegt.','Wichtiges prüfe ich in einer zweiten Quelle.','Private Daten bleiben draußen.'],
+      todo:'Such dir ein Thema, bei dem du dich richtig gut auskennst. Stell einem Chatbot zusammen mit deinen Eltern drei Fragen dazu. Findest du einen Fehler?'}
+  ]
+},
+{
+  id:'lernen-abfragen', track:'lern', title:'Abfragen schlägt Durchlesen', min:6,
+  blurb:'Zwei Lernmethoden, die in der Forschung am besten abschneiden. Du testest sie gleich an dir selbst.',
+  steps:[
+    {type:'memo', h:'Ein Experiment zum Start', lead:'Lies diese vier Fakten über den Oktopus einmal aufmerksam durch. Du brauchst sie später wieder.',
+      facts:['Ein Oktopus hat drei Herzen.','Sein Blut ist blau.','Er hat acht Arme.','Er hat keinen einzigen Knochen.']},
+    {type:'sort', h:'Was bringt viel?', lead:'Vier beliebte Arten zu lernen. Welche helfen dir wirklich, etwas lange zu behalten?',
+      cats:['Bringt viel','Bringt wenig'],
+      items:[
+        {t:'Buch zuklappen und mich selbst abfragen', c:0},
+        {t:'Den Text dreimal hintereinander durchlesen', c:1, note:'Der Text kommt dir danach bekannt vor. Bekannt ist aber nicht dasselbe wie gekonnt.'},
+        {t:'An vier Tagen je 15 Minuten üben', c:0},
+        {t:'Fast alles mit Textmarker anmalen', c:1, note:'Markieren fühlt sich fleißig an, dein Kopf muss dabei aber kaum arbeiten.'}],
+      fb:'Forschende haben zehn Lernmethoden verglichen (Dunlosky und Kollegen, 2013). Am besten schnitten ab: sich selbst testen und das Lernen auf mehrere Tage verteilen. Mehrfaches Durchlesen und Markieren landeten weit hinten.'},
+    {type:'plan', h:'Bau deinen Lernplan', lead:'Am Freitag ist Vokabeltest. Du hast vier Lernblöcke von je 15 Minuten. Tippe auf die Tage, um die Blöcke zu verteilen.'},
+    {type:'choice', lead:'Jetzt der Abruf. Nicht zurückblättern! Sag die Antwort erst im Kopf, dann tippe.', q:'Wie viele Herzen hat ein Oktopus?',
+      opts:[{t:'Zwei', fb:'Nicht ganz. Jetzt weißt du, welche Karte du noch mal anschauen würdest.'},{t:'Drei', ok:1},{t:'Acht', fb:'Acht sind es bei den Armen. Bei den Herzen ist es eine andere Zahl.'}],
+      fb:'Drei Herzen. Du hast die Antwort gerade aus deinem Gedächtnis geholt. Genau das macht eine Erinnerung stärker.'},
+    {type:'choice', lead:'Abruf, Frage 2 von 3', q:'Welche Farbe hat sein Blut?',
+      opts:[{t:'Blau', ok:1},{t:'Rot', fb:'Rot ist es bei uns Menschen. Beim Oktopus nicht.'},{t:'Grün', fb:'Nicht ganz.'}],
+      fb:'Blau. Im Oktopus-Blut steckt Kupfer, in unserem Eisen.'},
+    {type:'choice', lead:'Abruf, Frage 3 von 3', q:'Was hat ein Oktopus nicht?',
+      opts:[{t:'Arme', fb:'Arme hat er, sogar acht.'},{t:'Herzen', fb:'Herzen hat er, sogar drei.'},{t:'Knochen', ok:1}],
+      fb:'Keinen einzigen Knochen. Merkst du etwas? Du hast die Fakten nur einmal gelesen und dann abgerufen. Auch ein falscher Tipp hilft: Er zeigt dir, was du noch mal anschauen musst.'},
+    {type:'choice', lead:'Kurzer Check, Frage 1 von 2', q:'Du hast einen Text gelesen und willst ihn behalten. Was ist der beste nächste Schritt?',
+      opts:[{t:'Gleich noch zweimal lesen.', fb:'Das fühlt sich sicher an, bringt aber wenig.'},{t:'Die wichtigsten Sätze gelb markieren.', fb:'Markieren allein hilft dem Gedächtnis kaum.'},{t:'Buch zu und aufschreiben oder aufsagen, was ich noch weiß.', ok:1}],
+      fb:'Richtig. Erst abrufen, dann nachschauen, was gefehlt hat.'},
+    {type:'choice', lead:'Kurzer Check, Frage 2 von 2', q:'In einer Woche ist Erdkunde-Test. Welcher Plan ist am stärksten?',
+      opts:[{t:'Am Sonntag zwei Stunden am Stück lernen.', fb:'Alles auf einmal ist anstrengend, und viel davon ist bis zum Test wieder weg.'},{t:'Jeden zweiten Tag 20 Minuten, jedes Mal mit Selbsttest.', ok:1},{t:'Am Abend vorher alles durchlesen.', fb:'Dann bleibt keine Zeit zum Wiederholen.'}],
+      fb:'Genau. Verteilen und Abfragen zusammen sind das stärkste Paar.'},
+    {type:'tool', memo:['Buch zu, dann abfragen.','Lieber viermal kurz als einmal lang.','Fehler zeigen mir, was ich wiederholen muss.'],
+      todo:'Schreib heute fünf Karteikarten für deinen nächsten Test: vorne die Frage, hinten die Antwort. Frag dich morgen und übermorgen damit ab.'}
+  ]
+},
+{
+  id:'reden-referat', track:'rede', title:'Dein Referat in drei Teilen', min:5,
+  blurb:'Der Aufbau, der jedes Referat trägt, und Karteikarten, mit denen du frei sprichst.',
+  steps:[
+    {type:'info', h:'Der rote Faden', ps:[
+      'Ein gutes Referat hat drei Teile. Wer zuhört, weiß dadurch immer, wo ihr gerade seid.',
+      'In der Einleitung weckst du Neugier und sagst, worum es geht. Im Hauptteil erklärst du zwei bis vier Punkte, einen nach dem anderen. Im Schluss fasst du zusammen und lädst zu Fragen ein.'],
+      fig:'<div class="parts"><div>Einleitung<small>kurz</small></div><div>Hauptteil<small>der längste Teil</small></div><div>Schluss<small>kurz</small></div></div>'},
+    {type:'order', h:'Bring das Referat in Ordnung', lead:'Die Kärtchen sind durcheinandergeraten. Tippe sie in der richtigen Reihenfolge an.',
+      items:[
+        'Hallo zusammen! Wusstet ihr, dass es ein Tier mit drei Herzen gibt?',
+        'Ich erzähle euch heute vom Oktopus: erst von seinem Körper, dann von seinen Tricks.',
+        'Zuerst zum Körper: Er hat acht Arme und keinen einzigen Knochen.',
+        'Jetzt zu seinen Tricks: Er kann in Sekunden die Farbe wechseln.',
+        'Zusammengefasst: Der Oktopus hat einen besonderen Körper und clevere Tricks.',
+        'Danke fürs Zuhören! Habt ihr Fragen?'],
+      fb:'So stimmt der rote Faden: Neugier wecken, Überblick geben, zwei Punkte im Hauptteil, zusammenfassen, Fragen.'},
+    {type:'choice', h:'Die bessere Karteikarte', q:'Welche Karte hilft dir, frei zu sprechen?',
+      opts:[{t:'»Der Oktopus gehört zu den Weichtieren und hat acht Arme, die mit Saugnäpfen besetzt sind, und außerdem besitzt er drei Herzen.«', fb:'Ganze Sätze verleiten zum Ablesen. Dann schaust du nur noch auf die Karte.'},{t:'Körper: Weichtier · 8 Arme · Saugnäpfe · 3 Herzen', ok:1}],
+      fb:'Mit Stichwörtern schaust du kurz auf die Karte und dann wieder zu deiner Klasse. Die Sätze bildest du beim Sprechen selbst.'},
+    {type:'pick', multi:3, h:'Mach Stichwörter daraus', lead:'Deine Karte hat schon die Überschrift »Oktopus: Tricks«. Tippe die drei Wörter an, die als Stichwörter auf die Karte gehören.',
+      tokens:[{t:'Wenn'},{t:'Gefahr',ok:1},{t:'droht,'},{t:'stößt'},{t:'der'},{t:'Oktopus'},{t:'eine'},{t:'dunkle'},{t:'Tinte',ok:1},{t:'aus'},{t:'und'},{t:'flieht.',ok:1}],
+      fb:'Gefahr, Tinte, flieht: Mit diesen drei Wörtern kannst du den ganzen Satz frei erzählen.'},
+    {type:'choice', h:'Der erste Satz zählt', q:'Welcher Einstieg macht neugierig?',
+      opts:[{t:'»Ähm, also, mein Thema ist der Oktopus.«', fb:'So fangen viele an. Neugierig macht das noch nicht.'},{t:'»Stellt euch vor, ihr hättet drei Herzen und blaues Blut. Für ein Tier im Meer ist das ganz normal.«', ok:1},{t:'»Ich lese euch jetzt vor, was im Lexikon über den Oktopus steht.«', fb:'Vorlesen klingt schnell langweilig. Erzähl lieber mit eigenen Worten.'}],
+      fb:'Eine überraschende Tatsache oder eine Frage zieht alle sofort ins Thema.'},
+    {type:'choice', lead:'Kurzer Check, Frage 1 von 2', q:'Mitten im Referat verlierst du den Faden. Was hilft?',
+      opts:[{t:'Schneller sprechen, damit es niemand merkt.', fb:'Dann wird es eher noch schwieriger, den Faden wiederzufinden.'},{t:'Kurz durchatmen, auf die Karteikarte schauen, weitermachen.', ok:1},{t:'Mich entschuldigen und aufhören.', fb:'Nicht nötig. Das passiert allen, auch Profis.'}],
+      fb:'Genau. Eine kurze Pause fällt den Zuhörern kaum auf.'},
+    {type:'choice', lead:'Kurzer Check, Frage 2 von 2', q:'Wie übst du dein Referat am besten?',
+      opts:[{t:'Den Text ein paarmal leise durchlesen.', fb:'Leise lesen ist etwas anderes als laut sprechen.'},{t:'Alles Wort für Wort auswendig lernen.', fb:'Dann wirft dich ein einziges vergessenes Wort aus der Bahn.'},{t:'Mindestens zweimal laut vortragen, mit Karteikarten und Stoppuhr.', ok:1}],
+      fb:'Richtig. Beim lauten Üben merkst du, wo es hakt und ob die Zeit passt.'},
+    {type:'tool', memo:['Einleitung, Hauptteil, Schluss.','Stichwörter statt ganzer Sätze.','Laut üben und die Zeit stoppen.'],
+      todo:'Halte heute Abend ein Ein-Minuten-Referat über dein Lieblingstier oder dein Hobby. Drei Karteikarten, ein Zuhörer, Stoppuhr an.'}
+  ]
+}];
+
+/* ================= Helpers ================= */
+function h(tag, attrs, ...kids){
+  const e = document.createElement(tag);
+  for (const k in (attrs||{})){
+    const v = attrs[k];
+    if (v == null || v === false) continue;
+    if (k === 'class') e.className = v;
+    else if (k === 'html') e.innerHTML = v;
+    else if (k.startsWith('on')) e.addEventListener(k.slice(2), v);
+    else e.setAttribute(k, v === true ? '' : v);
+  }
+  for (const c of kids.flat()){ if (c != null) e.append(c.nodeType ? c : document.createTextNode(c)); }
+  return e;
+}
+function icon(track, have){
+  return h('span', {html:'<svg viewBox="0 0 64 64" class="tool-svg'+(have?' have':'')+'" aria-hidden="true">'+ICON[track]+'</svg>'}).firstChild;
+}
+function setFb(el, good, title, text){
+  el.className = 'fb ' + (good ? 'good' : 'bad');
+  el.replaceChildren(h('b', null, title), text || '');
+}
+function shake(el){ el.classList.remove('shake'); void el.offsetWidth; el.classList.add('shake'); }
+function head(s){
+  const out = [];
+  if (s.h) out.push(h('h2', null, s.h));
+  if (s.lead) out.push(h('p', {class:'lead'}, s.lead));
+  return out;
+}
+
+const KEY = 'werkzeugkasten-v1';
+let save = {done:{}};
+try { const s = JSON.parse(localStorage.getItem(KEY)); if (s && s.done) save = s; } catch(e){}
+function persist(){ try { localStorage.setItem(KEY, JSON.stringify(save)); } catch(e){} }
+
+const app = document.getElementById('app');
+let run = null;          // {m, i, clean, scored}
+let view = 'start';
+
+/* ================= Start view ================= */
+function renderHome(){
+  run = null; view = 'start';
+  const got = Object.keys(TRACKS).filter(t => MISSIONS.some(m => m.track===t && save.done[m.id])).length;
+  const board = h('header', {class:'board'},
+    h('span', {class:'tape'}, 'Für Klasse 6 und 7'),
+    h('h1', null, 'Dein Werkzeug­kasten'),
+    h('p', {class:'sub'}, 'Drei Werkbänke, drei Werkzeuge für Schule und Netz. Schließ eine Mission ab und häng dein Werkzeug an die Wand.'),
+    h('div', {class:'slots'}, Object.keys(TRACKS).map(t => {
+      const have = MISSIONS.some(m => m.track===t && save.done[m.id]);
+      return h('div', {class:'slot t-'+t+(have?' have':'')}, icon(t, have), h('span',{class:'nm'},TRACKS[t].tool), h('span',{class:'st'}, have ? 'verdient' : 'noch frei'));
+    })),
+    h('p', {class:'sub'}, got === 3 ? 'Alle drei Werkzeuge hängen an der Wand. Stark!' : got + ' von 3 Werkzeugen verdient.')
+  );
+  const benches = MISSIONS.map(m => {
+    const tr = TRACKS[m.track], done = !!save.done[m.id];
+    return h('section', {class:'bench t-'+m.track},
+      h('span', {class:'kick'}, 'Werkbank ' + tr.name),
+      h('h2', null, m.title),
+      h('p', null, m.blurb),
+      h('p', {class:'meta'}, 'Etwa ' + m.min + ' Minuten · ' + (m.steps.length-1) + ' Schritte · Werkzeug: ' + tr.tool + (done ? ' · geschafft' : '')),
+      h('button', {class:'go', type:'button', onclick(){ go(m.id); }}, done ? 'Noch mal spielen' : 'Mission starten'),
+      h('div', {class:'later'}, 'Als Nächstes an dieser Werkbank geplant:', h('ul', null, tr.later.map(x => h('li', null, x))))
+    );
+  });
+  const parents = h('details', {class:'parents'},
+    h('summary', null, '给家长 · For parents'),
+    h('p', {lang:'zh'}, '这个页面用德语写成，供孩子独立使用。三个“工作台”各有一个约 6 分钟的任务：① AI 与网络：聊天机器人如何生成回答、为什么要核实、哪些信息不能输入；② 学会学习：自我测试和分散练习比反复阅读更有效；③ 表达：口头报告（Referat）的三段结构和提示卡。每个任务最后有一个“试一试”小练习，欢迎您来当听众或一起完成。提醒：多数 AI 聊天工具要求用户年满 13 岁，有的要求 18 岁，请陪同孩子使用。'),
+    h('p', {lang:'en'}, 'This page is written in German for your child to use alone. Each of the three workbenches has one mission of about 6 minutes: (1) AI and the internet: how a chatbot produces answers, why to verify them, what never to type in; (2) learning to learn: self-testing and spreading practice over days beat rereading; (3) speaking: the three-part structure of a school presentation (Referat) and keyword cards. Each mission ends with a small try-it task where you can be the audience or join in. Note: most AI chatbots require users to be at least 13, some 18, so please explore them together.')
+  );
+  app.className = 'wrap';
+  app.replaceChildren(board, ...benches, parents);
+}
+
+/* ================= Mission view ================= */
+function startMission(m, i){
+  run = {m, i: i||0, clean:0, scored:0}; view = m.id;
+  showStep();
+}
+function showStep(){
+  const m = run.m, s = m.steps[run.i], last = run.i === m.steps.length-1;
+  const next = h('button', {class:'next', type:'button', disabled:true, onclick(){ run.i++; showStep(); }}, 'Weiter');
+  const ctx = { done:false, solved(clean){
+    if (ctx.done) return; ctx.done = true;
+    if (clean !== undefined){ run.scored++; if (clean) run.clean++; }
+    next.disabled = false;
+  }};
+  const card = h('section', {class:'card' + (last ? ' won' : '')}, RENDER[s.type](s, ctx));
+  const nav = last
+    ? h('div', {class:'nav'}, h('button',{class:'ghost',type:'button',onclick(){ startMission(m,0); window.scrollTo(0,0); }},'Noch mal spielen'), h('button',{class:'next',type:'button',onclick(){ go(''); }},'Zum Werkzeugkasten'))
+    : h('div', {class:'nav'}, next);
+  app.className = 'wrap t-' + m.track;
+  app.replaceChildren(
+    h('div', {class:'mhead'}, h('button',{class:'back',type:'button',onclick(){ go(''); }},'← Zurück'), h('span',{class:'mt'}, m.title)),
+    h('div', {class:'prog', role:'img', 'aria-label':'Schritt '+(run.i+1)+' von '+m.steps.length}, m.steps.map((_,k)=>h('i',{class:k<=run.i?'on':''}))),
+    card, nav);
+  window.scrollTo(0,0);
+}
+
+const RENDER = {
+  info(s, ctx){
+    ctx.solved();
+    return [...head(s), ...s.ps.map(p => h('p', null, p)), s.fig ? h('div', {html:s.fig}) : null];
+  },
+  memo(s, ctx){
+    ctx.solved();
+    return [...head(s), h('div', {class:'facts'}, s.facts.map(f => h('div', {class:'fact'}, f)))];
+  },
+  choice(s, ctx){
+    const fb = h('div', {class:'fb', role:'status'});
+    const list = h('div', {class:'opts'});
+    let miss = false;
+    s.opts.forEach(o => {
+      const b = h('button', {class:'opt', type:'button', onclick(){
+        if (ctx.done || b.classList.contains('no')) return;
+        if (o.ok){
+          b.classList.add('ok'); list.classList.add('locked');
+          setFb(fb, true, miss ? 'Jetzt stimmt es.' : 'Richtig!', s.fb);
+          if (s.bars) fb.append(h('div', {class:'bars'}, s.bars.map(([w,n]) => h('div', null, h('span',null,w), h('span',{class:'bar',style:'width:'+n+'%'}), h('span',{class:'n'},n+' %'))), h('small', null, 'Ausgedachte Beispielzahlen: So ungefähr schätzt ein Sprachmodell, welches Wort passt.')));
+          ctx.solved(!miss);
+        } else {
+          miss = true; b.classList.add('no'); shake(b);
+          setFb(fb, false, 'Noch nicht.', (o.fb || '') + ' Probier es noch mal.');
+        }
+      }}, o.t);
+      list.append(b);
+    });
+    return [...head(s), h('h2', null, s.q), s.quote ? h('p', {class:'quote'}, s.quote) : null, list, fb];
+  },
+  sort(s, ctx){
+    const fb = h('div', {class:'fb', role:'status'});
+    let left = s.items.length, miss = false;
+    const rows = s.items.map(it => {
+      const two = h('div', {class:'two'});
+      const row = h('div', {class:'row'}, h('p', null, it.t), two);
+      s.cats.forEach((c, k) => {
+        const b = h('button', {class:'opt', type:'button', onclick(){
+          if (k === it.c){
+            row.classList.add('placed');
+            two.replaceWith(h('span', {class:'tag'}, '✓ ' + c), it.note ? h('span', {class:'note'}, it.note) : '');
+            if (--left === 0){ setFb(fb, true, miss ? 'Alles einsortiert.' : 'Alles richtig einsortiert!', s.fb); ctx.solved(!miss); }
+          } else { miss = true; b.classList.add('no'); shake(row); }
+        }}, c);
+        two.append(b);
+      });
+      return row;
+    });
+    return [...head(s), h('div', {class:'rows'}, rows), fb];
+  },
+  order(s, ctx){
+    const fb = h('div', {class:'fb', role:'status'});
+    const seq = h('ol', {class:'seq', 'aria-label':'Deine Reihenfolge'});
+    const pool = h('div', {class:'opts'});
+    let nextIdx = 0, miss = false;
+    const idx = s.items.map((_, k) => k);
+    do { for (let k = idx.length-1; k > 0; k--){ const j = Math.floor(Math.random()*(k+1)); [idx[k], idx[j]] = [idx[j], idx[k]]; } } while (idx.every((v,k) => v===k) || idx[0] === 0);
+    idx.forEach(k => {
+      const b = h('button', {class:'opt', type:'button', onclick(){
+        if (k === nextIdx){
+          nextIdx++; b.remove(); seq.append(h('li', null, h('span', null, s.items[k])));
+          fb.className = 'fb'; fb.replaceChildren();
+          if (nextIdx === s.items.length){ setFb(fb, true, miss ? 'Geschafft.' : 'Perfekt sortiert!', s.fb); ctx.solved(!miss); }
+        } else { miss = true; shake(b); setFb(fb, false, 'Noch nicht.', nextIdx === 0 ? 'Womit begrüßt du deine Klasse?' : 'Überleg: Was muss vorher kommen?'); }
+      }}, s.items[k]);
+      pool.append(b);
+    });
+    return [...head(s), seq, pool, fb];
+  },
+  pick(s, ctx){
+    const fb = h('div', {class:'fb', role:'status'});
+    const list = h('div', {class: s.block ? 'opts' : 'chips'});
+    let miss = false;
+    const btns = s.tokens.map(t => {
+      const b = h('button', {class:'opt', type:'button', 'aria-pressed': s.multi ? 'false' : null, onclick(){
+        if (ctx.done) return;
+        if (s.multi){
+          const on = b.classList.contains('sel');
+          if (!on && list.querySelectorAll('.sel').length >= s.multi) return;
+          b.classList.toggle('sel'); b.setAttribute('aria-pressed', String(!on));
+          check.disabled = list.querySelectorAll('.sel').length !== s.multi;
+        } else if (t.ok){
+          b.classList.add('ok'); list.classList.add('locked'); setFb(fb, true, miss ? 'Jetzt hast du ihn.' : 'Gefunden!', s.fb); ctx.solved(!miss);
+        } else if (!b.classList.contains('no')){
+          miss = true; b.classList.add('no'); shake(b); setFb(fb, false, 'Noch nicht.', s.miss);
+        }
+      }}, t.t);
+      b._ok = !!t.ok; return b;
+    });
+    list.append(...btns);
+    const check = h('button', {class:'ghost', type:'button', disabled:true, onclick(){
+      const sel = btns.filter(b => b.classList.contains('sel'));
+      const right = sel.filter(b => b._ok).length;
+      if (right === s.multi){
+        sel.forEach(b => { b.classList.remove('sel'); b.classList.add('ok'); });
+        list.classList.add('locked'); check.remove(); setFb(fb, true, miss ? 'Jetzt passt es.' : 'Treffer!', s.fb); ctx.solved(!miss);
+      } else { miss = true; setFb(fb, false, right + ' von ' + s.multi + ' stimmen.', 'Tausche aus und prüfe noch mal. Tipp: Welche Wörter brauchst du, um den Satz nachzuerzählen?'); }
+    }}, 'Prüfen');
+    return [...head(s), list, s.multi ? check : null, fb];
+  },
+  plan(s, ctx){
+    const fb = h('div', {class:'fb', role:'status'});
+    const names = ['Montag','Dienstag','Mittwoch','Donnerstag'], n = [0,0,0,0];
+    let miss = false;
+    const leftTxt = h('span', null);
+    const check = h('button', {class:'ghost', type:'button', disabled:true, onclick(){
+      const used = n.filter(x => x > 0).length;
+      if (used >= 3){
+        setFb(fb, true, miss ? 'So ist es stark verteilt.' : 'Stark verteilt!', 'Zwischen den Lerntagen schläfst du. Im Schlaf festigt dein Gehirn, was du geübt hast. Beim nächsten Block holst du es wieder hervor, und es sitzt jedes Mal fester.');
+        cols.forEach(c => c.disabled = true); reset.remove(); check.remove(); ctx.solved(!miss);
+      } else if (used === 2){
+        miss = true; setFb(fb, false, 'Schon besser als alles auf einmal.', 'Noch stärker wird es mit drei oder vier Tagen. Setz zurück und verteile neu.');
+      } else {
+        miss = true; setFb(fb, false, 'Alles an einem Tag?', 'Dann bleibt für Freitag einiges hängen, aber dein Gehirn bekommt keine Gelegenheit zu wiederholen. Setz zurück und verteile neu.');
+      }
+    }}, 'Plan prüfen');
+    const reset = h('button', {class:'ghost', type:'button', onclick(){ n.fill(0); draw(); fb.className='fb'; fb.replaceChildren(); }}, 'Zurücksetzen');
+    const cols = names.map((nm, k) => h('button', {class:'day', type:'button', onclick(){ if (n.reduce((a,b)=>a+b,0) < 4){ n[k]++; draw(); } }}, h('b', null, nm.slice(0,2)), h('span', {class:'stack'})));
+    function draw(){
+      const sum = n.reduce((a,b)=>a+b,0);
+      cols.forEach((c, k) => { c.querySelector('.stack').replaceChildren(...Array.from({length:n[k]}, () => h('i'))); c.setAttribute('aria-label', names[k] + ': ' + n[k] + (n[k]===1 ? ' Block' : ' Blöcke')); });
+      leftTxt.textContent = sum === 4 ? 'Alle 4 Blöcke verteilt.' : 'Noch ' + (4-sum) + (4-sum===1 ? ' Block' : ' Blöcke') + ' übrig.';
+      check.disabled = sum !== 4;
+    }
+    draw();
+    return [...head(s), h('div', {class:'days'}, cols, h('div', {class:'day test'}, h('b', null, 'Fr'), 'Test')), h('div', {class:'planbar'}, leftTxt, h('span', {class:'nav'}, reset, check)), fb];
+  },
+  tool(s, ctx){
+    const m = run.m, tr = TRACKS[m.track];
+    save.done[m.id] = true; persist();
+    return [
+      icon(m.track, true),
+      h('p', {class:'lead'}, 'Werkzeug verdient'),
+      h('h2', null, tr.tool),
+      h('p', null, run.clean + ' von ' + run.scored + ' Aufgaben hast du ohne Fehlversuch gelöst.'),
+      h('div', {class:'memo'}, h('h3', null, 'Dein Merkzettel'), h('ol', null, s.memo.map(x => h('li', null, x)))),
+      h('div', {class:'memo'}, h('h3', null, 'Probier es aus'), h('p', null, s.todo))
+    ];
+  }
+};
+
+/* ================= Routing ================= */
+function route(){
+  const id = (location.hash || '').slice(1);
+  const m = MISSIONS.find(x => x.id === id);
+  if (m){ if (view !== m.id) startMission(m, 0); }
+  else if (view !== 'start' || !app.firstChild) renderHome();
+}
+function go(id){
+  try { location.hash = id; } catch(e){}
+  const m = MISSIONS.find(x => x.id === id);
+  if (m) { if (view !== m.id) startMission(m, 0); } else { renderHome(); window.scrollTo(0,0); }
+}
+window.addEventListener('hashchange', route);
+function boot(data){
+  const m = data && MISSIONS.find(x => x.id === data.view);
+  if (m) startMission(m, Math.min(data.i || 0, m.steps.length-2)); else route();
+}
+if (window.claude && window.claude.hot){
+  window.claude.hot.snapshot(() => ({view, i: run ? run.i : 0}));
+  if (window.claude.hot.ready) window.claude.hot.ready(boot); else boot(window.claude.hot.data || {});
+} else boot({});
+</script>
+</body>
+</html>

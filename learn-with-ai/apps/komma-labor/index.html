@@ -1,0 +1,2223 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Komma-Labor Mathe 6</title>
+<style>
+/* Schriften liegen im Ordner fonts/ und werden vom eigenen Server geladen. */
+@font-face { font-family: 'Andika'; font-style: normal; font-weight: 400; font-display: swap; src: url('fonts/andika-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Andika'; font-style: normal; font-weight: 700; font-display: swap; src: url('fonts/andika-latin-700-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Azeret Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('fonts/azeret-mono-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Azeret Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url('fonts/azeret-mono-latin-500-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Azeret Mono'; font-style: normal; font-weight: 700; font-display: swap; src: url('fonts/azeret-mono-latin-700-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Bricolage Grotesque'; font-style: normal; font-weight: 200 800; font-display: swap; src: url('fonts/bricolage-grotesque-latin-wght-normal.woff2') format('woff2'); }
+/* Komma-Labor: helles Thema = Karoheft mit königsblauer Tinte und Textmarker, dunkles Thema = Schultafel mit Kreide.
+   Layout: eine Spalte bis 1040px, Modelle links und Fragen rechts, auf dem Handy untereinander. */
+:root {
+  --paper: #f3f5f0; --sheet: #ffffff; --grid: #d3deee; --ink: #1d2f8f; --on-ink: #ffffff; --ink-soft: #e6eafb;
+  --text: #1f232b; --muted: #5a6270; --line: #d5dae2;
+  --marker: #ffe45a; --marker-ink: #1f232b; --marker-soft: #fff4b0;
+  --good: #1a7a44; --good-bg: #e2f4e8; --bad: #c0322b; --bad-bg: #fbe6e4; --warn: #a66f00; --warn-bg: #fff2cc;
+  --f-display: 'Bricolage Grotesque', 'Avenir Next', 'Segoe UI', system-ui, sans-serif;
+  --f-body: 'Andika', 'Segoe UI', system-ui, -apple-system, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --f-mono: 'Azeret Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #17231e; --sheet: #1f2f29; --grid: #2d4239; --ink: #b7cbff; --on-ink: #12203f; --ink-soft: #263a4a;
+    --text: #ecf0e9; --muted: #a2b0a7; --line: #354a40;
+    --marker: #ecd24a; --marker-ink: #1a1a1a; --marker-soft: #4b4520;
+    --good: #72d69c; --good-bg: #1d3b2c; --bad: #ff9088; --bad-bg: #492421; --warn: #f1c450; --warn-bg: #3d3413;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #17231e; --sheet: #1f2f29; --grid: #2d4239; --ink: #b7cbff; --on-ink: #12203f; --ink-soft: #263a4a;
+  --text: #ecf0e9; --muted: #a2b0a7; --line: #354a40;
+  --marker: #ecd24a; --marker-ink: #1a1a1a; --marker-soft: #4b4520;
+  --good: #72d69c; --good-bg: #1d3b2c; --bad: #ff9088; --bad-bg: #492421; --warn: #f1c450; --warn-bg: #3d3413;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { font-size: 17px; -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--text); font-family: var(--f-body); line-height: 1.5; font-variant-numeric: tabular-nums; }
+h1, h2, h3, h4 { font-family: var(--f-display); line-height: 1.12; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+h1 { font-size: clamp(1.9rem, 5vw, 3rem); font-weight: 800; }
+h2 { font-size: 1.45rem; font-weight: 700; }
+h3 { font-size: 1.15rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--ink); }
+button, input, select { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+main:focus { outline: none; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.muted { color: var(--muted); } .small { font-size: .88rem; }
+.eyebrow { font-family: var(--f-mono); font-size: .76rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.lead { font-size: 1.08rem; max-width: 62ch; }
+.row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.num { display: inline-grid; place-items: center; min-width: 1.6em; height: 1.6em; border-radius: 50%; background: var(--ink); color: var(--on-ink); font-family: var(--f-mono); font-size: .8em; font-weight: 700; margin-right: .35em; }
+.tag { font-family: var(--f-mono); font-size: .7rem; padding: 3px 8px; border-radius: 99px; background: var(--ink-soft); color: var(--ink); white-space: nowrap; font-weight: 500; letter-spacing: 0; }
+
+/* Mathe-Schreibweisen */
+.fr { display: inline-flex; flex-direction: column; vertical-align: middle; text-align: center; font-size: .84em; line-height: 1.12; margin: 0 .14em; font-variant-numeric: tabular-nums; }
+.fr > span { padding: 0 .22em; }
+.fr > span:first-child { border-bottom: .09em solid currentColor; }
+.mix, .nb { white-space: nowrap; }
+.per { display: inline-block; line-height: .92; border-top: .085em solid currentColor; padding-top: .04em; }
+
+/* Kopf */
+.top { position: sticky; top: 0; z-index: 20; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 20px; padding: 10px max(16px, calc((100% - 1040px) / 2)); background: var(--paper); border-bottom: 1px solid var(--line); }
+.brand { font-family: var(--f-display); font-weight: 800; font-size: 1.15rem; text-decoration: none; color: var(--text); display: inline-flex; align-items: baseline; gap: 8px; }
+.brand span { font-family: var(--f-mono); font-size: .9rem; font-weight: 500; background: var(--marker); color: var(--marker-ink); padding: 0 6px; border-radius: 4px; }
+.nav { display: flex; gap: 2px; overflow-x: auto; margin-left: auto; max-width: 100%; }
+.nav a { padding: 7px 11px; border-radius: 8px; text-decoration: none; color: var(--muted); font-weight: 700; font-size: .92rem; white-space: nowrap; }
+.nav a:hover { color: var(--text); background: var(--ink-soft); }
+.nav a.on { color: var(--on-ink); background: var(--ink); }
+main { display: block; max-width: 1040px; margin: 0 auto; padding: 0 16px 64px; }
+.foot { max-width: 1040px; margin: 0 auto; padding: 20px 16px 40px; color: var(--muted); font-size: .82rem; border-top: 1px solid var(--line); }
+
+/* Knöpfe */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 9px 18px; border-radius: 10px; border: 2px solid var(--ink); background: var(--ink); color: var(--on-ink); font-weight: 700; text-decoration: none; cursor: pointer; }
+.btn:hover { filter: brightness(1.12); }
+.btn.ghost { background: transparent; color: var(--ink); }
+.btn.ghost:hover { background: var(--ink-soft); filter: none; }
+.btn.big { min-height: 52px; padding: 12px 24px; font-size: 1.05rem; }
+.btn.small { min-height: 40px; padding: 6px 13px; font-size: .92rem; }
+.btn:disabled { opacity: .4; cursor: default; filter: none; }
+
+/* Start */
+.hero { display: grid; grid-template-columns: 1.15fr .85fr; gap: 32px; align-items: center; padding: 44px 0 36px; }
+.hero > * { min-width: 0; }
+.hero-text { display: flex; flex-direction: column; gap: 16px; }
+.hero h1 { font-size: clamp(2.3rem, 6.4vw, 4rem); letter-spacing: -0.025em; }
+.calc { background: #2a3352; border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 12px; max-width: 340px; margin: 0 auto; box-shadow: 0 2px 0 #171d33, 0 14px 30px rgba(20, 28, 60, .22); }
+.lcd { background: #c5d2ba; color: #1b2a20; border-radius: 8px; padding: 8px 12px 6px; display: flex; flex-direction: column; font-family: var(--f-mono); box-shadow: inset 0 2px 6px rgba(0, 0, 0, .25); }
+.lcd-expr { font-size: .85rem; opacity: .7; }
+.lcd-out { font-size: 2rem; font-weight: 700; text-align: right; letter-spacing: .02em; line-height: 1.2; }
+.calc-keys { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; }
+.calc-keys span { background: #3c4670; color: #dfe5fb; border-radius: 7px; text-align: center; padding: 5px 0; font-family: var(--f-mono); font-size: .9rem; }
+.heroc { max-width: 400px; width: 100%; }
+.tape { background: #fff; color: #1f232b; border-radius: 4px; overflow: hidden; font-family: var(--f-mono); font-size: 1.25rem; font-weight: 500; padding: 8px 0; white-space: nowrap; box-shadow: inset 0 -3px 0 rgba(0, 0, 0, .06); }
+.tape-run { display: inline-block; animation: taperun 9s linear infinite; padding-left: 8px; }
+.tape-run span { display: inline-block; width: 6ch; }
+.tape-run .alt { background: var(--marker); color: var(--marker-ink); }
+@keyframes taperun { to { transform: translateX(-12ch); } }
+.tape-cap { color: #c9d1ee; font-size: .82rem; }
+.trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.way { display: flex; flex-direction: column; gap: 8px; padding: 20px; background: var(--sheet); border: 1px solid var(--line); border-radius: 14px; text-decoration: none; color: var(--text); position: relative; }
+.way:hover { border-color: var(--ink); }
+.way-n { font-family: var(--f-mono); font-weight: 700; color: var(--ink); font-size: .85rem; }
+.way-n::before { content: 'Teil '; }
+.way-stat { margin-top: auto; padding-top: 8px; font-size: .86rem; color: var(--muted); border-top: 1px dashed var(--line); }
+.block { margin-top: 44px; display: flex; flex-direction: column; gap: 14px; }
+.plan { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.plan li { background: var(--sheet); border: 1px solid var(--line); border-top: 4px solid var(--ink); border-radius: 10px; padding: 14px; display: flex; flex-direction: column; gap: 6px; font-size: .95rem; }
+.plan strong { font-family: var(--f-display); font-size: 1.05rem; }
+.parents { background: var(--sheet); border: 1px solid var(--line); border-radius: 14px; padding: 4px 20px; }
+.parents summary { cursor: pointer; font-weight: 700; padding: 12px 0; }
+.par-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; padding: 6px 0 16px; }
+.par-grid h3 { font-size: 1rem; margin: 14px 0 4px; }
+.par-grid p { font-size: .95rem; margin-bottom: 6px; }
+.parents > p { padding-bottom: 14px; }
+
+/* Checkliste */
+.tablewrap { overflow-x: auto; background: var(--sheet); border: 1px solid var(--line); border-radius: 14px; }
+table { border-collapse: collapse; width: 100%; }
+th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: middle; }
+tbody tr:last-child td { border-bottom: 0; }
+th { font-family: var(--f-mono); font-size: .76rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); font-weight: 500; }
+th small { display: block; text-transform: none; letter-spacing: 0; font-size: .7rem; }
+.check td:first-child { width: 1%; } .check td:nth-child(n+3), .check th:nth-child(n+3) { text-align: center; white-space: nowrap; }
+.check td:nth-child(2) { min-width: 220px; }
+.lights { display: inline-flex; gap: 5px; vertical-align: middle; }
+.l { width: 15px; height: 15px; border-radius: 50%; border: 1.5px solid var(--muted); display: inline-block; }
+.l.g.on { background: var(--good); border-color: var(--good); }
+.l.y.on { background: var(--marker); border-color: var(--warn); }
+.l.r.on { background: var(--bad); border-color: var(--bad); }
+.selfbtn { background: none; border: 1.5px dashed var(--line); border-radius: 99px; padding: 6px 9px; cursor: pointer; line-height: 0; }
+.selfbtn:hover { border-color: var(--ink); }
+
+/* Seiten */
+.page { padding-top: 28px; display: flex; flex-direction: column; gap: 22px; }
+.page.narrow { max-width: 760px; margin: 0 auto; }
+.page-head { display: flex; flex-direction: column; gap: 10px; }
+.page-head.tight h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); }
+.page-head.tight { gap: 6px; }
+.crumb a { text-decoration: none; font-weight: 700; font-size: .92rem; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.h-sm { font-size: 1.1rem; margin-top: 18px; }
+
+/* Stationen */
+.st-list { display: grid; gap: 12px; }
+.st-card { display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: center; padding: 16px 20px; background: var(--sheet); border: 1px solid var(--line); border-radius: 14px; text-decoration: none; color: var(--text); }
+.st-card:hover { border-color: var(--ink); }
+.st-card div { display: flex; flex-direction: column; gap: 3px; }
+.st-n { font-family: var(--f-display); font-weight: 800; font-size: 2.4rem; color: var(--ink); width: 1.2em; text-align: center; line-height: 1; }
+.okmark { color: var(--good); font-weight: 700; }
+.dots { display: flex; flex-wrap: wrap; gap: 6px; }
+.dots .dot { min-width: 34px; height: 34px; padding: 0 8px; border-radius: 99px; border: 1.5px solid var(--line); background: var(--sheet); font-family: var(--f-mono); font-size: .82rem; cursor: pointer; }
+.dots .dot.done { border-color: var(--ink); color: var(--ink); }
+.dots .dot.cur { background: var(--ink); color: var(--on-ink); border-color: var(--ink); }
+.dots .dot:disabled { opacity: .45; cursor: default; }
+.st-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, .9fr); gap: 20px; align-items: start; }
+.st-grid.noviz { grid-template-columns: minmax(0, 720px); }
+.st-grid.noviz .st-viz { display: none; }
+.st-viz, .st-side { background: var(--sheet); border: 1px solid var(--line); border-radius: 14px; padding: 18px; min-width: 0; }
+.st-side { display: flex; flex-direction: column; gap: 16px; }
+.st-text { display: flex; flex-direction: column; gap: 6px; }
+.step-no { font-family: var(--f-mono); font-size: .74rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+.st-nav:empty { display: none; }
+.summary { display: grid; gap: 16px; max-width: 760px; }
+.merk, .say { background: var(--sheet); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+.merk { border-left: 6px solid var(--marker); }
+.merk ul { margin: 0; padding-left: 1.2em; display: grid; gap: 8px; }
+.say { border-left: 6px solid var(--ink); }
+.say p { font-size: 1.05rem; }
+
+/* Aufgaben */
+.item { display: flex; flex-direction: column; gap: 12px; }
+.it-q { font-weight: 700; font-size: 1.08rem; }
+.it-body { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+.opts { display: grid; gap: 8px; width: 100%; grid-template-columns: 1fr 1fr; }
+.opts.cols1 { grid-template-columns: 1fr; } .opts.cols3 { grid-template-columns: repeat(3, 1fr); } .opts.cols4 { grid-template-columns: repeat(4, 1fr); }
+.opts.multi, .opts.ord { display: flex; flex-wrap: wrap; }
+.opt { position: relative; min-height: 50px; padding: 8px 12px; border-radius: 10px; border: 2px solid var(--line); background: var(--sheet); cursor: pointer; font-size: 1.05rem; text-align: center; line-height: 1.3; }
+.opts.cols1 .opt { text-align: left; font-size: 1rem; }
+.opts.multi .opt, .opts.ord .opt { min-width: 76px; }
+.opt:hover:not(:disabled) { border-color: var(--ink); }
+.opt.tog[aria-pressed="true"] { border-color: var(--ink); background: var(--ink-soft); box-shadow: inset 0 0 0 1px var(--ink); }
+.opt.right, .numin.right, select.right { border-color: var(--good) !important; background: var(--good-bg) !important; }
+.opt.wrongo, .numin.wrongo, select.wrongo { border-color: var(--bad) !important; background: var(--bad-bg) !important; }
+.opt:disabled { cursor: default; opacity: .75; } .opt.right:disabled { opacity: 1; }
+.opt kbd { position: absolute; top: 3px; left: 5px; font-family: var(--f-mono); font-size: .62rem; color: var(--muted); border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; }
+@media (hover: none) { .opt kbd { display: none; } }
+.numform, .perform { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.numin { width: 9.5em; min-height: 48px; padding: 6px 12px; border-radius: 10px; border: 2px solid var(--line); background: var(--sheet); font-family: var(--f-mono); font-size: 1.15rem; }
+.unit { font-weight: 700; }
+.perform { flex-direction: column; align-items: flex-start; }
+.per-fields { display: flex; flex-wrap: wrap; gap: 12px; }
+.per-fields div { display: flex; flex-direction: column; gap: 4px; }
+.per-fields label, .dset label, .m-set label { font-size: .8rem; color: var(--muted); }
+.perin { border-top: 4px solid var(--ink); }
+.per-prev { font-size: 1.05rem; } .pv { font-family: var(--f-mono); font-size: 1.4rem; font-weight: 700; margin-left: 6px; }
+.barset { display: flex; align-items: flex-end; gap: 3px; font-family: var(--f-mono); font-size: 1.8rem; font-weight: 700; padding-top: 8px; }
+.bs-d { width: 1.5em; height: 1.75em; border: 2px dashed var(--line); border-radius: 8px; background: var(--sheet); cursor: pointer; font: inherit; border-top: 5px solid transparent; }
+.bs-d[aria-pressed="true"] { border-top: 5px solid var(--ink); border-style: solid; border-color: var(--ink); background: var(--marker-soft); }
+.bs-tail, .bs-int { color: var(--muted); padding-bottom: .12em; } .bs-int { color: var(--text); }
+.ord-out { min-height: 46px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; padding: 8px 12px; border: 2px dashed var(--line); border-radius: 10px; width: 100%; }
+.ord-chip { background: var(--ink-soft); border-radius: 8px; padding: 4px 10px; font-weight: 700; } .lt { color: var(--muted); font-family: var(--f-mono); }
+.cloze { line-height: 2.5; font-size: 1.05rem; }
+.cloze select { min-height: 40px; padding: 4px 8px; border-radius: 8px; border: 2px solid var(--ink); background: var(--sheet); font-weight: 700; max-width: 100%; }
+.it-fb { display: none; border-radius: 10px; padding: 12px 14px; flex-direction: column; gap: 6px; }
+.it-fb.show { display: flex; }
+.it-fb.ok { background: var(--good-bg); } .it-fb.no { background: var(--bad-bg); } .it-fb.hint { background: var(--warn-bg); }
+.fb-head { font-weight: 700; } .it-fb.ok .fb-head { color: var(--good); } .it-fb.no .fb-head, .it-fb.hint .fb-head { color: var(--bad); }
+.ic { font-family: var(--f-mono); }
+.it-fig svg { width: 100%; max-width: 460px; height: auto; }
+
+/* Karoheft */
+.karo { position: relative; margin: 0 auto; font-family: var(--f-mono); font-weight: 500; color: var(--ink);
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: var(--c) var(--c); box-shadow: inset -1px -1px 0 var(--grid); }
+.kc { position: absolute; width: var(--c); height: var(--c); display: grid; place-items: center; line-height: 1; z-index: 1; }
+.kc.comma::after { content: ','; position: absolute; right: -.16em; bottom: .05em; }
+.kc.op { color: var(--muted); } .kc.q { font-weight: 700; color: var(--text); }
+.kc.over { box-shadow: inset 0 3px 0 var(--ink); }
+.kc.sub { color: var(--muted); }
+.kc.rem.hit { background: var(--marker); color: var(--marker-ink); font-weight: 700; }
+.kc.rem.zero-end { background: var(--good-bg); color: var(--good); font-weight: 700; }
+.kline { position: absolute; height: 2px; background: var(--ink); z-index: 1; }
+.kcur { position: absolute; background: var(--marker-soft); z-index: 0; }
+
+/* Reste-Maschine */
+.machine, .scanner, .zoom, .tapes { display: flex; flex-direction: column; gap: 12px; }
+.m-set { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding-bottom: 12px; border-bottom: 1px dashed var(--line); }
+.m-set input { width: 4.6em; min-height: 40px; padding: 4px 8px; border-radius: 8px; border: 2px solid var(--line); background: var(--sheet); font-family: var(--f-mono); font-size: 1.05rem; }
+.m-colon { font-family: var(--f-mono); font-weight: 700; }
+.m-body { display: grid; grid-template-columns: minmax(0, 176px) minmax(0, 1fr); gap: 12px; align-items: start; }
+.m-wheel svg { width: 100%; height: auto; display: block; }
+.m-heft { min-width: 0; overflow-x: auto; }
+.w-ring { fill: none; stroke: var(--line); stroke-dasharray: 3 5; }
+.w-edge { stroke: var(--ink); stroke-width: 1.6; opacity: .4; fill: none; } .w-edge.latest { opacity: 1; stroke-width: 2.6; }
+.w-arrow { fill: var(--ink); }
+.w-node circle { fill: var(--sheet); stroke: var(--muted); stroke-width: 1.5; } .w-node text { fill: var(--text); font-family: var(--f-mono); font-weight: 500; }
+.w-node.stop circle { stroke-dasharray: 4 3; }
+.w-node.seen circle { fill: var(--ink-soft); stroke: var(--ink); }
+.w-node.cur circle { fill: var(--ink); stroke: var(--ink); } .w-node.cur text { fill: var(--on-ink); font-weight: 700; }
+.w-node.hit circle { fill: var(--marker); stroke: var(--ink); stroke-width: 3; } .w-node.hit text { fill: var(--marker-ink); }
+.w-node.stop.cur circle { fill: var(--good); stroke: var(--good); }
+.w-cap { font-family: var(--f-mono); font-size: 9px; fill: var(--muted); }
+.m-tape { font-family: var(--f-mono); font-size: 1.3rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1px; min-height: 2.2em; }
+.t-lab { margin-right: 8px; font-family: var(--f-body); } .t-dig { padding: 2px 3px; font-weight: 700; } .t-dig.mark { background: var(--marker); color: var(--marker-ink); } .t-dig.muted { font-weight: 400; } .t-eq { margin-left: 10px; font-weight: 700; }
+.m-status { min-height: 3.2em; font-size: .95rem; }
+.m-btns { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* Scanner und kleine Karten */
+.s-big { font-size: 2rem; font-weight: 700; font-family: var(--f-mono); }
+.s-row { display: grid; grid-template-columns: 5.4em 1fr; gap: 8px; align-items: center; padding: 8px 0; border-top: 1px dashed var(--line); }
+.s-lab { font-family: var(--f-mono); font-size: .74rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+.chip { display: inline-grid; place-items: center; min-width: 2em; height: 2em; border-radius: 8px; font-family: var(--f-mono); font-weight: 700; padding: 0 6px; }
+.chip.ok { background: var(--good-bg); color: var(--good); border: 1.5px solid var(--good); }
+.chip.bad { background: var(--bad-bg); color: var(--bad); border: 1.5px solid var(--bad); }
+.chip.plain, .chip.one { background: var(--ink-soft); color: var(--text); border: 1.5px solid var(--line); }
+.cdot { margin: 0 4px; color: var(--muted); }
+.pill { display: inline-block; font-weight: 700; padding: 2px 10px; border-radius: 99px; margin-right: 6px; }
+.pill.ok { background: var(--good-bg); color: var(--good); } .pill.bad { background: var(--bad-bg); color: var(--bad); }
+.eq-card { display: flex; flex-direction: column; gap: 10px; font-size: 1.1rem; }
+.eq-line { font-family: var(--f-mono); font-size: 1.6rem; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.eq-arrow { display: inline-flex; flex-direction: column; align-items: center; font-size: 1.2rem; color: var(--ink); line-height: 1; }
+.eq-op { font-size: .9rem; font-weight: 700; background: var(--marker); color: var(--marker-ink); padding: 1px 8px; border-radius: 6px; }
+.eq-card.stack, .eq-card.two > div { font-family: var(--f-mono); }
+.st-row { display: grid; grid-template-columns: 5.5em 1.2em 1fr; align-items: center; gap: 6px; padding: 5px 0; font-size: 1.15rem; }
+.st-row > span:first-child { text-align: right; }
+.st-row.dots { color: var(--muted); padding: 0; }
+.st-op { font-family: var(--f-body); font-size: .9rem; color: var(--ink); font-weight: 700; padding-left: 7em; }
+.st-rule { border-top: 2px solid var(--ink); }
+.eq-card.two { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.eq-card.two h4 { font-size: .95rem; margin-bottom: 6px; }
+.eq-card.two .st-row { grid-template-columns: 2.6em 1em 1fr; font-size: 1.05rem; }
+.sp-row { display: grid; gap: 2px; padding: 10px 0; border-top: 1px dashed var(--line); } .sp-row:first-child { border-top: 0; }
+.sp-num { font-family: var(--f-mono); font-size: 1.5rem; font-weight: 700; } .sp-say { color: var(--ink); font-weight: 700; }
+.cyc { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 24px; }
+.cyc-ring { position: relative; width: 170px; height: 170px; border: 2px dashed var(--line); border-radius: 50%; flex: none; }
+.cyc-ring span { position: absolute; left: 50%; top: 50%; width: 38px; height: 38px; margin: -19px; display: grid; place-items: center; border-radius: 50%; background: var(--ink-soft); font-family: var(--f-mono); font-weight: 700; font-size: 1.2rem; transform: rotate(calc(var(--i) * 60deg)) translateY(-85px) rotate(calc(var(--i) * -60deg)); }
+.cyc-ring span.on { background: var(--marker); color: var(--marker-ink); }
+.cyc-side { display: flex; flex-direction: column; gap: 10px; } .cyc-out { font-family: var(--f-mono); font-size: 1.1rem; } .cyc-btns { display: flex; flex-wrap: wrap; gap: 6px; }
+.s-wait { padding-top: 8px; }
+
+/* Zoom und Zahlenstrahl */
+.z-stage { overflow: hidden; }
+.zoomsvg, .figline { width: 100%; height: auto; display: block; }
+.zoomsvg.zin { animation: zin .55s ease-out; }
+@keyframes zin { from { transform: scaleX(.12); opacity: .2; } to { transform: none; opacity: 1; } }
+.z-axis, .z-tick { stroke: var(--text); stroke-width: 1.6; } .z-head, .z-arrow { fill: var(--bad); } .z-head { fill: var(--text); }
+.z-hot { fill: var(--marker); opacity: .75; }
+.z-lab { font-family: var(--f-mono); font-size: 14px; fill: var(--text); } .z-lab.hot { font-weight: 700; } .z-lab.sm { font-size: 11px; }
+.z-mark { stroke: var(--bad); stroke-width: 2; } .z-dot { fill: var(--bad); }
+.z-frac text { font-family: var(--f-mono); font-size: 15px; font-weight: 700; fill: var(--bad); } .z-frac line { stroke: var(--bad); stroke-width: 1.6; }
+.z-info { min-height: 3em; }
+.tp-rows { display: grid; gap: 10px; }
+.tp-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-family: var(--f-mono); font-size: 1.3rem; }
+.tp-lab { min-width: 5.2em; font-weight: 700; } .tp-digs { display: inline-flex; flex-wrap: wrap; }
+.tp-d { width: 1.15em; text-align: center; font-weight: 700; } .tp-d.int { width: auto; } .tp-d.mark { background: var(--marker); color: var(--marker-ink); } .tp-d.muted { font-weight: 400; }
+.tp-d.new { animation: pop .3s ease-out; }
+@keyframes pop { from { transform: translateY(-8px); opacity: 0; } to { transform: none; opacity: 1; } }
+
+/* Arena */
+.disc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 14px; }
+.disc { background: var(--sheet); border: 1px solid var(--line); border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 10px; }
+.disc .row { margin-top: auto; padding-top: 4px; } .disc > .btn { align-self: flex-start; margin-top: auto; }
+.disc.feature { flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; border-left: 6px solid var(--marker); }
+.disc.feature > div { display: flex; flex-direction: column; gap: 8px; flex: 1 1 320px; } .disc.feature > .btn { margin-top: 0; }
+.disc-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 10px; }
+.disc-best { font-size: .92rem; color: var(--muted); } .disc-best strong { color: var(--text); font-family: var(--f-mono); }
+.medal { font-family: var(--f-mono); font-size: .72rem; font-weight: 700; padding: 2px 8px; border-radius: 99px; border: 1.5px solid; white-space: nowrap; }
+.medal.m0 { color: #9a5a1e; background: #f6e3cf; } .medal.m1 { color: #55606e; background: #e8ecf1; } .medal.m2 { color: #8a6500; background: #ffeaa0; } .medal.m3 { color: #0f6b82; background: #d6f3fa; }
+.medal-line { display: flex; flex-wrap: wrap; gap: 6px; }
+.game { background: var(--sheet); border: 1px solid var(--line); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; gap: 16px; }
+.g-ready, .g-end { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+.g-end h1 { font-family: var(--f-display); font-size: clamp(2.2rem, 8vw, 3.6rem); }
+.rules { margin: 0; padding-left: 1.2em; display: grid; gap: 5px; }
+.g-hud { display: flex; gap: 14px; align-items: center; }
+.g-time { flex: 1; display: flex; align-items: center; gap: 10px; min-width: 0; }
+.g-bar { flex: 1; height: 12px; border-radius: 99px; background: var(--ink-soft); overflow: hidden; } .g-bar i { display: block; height: 100%; background: var(--ink); border-radius: 99px; transition: width .1s linear; }
+.g-sec { font-family: var(--f-mono); font-weight: 700; min-width: 2.2ch; text-align: right; }
+.g-score { display: flex; flex-direction: column; line-height: 1.1; align-items: flex-end; } .g-score .lab, .r-rems .lab { font-family: var(--f-mono); font-size: .66rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); } .g-score strong { font-family: var(--f-mono); font-size: 1.35rem; }
+.r-hud { justify-content: space-between; } .r-hud .g-score { align-items: flex-start; }
+.g-combo { min-width: 5.2em; } .combo { background: var(--marker); color: var(--marker-ink); font-weight: 700; padding: 3px 9px; border-radius: 99px; font-size: .85rem; white-space: nowrap; }
+.g-q { min-height: 4.2em; display: grid; place-items: center; text-align: center; font-size: 1.45rem; font-weight: 700; font-family: var(--f-mono); padding: 8px; }
+.g-q.big { font-size: 2.3rem; }
+.cmpq { display: inline-flex; align-items: center; gap: 14px; flex-wrap: wrap; justify-content: center; } .cmpq .box { display: inline-grid; place-items: center; width: 1.5em; height: 1.5em; border: 2px dashed var(--ink); border-radius: 8px; color: var(--ink); font-size: .8em; }
+.game .opt { min-height: 60px; font-size: 1.2rem; font-family: var(--f-body); min-width: 0; overflow-wrap: anywhere; }
+.g-q { overflow-wrap: anywhere; min-width: 0; }
+.g-ex { min-height: 3em; padding: 10px 12px; border-radius: 10px; visibility: hidden; } .g-ex.show { visibility: visible; background: var(--warn-bg); }
+.wrong-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; width: 100%; }
+.wrong-list li { display: grid; gap: 4px; padding: 10px 14px; border: 1px solid var(--line); border-left: 4px solid var(--bad); border-radius: 8px; }
+.wq { font-weight: 700; } .wa { font-size: .95rem; }
+.g-end .wrong-list li { border-left-color: var(--warn); }
+.dset { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%; }
+.dset div { display: flex; flex-direction: column; gap: 4px; } .dset .chk { flex-direction: row; align-items: center; gap: 10px; grid-column: 1 / -1; } .dset .chk label { font-size: 1rem; color: var(--text); } .dset .chk input { width: 22px; height: 22px; }
+.dset input[type=text], .dset select { min-height: 44px; padding: 6px 10px; border-radius: 8px; border: 2px solid var(--line); background: var(--sheet); }
+.dset p, .dset button { grid-column: 1 / -1; justify-self: start; }
+.duel { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.d-panel { border: 3px solid var(--line); border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.d-panel.p0 { border-color: var(--ink); } .d-panel.p1 { border-color: var(--warn); }
+.d-panel.won { background: var(--good-bg); } .d-panel.locked { background: var(--bad-bg); }
+.d-head { display: flex; align-items: baseline; gap: 8px; } .d-name { font-family: var(--f-display); font-weight: 800; font-size: 1.1rem; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .d-score { font-family: var(--f-mono); font-weight: 700; font-size: 1.7rem; } .d-of { color: var(--muted); font-size: .8rem; }
+.d-panel .g-q { font-size: 1.15rem; min-height: 3.6em; } .d-panel .opt { font-size: 1.08rem; padding: 8px 6px; } .d-panel .g-q.big { font-size: 1.8rem; }
+.d-msg { min-height: 2.9em; font-size: .9rem; }
+.duel.face { grid-template-columns: 1fr; } .duel.face .p0 { transform: rotate(180deg); }
+.r-prompt { font-size: 1.15rem; min-height: 1.6em; }
+.r-heft { overflow-x: auto; min-height: 120px; }
+.r-rems { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; min-height: 34px; }
+.rchip { font-family: var(--f-mono); font-weight: 700; min-width: 2em; text-align: center; padding: 3px 8px; border-radius: 8px; background: var(--ink-soft); } .rchip.hit { background: var(--marker); color: var(--marker-ink); }
+.r-pad { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+.key { min-height: 54px; border-radius: 10px; border: 2px solid var(--line); background: var(--sheet); font-family: var(--f-mono); font-size: 1.3rem; font-weight: 700; cursor: pointer; }
+.key:hover { border-color: var(--ink); } .key:active { background: var(--ink-soft); }
+.key.buzz { grid-column: 1 / -1; background: var(--bad); border-color: var(--bad); color: #fff; font-family: var(--f-display); font-size: 1.15rem; }
+:root[data-theme="dark"] .key.buzz { color: #2a0d0b; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .key.buzz { color: #2a0d0b; } }
+.r-msg { min-height: 1.6em; font-weight: 700; } .r-msg.bad { color: var(--bad); } .r-msg.good { color: var(--good); }
+.game.shake { animation: shake .3s; }
+@keyframes shake { 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+
+/* Test */
+.t-head { display: flex; flex-direction: column; gap: 10px; }
+.t-skill { font-size: .95rem; color: var(--muted); }
+.t-head .g-bar { flex: none; width: 100%; height: 8px; }
+.t-item { background: var(--sheet); border: 1px solid var(--line); border-radius: 14px; padding: 20px; }
+#trun { display: flex; flex-direction: column; gap: 16px; }
+.g-end.left { align-items: stretch; }
+.res-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.res-list li { display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: center; padding: 10px 14px; background: var(--sheet); border: 1px solid var(--line); border-radius: 10px; }
+.res-list li.r { border-left: 5px solid var(--bad); } .res-list li.y { border-left: 5px solid var(--marker); } .res-list li.g { border-left: 5px solid var(--good); }
+.res-go { font-size: .9rem; margin-top: 3px; } .res-go::before { content: 'Üben: '; color: var(--muted); }
+
+/* Spickzettel */
+.spick { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+.sp { background: var(--sheet); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; }
+.sp h3 { display: flex; align-items: center; font-size: 1.05rem; }
+.sp ul { margin: 0; padding-left: 1.1em; display: grid; gap: 6px; font-size: .95rem; }
+.famous { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px; }
+.fam { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 12px; background: var(--sheet); border: 1px solid var(--line); border-radius: 10px; font-family: var(--f-mono); font-weight: 700; }
+.fam.p { background: var(--marker-soft); }
+.words td:first-child { font-weight: 700; }
+
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; padding-top: 28px; gap: 24px; }
+  .trio, .plan, .two, .par-grid { grid-template-columns: 1fr; }
+  .plan { grid-template-columns: 1fr 1fr; }
+  .st-grid { grid-template-columns: minmax(0, 1fr); }
+  .duel:not(.face) { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  html { font-size: 16px; }
+  .plan { grid-template-columns: 1fr; }
+  .opts.cols4 { grid-template-columns: 1fr 1fr; }
+  .m-body { grid-template-columns: 1fr; } .m-wheel { max-width: 210px; margin: 0 auto; }
+  .st-viz, .st-side, .game, .t-item { padding: 14px; }
+  .nav { margin-left: 0; width: 100%; }
+  .eq-card.two { grid-template-columns: 1fr; }
+  .g-q.big { font-size: 1.9rem; }
+  .dset { grid-template-columns: 1fr; }
+  .g-combo { display: none; }
+  th, td { padding: 8px 6px; } .check td:nth-child(2) { min-width: 150px; font-size: .92rem; }
+  .l { width: 11px; height: 11px; } .lights { gap: 3px; } .selfbtn { padding: 5px 6px; } th small { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+</style>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#start">Komma-Labor <span>0,<span class="per">3</span></span></a>
+  <nav class="nav" aria-label="Bereiche">
+    <a data-tab="start" href="#start">Start</a>
+    <a data-tab="entdecken" href="#entdecken">Entdecken</a>
+    <a data-tab="arena" href="#arena">Arena</a>
+    <a data-tab="test" href="#test">Test-Check</a>
+    <a data-tab="spickzettel" href="#spickzettel">Spickzettel</a>
+  </nav>
+</header>
+<main id="main" tabindex="-1"></main>
+<footer class="foot">Komma-Labor · Übungen zu Kapitel II »Brüche in Dezimalschreibweise«, Mathematik Klasse 6. Dein Fortschritt wird nur auf diesem Gerät gespeichert.</footer>
+<script>
+/* ===== lib.js: Mathe-Helfer und Markup (ohne DOM) ===== */
+function gcd(a, b) { a = Math.abs(a); b = Math.abs(b); while (b) { const t = a % b; a = b; b = t; } return a; }
+function bgcd(a, b) { if (a < 0n) a = -a; if (b < 0n) b = -b; while (b) { const t = a % b; a = b; b = t; } return a; }
+/* exakte Brüche mit BigInt */
+function FR(n, d) { n = BigInt(n); d = BigInt(d === undefined ? 1 : d); if (d < 0n) { n = -n; d = -d; } const g = bgcd(n, d) || 1n; return { n: n / g, d: d / g }; }
+function frAdd(x, y) { return FR(x.n * y.d + y.n * x.d, x.d * y.d); }
+function frMul(x, y) { return FR(x.n * y.n, x.d * y.d); }
+function frCmp(x, y) { const l = x.n * y.d, r = y.n * x.d; return l < r ? -1 : l > r ? 1 : 0; }
+function frEq(x, y) { return frCmp(x, y) === 0; }
+function pow10(k) { let r = 1n; for (let i = 0; i < k; i++) r *= 10n; return r; }
+
+/* "12,05{34}" -> Bruch ; erlaubt auch "12" und "0,5" */
+function decToFr(s) {
+  const m = /^(\d+)(?:,(\d*)(?:\{(\d+)\})?)?$/.exec(s);
+  if (!m) return null;
+  const pre = m[2] || '', per = m[3] || '';
+  let f = FR(BigInt(m[1]));
+  if (pre) f = frAdd(f, FR(BigInt(pre), pow10(pre.length)));
+  if (per) f = frAdd(f, FR(BigInt(per), pow10(pre.length) * (pow10(per.length) - 1n)));
+  return f;
+}
+/* allgemeiner Wert: "3/8", "1_3/4", "0,5{6}", "20 %", "33,{3} %" */
+function val(s) {
+  s = String(s).trim().replace(/ /g, ' ');
+  let pct = false;
+  if (/%$/.test(s)) { pct = true; s = s.replace(/\s*%$/, ''); }
+  let f = null, m;
+  if ((m = /^(\d+)_(\d+)\/(\d+)$/.exec(s))) f = frAdd(FR(m[1]), FR(m[2], m[3]));
+  else if ((m = /^(\d+)\/(\d+)$/.exec(s))) f = FR(m[1], m[2]);
+  else f = decToFr(s);
+  if (f && pct) f = frMul(f, FR(1, 100));
+  return f;
+}
+
+/* schriftliche Division a : b -> Ziffern, Reste, Periode */
+function expand(a, b, maxDigits) {
+  maxDigits = maxDigits || 600;
+  const int = Math.floor(a / b);
+  let r = a % b;
+  const seen = new Map(), digits = [], rems = [r];
+  while (r !== 0 && !seen.has(r) && digits.length < maxDigits) {
+    seen.set(r, digits.length);
+    r *= 10; digits.push(Math.floor(r / b)); r %= b; rems.push(r);
+  }
+  if (r === 0) return { int, digits, rems, pre: digits.join(''), per: '', start: -1 };
+  const start = seen.has(r) ? seen.get(r) : -1;
+  if (start < 0) return { int, digits, rems, pre: digits.join(''), per: '', start: -1, cut: true };
+  return { int, digits, rems, pre: digits.slice(0, start).join(''), per: digits.slice(start).join(''), start };
+}
+/* Markup-String für a/b als Dezimalzahl: "0,1{6}" */
+function rep(a, b) {
+  const e = expand(a, b);
+  if (!e.pre && !e.per) return String(e.int);
+  return e.int + ',' + e.pre + (e.per ? '{' + e.per + '}' : '');
+}
+function primeFactors(n) { const f = []; let p = 2; while (n > 1 && p * p <= n) { while (n % p === 0) { f.push(p); n /= p; } p++; } if (n > 1) f.push(n); return f; }
+function terminates(a, b) { const g = gcd(a, b); return primeFactors(b / g).every(p => p === 2 || p === 5); }
+
+/* m * 10^e exakt als deutsche Dezimalzahl (m ganzzahlig >= 0) */
+function fmtPow(m, e) {
+  let s = String(m);
+  if (e >= 0) { s = s + '0'.repeat(e); return s; }
+  const k = -e;
+  if (s.length <= k) s = '0'.repeat(k - s.length + 1) + s;
+  let int = s.slice(0, s.length - k), dec = s.slice(s.length - k).replace(/0+$/, '');
+  return dec ? int + ',' + dec : int;
+}
+/* Bruch (BigInt) auf k Nachkommastellen runden, 5 rundet auf */
+function roundFr(f, k) {
+  const sc = f.n * pow10(k);
+  let q = sc / f.d; const r = sc % f.d;
+  if (r * 2n >= f.d) q += 1n;
+  let s = q.toString();
+  if (k === 0) return s;
+  if (s.length <= k) s = '0'.repeat(k - s.length + 1) + s;
+  return s.slice(0, s.length - k) + ',' + s.slice(s.length - k);
+}
+function truncFr(f, k) {
+  const sc = f.n * pow10(k); let s = (sc / f.d).toString();
+  if (k === 0) return s;
+  if (s.length <= k) s = '0'.repeat(k - s.length + 1) + s;
+  return s.slice(0, s.length - k) + ',' + s.slice(s.length - k);
+}
+
+/* Eingabe des Kindes: "0,75" / "0.75" / " 3,50 " -> Bruch oder null */
+function parseInput(s) {
+  s = String(s).trim().replace(/\s+/g, '').replace(/\./g, ',').replace(/%$/, '');
+  if (!/^\d+(,\d*)?$/.test(s)) return null;
+  if (/,$/.test(s)) s = s.slice(0, -1);
+  return decToFr(s);
+}
+
+/* ---------- Markup -> HTML ---------- */
+function T(s) {
+  return String(s)
+    .replace(/(\d+)_(\d+)\/(\d+)/g, '<span class="mix">$1<span class="fr"><span>$2</span><span>$3</span></span></span>')
+    .replace(/(^|[^\d,\/])(\d+)\/(\d+)(?![\d\/])/g, '$1<span class="fr"><span>$2</span><span>$3</span></span>')
+    .replace(/(\d+,\d*)\{(\d+)\}/g, '<span class="nb">$1<span class="per">$2</span></span>')
+    .replace(/\{(\d+)\}/g, '<span class="per">$1</span>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+}
+
+const rnd = n => Math.floor(Math.random() * n);
+const pick = a => a[rnd(a.length)];
+function shuffle(a) { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = rnd(i + 1); const t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+
+/* ===== content.js: Stationen, Test-Aufgaben, Spickzettel ===== */
+
+const SKILLS = [
+  { id: 1, s: 'Dezimalzahlen in die Stellenwerttafel eintragen und richtig vorlesen', go: [['arena-zehner', 'Arena: Zehner-Zoom'], ['station-strich', 'Station 4']] },
+  { id: 2, s: 'Zehnerbrüche als Dezimalzahl schreiben und umgekehrt', go: [['arena-zehner', 'Arena: Zehner-Zoom']] },
+  { id: 3, s: 'Brüche in Dezimalzahlen und Prozent umwandeln und zurück', go: [['arena-blitz', 'Arena: Bruch-Blitz']] },
+  { id: 4, s: 'Dezimalzahlen vergleichen, ordnen und am Zahlenstrahl darstellen', go: [['arena-vergleich', 'Arena: Größer, kleiner, dazwischen'], ['station-strich', 'Station 4']] },
+  { id: 5, s: 'Zu zwei Dezimalzahlen eine Zahl finden, die dazwischen liegt', go: [['arena-vergleich', 'Arena: Größer, kleiner, dazwischen']] },
+  { id: 6, s: 'Größen mit Komma angeben und in andere Einheiten umwandeln', go: [['arena-komma', 'Arena: Komma-Schieber']] },
+  { id: 7, s: 'Dezimalzahlen runden und begründen, wie genau es sein muss', go: [['arena-runden', 'Arena: Runden-Radar'], ['station-zoom', 'Station 3']] },
+  { id: 8, s: 'Vorhersagen, ob ein Bruch abbrechend oder periodisch ist', go: [['station-maschine', 'Station 1'], ['station-zweifuenf', 'Station 2'], ['arena-scanner', 'Arena: 2-5-Scanner'], ['arena-rallye', 'Arena: Reste-Rallye']] },
+  { id: 9, s: 'Fehler in Aussagen mit Dezimalzahlen finden und erklären', go: [['station-zoom', 'Station 3'], ['station-strich', 'Station 4']] }
+];
+/* Selbsteinschätzung vom Arbeitsblatt (Spalte Start): g = grün, y = gelb, r = rot */
+const START_SELF = { 1: 'y', 2: 'r', 3: 'y', 4: 'g', 5: 'g', 6: 'y', 7: 'y', 8: 'r', 9: 'y' };
+
+const STATIONS = [
+  {
+    id: 'maschine', n: 1, title: 'Die Reste-Maschine', ask: 'Warum wiederholen sich die Ziffern?', min: 6,
+    steps: [
+      {
+        viz: { v: 'machine', a: 1, b: 8 },
+        text: 'Ein Bruch ist eine Divisionsaufgabe: 1/8 heißt 1 : 8. Beim schriftlichen Dividieren passiert in jedem Schritt dasselbe: Rest mal 10, teilen, neuer Rest. Stell dir das als Maschine vor. Der **Rest** ist ihr Zustand. Im Heft rechnest du wie in der Schule, auf dem Rad hüpft der Rest von Platz zu Platz. Drück auf **Schritt**, bis die Maschine stehen bleibt.',
+        item: { t: 'mc', q: 'Bei welchem Rest bleibt die Maschine stehen?', opts: ['0', '1', '8', 'Sie bleibt nie stehen'], c: 0, cols: 2,
+          hint: 'Lass die Maschine bis zum Ende laufen und schau auf den letzten Rest im Heft.',
+          ex: 'Rest 0 heißt: Die Rechnung geht auf. Die Dezimalzahl **bricht ab**: 1/8 = 0,125.' }
+      },
+      {
+        viz: { v: 'machine', a: 1, b: 3 },
+        text: 'Jetzt 1 : 3. Nach dem ersten Schritt bleibt der Rest 1.',
+        item: { t: 'mc', q: 'Welcher Rest kommt nach dem nächsten Schritt?', opts: ['0', '1', '2', '3'], c: 1, cols: 4, fixed: true,
+          hint: 'Rest 1 mal 10 ist 10. Wie oft passt die 3 in die 10, und was bleibt übrig?',
+          ex: '10 : 3 = 3 Rest 1. Aus Rest 1 wird wieder Rest 1. Die Maschine sitzt in einer Schleife fest und druckt für immer die Ziffer 3: 1/3 = 0,333… = 0,{3}.' }
+      },
+      {
+        viz: { v: 'machine', a: 1, b: 7 },
+        text: 'Nun 1 : 7. Bevor du die Maschine startest, überlege:',
+        item: { t: 'mc', q: 'Welche Reste sind bei einer Division durch 7 überhaupt möglich, solange die Rechnung nicht aufgeht?', opts: ['1, 2, 3, 4, 5 und 6', '0 bis 9', '1 bis 7', 'beliebig viele'], c: 0, cols: 2,
+          hint: 'Ein Rest ist immer kleiner als der Teiler.',
+          ex: 'Ein Rest ist immer kleiner als der Teiler. Bei : 7 gibt es nur sechs mögliche Reste (und die 0 für »geht auf«). Auf dem Rad sind das die sechs Plätze außen.' }
+      },
+      {
+        viz: { v: 'machine', a: 1, b: 7 },
+        text: 'Lass die Maschine jetzt laufen und beobachte das Rad.',
+        item: { t: 'mc', q: 'Es gibt nur sechs Plätze für die Reste. Wie viele Ziffern kann die Periode von einem Siebtel deshalb höchstens haben?', opts: ['6', '7', '9', 'unendlich viele'], c: 0, cols: 4,
+          hint: 'Jeder Schritt braucht einen Platz auf dem Rad. Was passiert, wenn alle sechs Plätze schon einmal besucht wurden?',
+          ex: 'Spätestens der siebte Rest landet auf einem Platz, der schon belegt ist. Ab dem doppelten Rest läuft alles genau wie beim ersten Mal: gleiche Reste, gleiche Ziffern. 1/7 = 0,{142857} nutzt alle sechs Plätze aus. Allgemein gilt: Beim Nenner n hat die Periode höchstens n − 1 Ziffern.' }
+      },
+      {
+        viz: { v: 'machine', a: 3, b: 7 },
+        text: 'Bei den Siebteln liegen alle Reste auf derselben Runde: 1 → 3 → 2 → 6 → 4 → 5 → 1. Der Bruch 3/7 startet einfach beim Rest 3.',
+        item: { t: 'mc', q: '1/7 = 0,{142857}. Welche Dezimalzahl ist dann 3/7?', opts: ['0,{428571}', '0,{342857}', '0,{285714}', '0,{314285}'], c: 0, cols: 2,
+          hint: 'Starte die Maschine mit 3 : 7 und lies die Ziffern ab.',
+          ex: 'Vom Rest 3 aus druckt die Maschine 4, 2, 8, 5, 7, 1. Alle Siebtel haben dieselben sechs Ziffern in derselben Reihenfolge. Nur der Startpunkt ist ein anderer.' }
+      },
+      {
+        viz: { v: 'machine', a: 1, b: 6 },
+        text: '1 : 6 = 0,1666… Schau auf die Reste: Der Rest 4 wiederholt sich, der Rest 1 vom Anfang kommt nie wieder.',
+        item: { t: 'bar', q: 'Tippe die Ziffern an, die unter den Periodenstrich gehören.', int: '0', digits: '16', c: [1], tail: '666…',
+          hint: 'Nur was sich wiederholt, gehört zur Periode.',
+          ex: 'Die 1 kommt nur einmal vor, erst die 6 wiederholt sich: 1/6 = 0,1{6}, gesprochen »null Komma eins Periode sechs«.' }
+      },
+      {
+        viz: { v: 'machine', a: 5, b: 12, free: true },
+        text: 'Jetzt gehört die Maschine dir. Stell oben eigene Zähler und Nenner ein und probier aus, was passiert. Teste zum Beispiel 5/12, 7/16, 4/13 und 9/11.',
+        item: { t: 'mc', q: 'Welche Aussage stimmt für jeden Bruch?', opts: [
+          'Die Dezimalzahl bricht ab oder sie ist periodisch. Etwas Drittes gibt es nicht.',
+          'Je größer der Nenner, desto länger die Periode.',
+          'Brüche mit ungeradem Nenner sind immer periodisch.',
+          'Manche Brüche haben unendlich viele Nachkommastellen ohne jede Wiederholung.'], c: 0, cols: 1,
+          hint: 'Denk an das Rad: Entweder landet der Rest auf der 0, oder ein Platz wird zum zweiten Mal besucht.',
+          ex: 'Entweder kommt irgendwann der Rest 0 (abbrechend) oder ein Rest wiederholt sich (periodisch). Die anderen Aussagen haben Gegenbeispiele: 1/11 = 0,{09} hat eine kürzere Periode als 1/7, und 1/5 = 0,2 bricht trotz ungeradem Nenner ab.' }
+      }
+    ],
+    merk: [
+      'Ein Bruch ist eine Division. In jedem Schritt: Rest mal 10, teilen, neuer Rest.',
+      'Kommt der Rest 0, bricht die Dezimalzahl ab.',
+      'Sonst wiederholt sich irgendwann ein Rest, denn es gibt nur endlich viele. Ab da wiederholen sich auch die Ziffern: Die Dezimalzahl ist periodisch.',
+      'Die Ziffern, die sich wiederholen, stehen unter dem Periodenstrich: 0,1{6} = 0,1666…'
+    ],
+    say: '5/6 ergibt eine periodische Dezimalzahl. Bei der schriftlichen Division 5 : 6 wiederholt sich der Rest 2, deshalb wiederholt sich die Ziffer 3 immer wieder: 5/6 = 0,8{3}.',
+    next: ['arena-rallye', 'Reste-Rallye spielen']
+  },
+  {
+    id: 'zweifuenf', n: 2, title: 'Das 2-5-Geheimnis', ask: 'Kann man es vorhersagen, ohne zu dividieren?', min: 6,
+    steps: [
+      {
+        viz: { v: 'expandto', a: 3, b: 40 },
+        text: 'Brüche mit dem Nenner 10, 100, 1000, … heißen **Zehnerbrüche**. Sie sind fast schon Dezimalzahlen: 7/100 = 0,07. Ein Bruch bricht also genau dann ab, wenn man ihn zu einem Zehnerbruch erweitern kann.',
+        item: { t: 'num', q: 'Mit welcher Zahl musst du 3/40 erweitern, damit im Nenner 1000 steht?', a: '25',
+          hint: 'Rechne 1000 : 40.',
+          ex: '40 · 25 = 1000, also 3/40 = 75/1000 = 0,075.' }
+      },
+      {
+        viz: { v: 'powers' },
+        text: 'Zerlege die Zehnerpotenzen in Primfaktoren: 10 = 2 · 5, 100 = 2 · 2 · 5 · 5, 1000 = 2 · 2 · 2 · 5 · 5 · 5.',
+        item: { t: 'mc', q: 'Welche Primfaktoren stecken in jeder Zehnerpotenz?', opts: ['nur 2 und 5', '2, 5 und 10', '2, 3 und 5', 'alle geraden Zahlen'], c: 0, cols: 2,
+          hint: '10 ist keine Primzahl. Zerlege weiter.',
+          ex: 'Unser Zahlensystem zählt in Zehnern, und 10 = 2 · 5. Erweitern kann dem Nenner Faktoren hinzufügen, aber keinen entfernen. Ein Nenner mit dem Faktor 3 oder 7 wird deshalb nie zu einer Zehnerpotenz.' }
+      },
+      {
+        viz: { v: 'scanner', a: 7, b: 12, hide: true },
+        text: 'Der Scanner zerlegt den Nenner in Primfaktoren. Zweien und Fünfen sind harmlos. Jeder andere Primfaktor ist ein **Störfaktor**.',
+        item: { t: 'mc', q: 'Was gilt für 7/12?', opts: [
+          'periodisch, weil im Nenner der Primfaktor 3 steckt',
+          'abbrechend, weil 12 eine gerade Zahl ist',
+          'abbrechend, weil 7 eine Primzahl ist',
+          'periodisch, weil 7 ungerade ist'], c: 0, cols: 1,
+          hint: '12 = 2 · 2 · 3. Lässt sich die 3 durch Erweitern loswerden?',
+          ex: '12 = 2 · 2 · 3. Wegen der 3 lässt sich 7/12 nie auf 10, 100 oder 1000 erweitern. Also ist die Dezimalzahl periodisch: 7/12 = 0,58{3}.' }
+      },
+      {
+        viz: { v: 'scanner', a: 9, b: 12, hide: true },
+        text: 'Gleicher Nenner, anderer Zähler. Vorsicht, erst genau hinsehen.',
+        item: { t: 'mc', q: 'Und 9/12?', opts: [
+          'abbrechend: Gekürzt ist es 3/4, und 4 = 2 · 2',
+          'periodisch, weil 12 den Faktor 3 enthält',
+          'periodisch, weil 9 = 3 · 3 ist'], c: 0, cols: 1,
+          hint: 'Kann man 9/12 kürzen? Was passiert dabei mit dem Störfaktor?',
+          ex: 'Der Störfaktor 3 lässt sich wegkürzen: 9/12 = 3/4 = 0,75. Die Regel gilt deshalb nur für **vollständig gekürzte** Brüche.' }
+      },
+      {
+        viz: null,
+        text: 'Jetzt alle Zwölftel auf einmal.',
+        item: { t: 'multi', q: 'Tippe alle Zwölftel an, die eine abbrechende Dezimalzahl ergeben.',
+          opts: ['1/12', '2/12', '3/12', '4/12', '5/12', '6/12', '7/12', '8/12', '9/12', '10/12', '11/12'], c: [2, 5, 8],
+          hint: '12 = 2 · 2 · 3. Bei welchen Zählern lässt sich die 3 wegkürzen?',
+          ex: 'Die 3 im Nenner verschwindet nur, wenn auch der Zähler durch 3 teilbar ist: 3/12 = 1/4 = 0,25, 6/12 = 1/2 = 0,5 und 9/12 = 3/4 = 0,75. Alle anderen Zwölftel sind periodisch.' }
+      },
+      {
+        viz: null,
+        text: 'Mia behauptet: »Wenn der Nenner gerade ist, bricht die Dezimalzahl ab. Wenn er ungerade ist, ist sie periodisch.«',
+        item: { t: 'mc', q: 'Welches Paar widerlegt beide Hälften von Mias Behauptung?', opts: ['1/6 und 1/5', '1/4 und 1/3', '1/8 und 1/9', '1/2 und 1/7'], c: 0, cols: 2,
+          hint: 'Du brauchst einen geraden Nenner, der trotzdem periodisch ist, und einen ungeraden, der trotzdem abbricht.',
+          ex: '1/6 = 0,1{6} hat einen geraden Nenner und ist trotzdem periodisch (6 = 2 · 3). 1/5 = 0,2 hat einen ungeraden Nenner und bricht trotzdem ab. Gerade oder ungerade ist egal. Es zählen nur die Primfaktoren.' }
+      },
+      {
+        viz: { v: 'scanner', a: 1, b: 8 },
+        text: '1/8 = 0,125 hat drei Nachkommastellen. Der Grund: 8 = 2 · 2 · 2 braucht dreimal den Partner 5, damit 1000 entsteht (8 · 125 = 1000).',
+        item: { t: 'mc', q: 'Wie viele Nachkommastellen hat 3/80?', opts: ['2', '3', '4', '5'], c: 2, cols: 4, fixed: true,
+          hint: '80 = 2 · 2 · 2 · 2 · 5. Wie viele Fünfen fehlen, damit jede 2 einen Partner hat?',
+          ex: '80 = 2 · 2 · 2 · 2 · 5. Vier Zweien brauchen vier Fünfen, also wird auf 10 000 erweitert: 3/80 = 375/10 000 = 0,0375. Die größere Anzahl (Zweien oder Fünfen) bestimmt die Zahl der Nachkommastellen.' }
+      },
+      {
+        viz: { v: 'scanner', a: 21, b: 28, free: true },
+        text: 'Der Scanner gehört dir. Gib eigene Brüche ein und sag das Ergebnis voraus, bevor du auf **Scannen** drückst.',
+        item: { t: 'cloze', q: 'Baue die Begründung für 21/28 zusammen.', parts: [
+          'Zuerst kürze ich: 21/28 = ', { opts: ['3/4', '7/9', '3/7'], c: 0 },
+          '. Der Nenner 4 = 2 · 2 enthält nur den Primfaktor ', { opts: ['2', '3', '7'], c: 0 },
+          '. Deshalb ist die Dezimalzahl ', { opts: ['abbrechend', 'periodisch'], c: 0 }, '.'],
+          hint: 'Kürze mit 7.',
+          ex: '21/28 = 3/4 = 0,75. Der Störfaktor 7 ist beim Kürzen verschwunden.' }
+      }
+    ],
+    merk: [
+      'Zuerst vollständig kürzen.',
+      'Hat der Nenner nur die Primfaktoren 2 und 5, bricht die Dezimalzahl ab. Dann lässt sich der Bruch auf 10, 100, 1000, … erweitern.',
+      'Steckt im Nenner ein anderer Primfaktor (3, 7, 11, 13, …), ist die Dezimalzahl periodisch.'
+    ],
+    say: '7/12 ergibt eine periodische Dezimalzahl. Der Bruch ist vollständig gekürzt und der Nenner 12 = 2 · 2 · 3 enthält den Primfaktor 3. Deshalb kann man ihn nicht auf den Nenner 10, 100, 1000 usw. erweitern.',
+    next: ['arena-scanner', '2-5-Scanner spielen']
+  },
+  {
+    id: 'zoom', n: 3, title: 'Unendlich nah', ask: 'Ist 0,33 dasselbe wie ein Drittel?', min: 5,
+    steps: [
+      {
+        viz: { v: 'zoom' },
+        text: 'Zoome auf 1/3. Bei jedem Zoom wird der Zahlenstrahl zehnmal feiner. Achte darauf, ob 1/3 irgendwann genau auf einem Strich landet.',
+        item: { t: 'num', q: 'Rechne nach: 3 · 0,33 = ?', a: '0,99',
+          hint: '3 · 33 Hundertstel.',
+          ex: '0,99 ist nicht 1. Also ist 0,33 ein kleines bisschen kleiner als 1/3. Auch 0,333333 ist noch zu klein. Erst mit unendlich vielen Dreien stimmt es genau: 1/3 = 0,{3}.' }
+      },
+      {
+        viz: { v: 'zoom' },
+        text: 'Das Gleichheitszeichen verspricht: links und rechts steht genau dieselbe Zahl.',
+        item: { t: 'multi', q: 'Welche Schreibweisen sind richtig? Tippe alle an.', opts: ['1/3 = 0,{3}', '1/3 ≈ 0,33', '1/3 = 0,33', '1/3 = 0,333'], c: [0, 1],
+          hint: 'Wo wurden Ziffern weggelassen?',
+          ex: 'Ein = ist nur mit Periodenstrich (oder als Bruch) richtig. Sobald Ziffern fehlen, ist die Zahl gerundet, und es muss ≈ heißen.' }
+      },
+      {
+        viz: { v: 'calc', expr: '2 : 3 =', out: '0,6666667' },
+        text: 'Ein Taschenrechner hat nur Platz für eine bestimmte Anzahl von Ziffern.',
+        item: { t: 'mc', q: 'Der Rechner zeigt für 2 : 3 das Ergebnis 0,6666667. Warum steht am Ende eine 7?', opts: [
+          'Der Rechner hat keinen Platz mehr und rundet die letzte Stelle auf.',
+          'Die Periode von 2/3 endet auf 7.',
+          'Der Rechner hat sich verrechnet.',
+          '2/3 ist eine abbrechende Dezimalzahl.'], c: 0, cols: 1,
+          hint: 'Welche Ziffer käme als nächste, wenn der Rechner mehr Platz hätte?',
+          ex: 'Genau wäre 0,666666666… Die nächste Ziffer wäre wieder eine 6, deshalb rundet der Rechner die letzte angezeigte Stelle auf 7. Die Anzeige ist ein gerundeter Wert. Genau ist 2/3 = 0,{6}.' }
+      },
+      {
+        viz: { v: 'calc', expr: '5 : 11 =', out: '?' },
+        text: '5/11 = 0,454545… = 0,{45}.',
+        item: { t: 'mc', q: 'Was zeigt derselbe Rechner (sieben Nachkommastellen) für 5 : 11 an?', opts: ['0,4545455', '0,4545454', '0,4545456', '0,4545450'], c: 0, cols: 2,
+          hint: 'Schreibe acht Nachkommastellen auf und runde dann auf sieben.',
+          ex: '0,45454545… Die achte Nachkommastelle ist eine 5, also wird die siebte von 4 auf 5 aufgerundet: 0,4545455.' }
+      },
+      {
+        viz: { v: 'tapes', x: '0,{68}', y: null },
+        text: 'Vor dem Runden rollst du die Periode ein Stück aus.',
+        item: { t: 'num', q: 'Runde 0,{68} auf zwei Nachkommastellen.', a: '0,69',
+          hint: 'Ausgerollt: 0,686868… Welche Ziffer steht an der dritten Nachkommastelle?',
+          ex: 'Ausgerollt ist das 0,686868… Die dritte Nachkommastelle ist eine 6, also wird aufgerundet: 0,{68} ≈ 0,69.' }
+      },
+      {
+        viz: null,
+        text: 'Du sollst 5/7 auf zwei Nachkommastellen runden und möchtest so wenig wie möglich rechnen.',
+        item: { t: 'mc', q: 'Bis zu welcher Nachkommastelle musst du schriftlich dividieren?', opts: ['bis zur zweiten', 'bis zur dritten', 'bis zur sechsten (ganze Periode)', 'das ist egal'], c: 1, cols: 2, fixed: true,
+          hint: 'Welche Ziffer entscheidet, ob auf- oder abgerundet wird?',
+          ex: 'Zum Runden brauchst du genau eine Stelle mehr als verlangt. 5 : 7 = 0,714… Die 4 sagt: abrunden. Also 5/7 ≈ 0,71.' }
+      },
+      {
+        viz: { v: 'nines' },
+        text: 'Zum Schluss ein Ergebnis, das viele zuerst nicht glauben.',
+        item: { t: 'mc', q: '1/3 = 0,{3}. Multipliziere beide Seiten mit 3. Was ist dann 0,{9}?', opts: ['genau 1', 'ein winziges bisschen weniger als 1', '0,999', 'mehr als 1'], c: 0, cols: 2,
+          hint: '3 · 1/3 = ? Und 3 · 0,333… = ?',
+          ex: '3 · 1/3 = 1 und 3 · 0,333… = 0,999… Also ist 0,{9} = 1. Das sind zwei Schreibweisen für dieselbe Zahl, so wie 1/2 und 0,5. Zwischen 0,{9} und 1 passt keine andere Zahl mehr.' }
+      }
+    ],
+    merk: [
+      'Mit Periodenstrich ist die Zahl genau, dann steht =. Fehlen Ziffern, ist sie gerundet, dann steht ≈.',
+      'Zum Runden auf zwei Nachkommastellen brauchst du drei. Rolle die Periode vorher aus.',
+      'Der Taschenrechner rundet die letzte Stelle: 0,6666667 bedeutet 0,{6}.'
+    ],
+    say: '»1/3 = 0,33« ist falsch, denn 0,33 ist ein gerundeter Wert. Richtig ist 1/3 = 0,{3} oder 1/3 ≈ 0,33.',
+    next: ['arena-runden', 'Runden-Radar spielen']
+  },
+  {
+    id: 'strich', n: 4, title: 'Lesen, schreiben, vergleichen', ask: 'Was genau bedeckt der Strich?', min: 5,
+    steps: [
+      {
+        viz: { v: 'speak' },
+        text: 'Hinter dem Komma liest du Ziffer für Ziffer. Vor den Ziffern unter dem Strich sagst du das Wort »Periode«.',
+        item: { t: 'mc', q: 'Wie liest man 0,4{52}?', opts: [
+          'null Komma vier Periode fünf zwei',
+          'null Komma Periode vier fünf zwei',
+          'null Komma vier fünf Periode zwei',
+          'null Komma vierhundertzweiundfünfzig'], c: 0, cols: 1,
+          hint: 'Welche Ziffern stehen unter dem Strich? Davor kommt das Wort »Periode«.',
+          ex: 'Die 4 steht vor der Periode, 5 und 2 stehen unter dem Strich: »null Komma vier Periode fünf zwei«. Ausgerollt ist das 0,4525252…' }
+      },
+      {
+        viz: { v: 'machine', a: 23, b: 12 },
+        text: 'Die Division 23 : 12 liefert 1,91666… Lass die Maschine laufen und achte darauf, welcher Rest sich wiederholt.',
+        item: { t: 'bar', q: 'Setze den Periodenstrich: Tippe die Ziffern an, die sich wiederholen.', int: '1', digits: '916', c: [2], tail: '66…',
+          hint: 'Nur die 6 kommt immer wieder.',
+          ex: '23/12 = 1,91{6}. Die 9 und die 1 kommen nur einmal vor. 1,{916} wäre 1,916916916… und das ist eine andere Zahl.' }
+      },
+      {
+        viz: { v: 'tapes', x: '0,{38}', y: '0,3{8}' },
+        text: 'Zwei Zahlen mit denselben Ziffern, aber der Strich sitzt anders. Rolle beide aus.',
+        item: { t: 'mc', q: 'Welche Zahl ist größer?', opts: ['0,{38}', '0,3{8}', 'Beide sind gleich groß.'], c: 1, cols: 3, fixed: true,
+          hint: 'Rolle die Ziffern aus und suche von links die erste Stelle, an der sich die beiden unterscheiden.',
+          ex: '0,{38} = 0,3838… und 0,3{8} = 0,3888… An der dritten Nachkommastelle steht 3 gegen 8. Also ist 0,3{8} größer.' }
+      },
+      {
+        viz: { v: 'tapes', x: '0,{25}', y: '0,{252}' },
+        text: 'Noch ein Paar, bei dem man genau hinsehen muss.',
+        item: { t: 'mc', q: 'Welches Zeichen stimmt?', opts: ['0,{25} < 0,{252}', '0,{25} = 0,{252}', '0,{25} > 0,{252}'], c: 2, cols: 1, fixed: true,
+          hint: 'Rolle beide Zahlen bis zur vierten Nachkommastelle aus.',
+          ex: '0,{25} = 0,2525… und 0,{252} = 0,2522… Die ersten drei Nachkommastellen sind gleich, an der vierten steht 5 gegen 2. Also ist 0,{25} größer.' }
+      },
+      {
+        viz: null,
+        text: 'Dieselbe Zahl kann ganz verschieden aussehen.',
+        item: { t: 'multi', q: 'Tippe alle Karten an, die genau denselben Wert haben wie 2/3.', opts: ['0,{6}', '0,6{6}', '6/9', '0,67', '66 %', '0,66'], c: [0, 1, 2],
+          hint: 'Rolle 0,6{6} aus. Und: Welche Karten sind nur gerundet?',
+          ex: '0,{6} und 0,6{6} sind ausgerollt beide 0,666… (man schreibt die kürzere Form). 6/9 ist gekürzt 2/3. Dagegen sind 0,67, 0,66 und 66 % nur gerundete Werte.' }
+      },
+      {
+        viz: null,
+        text: 'Jetzt vier Zahlen, die sehr nah beieinander liegen.',
+        item: { t: 'order', q: 'Ordne von klein nach groß. Tippe die Zahlen in der richtigen Reihenfolge an.', opts: ['0,45', '0,{4}', '0,{45}', '0,4'],
+          hint: 'Rolle die periodischen Zahlen aus: 0,{4} = 0,444… und 0,{45} = 0,4545…',
+          ex: '0,4 < 0,444… < 0,45 < 0,4545… Also: 0,4 < 0,{4} < 0,45 < 0,{45}.' }
+      },
+      {
+        viz: null,
+        text: 'Auch Prozentangaben können aus periodischen Dezimalzahlen entstehen. 1/6 = 0,1{6}.',
+        item: { t: 'mc', q: 'Wie viel Prozent sind 1/6, auf eine Nachkommastelle gerundet?', opts: ['16,7 %', '16,6 %', '16 %', '1,7 %'], c: 0, cols: 4,
+          hint: '0,1666… bedeutet 16,666… Prozent.',
+          ex: '0,1666… = 16,666… %. Die zweite Nachkommastelle ist eine 6, also aufrunden: 1/6 ≈ 16,7 %.' }
+      }
+    ],
+    merk: [
+      'Sprich die Ziffern einzeln. Vor den Ziffern unter dem Strich sagst du »Periode«: 0,4{52} heißt »null Komma vier Periode fünf zwei«.',
+      'Der Strich bedeckt genau die Ziffern, die sich wiederholen: 0,3{8} = 0,3888… und 0,{38} = 0,3838…',
+      'Zum Vergleichen beide Zahlen ausrollen und von links die erste Stelle suchen, an der sie sich unterscheiden.'
+    ],
+    say: '»0,{38} = 0,3{8}« ist falsch. Der Periodenstrich steht über verschiedenen Ziffern: 0,{38} = 0,3838… und 0,3{8} = 0,3888… Die dritte Nachkommastelle ist verschieden.',
+    next: ['arena-vergleich', 'Größer, kleiner, dazwischen spielen']
+  },
+  {
+    id: 'neun', n: 5, title: 'Neuner-Zauber', ask: 'Wie kommt man von der Periode zurück zum Bruch?', min: 5, bonus: true,
+    steps: [
+      {
+        viz: { v: 'ninths' },
+        text: 'Diese Station geht über den Test hinaus. Sie zeigt dir, dass hinter jeder Periode ein Bruch steckt. Schau dir zuerst die Neuntel an.',
+        item: { t: 'mc', q: 'Welcher Bruch ist 0,{7}?', opts: ['7/9', '7/10', '7/99', '1/7'], c: 0, cols: 4,
+          hint: 'Setze das Muster 1/9 = 0,{1}, 2/9 = 0,{2}, … fort.',
+          ex: 'Ein Neuntel ist 0,111… Sieben Neuntel sind siebenmal so viel: 7/9 = 0,{7}.' }
+      },
+      {
+        viz: { v: 'ninths' },
+        text: 'Mit zwei Ziffern in der Periode geht es genauso, nur mit 99 im Nenner: 1/99 = 0,{01}, 2/99 = 0,{02}, …',
+        item: { t: 'mc', q: 'Welche Dezimalzahl ist 37/99?', opts: ['0,{37}', '0,37', '0,3{7}', '0,{037}'], c: 0, cols: 4,
+          hint: '37 mal 0,010101…',
+          ex: '37 · 0,010101… = 0,373737… = 0,{37}.' }
+      },
+      {
+        viz: { v: 'tenx', per: '7' },
+        text: 'Warum klappt das? Nimm x = 0,{7}. Dann ist 10 · x = 7,{7}. Hinter dem Komma stehen bei beiden Zahlen dieselben unendlich vielen Siebenen.',
+        item: { t: 'mc', q: 'Was ergibt 10 · x − x?', opts: ['genau 7', '7,{7}', '0,7', '70'], c: 0, cols: 4,
+          hint: '7,777… minus 0,777…',
+          ex: 'Die unendlich langen Enden heben sich genau auf: 7,777… − 0,777… = 7. Also ist 9 · x = 7 und x = 7/9. Bei zwei Periodenziffern rechnest du 100 · x − x = 99 · x.' }
+      },
+      {
+        viz: { v: 'tenx', per: '45' },
+        text: 'Jetzt du: Wandle 0,{45} in einen Bruch um und kürze.',
+        item: { t: 'mc', q: 'Welcher Bruch ist 0,{45}, vollständig gekürzt?', opts: ['5/11', '9/20', '4/9', '45/90'], c: 0, cols: 4,
+          hint: '0,{45} = 45/99. Kürze mit 9.',
+          ex: '0,{45} = 45/99 = 5/11. Zur Kontrolle: 9/20 wäre 0,45 ohne Periode.' }
+      },
+      {
+        viz: { v: 'cyclic' },
+        text: 'Die Periode von 1/7 ist die Zahl 142857. Sie hat eine verblüffende Eigenschaft.',
+        item: { t: 'num', q: 'Rechne 142857 · 2.', a: '285714',
+          hint: 'Schriftlich multiplizieren, von rechts nach links.',
+          ex: '285714: dieselben Ziffern in derselben Reihenfolge, nur gedreht. Das ist die Periode von 2/7. Mit · 3, · 4, · 5 und · 6 klappt es genauso. Und 142857 · 7 = 999999, denn 7/7 = 0,{9} = 1.' }
+      },
+      {
+        viz: null,
+        text: 'Zum Schluss eine Zahl, die anders ist: 0,101001000100001… Nach jeder 1 kommt eine Null mehr als davor.',
+        item: { t: 'mc', q: 'Ist diese Zahl abbrechend, periodisch oder keins von beiden?', opts: ['abbrechend', 'periodisch', 'keins von beiden'], c: 2, cols: 3, fixed: true,
+          hint: 'Gibt es einen festen Ziffernblock, der sich immer gleich wiederholt?',
+          ex: 'Die Zahl hat ein Muster, aber keinen Ziffernblock, der sich immer gleich wiederholt. Sie ist weder abbrechend noch periodisch und lässt sich deshalb nicht als Bruch schreiben. Solche Zahlen lernst du später als irrationale Zahlen kennen. Die bekannteste ist π.' }
+      }
+    ],
+    merk: [
+      'Neuntel haben eine Ziffer in der Periode: 7/9 = 0,{7}. Bei 99 im Nenner sind es zwei: 37/99 = 0,{37}.',
+      'Der Trick: 10 · x − x lässt das unendliche Ende verschwinden.',
+      'Jeder Bruch ist abbrechend oder periodisch, und jede periodische Dezimalzahl ist ein Bruch.'
+    ],
+    say: '0,{9} = 1, denn 1/3 = 0,{3} und 3 · 1/3 = 1.',
+    next: ['arena-blitz', 'Bruch-Blitz spielen']
+  }
+];
+
+/* ---------- Test-Check: Aufgaben nach Checklisten-Nummer ---------- */
+const CHECK = [
+  /* 1 Stellenwerttafel, vorlesen */
+  { k: 1, quick: true, t: 'mc', q: 'Wie liest man 3,407 richtig vor?', opts: ['drei Komma vier null sieben', 'drei Komma vierhundertsieben', 'drei Komma vier sieben', 'dreitausendvierhundertsieben'], c: 0, cols: 1,
+    ex: 'Hinter dem Komma liest man Ziffer für Ziffer: »drei Komma vier null sieben«. So hört man auch die Null an der Hundertstelstelle.' },
+  { k: 1, t: 'num', q: 'Schreibe als Dezimalzahl: 4 Einer, 7 Hundertstel und 2 Tausendstel.', a: '4,072',
+    ex: 'In der Stellenwerttafel: E 4 | z 0 | h 7 | t 2. Die Zehntelstelle bleibt leer und bekommt eine 0: 4,072.' },
+  { k: 1, t: 'mc', q: 'Für welchen Stellenwert steht die Ziffer 5 in 12,0456?', opts: ['Zehntel', 'Hundertstel', 'Tausendstel', 'Zehntausendstel'], c: 2, cols: 2,
+    ex: 'Nach dem Komma: 0 Zehntel, 4 Hundertstel, 5 Tausendstel, 6 Zehntausendstel.' },
+  /* 2 Zehnerbrüche */
+  { k: 2, quick: true, t: 'num', q: 'Schreibe den Zehnerbruch 7/1000 als Dezimalzahl.', a: '0,007',
+    ex: 'Ein Zehnerbruch hat den Nenner 10, 100, 1000, … Tausendstel stehen an der dritten Stelle nach dem Komma: 7/1000 = 0,007.' },
+  { k: 2, t: 'mc', q: 'Welcher Bruch ist 8,005?', opts: ['8005/1000', '805/100', '8005/100', '85/10'], c: 0, cols: 4,
+    ex: 'Drei Nachkommastellen bedeuten Tausendstel: 8,005 = 8005/1000.' },
+  { k: 2, t: 'mc', q: 'Jemand schreibt: 0,070 = 7/1000. Was stimmt wirklich?', opts: ['0,070 = 7/100', '0,070 = 7/1000 ist richtig', '0,070 = 70/100', '0,070 = 7/10'], c: 0, cols: 2,
+    ex: '0,070 = 70/1000 = 7/100. Die Null am Ende ändert den Wert nicht, die 7 steht an der Hundertstelstelle.' },
+  { k: 2, t: 'num', q: 'Schreibe 331/100 als Dezimalzahl.', a: '3,31',
+    ex: '331 Hundertstel sind 3 Ganze und 31 Hundertstel: 3,31.' },
+  /* 3 Bruch, Dezimalzahl, Prozent */
+  { k: 3, quick: true, t: 'num', q: 'Schreibe 3/8 als Dezimalzahl.', a: '0,375',
+    ex: 'Erweitern mit 125: 3/8 = 375/1000 = 0,375. Oder dividieren: 3 : 8 = 0,375.' },
+  { k: 3, t: 'num', q: 'Schreibe 0,512 in Prozent.', a: '51,2', unit: '%',
+    ex: 'Prozent heißt Hundertstel. Das Komma rückt zwei Stellen nach rechts: 0,512 = 51,2 %.' },
+  { k: 3, t: 'mc', q: 'Welche Dezimalzahl ist 0,7 %?', opts: ['0,007', '0,07', '0,7', '0,0007'], c: 0, cols: 4,
+    ex: 'Prozent heißt Hundertstel: 0,7 % sind 0,7 Hundertstel. Das Komma rückt zwei Stellen nach links: 0,007.' },
+  { k: 3, t: 'num', q: 'Schreibe 22/55 als Dezimalzahl.', a: '0,4',
+    ex: 'Erst kürzen: 22/55 = 2/5. Dann erweitern: 2/5 = 4/10 = 0,4.' },
+  { k: 3, t: 'mc', q: 'Jeder dritte Schüler kommt mit dem Bus. Wie viel Prozent sind das, auf zwei Nachkommastellen gerundet?', opts: ['33,33 %', '33,34 %', '3,33 %', '30 %'], c: 0, cols: 4,
+    ex: '1/3 = 0,3333… = 33,333… %. Die dritte Nachkommastelle ist eine 3, also abrunden: 33,33 %.' },
+  /* 4 vergleichen, ordnen, Zahlenstrahl */
+  { k: 4, quick: true, t: 'order', q: 'Ordne von klein nach groß.', opts: ['0,56', '0,508', '0,58', '0,506'],
+    ex: 'Stelle für Stelle von links vergleichen: 0,506 < 0,508 < 0,56 < 0,58. Mehr Ziffern bedeuten nicht automatisch eine größere Zahl.' },
+  { k: 4, t: 'mc', q: 'Welches Zeichen gehört zwischen 3,567 und 3,56?', opts: ['<', '=', '>'], c: 2, cols: 3, fixed: true,
+    ex: '3,56 = 3,560. An der Tausendstelstelle steht 7 gegen 0, also 3,567 > 3,56.' },
+  { k: 4, t: 'mc', fig: { v: 'line', lo: '0,4', hi: '0,5', n: 10, mark: 7 }, q: 'Welche Zahl ist auf dem Zahlenstrahl markiert?', opts: ['0,47', '0,407', '0,7', '0,57'], c: 0, cols: 4,
+    ex: 'Zwischen 0,4 und 0,5 liegen zehn gleiche Schritte, jeder ist ein Hundertstel. Der siebte Strich ist 0,47.' },
+  { k: 4, t: 'order', q: 'Ordne von klein nach groß.', opts: ['1/3', '33 %', '0,{32}', '33,3 %'],
+    ex: 'Alles als Dezimalzahl: 0,{32} = 0,3232…, 33 % = 0,33, 33,3 % = 0,333 und 1/3 = 0,3333… Also 0,{32} < 33 % < 33,3 % < 1/3.' },
+  /* 5 dazwischen */
+  { k: 5, quick: true, t: 'mc', q: 'Welche Zahl liegt zwischen 0,09 und 0,1?', opts: ['0,095', '0,91', '0,11', '0,089'], c: 0, cols: 4,
+    ex: 'Schreibe beide mit drei Nachkommastellen: 0,090 und 0,100. Dazwischen liegt zum Beispiel 0,095.' },
+  { k: 5, t: 'num', q: 'Gib irgendeine Zahl an, die zwischen 1,1 und 1,2 liegt.', a: '1,15', between: ['1,1', '1,2'],
+    ex: 'Hänge eine Stelle an: 1,10 und 1,20. Dazwischen liegen 1,11 bis 1,19 und noch unendlich viele weitere Zahlen wie 1,155.' },
+  { k: 5, t: 'num', q: 'Welche Zahl liegt genau in der Mitte zwischen 0,41 und 0,426?', a: '0,418',
+    ex: '0,410 und 0,426 haben den Abstand 0,016. Die Hälfte ist 0,008, also 0,410 + 0,008 = 0,418.' },
+  { k: 5, t: 'mc', q: 'Welche Zahl liegt zwischen 0,3 und 0,{3}?', opts: ['0,33', '0,34', '0,29', '0,{34}'], c: 0, cols: 4,
+    ex: '0,{3} = 0,3333… Die Zahl 0,33 ist größer als 0,3 und kleiner als 0,3333… Dagegen sind 0,34 und 0,{34} schon größer als 0,{3}.' },
+  /* 6 Größen */
+  { k: 6, quick: true, t: 'num', q: '420 m² = ? a', a: '4,2', unit: 'a',
+    ex: '1 a = 100 m². Zur größeren Einheit gehört die kleinere Maßzahl: Komma zwei Stellen nach links, 420 m² = 4,2 a.' },
+  { k: 6, t: 'num', q: '2,68 m = ? dm', a: '26,8', unit: 'dm',
+    ex: '1 m = 10 dm. Kleinere Einheit, größere Maßzahl: Komma eine Stelle nach rechts.' },
+  { k: 6, t: 'num', q: '0,0678 m³ = ? l', a: '67,8', unit: 'l',
+    ex: '1 m³ = 1000 dm³ = 1000 l. Komma drei Stellen nach rechts: 67,8 l.' },
+  { k: 6, t: 'num', q: '345 g = ? kg', a: '0,345', unit: 'kg',
+    ex: '1 kg = 1000 g. Komma drei Stellen nach links: 0,345 kg.' },
+  { k: 6, t: 'mc', q: '0,5 h = ? min', opts: ['30 min', '50 min', '5 min', '300 min'], c: 0, cols: 4,
+    ex: '1 h = 60 min, also 0,5 · 60 = 30 min. Bei Zeiten hilft Kommaverschieben nicht, weil eine Stunde 60 und nicht 100 Minuten hat.' },
+  /* 7 runden */
+  { k: 7, quick: true, t: 'mc', q: 'Runde 3,49905 auf zwei Nachkommastellen.', opts: ['3,50', '3,5', '3,49', '3,499'], c: 0, cols: 4,
+    ex: 'Die dritte Nachkommastelle ist eine 9, also aufrunden. Aus 3,49 wird 3,50. Die Null bleibt stehen, damit man sieht, dass auf Hundertstel gerundet wurde.' },
+  { k: 7, t: 'num', q: 'Runde 0,{57} auf zwei Nachkommastellen.', a: '0,58',
+    ex: 'Ausgerollt: 0,575757… Die dritte Nachkommastelle ist eine 5, also aufrunden: 0,58.' },
+  { k: 7, t: 'mc', q: 'Eine Küchenwaage misst auf Gramm genau und zeigt 480 g. Welche Angabe in kg zeigt dieselbe Genauigkeit?', opts: ['0,480 kg', '0,48 kg', '0,5 kg', '0,4800 kg'], c: 0, cols: 4,
+    ex: '0,480 kg hat drei Nachkommastellen, die letzte steht für Gramm. Bei 0,48 kg könnte man denken, es sei nur auf 10 g genau gemessen worden.' },
+  { k: 7, t: 'mc', q: 'Welche ist die kleinste Zahl, die auf zwei Nachkommastellen gerundet 10,50 ergibt?', opts: ['10,495', '10,49', '10,499', '10,45'], c: 0, cols: 4,
+    ex: 'Ab der 5 an der dritten Nachkommastelle wird aufgerundet. 10,495 ist die kleinste Zahl, die 10,50 ergibt. 10,4949 würde schon zu 10,49.' },
+  { k: 7, t: 'mc', q: 'Drei Freunde teilen sich 100 €. Welche Angabe ist sinnvoll?', opts: ['Jeder bekommt etwa 33,33 €.', 'Jeder bekommt 33,{3} €.', 'Jeder bekommt 33,333333 €.', 'Jeder bekommt 33 €.'], c: 0, cols: 1,
+    ex: 'Geld gibt es nur in ganzen Cent, also zwei Nachkommastellen: 33,33 €. Ein Cent bleibt übrig. Genauer zu rechnen bringt nichts, gröber zu runden verschenkt Geld.' },
+  /* 8 abbrechend oder periodisch */
+  { k: 8, quick: true, t: 'multi', q: 'Tippe alle Brüche an, die eine abbrechende Dezimalzahl ergeben.', opts: ['7/20', '5/12', '9/40', '4/15', '6/15', '11/125'], c: [0, 2, 4, 5],
+    ex: '20 = 2 · 2 · 5, 40 = 2 · 2 · 2 · 5 und 125 = 5 · 5 · 5 haben nur die Primfaktoren 2 und 5. 6/15 lässt sich zu 2/5 kürzen. Bei 5/12 und 4/15 bleibt der Störfaktor 3 im Nenner.' },
+  { k: 8, quick: true, t: 'per', q: 'Schreibe 5/6 als Dezimalzahl. Rechne schriftlich im Heft.', fr: [5, 6],
+    ex: '5 : 6 = 0,8333… Der Rest 2 wiederholt sich, also wiederholt sich die 3: 5/6 = 0,8{3}.' },
+  { k: 8, quick: true, t: 'mc', q: 'Wahr oder falsch? »Ein Bruch mit dem Nenner 15 ergibt immer eine periodische Dezimalzahl.«', opts: ['falsch, zum Beispiel 3/15 = 0,2', 'wahr, denn 15 = 3 · 5 enthält die 3', 'falsch, denn 15 ist ungerade'], c: 0, cols: 1,
+    ex: 'Die Regel gilt nur für gekürzte Brüche. 3/15 = 1/5 = 0,2 bricht ab, genauso 6/15, 9/15 und 12/15.' },
+  { k: 8, t: 'cloze', q: 'Baue die Begründung zusammen.', parts: [
+    '7/12 ergibt eine ', { opts: ['periodische', 'abbrechende'], c: 0 },
+    ' Dezimalzahl. Der Bruch ist vollständig gekürzt und der Nenner 12 = 2 · 2 · 3 enthält den Primfaktor ', { opts: ['3', '2', '12'], c: 0 },
+    '. Deshalb kann man ihn nicht auf den Nenner 10, 100, 1000 usw. ', { opts: ['erweitern', 'kürzen', 'runden'], c: 0 }, '.'],
+    ex: 'Genau so kannst du im Test begründen: kürzen, Nenner zerlegen, Störfaktor nennen.' },
+  { k: 8, t: 'per', q: 'Schreibe 7/11 als Dezimalzahl. Rechne schriftlich im Heft.', fr: [7, 11],
+    ex: '7 : 11 = 0,6363… Nach zwei Schritten kommt wieder der Rest 7: 7/11 = 0,{63}.' },
+  { k: 8, t: 'per', q: 'Schreibe 13/6 als Dezimalzahl. Zwischen welchen natürlichen Zahlen liegt der Bruch? Rechne schriftlich im Heft.', fr: [13, 6],
+    ex: '2 · 6 = 12 < 13 < 18 = 3 · 6, also liegt 13/6 zwischen 2 und 3. 13 : 6 = 2,1666… = 2,1{6}.' },
+  { k: 8, t: 'mc', q: 'Wahr oder falsch? »Je größer der Nenner, desto mehr Nachkommastellen hat die Dezimalzahl.«', opts: ['falsch: 1/3 hat unendlich viele, 1/1000 nur drei', 'wahr', 'wahr, aber nur bei gekürzten Brüchen'], c: 0, cols: 1,
+    ex: 'Die Größe des Nenners sagt nichts. Entscheidend sind seine Primfaktoren: 1/3 = 0,{3} hört nie auf, 1/1000 = 0,001 hat nur drei Nachkommastellen.' },
+  /* 9 Fehler finden */
+  { k: 9, quick: true, t: 'mc', q: 'Finde den Fehler: 2/3 ≈ 0,66', opts: [
+    'Es wurde falsch gerundet. Richtig ist 2/3 ≈ 0,67.',
+    'Es müsste = statt ≈ heißen.',
+    'Kein Fehler, das stimmt so.',
+    '2/3 ist 0,{66} und nicht 0,{6}.'], c: 0, cols: 1,
+    ex: '2/3 = 0,666… Die dritte Nachkommastelle ist eine 6, also muss aufgerundet werden: 2/3 ≈ 0,67.' },
+  { k: 9, t: 'mc', q: 'Finde den Fehler: 0,{38} = 0,3{8}', opts: [
+    'Der Periodenstrich steht über verschiedenen Ziffern: 0,3838… ist nicht 0,3888…',
+    'Kein Fehler, beide Zahlen haben dieselben Ziffern.',
+    'Es fehlt nur das Zeichen ≈.',
+    'Bei 0,3{8} ist der Strich zu kurz, beide meinen dasselbe.'], c: 0, cols: 1,
+    ex: 'Der Strich legt fest, welche Ziffern sich wiederholen. 0,{38} = 0,3838… und 0,3{8} = 0,3888… sind verschiedene Zahlen.' },
+  { k: 9, t: 'mc', q: 'Finde den Fehler: 0,2{3} wird gelesen als »null Komma Periode zwei drei«.', opts: [
+    'Richtig heißt es »null Komma zwei Periode drei«.',
+    'Richtig heißt es »null Komma dreiundzwanzig Periode«.',
+    'Kein Fehler.',
+    'Richtig heißt es »null Komma zwei drei Periode«.'], c: 0, cols: 1,
+    ex: 'Nur die 3 steht unter dem Strich. Das Wort »Periode« kommt direkt vor die Ziffern, die sich wiederholen.' },
+  { k: 9, t: 'cloze', q: 'Erkläre den Fehler in »1/3 = 0,33«.', parts: [
+    '0,33 ist nur ein ', { opts: ['gerundeter', 'gekürzter', 'erweiterter'], c: 0 },
+    ' Wert. Deshalb muss das Zeichen ', { opts: ['≈', '=', '<'], c: 0 },
+    ' stehen. Genau ist 1/3 = 0,{3}, also eine ', { opts: ['periodische', 'abbrechende'], c: 0 }, ' Dezimalzahl.'],
+    ex: '1/3 ≈ 0,33 oder 1/3 = 0,{3}. Beides ist richtig, »1/3 = 0,33« nicht.' },
+  { k: 9, t: 'mc', q: 'Finde den Fehler: 1/2 = 0,5 %', opts: [
+    '1/2 = 0,5 = 50 %',
+    '1/2 = 5 %',
+    'Kein Fehler.',
+    '1/2 = 0,05 %'], c: 0, cols: 4,
+    ex: '0,5 ist die Dezimalzahl. In Prozent rückt das Komma zwei Stellen nach rechts: 0,5 = 50 %.' }
+];
+
+/* ---------- Reste-Rallye: Aufgaben [Zähler, Nenner] ---------- */
+const RALLYE = {
+  warm: [[7, 8], [9, 4], [11, 8], [17, 20], [31, 25], [9, 16], [11, 40], [7, 16], [13, 5]],
+  loop: [[5, 6], [4, 9], [7, 3], [7, 11], [13, 6], [8, 15], [10, 11], [17, 9], [5, 11], [14, 15], [19, 11], [29, 6], [20, 9]],
+  hard: [[5, 12], [25, 12], [13, 18], [7, 22], [23, 12], [3, 7], [11, 24], [17, 15], [5, 13]]
+};
+
+/* ---------- Wortliste (Deutsch, Chinesisch, Englisch) ---------- */
+const WORDS = [
+  ['die Dezimalzahl (Kommazahl)', '小数', 'decimal number'],
+  ['die Nachkommastelle', '小数位', 'decimal place'],
+  ['Zehntel, Hundertstel, Tausendstel', '十分位、百分位、千分位', 'tenths, hundredths, thousandths'],
+  ['die Stellenwerttafel', '数位表', 'place value chart'],
+  ['der Zehnerbruch', '分母是 10、100、1000… 的分数', 'fraction with denominator 10, 100, 1000 …'],
+  ['abbrechende Dezimalzahl', '有限小数', 'terminating decimal'],
+  ['periodische Dezimalzahl', '循环小数', 'repeating decimal'],
+  ['die Periode', '循环节', 'repetend'],
+  ['der Periodenstrich', '循环节上的横线（中国课本用循环点）', 'bar over the repeating digits'],
+  ['schriftliche Division', '竖式除法', 'long division'],
+  ['der Rest', '余数', 'remainder'],
+  ['der Primfaktor', '质因数', 'prime factor'],
+  ['kürzen / erweitern', '约分 / 分子分母同乘一个数', 'reduce / expand a fraction'],
+  ['runden (auf- und abrunden)', '四舍五入', 'rounding'],
+  ['die Maßeinheit umwandeln', '单位换算', 'convert units'],
+  ['der Zahlenstrahl', '数轴（数射线）', 'number line']
+];
+
+/* ---------- Spickzettel ---------- */
+const SPICK = [
+  { k: 1, h: 'Stellenwerttafel und Vorlesen', p: ['Nach dem Komma: Zehntel (z), Hundertstel (h), Tausendstel (t).', 'Vorlesen Ziffer für Ziffer: 3,407 heißt »drei Komma vier null sieben«.'] },
+  { k: 2, h: 'Zehnerbrüche', p: ['Nenner 10, 100, 1000: so viele Nachkommastellen wie Nullen im Nenner. 7/1000 = 0,007 und 331/100 = 3,31.', 'Nullen am Ende ändern nichts: 0,070 = 0,07 = 7/100.'] },
+  { k: 3, h: 'Bruch, Dezimalzahl, Prozent', p: ['Bruch → Dezimalzahl: auf 10, 100, 1000 erweitern oder dividieren. 3/8 = 375/1000 = 0,375.', 'Dezimalzahl → Prozent: Komma zwei Stellen nach rechts. 0,512 = 51,2 %.'] },
+  { k: 4, h: 'Vergleichen und ordnen', p: ['Von links Stelle für Stelle vergleichen. Die erste verschiedene Ziffer entscheidet: 0,508 < 0,56.', 'Verschiedene Schreibweisen zuerst gleich machen (alles als Dezimalzahl oder alles als Bruch).'] },
+  { k: 5, h: 'Eine Zahl dazwischen', p: ['Eine Stelle anhängen: zwischen 0,09 und 0,1 (also 0,090 und 0,100) liegt 0,095.', 'Zwischen zwei verschiedenen Dezimalzahlen liegen immer noch unendlich viele weitere.'] },
+  { k: 6, h: 'Größen umwandeln', p: ['Kleinere Einheit → größere Maßzahl → Komma nach rechts. Größere Einheit → Komma nach links.', 'Längen: je 1 Stelle (km: 3). Flächen: je 2 Stellen. Volumen: je 3 Stellen. Gewichte: je 3 Stellen.', '1 l = 1 dm³ und 1 ml = 1 cm³. Zeit: 1 h = 60 min, also 0,5 h = 30 min.'] },
+  { k: 7, h: 'Runden', p: ['Ziffer rechts von der Rundungsstelle: 0 bis 4 abrunden, 5 bis 9 aufrunden.', 'Die Null bleibt stehen: 2,098 ≈ 2,10. Periodische Zahlen erst ausrollen: 0,{57} = 0,5757… ≈ 0,58.', 'Wie genau? So genau wie gemessen wurde oder wie es Sinn ergibt (Geld: zwei Nachkommastellen).'] },
+  { k: 8, h: 'Abbrechend oder periodisch', p: ['Jeder Bruch ist eine Division: Zähler durch Nenner. Rest 0 → abbrechend. Rest wiederholt sich → periodisch.', 'Vorhersage: vollständig kürzen, Nenner in Primfaktoren zerlegen. Nur 2 und 5 → abbrechend. Sonst periodisch.', 'Schreibweise: 1/3 = 0,{3} · 5/6 = 0,8{3} · 7/11 = 0,{63}'] },
+  { k: 9, h: 'Typische Fehler', p: ['1/3 = 0,33 ist falsch. Richtig: 1/3 = 0,{3} oder 1/3 ≈ 0,33.', '2/3 ≈ 0,66 ist falsch gerundet. Richtig: 0,67.', '0,{38} und 0,3{8} sind verschiedene Zahlen. Der Strich entscheidet.', 'Gesprochen: 0,2{3} heißt »null Komma zwei Periode drei«.'] }
+];
+const FAMOUS_TABLE = [[1, 2], [1, 4], [3, 4], [1, 5], [1, 8], [3, 8], [1, 20], [1, 25], [1, 3], [2, 3], [1, 6], [5, 6], [1, 9], [1, 11], [1, 12], [1, 7]];
+
+/* ===== widgets.js: Visualisierungen ===== */
+const $ = (sel, el) => (el || document).querySelector(sel);
+const $$ = (sel, el) => Array.from((el || document).querySelectorAll(sel));
+function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+let UID = 0;
+function tsd(n) { return String(n).replace(/\B(?=(\d{3})+$)/g, '\u202f'); }
+const LEAVE = [];           /* Aufräumen beim Verlassen einer Ansicht (Timer) */
+function onLeave(fn) { LEAVE.push(fn); }
+function runLeave() { while (LEAVE.length) { try { LEAVE.pop()(); } catch (e) { } } }
+
+/* ---------- Schriftliche Division im Karoheft ---------- */
+function divisionModel(a, b) {
+  const e = expand(a, b, 60), steps = [];
+  let r = a % b;
+  steps.push({ partial: a, digit: Math.floor(a / b), sub: Math.floor(a / b) * b, rem: r });
+  for (let i = 0; i < e.digits.length; i++) {
+    const partial = r * 10, d = e.digits[i];
+    r = partial - d * b;
+    steps.push({ partial, digit: d, sub: d * b, rem: r });
+  }
+  /* repStep: Schritt, dessen Rest sich am Ende wiederholt (oder -1) */
+  return { a, b, e, steps, periodic: e.start >= 0, repStep: e.start >= 0 ? e.start : -1 };
+}
+function renderDivision(el, model, shown, opts) {
+  opts = opts || {};
+  const { a, b, steps } = model, total = steps.length, done = shown >= total;
+  const A = String(a), B = String(b), Q0 = String(steps[0].digit), L = A.length;
+  const Zmax = Math.max(total - 1, opts.minZeros || 0);
+  const Zs = Zmax === 0 ? 0 : Math.min(Math.max(shown, 1), Zmax);
+  const C = 1 + L + Zmax;
+  const qs = C + 2 + B.length;
+  const cols = qs + Q0.length + Zmax + 1;
+  const rows = 1 + 2 * Math.max(total, 1) + (opts.extraRows || 0);
+  const w = el.clientWidth || 320;
+  const c = Math.max(13, Math.min(opts.maxCell || 28, Math.floor(w / cols)));
+  const cells = [];
+  const put = (col, row, ch, cls) => cells.push('<span class="kc ' + (cls || '') + '" style="left:' + (col * c) + 'px;top:' + (row * c) + 'px">' + ch + '</span>');
+  /* Zeile 0: Aufgabe */
+  for (let i = 0; i < L; i++) put(1 + i, 0, A[i], (i === L - 1 && Zs > 0) ? 'comma' : '');
+  for (let i = 0; i < Zs; i++) put(1 + L + i, 0, '0', 'zero');
+  put(C, 0, ':', 'op');
+  for (let i = 0; i < B.length; i++) put(C + 1 + i, 0, B[i]);
+  put(C + 1 + B.length, 0, '=', 'op');
+  const perStart = model.periodic ? model.repStep : -1;
+  if (shown > 0) {
+    for (let i = 0; i < Q0.length; i++) put(qs + i, 0, Q0[i], 'q' + ((i === Q0.length - 1 && (shown > 1 || (opts.pendingComma && Zmax > 0))) ? ' comma' : ''));
+    for (let k = 1; k < shown; k++) {
+      let cls = 'q';
+      if (opts.fresh === k) cls += ' fresh';
+      if (done && perStart >= 0 && k - 1 >= perStart && !opts.noBar) cls += ' over';
+      put(qs + Q0.length + k - 1, 0, steps[k].digit, cls);
+    }
+    if (done && model.periodic && opts.dots) put(qs + Q0.length + total - 1, 0, '…', 'op');
+  } else if (opts.qmark) put(qs, 0, '?', 'op');
+  /* Treppe */
+  for (let k = 0; k < shown; k++) {
+    const st = steps[k], end = L + k, rowS = 1 + 2 * k, rowR = rowS + 1;
+    const S = String(st.sub);
+    for (let i = 0; i < S.length; i++) put(end - S.length + 1 + i, rowS, S[i], 'sub');
+    put(end - S.length, rowS, '−', 'op sub');
+    const ulw = Math.max(S.length, String(st.partial).length) + 0;
+    cells.push('<span class="kline" style="left:' + ((end - ulw + 1) * c) + 'px;top:' + ((rowS + 1) * c - 1) + 'px;width:' + (ulw * c) + 'px"></span>');
+    const R = String(st.rem), last = k === total - 1;
+    let rc = 'rem';
+    if (done && model.periodic && !opts.noHit && (k === total - 1 || k === model.repStep)) rc += ' hit';
+    if (last && st.rem === 0) rc += ' zero-end';
+    for (let i = 0; i < R.length; i++) put(end - R.length + 1 + i, rowR, R[i], rc);
+    if (!last) put(end + 1, rowR, '0', 'zero' + (k === shown - 1 ? ' cur' : ''));
+    if (!last && k === shown - 1) { /* aktueller Teil-Dividend markieren */
+      cells.push('<span class="kcur" style="left:' + ((end - R.length + 1) * c) + 'px;top:' + (rowR * c) + 'px;width:' + ((R.length + 1) * c) + 'px;height:' + c + 'px"></span>');
+    }
+  }
+  if (shown === 0) cells.push('<span class="kcur" style="left:' + c + 'px;top:0;width:' + (L * c) + 'px;height:' + c + 'px"></span>');
+  el.innerHTML = '<div class="karo" style="--c:' + c + 'px;width:' + (cols * c) + 'px;height:' + (rows * c) + 'px;font-size:' + Math.round(c * 0.76) + 'px">' + cells.join('') + '</div>';
+}
+
+/* ---------- Reste-Maschine ---------- */
+function vizMachine(el, spec) {
+  const id = ++UID;
+  let a = spec.a, b = spec.b, model, shown, timer = null;
+  el.innerHTML =
+    '<div class="machine">' +
+    (spec.free ? '<form class="m-set" id="mset' + id + '"><label for="mza' + id + '">Zähler</label><input id="mza' + id + '" type="number" inputmode="numeric" min="1" max="99" value="' + a + '"><span class="m-colon">:</span><label for="mne' + id + '">Nenner</label><input id="mne' + id + '" type="number" inputmode="numeric" min="2" max="20" value="' + b + '"><button class="btn small" type="submit">Einstellen</button></form>' : '') +
+    '<div class="m-body"><div class="m-wheel" aria-hidden="true"></div><div class="m-heft"></div></div>' +
+    '<div class="m-tape" aria-live="polite"></div>' +
+    '<p class="m-status" aria-live="polite"></p>' +
+    '<div class="m-btns"><button class="btn" type="button" data-a="step">Schritt</button><button class="btn ghost" type="button" data-a="auto">Automatisch</button><button class="btn ghost" type="button" data-a="reset">Neu starten</button></div>' +
+    '</div>';
+  const wheel = $('.m-wheel', el), heft = $('.m-heft', el), tape = $('.m-tape', el), status = $('.m-status', el);
+  const bStep = $('[data-a=step]', el), bAuto = $('[data-a=auto]', el);
+  function pos(r) {
+    if (r === 0) return [130, 130];
+    const n = b - 1, ang = -Math.PI / 2 + (r - 1) * 2 * Math.PI / Math.max(n, 1);
+    return [130 + 100 * Math.cos(ang), 130 + 100 * Math.sin(ang)];
+  }
+  function drawWheel() {
+    const nr = b <= 9 ? 17 : b <= 14 ? 13 : 10, fs = b <= 9 ? 15 : b <= 14 ? 12 : 10;
+    const rems = model.e.rems, cur = shown > 0 ? rems[shown - 1] : null, done = shown >= model.steps.length;
+    const visited = new Set(rems.slice(0, shown));
+    let s = '<svg viewBox="0 0 260 260" role="img"><defs><marker id="arr' + id + '" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="w-arrow"/></marker></defs>';
+    s += '<circle cx="130" cy="130" r="100" class="w-ring"/>';
+    for (let k = 1; k < shown; k++) {
+      const f = rems[k - 1], t = rems[k], latest = k === shown - 1;
+      const [x1, y1] = pos(f), [x2, y2] = pos(t);
+      if (f === t) {
+        const dx = (x1 - 130) / 100, dy = (y1 - 130) / 100;
+        s += '<circle cx="' + (x1 + dx * (nr + 7)) + '" cy="' + (y1 + dy * (nr + 7)) + '" r="' + (nr * 0.75) + '" class="w-edge loop' + (latest ? ' latest' : '') + '"/>';
+      } else {
+        const d = Math.hypot(x2 - x1, y2 - y1), ux = (x2 - x1) / d, uy = (y2 - y1) / d;
+        s += '<line x1="' + (x1 + ux * nr) + '" y1="' + (y1 + uy * nr) + '" x2="' + (x2 - ux * (nr + 4)) + '" y2="' + (y2 - uy * (nr + 4)) + '" class="w-edge' + (latest ? ' latest' : '') + '" marker-end="url(#arr' + id + ')"/>';
+      }
+    }
+    for (let r = 0; r < b; r++) {
+      const [x, y] = pos(r);
+      let cls = 'w-node';
+      if (r === 0) cls += ' stop';
+      if (visited.has(r)) cls += ' seen';
+      if (r === cur) cls += ' cur';
+      if (done && model.periodic && r === cur) cls += ' hit';
+      s += '<g class="' + cls + '"><circle cx="' + x + '" cy="' + y + '" r="' + (r === 0 ? 20 : nr) + '"/><text x="' + x + '" y="' + (y + fs * 0.36) + '" font-size="' + (r === 0 ? 15 : fs) + '" text-anchor="middle">' + r + '</text></g>';
+    }
+    s += '<text x="130" y="165" text-anchor="middle" class="w-cap">Stopp</text>';
+    s += '</svg>';
+    wheel.innerHTML = s;
+  }
+  function draw() {
+    const total = model.steps.length, done = shown >= total;
+    renderDivision(heft, model, shown, { maxCell: 26 });
+    drawWheel();
+    /* Ziffernstreifen */
+    let t = '<span class="t-lab">' + T(a + '/' + b) + ' =</span> ';
+    if (shown === 0) t += '<span class="t-dig muted">?</span>';
+    else {
+      t += '<span class="t-dig">' + model.steps[0].digit + (shown > 1 ? ',' : '') + '</span>';
+      for (let k = 1; k < shown; k++) t += '<span class="t-dig' + (done && model.periodic && k - 1 >= model.repStep ? ' mark' : '') + '">' + model.steps[k].digit + '</span>';
+      if (!done) t += '<span class="t-dig muted">…</span>';
+      else if (model.periodic) t += '<span class="t-dig muted">…</span> <span class="t-eq">= ' + T(rep(a, b)) + '</span>';
+    }
+    tape.innerHTML = t;
+    /* Statuszeile */
+    let m;
+    if (shown === 0) m = 'Bereit. Der erste Schritt rechnet ' + a + ' : ' + b + '.';
+    else {
+      const st = model.steps[shown - 1];
+      if (shown === 1) m = a + ' : ' + b + ' = ' + st.digit + ' Rest ' + st.rem + '. Vor dem Komma steht ' + st.digit + '.';
+      else m = 'Rest ' + model.steps[shown - 2].rem + ' mal 10 ist ' + st.partial + '. ' + st.partial + ' : ' + b + ' = ' + st.digit + ' Rest ' + st.rem + '. Neue Ziffer: ' + st.digit + '.';
+      if (done) m += st.rem === 0 ? ' <strong>Rest 0: Die Rechnung geht auf.</strong>' : ' <strong>Der Rest ' + st.rem + ' war schon einmal da. Ab hier wiederholt sich alles.</strong>';
+    }
+    status.innerHTML = m;
+    bStep.disabled = done;
+    bAuto.disabled = done;
+    if (done) stop();
+  }
+  function stop() { if (timer) { clearInterval(timer); timer = null; } bAuto.textContent = 'Automatisch'; }
+  function setup() { stop(); model = divisionModel(a, b); shown = 0; draw(); }
+  el.addEventListener('click', ev => {
+    const act = ev.target.closest('[data-a]'); if (!act) return;
+    const k = act.dataset.a;
+    if (k === 'step') { stop(); if (shown < model.steps.length) { shown++; draw(); } }
+    if (k === 'reset') setup();
+    if (k === 'auto') {
+      if (timer) { stop(); return; }
+      bAuto.textContent = 'Anhalten';
+      timer = setInterval(() => { if (shown < model.steps.length) { shown++; draw(); } else stop(); }, 850);
+    }
+  });
+  if (spec.free) $('#mset' + id, el).addEventListener('submit', ev => {
+    ev.preventDefault();
+    const na = parseInt($('#mza' + id, el).value, 10), nb = parseInt($('#mne' + id, el).value, 10);
+    if (!(na >= 1 && na <= 99 && nb >= 2 && nb <= 20)) { status.innerHTML = 'Bitte einen Zähler von 1 bis 99 und einen Nenner von 2 bis 20 eingeben.'; return; }
+    a = na; b = nb; setup();
+  });
+  onLeave(stop);
+  setup();
+  return {};
+}
+
+/* ---------- 2-5-Scanner ---------- */
+function chips(n) {
+  if (n === 1) return '<span class="chip one">1</span>';
+  return primeFactors(n).map(p => '<span class="chip ' + (p === 2 || p === 5 ? 'ok' : 'bad') + '">' + p + '</span>').join('<span class="cdot">·</span>');
+}
+function scanReport(a, b) {
+  const g = gcd(a, b), ra = a / g, rb = b / g, pf = primeFactors(rb);
+  const bad = Array.from(new Set(pf.filter(p => p !== 2 && p !== 5)));
+  let h = '';
+  h += '<div class="s-row"><span class="s-lab">Kürzen</span><span>' + (g > 1 ? T(a + '/' + b) + ' = ' + T(ra + '/' + rb) + ' <span class="muted">(gekürzt mit ' + g + ')</span>' : T(a + '/' + b) + ' ist schon vollständig gekürzt.') + '</span></div>';
+  h += '<div class="s-row"><span class="s-lab">Nenner</span><span>' + rb + ' = ' + chips(rb) + '</span></div>';
+  if (!bad.length) {
+    const twos = pf.filter(p => p === 2).length, fives = pf.filter(p => p === 5).length, k = Math.max(twos, fives);
+    const m = Math.pow(2, k - twos) * Math.pow(5, k - fives), ten = Math.pow(10, k);
+    h += '<div class="s-row"><span class="s-lab">Ergebnis</span><span><span class="pill ok">abbrechend</span> Nur Zweien und Fünfen.</span></div>';
+    if (rb === 1) h += '<div class="s-row"><span class="s-lab">Wert</span><span>' + T(a + '/' + b) + ' = ' + ra + ' (eine natürliche Zahl)</span></div>';
+    else h += '<div class="s-row"><span class="s-lab">Erweitern</span><span>' + (m > 1 ? 'mit ' + m + ': ' : '') + T(ra + '/' + rb) + (m > 1 ? ' = ' + '<span class="fr"><span>' + (ra * m) + '</span><span>' + tsd(ten) + '</span></span>' : '') + ' = <strong>' + T(rep(a, b)) + '</strong> <span class="muted">(' + k + (k === 1 ? ' Nachkommastelle' : ' Nachkommastellen') + ')</span></span></div>';
+  } else {
+    const e = expand(a, b, 400), long = e.per.length > 24;
+    h += '<div class="s-row"><span class="s-lab">Ergebnis</span><span><span class="pill bad">periodisch</span> Störfaktor ' + bad.join(' und ') + '.</span></div>';
+    h += '<div class="s-row"><span class="s-lab">Wert</span><span>' + T(a + '/' + b) + ' = <strong>' + (long ? e.int + ',' + e.pre + e.per.slice(0, 24) + '…' : T(rep(a, b))) + '</strong> <span class="muted">(Periode mit ' + e.per.length + (e.per.length === 1 ? ' Ziffer' : ' Ziffern') + ')</span></span></div>';
+  }
+  return h;
+}
+function vizScanner(el, spec) {
+  const id = ++UID;
+  let a = spec.a, b = spec.b;
+  el.innerHTML = '<div class="scanner">' +
+    (spec.free ? '<form class="m-set" id="sset' + id + '"><label for="sza' + id + '">Zähler</label><input id="sza' + id + '" type="number" inputmode="numeric" min="1" max="999" value="' + a + '"><span class="m-colon">/</span><label for="sne' + id + '">Nenner</label><input id="sne' + id + '" type="number" inputmode="numeric" min="2" max="1000" value="' + b + '"><button class="btn small" type="submit">Scannen</button></form>' : '') +
+    '<div class="s-out"></div></div>';
+  const out = $('.s-out', el);
+  function pre() {
+    out.innerHTML = '<div class="s-big">' + T(a + '/' + b) + '</div>' +
+      '<div class="s-row"><span class="s-lab">Zähler</span><span>' + a + ' = ' + chips(a).replace(/chip (ok|bad)/g, 'chip plain') + '</span></div>' +
+      '<div class="s-row"><span class="s-lab">Nenner</span><span>' + b + ' = ' + chips(b) + '</span></div>' +
+      '<p class="muted s-wait">Beantworte die Frage. Dann zeigt der Scanner sein Ergebnis.</p>';
+  }
+  function full() { out.innerHTML = '<div class="s-big">' + T(a + '/' + b) + '</div>' + scanReport(a, b); }
+  if (spec.hide) pre(); else if (spec.free) { out.innerHTML = '<div class="s-big">' + T(a + '/' + b) + '</div><p class="muted s-wait">Sag das Ergebnis voraus. Drück dann auf Scannen.</p>'; } else full();
+  if (spec.free) $('#sset' + id, el).addEventListener('submit', ev => {
+    ev.preventDefault();
+    const na = parseInt($('#sza' + id, el).value, 10), nb = parseInt($('#sne' + id, el).value, 10);
+    if (!(na >= 1 && na <= 999 && nb >= 2 && nb <= 1000)) { out.innerHTML = '<p class="s-wait">Bitte einen Zähler von 1 bis 999 und einen Nenner von 2 bis 1000 eingeben.</p>'; return; }
+    a = na; b = nb; full();
+  });
+  return { reveal: full };
+}
+
+/* ---------- kleine statische Bilder ---------- */
+function vizExpandTo(el, spec) {
+  const m = 1000 / spec.b;
+  const draw = open => {
+    el.innerHTML = '<div class="eq-card"><div class="eq-line">' + T(spec.a + '/' + spec.b) + '<span class="eq-arrow"><span class="eq-op">· ' + (open ? m : '?') + '</span>⟶</span>' +
+      '<span class="fr"><span>' + (open ? spec.a * m : '?') + '</span><span>1000</span></span>' + (open ? ' = <strong>' + T(rep(spec.a, spec.b)) + '</strong>' : '') + '</div>' +
+      '<p class="muted">Zähler und Nenner werden mit derselben Zahl multipliziert.</p></div>';
+  };
+  draw(false);
+  return { reveal: () => draw(true) };
+}
+function vizPowers(el) {
+  el.innerHTML = '<div class="eq-card pw">' + [10, 100, 1000, 10000].map(n => '<div class="s-row"><span class="s-lab">' + tsd(n) + '</span><span>= ' + chips(n) + '</span></div>').join('') + '</div>';
+  return {};
+}
+function vizCalc(el, spec) {
+  el.innerHTML = '<div class="calc"><div class="lcd"><span class="lcd-expr">' + esc(spec.expr) + '</span><span class="lcd-out">' + esc(spec.out) + '</span></div><div class="calc-keys" aria-hidden="true">' +
+    ['7', '8', '9', '÷', '4', '5', '6', '×', '1', '2', '3', '−', '0', ',', '=', '+'].map(k => '<span>' + k + '</span>').join('') + '</div></div>';
+  return {};
+}
+function vizNines(el) {
+  const draw = open => {
+    el.innerHTML = '<div class="eq-card stack"><div class="st-row"><span>' + T('1/3') + '</span><span>=</span><span>0,3333…</span></div>' +
+      '<div class="st-op">beide Seiten · 3</div>' +
+      '<div class="st-row"><span>' + (open ? '<strong>1</strong>' : T('3/3')) + '</span><span>=</span><span>0,9999…</span></div>' +
+      (open ? '<p class="muted">' + T('0,{9}') + ' und 1 sind dieselbe Zahl.</p>' : '') + '</div>';
+  };
+  draw(false);
+  return { reveal: () => draw(true) };
+}
+function vizSpeak(el) {
+  const rows = [['3,407', 'drei Komma vier null sieben'], ['0,{3}', 'null Komma Periode drei'], ['0,2{63}', 'null Komma zwei Periode sechs drei'], ['5,{17}', 'fünf Komma Periode eins sieben']];
+  el.innerHTML = '<div class="eq-card speak">' + rows.map(r => '<div class="sp-row"><span class="sp-num">' + T(r[0]) + '</span><span class="sp-say">»' + r[1] + '«</span></div>').join('') + '</div>';
+  return {};
+}
+function vizNinths(el) {
+  const L = [[1, 9], [2, 9], [3, 9], [4, 9], null, [8, 9]], R = [[1, 99], [2, 99], [10, 99], [23, 99], null, [98, 99]];
+  const col = arr => arr.map(x => x ? '<div class="st-row"><span>' + T(x[0] + '/' + x[1]) + '</span><span>=</span><span>' + T(rep(x[0], x[1])) + '</span></div>' : '<div class="st-row dots"><span>⋮</span><span></span><span>⋮</span></div>').join('');
+  el.innerHTML = '<div class="eq-card two"><div><h4>Neuntel</h4>' + col(L) + '<div class="st-row"><span>' + T('9/9') + '</span><span>=</span><span>' + T('0,{9}') + ' = 1</span></div></div><div><h4>Neunundneunzigstel</h4>' + col(R) + '</div></div>';
+  return {};
+}
+function vizTenX(el, spec) {
+  const per = spec.per, k = per.length, f = Math.pow(10, k), tail = per.repeat(Math.ceil(6 / k)).slice(0, 6) + '…';
+  const g = gcd(parseInt(per, 10), f - 1), red = g > 1 ? ' = ' + T((parseInt(per, 10) / g) + '/' + ((f - 1) / g)) : '';
+  const draw = open => {
+    el.innerHTML = '<div class="eq-card stack mono"><div class="st-row"><span>' + f + ' · x</span><span>=</span><span>' + parseInt(per, 10) + ',' + tail + '</span></div>' +
+      '<div class="st-row"><span>1 · x</span><span>=</span><span>0,' + tail + '</span></div><div class="st-rule"></div>' +
+      '<div class="st-row"><span>' + (f - 1) + ' · x</span><span>=</span><span>' + (open ? '<strong>' + parseInt(per, 10) + '</strong>' : '?') + '</span></div>' +
+      (open ? '<div class="st-row"><span>x</span><span>=</span><span>' + T(parseInt(per, 10) + '/' + (f - 1)) + red + '</span></div>' : '') + '</div>';
+  };
+  draw(false);
+  return { reveal: () => draw(true) };
+}
+function vizCyclic(el) {
+  const D = '142857';
+  el.innerHTML = '<div class="eq-card cyc"><div class="cyc-ring" aria-hidden="true">' + D.split('').map((d, i) => '<span style="--i:' + i + '">' + d + '</span>').join('') + '</div>' +
+    '<div class="cyc-side"><p class="cyc-out">142857 · 1 = <strong>142857</strong></p><div class="cyc-btns">' + [3, 4, 5, 6, 7].map(m => '<button class="btn small ghost" type="button" data-m="' + m + '">· ' + m + '</button>').join('') + '</div></div></div>';
+  el.addEventListener('click', ev => {
+    const bt = ev.target.closest('[data-m]'); if (!bt) return;
+    const m = +bt.dataset.m, p = String(142857 * m), start = D.indexOf(p[0]);
+    $('.cyc-out', el).innerHTML = '142857 · ' + m + ' = <strong>' + p + '</strong>';
+    $$('.cyc-ring span', el).forEach((s, i) => s.classList.toggle('on', m !== 7 && i === start));
+  });
+  return {};
+}
+
+/* ---------- Zoom auf 1/3 ---------- */
+function vizZoom(el) {
+  let L = 0;
+  const three = n => '3'.repeat(n);
+  function lab(i) { /* Strich i (0..10) auf Stufe L */
+    if (L === 0) return i === 0 ? '0' : i === 10 ? '1' : '0,' + i;
+    if (i === 0) return '0,' + three(L);
+    if (i === 10) return '0,' + three(L - 1) + '4';
+    return '0,' + three(L) + i;
+  }
+  function draw(anim) {
+    const W = Math.max(290, Math.min(520, $('.z-stage', el).clientWidth || 520)), x0 = 30, x1 = W - 30, y = 70, step = (x1 - x0) / 10, mx = x0 + (x1 - x0) / 3;
+    const small = L >= 4 || (W < 400 && L >= 2);
+    let s = '<svg viewBox="0 0 ' + W + ' 150" class="zoomsvg' + (anim ? ' zin' : '') + '" style="transform-origin:' + (mx / W * 100) + '% 50%" role="img" aria-label="Zahlenstrahl von ' + lab(0) + ' bis ' + lab(10) + '">';
+    s += '<rect x="' + (x0 + 3 * step) + '" y="' + (y - 14) + '" width="' + step + '" height="28" class="z-hot"/>';
+    s += '<line x1="' + x0 + '" y1="' + y + '" x2="' + x1 + '" y2="' + y + '" class="z-axis"/>';
+    for (let i = 0; i <= 10; i++) {
+      const x = x0 + i * step, big = i === 0 || i === 10;
+      s += '<line x1="' + x + '" y1="' + (y - (big ? 14 : 8)) + '" x2="' + x + '" y2="' + (y + (big ? 14 : 8)) + '" class="z-tick"/>';
+      if (big) s += '<text x="' + x + '" y="' + (y + 34) + '" text-anchor="' + (i === 0 ? 'start' : 'end') + '" class="z-lab" dx="' + (i === 0 ? -8 : 8) + '">' + lab(i) + '</text>';
+    }
+    s += '<text x="' + (x0 + 3 * step - 2) + '" y="' + (y - 22) + '" text-anchor="end" class="z-lab hot' + (small ? ' sm' : '') + '">' + lab(3) + '</text>';
+    s += '<text x="' + (x0 + 4 * step + 2) + '" y="' + (y - 22) + '" text-anchor="start" class="z-lab hot' + (small ? ' sm' : '') + '">' + lab(4) + '</text>';
+    s += '<line x1="' + mx + '" y1="' + (y - 16) + '" x2="' + mx + '" y2="' + (y + 40) + '" class="z-mark"/>';
+    s += '<circle cx="' + mx + '" cy="' + y + '" r="5" class="z-dot"/>';
+    s += '<g class="z-frac" transform="translate(' + mx + ',' + (y + 58) + ')"><text text-anchor="middle" y="0">1</text><line x1="-8" y1="5" x2="8" y2="5"/><text text-anchor="middle" y="22">3</text></g>';
+    s += '</svg>';
+    $('.z-stage', el).innerHTML = s;
+    $('.z-info', el).innerHTML = '<strong>Zoom-Stufe ' + L + '.</strong> ' + T('1/3') + ' liegt zwischen ' + lab(3) + ' und ' + lab(4) + '. ' + (L === 0 ? 'Der gelbe Abschnitt ist das, was du beim nächsten Zoom siehst.' : L < 3 ? 'Das Bild sieht genauso aus wie vorher.' : 'Immer dasselbe Bild. ' + T('1/3') + ' landet nie genau auf einem Strich, egal wie tief du zoomst.');
+    $('[data-a=zin]', el).disabled = L >= 7;
+    $('[data-a=zout]', el).disabled = L === 0;
+  }
+  el.innerHTML = '<div class="zoom"><div class="z-stage"></div><p class="z-info" aria-live="polite"></p><div class="m-btns"><button class="btn" type="button" data-a="zin">10-mal hineinzoomen</button><button class="btn ghost" type="button" data-a="zout">Zurück zum Anfang</button></div></div>';
+  el.addEventListener('click', ev => {
+    const bt = ev.target.closest('[data-a]'); if (!bt) return;
+    if (bt.dataset.a === 'zin' && L < 7) { L++; draw(true); }
+    if (bt.dataset.a === 'zout') { L = 0; draw(false); }
+  });
+  draw(false);
+  return {};
+}
+
+/* ---------- Ziffern ausrollen ---------- */
+function digitsOf(str, n) {
+  const m = /^(\d+),(\d*)(?:\{(\d+)\})?$/.exec(str), pre = m[2] || '', per = m[3] || '', out = [];
+  for (let i = 0; i < n; i++) out.push(i < pre.length ? pre[i] : per ? per[(i - pre.length) % per.length] : '0');
+  return { int: m[1], d: out };
+}
+function vizTapes(el, spec) {
+  const rows = [spec.x].concat(spec.y ? [spec.y] : []), MAX = 10;
+  let n = 2;
+  function draw() {
+    const data = rows.map(r => digitsOf(r, MAX));
+    let diff = -1;
+    if (rows.length === 2) for (let i = 0; i < MAX; i++) if (data[0].d[i] !== data[1].d[i]) { diff = i; break; }
+    $('.tp-rows', el).innerHTML = rows.map((r, ri) => '<div class="tp-row"><span class="tp-lab">' + T(r) + ' =</span><span class="tp-digs"><span class="tp-d int">' + data[ri].int + ',</span>' +
+      data[ri].d.slice(0, n).map((d, i) => '<span class="tp-d' + (i === diff ? ' mark' : '') + (i === n - 1 ? ' new' : '') + '">' + d + '</span>').join('') + '<span class="tp-d muted">…</span></span></div>').join('');
+    $('[data-a=roll]', el).disabled = n >= MAX;
+    $('.tp-note', el).textContent = diff >= 0 && n > diff ? 'Erste verschiedene Stelle: die ' + (diff + 1) + '. Nachkommastelle.' : rows.length === 2 ? 'Rolle weiter aus, bis sich die beiden Zahlen unterscheiden.' : 'Rolle die Periode so weit aus, wie du sie brauchst.';
+  }
+  el.innerHTML = '<div class="tapes"><div class="tp-rows"></div><p class="tp-note muted" aria-live="polite"></p><div class="m-btns"><button class="btn" type="button" data-a="roll">Eine Ziffer ausrollen</button></div></div>';
+  el.addEventListener('click', ev => { if (ev.target.closest('[data-a=roll]') && n < MAX) { n++; draw(); } });
+  draw();
+  return {};
+}
+
+/* ---------- Zahlenstrahl für Testaufgaben ---------- */
+function figLine(spec) {
+  const W = 400, x0 = 30, x1 = 366, y = 44, step = (x1 - x0) / spec.n;
+  let s = '<svg viewBox="0 0 ' + W + ' 96" class="figline" role="img" aria-label="Zahlenstrahl von ' + spec.lo + ' bis ' + spec.hi + ' mit einer Markierung">';
+  s += '<line x1="' + (x0 - 14) + '" y1="' + y + '" x2="' + (x1 + 18) + '" y2="' + y + '" class="z-axis"/><path d="M' + (x1 + 18) + ' ' + y + 'l-9 -5v10z" class="z-head"/>';
+  for (let i = 0; i <= spec.n; i++) {
+    const x = x0 + i * step, big = i === 0 || i === spec.n;
+    s += '<line x1="' + x + '" y1="' + (y - (big ? 12 : 7)) + '" x2="' + x + '" y2="' + (y + (big ? 12 : 7)) + '" class="z-tick"/>';
+    if (big) s += '<text x="' + x + '" y="' + (y + 34) + '" text-anchor="middle" class="z-lab">' + (i === 0 ? spec.lo : spec.hi) + '</text>';
+  }
+  const mx = x0 + spec.mark * step;
+  s += '<path d="M' + mx + ' ' + (y - 12) + 'l-6 -12h12z" class="z-arrow"/><line x1="' + mx + '" y1="' + (y - 38) + '" x2="' + mx + '" y2="' + (y - 22) + '" class="z-mark"/>';
+  return s + '</svg>';
+}
+
+function mountViz(el, spec) {
+  el.innerHTML = '';
+  if (!spec) return {};
+  const map = { machine: vizMachine, scanner: vizScanner, expandto: vizExpandTo, powers: vizPowers, calc: vizCalc, nines: vizNines, speak: vizSpeak, ninths: vizNinths, tenx: vizTenX, cyclic: vizCyclic, zoom: vizZoom, tapes: vizTapes };
+  return (map[spec.v] ? map[spec.v](el, spec) : {}) || {};
+}
+
+/* ===== items.js: Aufgabentypen (mc, multi, num, per, bar, order, cloze) ===== */
+/* opts: { mode: 'learn' | 'test', onDone(firstTryCorrect) } */
+function correctText(item) {
+  if (item.t === 'mc') return T(item.opts[item.c]);
+  if (item.t === 'multi') return item.c.map(i => T(item.opts[i])).join(', ');
+  if (item.t === 'num') return T(item.a) + (item.unit ? ' ' + item.unit : '');
+  if (item.t === 'per') return T(rep(item.fr[0], item.fr[1]));
+  if (item.t === 'bar') return T(item.int + ',' + item.digits.split('').map((d, i) => item.c.indexOf(i) >= 0 ? '{' + d + '}' : d).join('').replace(/\}\{/g, ''));
+  if (item.t === 'order') return sortedOpts(item).map(T).join(' &lt; ');
+  if (item.t === 'cloze') return item.parts.map(p => typeof p === 'string' ? T(p) : '<strong>' + T(p.opts[p.c]) + '</strong>').join('');
+  return '';
+}
+function sortedOpts(item) { return item.opts.slice().sort((x, y) => frCmp(val(x), val(y))); }
+
+function mountItem(el, item, opts) {
+  const id = ++UID, learn = opts.mode === 'learn';
+  let tries = 0, finished = false;
+  const fig = item.fig ? '<div class="it-fig">' + (item.fig.v === 'line' ? figLine(item.fig) : '') + '</div>' : '';
+  el.innerHTML = '<div class="item" data-type="' + item.t + '">' + fig + '<p class="it-q">' + T(item.q) + '</p><div class="it-body"></div><div class="it-fb" aria-live="polite"></div></div>';
+  const body = $('.it-body', el), fb = $('.it-fb', el);
+
+  function finish(ok, showAnswer) {
+    finished = true;
+    const first = ok && tries === 0;
+    fb.className = 'it-fb show ' + (ok ? 'ok' : 'no');
+    fb.innerHTML = '<p class="fb-head">' + (ok ? '<span class="ic" aria-hidden="true">✓</span> Richtig.' : '<span class="ic" aria-hidden="true">✗</span> ' + (showAnswer ? 'Richtig wäre: ' + correctText(item) : 'Noch nicht.')) + '</p>' + (item.ex ? '<p>' + T(item.ex) + '</p>' : '');
+    $$('button, input, select', body).forEach(x => { x.disabled = true; });
+    opts.onDone && opts.onDone(first, ok);
+  }
+  function wrong(extra) {
+    tries++;
+    if (!learn) { finish(false, true); return true; }
+    if (tries >= 3) { finish(false, true); return true; }
+    fb.className = 'it-fb show hint';
+    fb.innerHTML = '<p class="fb-head"><span class="ic" aria-hidden="true">✗</span> Noch nicht.</p><p>' + T(extra || item.hint || 'Probier es noch einmal.') + '</p>';
+    return false;
+  }
+
+  /* ---- Multiple Choice ---- */
+  if (item.t === 'mc') {
+    const short = item.opts.every(o => o.length <= 2);
+    const order = (item.fixed || short) ? item.opts.map((_, i) => i) : shuffle(item.opts.map((_, i) => i));
+    body.innerHTML = '<div class="opts cols' + (item.cols || 2) + '">' + order.map(i => '<button type="button" class="opt" data-i="' + i + '">' + T(item.opts[i]) + '</button>').join('') + '</div>';
+    body.addEventListener('click', ev => {
+      const bt = ev.target.closest('.opt'); if (!bt || finished || bt.disabled) return;
+      const i = +bt.dataset.i;
+      if (i === item.c) { bt.classList.add('right'); finish(true); }
+      else {
+        bt.classList.add('wrongo'); bt.disabled = true;
+        if (wrong()) { const r = $('.opt[data-i="' + item.c + '"]', body); if (r) r.classList.add('right'); }
+      }
+    });
+  }
+  /* ---- Mehrfachauswahl ---- */
+  else if (item.t === 'multi') {
+    body.innerHTML = '<div class="opts multi">' + item.opts.map((o, i) => '<button type="button" class="opt tog" data-i="' + i + '" aria-pressed="false">' + T(o) + '</button>').join('') + '</div><button type="button" class="btn check">Prüfen</button>';
+    body.addEventListener('click', ev => {
+      if (finished) return;
+      const bt = ev.target.closest('.tog');
+      if (bt) { const on = bt.getAttribute('aria-pressed') !== 'true'; bt.setAttribute('aria-pressed', on); bt.classList.remove('wrongo'); return; }
+      if (!ev.target.closest('.check')) return;
+      const sel = $$('.tog[aria-pressed=true]', body).map(b => +b.dataset.i);
+      const ok = sel.length === item.c.length && sel.every(i => item.c.indexOf(i) >= 0);
+      if (ok) { $$('.tog[aria-pressed=true]', body).forEach(b => b.classList.add('right')); finish(true); }
+      else {
+        const miss = item.c.filter(i => sel.indexOf(i) < 0).length, extra = sel.filter(i => item.c.indexOf(i) < 0).length;
+        const msg = (extra ? extra + (extra === 1 ? ' Karte gehört nicht dazu. ' : ' Karten gehören nicht dazu. ') : '') + (miss ? miss + (miss === 1 ? ' Karte fehlt noch. ' : ' Karten fehlen noch. ') : '') + (item.hint || '');
+        if (wrong(msg)) $$('.tog', body).forEach(b => { const i = +b.dataset.i; b.classList.toggle('right', item.c.indexOf(i) >= 0); b.classList.toggle('wrongo', item.c.indexOf(i) < 0 && b.getAttribute('aria-pressed') === 'true'); });
+      }
+    });
+  }
+  /* ---- Zahl eintippen ---- */
+  else if (item.t === 'num') {
+    body.innerHTML = '<form class="numform"><label class="sr" for="num' + id + '">Deine Antwort</label><input id="num' + id + '" class="numin" type="text" inputmode="decimal" autocomplete="off" placeholder="Antwort">' + (item.unit ? '<span class="unit">' + item.unit + '</span>' : '') + '<button class="btn check" type="submit">Prüfen</button></form>';
+    $('form', body).addEventListener('submit', ev => {
+      ev.preventDefault(); if (finished) return;
+      const inp = $('.numin', body), f = parseInput(inp.value);
+      if (!f) { fb.className = 'it-fb show hint'; fb.innerHTML = '<p>Bitte eine Zahl eingeben, zum Beispiel 0,75.</p>'; return; }
+      let ok;
+      if (item.between) ok = frCmp(f, val(item.between[0])) > 0 && frCmp(f, val(item.between[1])) < 0;
+      else ok = frEq(f, val(item.a));
+      if (ok) { inp.classList.add('right'); finish(true); } else { inp.classList.add('wrongo'); if (!wrong()) { inp.select(); setTimeout(() => inp.classList.remove('wrongo'), 600); } }
+    });
+  }
+  /* ---- Dezimalzahl mit Periode eintippen ---- */
+  else if (item.t === 'per') {
+    body.innerHTML = '<form class="perform"><div class="per-fields"><div><label for="pa' + id + '">Ziffern vor der Periode</label><input id="pa' + id + '" class="numin" type="text" inputmode="decimal" autocomplete="off" placeholder="z. B. 0,4"></div>' +
+      '<div><label for="pb' + id + '">Periode (leer lassen, wenn es keine gibt)</label><input id="pb' + id + '" class="numin perin" type="text" inputmode="numeric" autocomplete="off" placeholder="z. B. 6"></div></div>' +
+      '<p class="per-prev">Deine Zahl: <span class="pv">?</span></p><button class="btn check" type="submit">Prüfen</button></form>';
+    const ia = $('#pa' + id, body), ib = $('#pb' + id, body), pv = $('.pv', body);
+    const read = () => {
+      let a = ia.value.trim().replace(/\s+/g, '').replace(/\./g, ','), b = ib.value.trim().replace(/\D/g, '');
+      if (!/^\d+(,\d*)?$/.test(a)) return null;
+      if (b && a.indexOf(',') < 0) a += ',';
+      if (!b && /,$/.test(a)) a = a.slice(0, -1);
+      return a + (b ? '{' + b + '}' : '');
+    };
+    const upd = () => { const s = read(); pv.innerHTML = s ? T(s) : '?'; };
+    ia.addEventListener('input', upd); ib.addEventListener('input', upd);
+    $('form', body).addEventListener('submit', ev => {
+      ev.preventDefault(); if (finished) return;
+      const s = read();
+      if (!s) { fb.className = 'it-fb show hint'; fb.innerHTML = '<p>Trag links die Zahl bis zur Periode ein (zum Beispiel 0,4) und rechts die Ziffern, die sich wiederholen.</p>'; return; }
+      const ok = frEq(decToFr(s), FR(item.fr[0], item.fr[1]));
+      if (ok) { finish(true); if (s !== rep(item.fr[0], item.fr[1])) fb.innerHTML += '<p>Dein Wert stimmt. Üblich ist die kürzeste Schreibweise: ' + T(rep(item.fr[0], item.fr[1])) + '.</p>'; }
+      else wrong();
+    });
+  }
+  /* ---- Periodenstrich setzen ---- */
+  else if (item.t === 'bar') {
+    body.innerHTML = '<div class="barset"><span class="bs-int">' + item.int + ',</span>' + item.digits.split('').map((d, i) => '<button type="button" class="bs-d" data-i="' + i + '" aria-pressed="false" aria-label="Ziffer ' + d + '">' + d + '</button>').join('') + (item.tail ? '<span class="bs-tail">' + item.tail + '</span>' : '') + '</div><button type="button" class="btn check">Prüfen</button>';
+    body.addEventListener('click', ev => {
+      if (finished) return;
+      const d = ev.target.closest('.bs-d');
+      if (d) { d.setAttribute('aria-pressed', d.getAttribute('aria-pressed') !== 'true'); return; }
+      if (!ev.target.closest('.check')) return;
+      const sel = $$('.bs-d[aria-pressed=true]', body).map(b => +b.dataset.i);
+      const ok = sel.length === item.c.length && sel.every(i => item.c.indexOf(i) >= 0);
+      if (ok) finish(true);
+      else if (wrong()) $$('.bs-d', body).forEach(b => b.setAttribute('aria-pressed', item.c.indexOf(+b.dataset.i) >= 0));
+    });
+  }
+  /* ---- Ordnen ---- */
+  else if (item.t === 'order') {
+    const want = sortedOpts(item);
+    let picked = [];
+    const draw = () => {
+      body.innerHTML = '<div class="ord-out">' + (picked.length ? picked.map((o, i) => (i ? '<span class="lt">&lt;</span>' : '') + '<span class="ord-chip">' + T(o) + '</span>').join('') : '<span class="muted">Tippe zuerst die kleinste Zahl an.</span>') + '</div>' +
+        '<div class="opts ord">' + item.opts.map((o, i) => '<button type="button" class="opt" data-i="' + i + '"' + (picked.indexOf(o) >= 0 ? ' disabled' : '') + '>' + T(o) + '</button>').join('') + '</div>' +
+        '<div class="row"><button type="button" class="btn ghost small reset">Zurücksetzen</button><button type="button" class="btn check"' + (picked.length < item.opts.length ? ' disabled' : '') + '>Prüfen</button></div>';
+    };
+    draw();
+    body.addEventListener('click', ev => {
+      if (finished) return;
+      const bt = ev.target.closest('.opt');
+      if (bt && !bt.disabled) { picked.push(item.opts[+bt.dataset.i]); draw(); return; }
+      if (ev.target.closest('.reset')) { picked = []; draw(); return; }
+      if (ev.target.closest('.check') && picked.length === item.opts.length) {
+        const ok = picked.every((o, i) => o === want[i]);
+        if (ok) finish(true);
+        else if (!wrong()) { picked = []; draw(); }
+      }
+    });
+  }
+  /* ---- Lückentext ---- */
+  else if (item.t === 'cloze') {
+    let n = 0;
+    body.innerHTML = '<p class="cloze">' + item.parts.map(p => {
+      if (typeof p === 'string') return T(p);
+      const k = n++, order = shuffle(p.opts.map((_, i) => i));
+      return '<select id="cz' + id + '_' + k + '" data-k="' + k + '" aria-label="Lücke ' + (k + 1) + '"><option value="">…</option>' + order.map(i => '<option value="' + i + '">' + esc(p.opts[i]) + '</option>').join('') + '</select>';
+    }).join('') + '</p><button type="button" class="btn check">Prüfen</button>';
+    const gaps = item.parts.filter(p => typeof p !== 'string');
+    body.addEventListener('click', ev => {
+      if (finished || !ev.target.closest('.check')) return;
+      const sels = $$('select', body);
+      if (sels.some(s => s.value === '')) { fb.className = 'it-fb show hint'; fb.innerHTML = '<p>Fülle zuerst alle Lücken.</p>'; return; }
+      let bad = 0;
+      sels.forEach((s, k) => { const good = +s.value === gaps[k].c; s.classList.toggle('wrongo', !good); s.classList.toggle('right', good); if (!good) bad++; });
+      if (!bad) finish(true);
+      else if (wrong(bad === 1 ? 'Eine Lücke stimmt noch nicht.' : bad + ' Lücken stimmen noch nicht.')) sels.forEach((s, k) => { s.value = String(gaps[k].c); s.classList.remove('wrongo'); s.classList.add('right'); });
+    });
+  }
+}
+
+/* ===== arena.js: Aufgaben-Generatoren und Spiele ===== */
+
+/* ---------- Generatoren (ohne DOM) ---------- */
+function mkQ(q, correct, dis, ex, o) {
+  o = o || {};
+  const key = s => { const v = o.text ? null : val(s); return v ? v.n + '/' + v.d : 's:' + s; };
+  const seen = new Set([key(correct)]), keep = [];
+  const pool = shuffle(dis);
+  for (let i = 0; i < pool.length; i++) { const k = key(pool[i]); if (seen.has(k)) continue; seen.add(k); keep.push(pool[i]); if (keep.length === (o.n || 3)) break; }
+  if (keep.length < (o.min || 2)) return null;
+  const all = shuffle([correct].concat(keep)), u = o.unit ? ' ' + o.unit : '', f = o.fmt || (x => x);
+  return { q, opts: all.map(x => f(x) + u), c: all.indexOf(correct), ex, cols: o.cols || 2 };
+}
+function grp(s) { const p = String(s).split(','); if (p[0].length >= 5) p[0] = tsd(p[0]); return p.join(','); }
+function preview(str) { /* Dezimal-Vorschau für Erklärungen */
+  const f = val(str), e = expand(Number(f.n), Number(f.d), 40);
+  if (!e.per) return e.pre ? e.int + ',' + e.pre : String(e.int);
+  const d = (e.pre + e.per.repeat(8)).slice(0, 6);
+  return e.int + ',' + d + '…';
+}
+
+const FAMOUS = [[1, 2], [1, 4], [3, 4], [1, 5], [2, 5], [3, 5], [4, 5], [1, 8], [3, 8], [5, 8], [7, 8], [1, 10], [3, 10], [7, 10], [1, 20], [3, 20], [7, 20], [9, 20], [1, 25], [2, 25], [1, 50], [3, 50], [1, 100],
+  [1, 3], [2, 3], [1, 6], [5, 6], [1, 9], [2, 9], [4, 9], [5, 9], [7, 9], [8, 9], [1, 11], [2, 11], [5, 11], [1, 12], [5, 12], [1, 15], [2, 15]];
+function genBlitz() {
+  const ab = pick(FAMOUS), a = ab[0], b = ab[1], dec = rep(a, b), term = terminates(a, b), mode = rnd(3);
+  const others = shuffle(FAMOUS.filter(x => x !== ab)).slice(0, 4);
+  if (mode === 0) {
+    let dis = [rep(a * 10, b), rep(a, b * 10), '0,' + b, '0,' + a + b, a + ',' + b];
+    if (!term) { const e = expand(a, b); dis = dis.concat([e.int + ',' + e.pre + e.per, roundFr(FR(a, b), 2)]); if (e.pre) dis.push(e.int + ',{' + e.pre + e.per + '}'); }
+    dis = dis.concat(others.slice(0, 2).map(x => rep(x[0], x[1])));
+    return mkQ(a + '/' + b + ' = ?', dec, dis, a + '/' + b + ' = ' + dec + (term ? '' : ' (bei ' + a + ' : ' + b + ' wiederholt sich ein Rest)'));
+  }
+  if (mode === 1) {
+    const e = expand(a, b), digs = e.pre + e.per;
+    let dis = others.map(x => x[0] + '/' + x[1]);
+    dis.push(parseInt(digs, 10) + '/' + Math.pow(10, digs.length));
+    if (b > 2) dis.push(a + '/' + (b + 1)); dis.push((a + 1) + '/' + (b + 2));
+    return mkQ(dec + ' = ?', a + '/' + b, dis, dec + ' = ' + a + '/' + b);
+  }
+  const pc = rep(a * 100, b) + ' %';
+  const dis = [rep(a * 10, b) + ' %', rep(a * 1000, b) + ' %', rep(a, b) + ' %', b + ' %', a + '' + b + ' %'].concat(others.slice(0, 2).map(x => rep(x[0] * 100, x[1]) + ' %'));
+  return mkQ(a + '/' + b + ' = ? %', pc, dis, a + '/' + b + ' = ' + dec + ' = ' + pc);
+}
+
+const SCAN_POOL = [4, 8, 16, 20, 25, 40, 50, 80, 125, 6, 12, 15, 14, 18, 24, 28, 30, 35, 45, 60, 75, 3, 7, 9, 11, 13, 22, 36, 48, 55, 65, 70, 32, 21, 27, 33, 44];
+function genScan() {
+  const want = rnd(2) === 0;
+  for (let t = 0; t < 400; t++) {
+    const b = pick(SCAN_POOL), a = 1 + rnd(b - 1), term = terminates(a, b);
+    if (term !== want) continue;
+    const g = gcd(a, b), rb = b / g, pf = primeFactors(rb);
+    if (rb === 1) continue;
+    if (term && g === 1 && rnd(3) === 0) continue; /* mehr Kürz-Fallen */
+    const bad = Array.from(new Set(pf.filter(p => p !== 2 && p !== 5)));
+    const ex = (g > 1 ? 'Gekürzt: ' + a + '/' + b + ' = ' + (a / g) + '/' + rb + '. ' : '') + rb + ' = ' + pf.join(' · ') + (term ? ': nur Zweien und Fünfen, also abbrechend.' : ': Störfaktor ' + bad.join(' und ') + ', also periodisch.') + ' ' + a + '/' + b + ' = ' + rep(a, b);
+    return { q: a + '/' + b, opts: ['abbrechend', 'periodisch'], c: term ? 0 : 1, ex, cols: 2, big: true };
+  }
+  return null;
+}
+
+const PAIRS = [
+  ['0,56', '0,508'], ['0,09', '0,1'], ['0,400', '0,40'], ['3,567', '3,56'], ['0,034', '0,043'], ['10,99', '11,00'], ['0,007', '0,070'], ['1,306', '1,36'], ['10,05', '10,051'], ['2,005', '2,088'],
+  ['0,87', '0,087'], ['4,72', '4,709'], ['0,5', '0,50'], ['0,101', '0,11'], ['7,089', '7,09'], ['0,25', '0,205'], ['6,10', '6,1'], ['0,909', '0,99'], ['5,85', '5,901'], ['9,95', '10,05'],
+  ['0,{3}', '0,33'], ['0,{6}', '0,67'], ['0,1{6}', '0,17'], ['0,{38}', '0,3{8}'], ['0,{25}', '0,{252}'], ['0,{09}', '0,09'], ['0,{4}', '0,45'], ['0,8{3}', '0,83'], ['0,{72}', '0,7{2}'], ['1,{2}', '1,22'],
+  ['0,{5}', '0,{50}'], ['0,{12}', '0,1{2}'], ['0,{6}', '0,{66}'], ['0,{45}', '0,45'], ['2,{03}', '2,03'], ['0,5{6}', '0,{56}'], ['0,{1}', '0,11'], ['0,{142857}', '0,143'], ['0,{7}', '0,7{7}'], ['3,{14}', '3,14{1}'],
+  ['1/3', '0,33'], ['2/3', '0,{6}'], ['3/8', '0,38'], ['1/4', '0,24'], ['5/6', '0,8{3}'], ['7/20', '0,35'], ['1/8', '0,13'], ['2/5', '0,4'], ['1/6', '0,16'], ['4/9', '0,{4}'], ['3/4', '0,7{5}'], ['1/9', '0,{1}'],
+  ['5/8', '0,58'], ['1/7', '0,14'], ['2/11', '0,{18}'], ['11/9', '1,{2}'], ['1/50', '0,05'], ['9/8', '1,125'], ['7/9', '0,78'], ['1_2/5', '1,25'], ['2_5/6', '2,83'], ['19/4', '4,75'], ['1/12', '0,08'],
+  ['20 %', '0,25'], ['7 %', '0,7'], ['0,5 %', '0,005'], ['1/3', '33 %'], ['12,5 %', '1/8'], ['3 %', '0,03'], ['1/3', '33,{3} %'], ['2/3', '66,7 %'], ['120 %', '1,2'], ['2/5', '45 %'], ['0,06', '6 %'], ['1/20', '5 %'], ['33 %', '0,{3}'], ['11 %', '0,{1}']
+];
+const BETWEEN = [
+  ['0,3', '0,31', '0,305', ['0,32', '0,29', '0,35']], ['0,09', '0,1', '0,095', ['0,91', '0,11', '0,089']], ['1,1', '1,2', '1,15', ['1,25', '1,05', '1,21']],
+  ['0,25', '0,3', '0,28', ['0,31', '0,205', '0,035']], ['2,4', '2,41', '2,407', ['2,42', '2,047', '2,399']], ['0,3', '0,{3}', '0,33', ['0,34', '0,29', '0,{34}']],
+  ['0,6', '0,{6}', '0,66', ['0,67', '0,7', '0,59']], ['1/4', '0,26', '0,255', ['0,24', '0,265', '0,3']], ['0,5', '0,51', '0,505', ['0,55', '0,49', '0,515']],
+  ['3,99', '4', '3,995', ['4,01', '3,9', '3,989']], ['0,{1}', '0,12', '0,115', ['0,11', '0,121', '0,2']], ['1/3', '0,34', '0,335', ['0,33', '0,345', '0,3']],
+  ['7,2', '7,21', '7,201', ['7,22', '7,12', '7,199']], ['0,01', '0,012', '0,011', ['0,013', '0,009', '0,11']], ['0,8', '5/6', '0,82', ['0,84', '0,79', '0,{84}']], ['0,4', '0,{4}', '0,44', ['0,45', '0,39', '0,{45}']]
+];
+function genCompare() {
+  if (rnd(4) === 0) {
+    const b = pick(BETWEEN);
+    return mkQ('Welche Zahl liegt zwischen ' + b[0] + ' und ' + b[1] + '?', b[2], b[3], preview(b[0]) + ' < ' + b[2] + ' < ' + preview(b[1]), { cols: 2 });
+  }
+  let p = pick(PAIRS); if (rnd(2)) p = [p[1], p[0]];
+  const cmp = frCmp(val(p[0]), val(p[1])), sign = cmp < 0 ? '<' : cmp > 0 ? '>' : '=';
+  const side = s => { const pv = preview(s); return pv === s ? s : s + ' = ' + pv; };
+  return { q: '<span class="cmpq"><span>' + T(p[0]) + '</span><span class="box">?</span><span>' + T(p[1]) + '</span></span>', raw: true, opts: ['<', '=', '>'], c: cmp < 0 ? 0 : cmp > 0 ? 2 : 1, cols: 3, big: true,
+    ex: side(p[0]) + ' und ' + side(p[1]) + ', also ' + p[0] + ' ' + sign + ' ' + p[1] };
+}
+
+const ROUND_SPECIAL = [['3,49905', 2], ['9,996', 2], ['2,098', 2], ['19,96', 1], ['0,996', 2], ['7,995', 2], ['12,96', 1], ['0,0951', 2], ['4,5', 0], ['99,5', 0]];
+const ROUND_FR = [[1, 3], [2, 3], [1, 6], [5, 6], [1, 7], [2, 7], [5, 7], [4, 9], [7, 9], [8, 9], [2, 11], [5, 11], [7, 11], [1, 12], [5, 12], [7, 12], [11, 12], [4, 3], [5, 3], [7, 6], [13, 6], [16, 9], [25, 11]];
+const PLACE = ['Einer', 'Zehntel', 'Hundertstel', 'Tausendstel'];
+function genRound() { for (let i = 0; i < 50; i++) { const q = genRound1(); if (q) return q; } return null; }
+function genRound1() {
+  let src, k;
+  const r = rnd(100);
+  if (r < 14) { const s = pick(ROUND_SPECIAL); src = s[0]; k = s[1]; }
+  else if (r < 55) { const ab = pick(ROUND_FR); src = rep(ab[0], ab[1]); k = 1 + rnd(3); }
+  else {
+    const dec = 3 + rnd(3); let d = '';
+    for (let i = 0; i < dec; i++) d += (i === dec - 1) ? String(1 + rnd(9)) : String(rnd(10));
+    src = rnd(30) + ',' + d; k = rnd(Math.min(dec, 4));
+  }
+  const f = val(src), correct = roundFr(f, k), tr = truncFr(f, k);
+  const other = correct === tr ? roundFr(frAdd(val(tr), FR(1, pow10(k))), k) : tr;
+  const dis = [other, roundFr(f, k + 1), k > 0 ? roundFr(f, k - 1) : truncFr(f, 1), truncFr(f, k + 1), roundFr(frAdd(val(correct), FR(1, pow10(k))), k)];
+  const next = Number((f.n * pow10(k + 1) / f.d) % 10n);
+  const pv = preview(src);
+  return mkQ('Runde ' + src + ' auf ' + PLACE[k] + '.', correct, dis, (pv !== src ? 'Ausgerollt: ' + pv + ' ' : '') + 'Rechts von der Rundungsstelle steht eine ' + next + ', also ' + (next >= 5 ? 'aufrunden' : 'abrunden') + ': ' + correct);
+}
+
+const UNITS = {
+  L: [['mm', -3], ['cm', -2], ['dm', -1], ['m', 0], ['km', 3]],
+  M: [['mg', -6], ['g', -3], ['kg', 0], ['t', 3]],
+  A: [['mm²', -6], ['cm²', -4], ['dm²', -2], ['m²', 0], ['a', 2], ['ha', 4], ['km²', 6]],
+  V: [['mm³', -9], ['cm³', -6], ['dm³', -3], ['m³', 0], ['ml', -6], ['l', -3]]
+};
+const TIMES = [['0,5', 'h', 'min', 30], ['1,5', 'h', 'min', 90], ['0,25', 'h', 'min', 15], ['0,75', 'h', 'min', 45], ['0,1', 'h', 'min', 6], ['0,2', 'h', 'min', 12], ['2,5', 'h', 'min', 150], ['0,1', 'min', 's', 6], ['1,5', 'min', 's', 90], ['0,5', 'min', 's', 30], ['0,25', 'min', 's', 15]];
+function genKomma() {
+  if (rnd(11) === 0) {
+    const t = pick(TIMES), x = val(t[0]), hund = Number(x.n * 100n / x.d);
+    return mkQ(t[0] + ' ' + t[1] + ' = ? ' + t[2], String(t[3]), [String(hund), String(hund / 10), String(t[3] * 10), String(hund * 10)].filter(s => /^\d+$/.test(s)),
+      '1 ' + t[1] + ' = 60 ' + t[2] + ', also ' + t[0] + ' · 60 = ' + t[3] + '. Bei Zeiten hilft Kommaverschieben nicht.', { unit: t[2] });
+  }
+  for (let tries = 0; tries < 300; tries++) {
+    const list = UNITS[pick(['L', 'L', 'M', 'M', 'A', 'A', 'V', 'V'])], u1 = pick(list), u2 = pick(list), D = u1[1] - u2[1];
+    if (D === 0 || Math.abs(D) > 6) continue;
+    let m = 1 + rnd(pick([9, 99, 999, 9999])); if (m % 10 === 0) continue;
+    const e = -rnd(4), len = String(m).length;
+    if (e + D < -5 || e + D + len > 7 || (e + D + len < -2)) continue;
+    const src = fmtPow(m, e), correct = fmtPow(m, e + D);
+    const cand = [e - D, e + D + 1, e + D - 1, e + D + 2, e + D - 2].concat(D % 2 === 0 ? [e + D / 2] : []).concat(D % 3 === 0 ? [e + D / 3] : []);
+    const dis = cand.filter(x => x >= -8 && x + len <= 9).map(x => fmtPow(m, x));
+    const n = Math.abs(D), st = n === 1 ? 'eine Stelle' : (['', '', 'zwei', 'drei', 'vier', 'fünf', 'sechs'][n]) + ' Stellen';
+    const ex = D > 0 ? '1 ' + u1[0] + ' = ' + grp(Math.pow(10, n)) + ' ' + u2[0] + '. Kleinere Einheit, größere Maßzahl: Komma ' + st + ' nach rechts. ' + src + ' ' + u1[0] + ' = ' + correct + ' ' + u2[0]
+      : '1 ' + u2[0] + ' = ' + grp(Math.pow(10, n)) + ' ' + u1[0] + '. Größere Einheit, kleinere Maßzahl: Komma ' + st + ' nach links. ' + src + ' ' + u1[0] + ' = ' + correct + ' ' + u2[0];
+    const q = mkQ(grp(src) + ' ' + u1[0] + ' = ? ' + u2[0], correct, dis, ex.replace(src + ' ' + u1[0] + ' = ' + correct, grp(src) + ' ' + u1[0] + ' = ' + grp(correct)), { unit: u2[0], fmt: grp });
+    if (q) return q;
+  }
+  return null;
+}
+
+const NUMW = ['null', 'eins', 'zwei', 'drei', 'vier', 'fünf', 'sechs', 'sieben', 'acht', 'neun', 'zehn', 'elf', 'zwölf'];
+const PLACES_ALL = ['Zehner', 'Einer', 'Zehntel', 'Hundertstel', 'Tausendstel', 'Zehntausendstel'];
+function genZehner() {
+  const type = rnd(6);
+  if (type === 0 || type === 1) {
+    const k = 1 + rnd(3), ten = Math.pow(10, k);
+    let n; do { n = 1 + rnd(ten * (rnd(3) === 0 ? 4 : 1)); } while (n % 10 === 0);
+    const dec = fmtPow(n, -k);
+    if (type === 0) return mkQ(n + '/' + ten + ' = ?', dec, [fmtPow(n, -k - 1), fmtPow(n, -k + 1), fmtPow(n, -k - 2), n + ',' + ten], n + '/' + ten + ': ' + (k === 1 ? 'eine Null im Nenner, eine Nachkommastelle' : k + ' Nullen im Nenner, ' + k + ' Nachkommastellen') + '. ' + n + '/' + ten + ' = ' + dec);
+    return mkQ(dec + ' = ?', n + '/' + ten, [n + '/' + (ten * 10), n + '/' + (ten * 100), k > 1 ? n + '/' + (ten / 10) : (n * 100) + '/' + ten, (n * 10) + '/' + ten], dec + ' hat ' + (k === 1 ? 'eine Nachkommastelle' : k + ' Nachkommastellen') + ', also Nenner ' + ten + ': ' + dec + ' = ' + n + '/' + ten);
+  }
+  if (type === 2) {
+    const k = 1 + rnd(4); let n; do { n = 1 + rnd(999); } while (n % 10 === 0 || n > 2 * Math.pow(10, k));
+    const dec = fmtPow(n, -k), pc = fmtPow(n, -k + 2);
+    if (rnd(2)) return mkQ(dec + ' = ? %', pc + ' %', [fmtPow(n, -k + 1) + ' %', fmtPow(n, -k + 3) + ' %', dec + ' %', fmtPow(n, -k + 4) + ' %'], 'In Prozent: Komma zwei Stellen nach rechts. ' + dec + ' = ' + pc + ' %');
+    return mkQ(pc + ' % = ?', dec, [fmtPow(n, -k + 1), fmtPow(n, -k - 1), pc, fmtPow(n, -k + 3)], 'Prozent heißt Hundertstel: Komma zwei Stellen nach links. ' + pc + ' % = ' + dec);
+  }
+  if (type === 3) {
+    const ds = shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9]), nd = 3 + rnd(2), two = rnd(2) === 0;
+    const intp = two ? '' + ds[0] + ds[1] : '' + ds[1], decs = ds.slice(2, 2 + nd).join('');
+    const num = intp + ',' + decs, names = (two ? ['Zehner', 'Einer'] : ['Einer']).concat(PLACES_ALL.slice(2, 2 + nd));
+    const all = intp + decs, i = rnd(all.length);
+    return mkQ('Für welchen Stellenwert steht die Ziffer ' + all[i] + ' in ' + num + '?', names[i], PLACES_ALL.filter(x => x !== names[i]), 'Nach dem Komma kommen Zehntel, Hundertstel, Tausendstel, Zehntausendstel. In ' + num + ' steht die ' + all[i] + ' für ' + names[i] + '.', { text: true });
+  }
+  if (type === 4) {
+    const intp = rnd(13), nd = 2 + rnd(2); let d = [];
+    for (let i = 0; i < nd; i++) d.push(i === nd - 1 ? 1 + rnd(9) : rnd(10));
+    if (rnd(2)) d[rnd(nd - 1)] = 0;
+    const num = intp + ',' + d.join(''), words = NUMW[intp] + ' Komma ' + d.map(x => NUMW[x]).join(' ');
+    const noZero = d.filter(x => x !== 0).join(''), rev = d.slice().reverse().join('');
+    const dis = [intp + ',' + noZero, intp + ',' + rev, intp + d[0] + ',' + d.slice(1).join(''), intp + ',0' + d.join(''), intp + ',' + d.join('') + '0' + (1 + rnd(9))];
+    return mkQ('Welche Zahl ist »' + words + '«?', num, dis.filter(s => /^\d+,\d+$/.test(s)), 'Hinter dem Komma wird jede Ziffer einzeln gelesen, auch die Null: ' + num);
+  }
+  const e = rnd(10), parts = shuffle([0, 1, 2]).slice(0, 2).sort(), names = ['Zehntel', 'Hundertstel', 'Tausendstel'], dg = [0, 0, 0];
+  parts.forEach(p => { dg[p] = 1 + rnd(9); });
+  const lastIdx = Math.max.apply(null, parts), decs = dg.slice(0, lastIdx + 1).join('');
+  const num = e + ',' + decs, compact = e + ',' + parts.map(p => dg[p]).join('');
+  const text = (e ? e + ' Einer, ' : '') + parts.map(p => dg[p] + ' ' + names[p]).join(' und ');
+  return mkQ(text + ' = ?', num, [compact, e + ',0' + decs, e + decs[0] + ',' + (decs.slice(1) || '0'), e + ',' + decs.split('').reverse().join('')].filter(s => /^\d+,\d+$/.test(s)), 'In die Stellenwerttafel eintragen, leere Stellen bekommen eine 0: ' + num);
+}
+
+const DISC = [
+  { id: 'blitz', name: 'Bruch-Blitz', sub: 'Berühmte Brüche als Dezimalzahl und in Prozent. Wer sie auswendig kennt, spart im Test viel Zeit.', gen: genBlitz, medals: [80, 160, 250, 360], k: '3 · 8' },
+  { id: 'scanner', name: '2-5-Scanner', sub: 'Abbrechend oder periodisch? Entscheide in Sekunden. Achtung, manche Brüche lassen sich kürzen.', gen: genScan, medals: [110, 220, 350, 500], k: '8' },
+  { id: 'vergleich', name: 'Größer, kleiner, dazwischen', sub: 'Dezimalzahlen, Brüche, Prozente und Perioden vergleichen.', gen: genCompare, medals: [90, 180, 290, 420], k: '4 · 5' },
+  { id: 'runden', name: 'Runden-Radar', sub: 'Auf Einer, Zehntel, Hundertstel oder Tausendstel runden, auch bei periodischen Zahlen.', gen: genRound, medals: [70, 140, 220, 320], k: '7' },
+  { id: 'komma', name: 'Komma-Schieber', sub: 'Längen, Flächen, Volumen und Gewichte umwandeln. Wohin wandert das Komma und wie weit?', gen: genKomma, medals: [70, 140, 220, 320], k: '6' },
+  { id: 'zehner', name: 'Zehner-Zoom', sub: 'Stellenwerte, Zehnerbrüche, Prozent und richtig vorlesen.', gen: genZehner, medals: [80, 160, 250, 360], k: '1 · 2 · 3' },
+  { id: 'mix', name: 'Großer Mix', sub: 'Alles durcheinander, wie im Test.', gen: null, medals: [70, 140, 220, 320], k: 'alle' }
+];
+function discById(id) { return DISC.filter(d => d.id === id)[0]; }
+function nextQ(disc, last) {
+  for (let i = 0; i < 60; i++) {
+    const g = disc.gen || pick(DISC.slice(0, 6)).gen, q = g();
+    if (q && (!last || q.q !== last.q)) return q;
+  }
+  return genScan();
+}
+const MEDALS = ['Bronze', 'Silber', 'Gold', 'Diamant'];
+function medalFor(disc, score) { let m = -1; disc.medals.forEach((t, i) => { if (score >= t) m = i; }); return m; }
+
+/* ---------- Arena-Menü ---------- */
+function viewArena() {
+  const best = S.best || {};
+  const card = d => {
+    const b = best[d.id] || 0, m = medalFor(d, b);
+    return '<article class="disc"><div class="disc-top"><h3>' + d.name + '</h3><span class="tag">Checkliste ' + d.k + '</span></div><p>' + d.sub + '</p>' +
+      '<p class="disc-best">' + (b ? 'Dein Rekord: <strong>' + b + '</strong> Punkte' + (m >= 0 ? ' <span class="medal m' + m + '">' + MEDALS[m] + '</span>' : '') : 'Noch kein Rekord') + '</p>' +
+      '<div class="row"><a class="btn small" href="#arena-' + d.id + '">Sprint 60 s</a><a class="btn ghost small" href="#duell-' + d.id + '">Duell zu zweit</a></div></article>';
+  };
+  const rb = S.rallye;
+  show('<section class="page"><header class="page-head"><p class="eyebrow">Arena</p><h1>Schnell werden</h1><p class="lead">Im Sprint spielst du 60 Sekunden gegen deinen eigenen Rekord. Im Duell spielt ihr zu zweit an einem Gerät: Wer zuerst richtig tippt, bekommt den Punkt.</p></header>' +
+    '<article class="disc feature"><div><div class="disc-top"><h3>Reste-Rallye</h3><span class="tag">Checkliste 8</span></div><p>Vier schriftliche Divisionen auf Zeit. Du gibst Ziffer für Ziffer ein, drückst den Summer, sobald sich ein Rest wiederholt, und setzt den Periodenstrich.</p><p class="disc-best">' + (rb ? 'Deine Bestzeit: <strong>' + fmtTime(rb) + '</strong>' : 'Noch keine Bestzeit') + '</p></div><a class="btn" href="#arena-rallye">Rallye starten</a></article>' +
+    '<div class="disc-grid">' + DISC.map(card).join('') + '</div></section>');
+}
+function fmtTime(sec) { const s = Math.round(sec * 10) / 10; return (s >= 60 ? Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0') + ' min' : String(s.toFixed(1)).replace('.', ',') + ' s'); }
+function qHTML(q) { return '<span>' + (q.raw ? q.q : T(q.q)) + '</span>'; }
+
+/* ---------- Sprint ---------- */
+function viewSprint(id) {
+  const disc = discById(id); if (!disc) { location.hash = '#arena'; return; }
+  const best = (S.best || {})[id] || 0;
+  show('<section class="page narrow"><p class="crumb"><a href="#arena">← Arena</a></p><div class="game" id="game"><div class="g-ready"><p class="eyebrow">Sprint · 60 Sekunden</p><h1>' + disc.name + '</h1><p class="lead">' + disc.sub + '</p>' +
+    '<ul class="rules"><li>Richtig: 10 Punkte. Ab drei richtigen in Folge 15, ab sechs 20.</li><li>Falsch: Die Serie reißt und du verlierst 3 Sekunden.</li><li>Mit Tastatur: Tasten 1 bis 4.</li></ul>' +
+    '<p class="disc-best">' + (best ? 'Dein Rekord: <strong>' + best + '</strong> Punkte' : 'Noch kein Rekord') + '</p><p class="medal-line">' + disc.medals.map((t, i) => '<span class="medal m' + i + '">' + MEDALS[i] + ' ab ' + t + '</span>').join(' ') + '</p>' +
+    '<button class="btn big" type="button" id="go">Los</button></div></div></section>');
+  $('#go').addEventListener('click', () => runSprint(disc));
+}
+function runSprint(disc) {
+  const game = $('#game'), TOTAL = 60;
+  let left = TOTAL, score = 0, combo = 0, right = 0, wrongs = [], q = null, locked = false, timer = null, lastTick = performance.now(), paused = false, over = false;
+  game.innerHTML = '<div class="g-hud"><div class="g-time"><div class="g-bar"><i></i></div><span class="g-sec">60</span></div><div class="g-score"><span class="lab">Punkte</span><strong id="gsc">0</strong></div><div class="g-combo" id="gco"></div></div><div class="g-q" id="gq"></div><div class="opts" id="gopts"></div><p class="g-ex" id="gex" aria-live="polite"></p>';
+  const bar = $('.g-bar i', game), sec = $('.g-sec', game), gq = $('#gq'), go = $('#gopts'), gex = $('#gex');
+  function ask() {
+    q = nextQ(disc, q); locked = false; gex.textContent = ''; gex.className = 'g-ex';
+    gq.className = 'g-q' + (q.big ? ' big' : ''); gq.innerHTML = qHTML(q);
+    go.className = 'opts cols' + (q.cols || 2);
+    go.innerHTML = q.opts.map((o, i) => '<button type="button" class="opt" data-i="' + i + '"><kbd>' + (i + 1) + '</kbd>' + T(o) + '</button>').join('');
+  }
+  function hud() {
+    bar.style.width = Math.max(0, left / TOTAL * 100) + '%'; sec.textContent = Math.max(0, Math.ceil(left));
+    $('#gsc').textContent = score; $('#gco').innerHTML = combo >= 3 ? '<span class="combo">Serie ' + combo + '</span>' : '';
+  }
+  function answer(i) {
+    if (locked || over || !q) return; locked = true;
+    const bt = $$('.opt', go);
+    if (i === q.c) {
+      combo++; right++; score += combo >= 6 ? 20 : combo >= 3 ? 15 : 10;
+      bt[i].classList.add('right'); hud(); setTimeout(() => { if (!over) ask(); }, 220);
+    } else {
+      combo = 0; left -= 3; wrongs.push(q);
+      bt[i].classList.add('wrongo'); bt[q.c].classList.add('right');
+      gex.className = 'g-ex show'; gex.innerHTML = T(q.ex);
+      paused = true; hud();
+      setTimeout(() => { paused = false; lastTick = performance.now(); if (!over) { if (left <= 0) end(); else ask(); } }, 2300);
+    }
+  }
+  function end() {
+    over = true; clearInterval(timer); document.removeEventListener('keydown', key);
+    const prev = (S.best || {})[disc.id] || 0, rec = score > prev;
+    if (rec) { S.best = S.best || {}; S.best[disc.id] = score; save(); }
+    const m = medalFor(disc, score);
+    game.innerHTML = '<div class="g-end"><p class="eyebrow">' + disc.name + '</p><h1>' + score + ' Punkte</h1>' +
+      '<p class="lead">' + right + ' richtig, ' + wrongs.length + ' falsch.' + (rec ? ' <strong>Neuer Rekord!</strong>' : prev ? ' Dein Rekord: ' + prev + '.' : '') + (m >= 0 ? ' <span class="medal m' + m + '">' + MEDALS[m] + '</span>' : '') + '</p>' +
+      (m < 3 ? '<p class="muted">Bis ' + MEDALS[m + 1] + ' fehlen ' + (disc.medals[m + 1] - score) + ' Punkte.</p>' : '') +
+      '<div class="row"><button class="btn" type="button" id="again">Nochmal</button><a class="btn ghost" href="#arena">Andere Disziplin</a></div>' +
+      (wrongs.length ? '<h2 class="h-sm">Das schaust du dir noch einmal an</h2><ul class="wrong-list">' + wrongs.map(w => '<li><span class="wq">' + qHTML(w) + '</span><span class="wa">' + T(w.ex) + '</span></li>').join('') + '</ul>' : '<p>Kein einziger Fehler. Stark.</p>') + '</div>';
+    $('#again').addEventListener('click', () => { game.innerHTML = ''; runSprint(disc); });
+  }
+  function key(ev) { const n = parseInt(ev.key, 10); if (n >= 1 && n <= 4 && q && n <= q.opts.length) { ev.preventDefault(); answer(n - 1); } }
+  go.addEventListener('click', ev => { const bt = ev.target.closest('.opt'); if (bt) answer(+bt.dataset.i); });
+  document.addEventListener('keydown', key);
+  timer = setInterval(() => { const now = performance.now(); if (!paused) left -= (now - lastTick) / 1000; lastTick = now; hud(); if (left <= 0 && !paused && !over) end(); }, 100);
+  onLeave(() => { over = true; clearInterval(timer); document.removeEventListener('keydown', key); });
+  ask(); hud();
+}
+
+/* ---------- Duell ---------- */
+function viewDuel(id) {
+  const disc = discById(id) || DISC[6];
+  const d = S.duel || { a: 'Spieler A', b: 'Spieler B', to: 8, face: window.matchMedia('(max-width: 760px)').matches };
+  show('<section class="page narrow"><p class="crumb"><a href="#arena">← Arena</a></p><div class="game" id="game"><div class="g-ready"><p class="eyebrow">Duell zu zweit</p><h1>' + disc.name + '</h1><p class="lead">Beide sehen dieselbe Aufgabe. Wer zuerst richtig tippt, bekommt den Punkt. Wer falsch tippt, ist für diese Aufgabe gesperrt.</p>' +
+    '<form id="dset" class="dset"><div><label for="dna">Name links oder oben</label><input id="dna" type="text" maxlength="14" value="' + esc(d.a) + '"></div><div><label for="dnb">Name rechts oder unten</label><input id="dnb" type="text" maxlength="14" value="' + esc(d.b) + '"></div>' +
+    '<div><label for="dto">Gespielt wird bis</label><select id="dto"><option value="5">5 Punkte</option><option value="8">8 Punkte</option><option value="12">12 Punkte</option></select></div>' +
+    '<div class="chk"><input id="dface" type="checkbox"' + (d.face ? ' checked' : '') + '><label for="dface">Wir sitzen uns gegenüber (Tablet liegt auf dem Tisch)</label></div>' +
+    '<p class="muted">Mit Tastatur: links die Tasten 1 2 3 4, rechts die Tasten 7 8 9 0.</p><button class="btn big" type="submit">Duell starten</button></form></div></div></section>');
+  $('#dto').value = String(d.to);
+  $('#dset').addEventListener('submit', ev => {
+    ev.preventDefault();
+    S.duel = { a: $('#dna').value.trim() || 'Spieler A', b: $('#dnb').value.trim() || 'Spieler B', to: +$('#dto').value, face: $('#dface').checked }; save();
+    runDuel(disc, S.duel);
+  });
+}
+function runDuel(disc, cfg) {
+  const game = $('#game'), names = [cfg.a, cfg.b], KEYS = [['1', '2', '3', '4'], ['7', '8', '9', '0']];
+  let sc = [0, 0], q = null, lock = [false, false], busy = false, over = false;
+  game.innerHTML = '<div class="duel' + (cfg.face ? ' face' : '') + '">' + [0, 1].map(p => '<div class="d-panel p' + p + '" data-p="' + p + '"><div class="d-head"><span class="d-name">' + esc(names[p]) + '</span><span class="d-score" id="dsc' + p + '">0</span><span class="d-of">von ' + cfg.to + '</span></div><div class="g-q"></div><div class="opts"></div><p class="d-msg" aria-live="polite"></p></div>').join('') + '</div>';
+  const panels = $$('.d-panel', game);
+  function ask() {
+    q = nextQ(disc, q); lock = [false, false]; busy = false;
+    panels.forEach((pn, p) => {
+      pn.classList.remove('won', 'locked');
+      $('.g-q', pn).className = 'g-q' + (q.big ? ' big' : ''); $('.g-q', pn).innerHTML = qHTML(q);
+      $('.opts', pn).className = 'opts cols' + (q.cols || 2);
+      $('.opts', pn).innerHTML = q.opts.map((o, i) => '<button type="button" class="opt" data-i="' + i + '"><kbd>' + KEYS[p][i] + '</kbd>' + T(o) + '</button>').join('');
+      $('.d-msg', pn).textContent = '';
+    });
+  }
+  function reveal(msgFor) {
+    busy = true;
+    panels.forEach((pn, p) => { $$('.opt', pn)[q.c].classList.add('right'); $('.d-msg', pn).innerHTML = msgFor(p); });
+  }
+  function answer(p, i) {
+    if (over || busy || lock[p] || !q || i >= q.opts.length) return;
+    const pn = panels[p];
+    if (i === q.c) {
+      sc[p]++; $('#dsc' + p).textContent = sc[p]; pn.classList.add('won');
+      reveal(x => x === p ? '<strong>Punkt für dich!</strong>' : 'Zu langsam. ' + T(q.ex));
+      if (sc[p] >= cfg.to) { setTimeout(() => end(p), 1300); } else setTimeout(() => { if (!over) ask(); }, 1900);
+    } else {
+      lock[p] = true; pn.classList.add('locked'); $$('.opt', pn)[i].classList.add('wrongo');
+      $('.d-msg', pn).textContent = 'Falsch. Du bist für diese Aufgabe gesperrt.';
+      if (lock[0] && lock[1]) { reveal(() => 'Kein Punkt. ' + T(q.ex)); setTimeout(() => { if (!over) ask(); }, 3000); }
+    }
+  }
+  function end(w) {
+    over = true; document.removeEventListener('keydown', key);
+    game.innerHTML = '<div class="g-end"><p class="eyebrow">Duell · ' + disc.name + '</p><h1>' + esc(names[w]) + ' gewinnt</h1><p class="lead">' + esc(names[0]) + ' ' + sc[0] + ' : ' + sc[1] + ' ' + esc(names[1]) + '</p><div class="row"><button class="btn" type="button" id="again">Revanche</button><a class="btn ghost" href="#arena">Andere Disziplin</a></div></div>';
+    $('#again').addEventListener('click', () => runDuel(disc, cfg));
+  }
+  function key(ev) { for (let p = 0; p < 2; p++) { const i = KEYS[p].indexOf(ev.key); if (i >= 0) { ev.preventDefault(); answer(p, i); } } }
+  game.addEventListener('click', ev => { const bt = ev.target.closest('.opt'); if (!bt) return; answer(+bt.closest('.d-panel').dataset.p, +bt.dataset.i); });
+  document.addEventListener('keydown', key);
+  onLeave(() => { over = true; document.removeEventListener('keydown', key); });
+  ask();
+}
+
+/* ---------- Reste-Rallye ---------- */
+function viewRallye() {
+  show('<section class="page narrow"><p class="crumb"><a href="#arena">← Arena</a></p><div class="game" id="game"><div class="g-ready"><p class="eyebrow">Reste-Rallye</p><h1>Vier Divisionen auf Zeit</h1><p class="lead">Du rechnest wie im Heft, nur schneller. Tippe in jedem Schritt die nächste Ziffer des Ergebnisses.</p>' +
+    '<ul class="rules"><li>Kommt der Rest 0, ist die Aufgabe fertig.</li><li>Sobald ein Rest zum zweiten Mal auftaucht, drückst du den Summer »Rest doppelt!«. Danach setzt du den Periodenstrich.</li><li>Jeder Fehler kostet 5 Strafsekunden.</li><li>Mit Tastatur: Ziffern 0 bis 9, Leertaste für den Summer.</li></ul>' +
+    '<p class="disc-best">' + (S.rallye ? 'Deine Bestzeit: <strong>' + fmtTime(S.rallye) + '</strong>' : 'Noch keine Bestzeit') + '</p><button class="btn big" type="button" id="go">Los</button></div></div></section>');
+  $('#go').addEventListener('click', runRallye);
+}
+function runRallye() {
+  const game = $('#game');
+  const tasks = [pick(RALLYE.warm)].concat(shuffle(RALLYE.loop).slice(0, 2)).concat([pick(RALLYE.hard)]);
+  let ti = 0, model, shown, phase, pen = 0, t0 = performance.now(), timer = null, over = false, results = [], barSel = [];
+  game.innerHTML = '<div class="g-hud r-hud"><div class="g-score"><span class="lab">Aufgabe</span><strong id="rno">1 / 4</strong></div><div class="g-score"><span class="lab">Zeit</span><strong id="rtime">0,0 s</strong></div><div class="g-score"><span class="lab">Strafe</span><strong id="rpen">0 s</strong></div></div>' +
+    '<p class="r-prompt" id="rprompt" aria-live="polite"></p><div class="r-heft" id="rheft"></div><div class="r-rems" id="rrems"></div><div id="rbar"></div>' +
+    '<div class="r-pad" id="rpad">' + [1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map(n => '<button type="button" class="key" data-d="' + n + '">' + n + '</button>').join('') + '<button type="button" class="key buzz" id="rbuzz">Rest doppelt!</button></div><p class="r-msg" id="rmsg" aria-live="polite"></p>';
+  const heft = $('#rheft'), prompt = $('#rprompt'), msg = $('#rmsg'), remsEl = $('#rrems'), barEl = $('#rbar'), pad = $('#rpad');
+  const elapsed = () => (performance.now() - t0) / 1000 + pen;
+  function penal(text) { pen += 5; $('#rpen').textContent = pen + ' s'; msg.className = 'r-msg bad'; msg.textContent = text + ' (+5 s)'; game.classList.remove('shake'); void game.offsetWidth; game.classList.add('shake'); }
+  function draw() {
+    renderDivision(heft, model, shown, { maxCell: 30, noBar: phase !== 'done', noHit: phase === 'digits' || phase === 'buzz', qmark: true });
+    const rems = model.e.rems.slice(0, shown);
+    remsEl.innerHTML = '<span class="lab">Reste bisher</span>' + (rems.length ? rems.map((r, i) => '<span class="rchip' + ((phase === 'bar' || phase === 'done') && model.periodic && (i === model.repStep || i === model.steps.length - 1) ? ' hit' : '') + '">' + r + '</span>').join('') : '<span class="muted">noch keine</span>');
+    if (phase === 'digits') {
+      const partial = shown === 0 ? model.a : model.steps[shown - 1].rem * 10;
+      prompt.innerHTML = 'Wie oft passt <strong>' + model.b + '</strong> in <strong>' + partial + '</strong>?';
+    } else if (phase === 'buzz') prompt.innerHTML = 'Schau dir die Reste an. Was fällt dir auf?';
+    else if (phase === 'bar') prompt.innerHTML = 'Setze den Periodenstrich: Tippe die Ziffern an, die sich wiederholen.';
+    else prompt.innerHTML = T(model.a + '/' + model.b) + ' = <strong>' + T(rep(model.a, model.b)) + '</strong>' + (model.periodic ? ' (periodisch)' : ' (abbrechend)');
+    pad.style.display = (phase === 'digits' || phase === 'buzz') ? '' : 'none';
+    if (phase === 'bar') {
+      const e = model.e;
+      barEl.innerHTML = '<div class="barset"><span class="bs-int">' + e.int + ',</span>' + e.digits.map((d, i) => '<button type="button" class="bs-d" data-i="' + i + '" aria-pressed="' + (barSel.indexOf(i) >= 0) + '" aria-label="Ziffer ' + d + '">' + d + '</button>').join('') + '<span class="bs-tail">…</span></div><button type="button" class="btn check" id="rcheck">Fertig</button>';
+    } else barEl.innerHTML = '';
+  }
+  function start() {
+    const t = tasks[ti]; model = divisionModel(t[0], t[1]); shown = 0; phase = 'digits'; barSel = [];
+    $('#rno').textContent = (ti + 1) + ' / ' + tasks.length; msg.textContent = ''; msg.className = 'r-msg'; draw();
+  }
+  function finishTask() {
+    phase = 'done'; draw(); results.push([model.a, model.b]);
+    msg.className = 'r-msg good'; msg.textContent = 'Geschafft.';
+    setTimeout(() => { if (over) return; ti++; if (ti >= tasks.length) end(); else start(); }, 1500);
+  }
+  function digit(d) {
+    if (over) return;
+    if (phase === 'buzz') { msg.className = 'r-msg bad'; msg.textContent = 'Stopp! Schau dir die Reste an und drück den Summer.'; return; }
+    if (phase !== 'digits') return;
+    if (d === model.steps[shown].digit) {
+      shown++; msg.textContent = ''; msg.className = 'r-msg';
+      if (shown === model.steps.length) { if (model.periodic) { phase = 'buzz'; draw(); } else finishTask(); }
+      else draw();
+    } else {
+      const partial = shown === 0 ? model.a : model.steps[shown - 1].rem * 10;
+      penal(d * model.b > partial ? d + ' · ' + model.b + ' = ' + (d * model.b) + ' ist zu groß.' : 'Die ' + model.b + ' passt öfter in die ' + partial + '.');
+    }
+  }
+  function buzz() {
+    if (over) return;
+    if (phase === 'buzz') { phase = 'bar'; msg.className = 'r-msg good'; msg.textContent = 'Richtig gesehen: Der Rest ' + model.steps[shown - 1].rem + ' ist doppelt.'; draw(); }
+    else if (phase === 'digits') penal('Noch ist kein Rest doppelt.');
+  }
+  function checkBar() {
+    const want = []; for (let i = model.repStep; i < model.e.digits.length; i++) want.push(i);
+    const ok = barSel.length === want.length && want.every(i => barSel.indexOf(i) >= 0);
+    if (ok) finishTask();
+    else penal('Der Strich stimmt noch nicht. Die Periode beginnt mit der Ziffer, die nach dem ersten doppelten Rest entstanden ist.');
+  }
+  function end() {
+    over = true; clearInterval(timer); document.removeEventListener('keydown', key);
+    const total = elapsed(), prev = S.rallye || 0, rec = !prev || total < prev;
+    if (rec) { S.rallye = Math.round(total * 10) / 10; save(); }
+    game.innerHTML = '<div class="g-end"><p class="eyebrow">Reste-Rallye</p><h1>' + fmtTime(total) + '</h1><p class="lead">' + (pen ? 'Darin stecken ' + pen + ' Strafsekunden. ' : 'Ohne einen einzigen Fehler. ') + (rec ? '<strong>Neue Bestzeit!</strong>' : 'Deine Bestzeit: ' + fmtTime(prev) + '.') + '</p>' +
+      '<ul class="wrong-list">' + results.map(r => '<li><span class="wq">' + T(r[0] + '/' + r[1]) + ' = ' + T(rep(r[0], r[1])) + '</span><span class="wa">' + (terminates(r[0], r[1]) ? 'abbrechend' : 'periodisch') + '</span></li>').join('') + '</ul>' +
+      '<div class="row"><button class="btn" type="button" id="again">Nochmal</button><a class="btn ghost" href="#arena">Zur Arena</a></div></div>';
+    $('#again').addEventListener('click', runRallye);
+  }
+  function key(ev) {
+    if (ev.target && /INPUT|SELECT|TEXTAREA/.test(ev.target.tagName)) return;
+    if (/^\d$/.test(ev.key)) { ev.preventDefault(); digit(+ev.key); }
+    else if (ev.key === ' ' || ev.key === 'Enter') { if (phase === 'bar' && ev.key === 'Enter') { ev.preventDefault(); checkBar(); } else if (ev.key === ' ') { ev.preventDefault(); buzz(); } }
+  }
+  game.addEventListener('click', ev => {
+    if (over) return;
+    const k = ev.target.closest('.key[data-d]'); if (k) { digit(+k.dataset.d); return; }
+    if (ev.target.closest('#rbuzz')) { buzz(); return; }
+    const b = ev.target.closest('.bs-d'); if (b && phase === 'bar') { const i = +b.dataset.i, at = barSel.indexOf(i); if (at >= 0) barSel.splice(at, 1); else barSel.push(i); draw(); return; }
+    if (ev.target.closest('#rcheck')) checkBar();
+  });
+  document.addEventListener('keydown', key);
+  timer = setInterval(() => { $('#rtime').textContent = String(elapsed().toFixed(1)).replace('.', ',') + ' s'; }, 100);
+  onLeave(() => { over = true; clearInterval(timer); document.removeEventListener('keydown', key); });
+  start();
+}
+
+/* ===== app.js: Speicher, Navigation, Ansichten ===== */
+const KEY = 'komma-labor-m6-k2-v1';
+let S = {};
+function load() { try { S = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { S = {}; } S.st = S.st || {}; S.best = S.best || {}; S.self = S.self || Object.assign({}, START_SELF); }
+function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) { } }
+let main;
+function show(html) { runLeave(); main.innerHTML = html; window.scrollTo(0, 0); main.focus({ preventScroll: true }); }
+function stById(id) { return STATIONS.filter(s => s.id === id)[0]; }
+function doneCount() { return STATIONS.filter(s => S.st[s.id] && S.st[s.id].done).length; }
+
+/* ---------- Ampel-Checkliste ---------- */
+function lights(v, cls) { return '<span class="lights ' + (cls || '') + '">' + ['g', 'y', 'r'].map(c => '<i class="l ' + c + (v === c ? ' on' : '') + '"></i>').join('') + '</span>'; }
+const LNAME = { g: 'grün: kann ich sicher', y: 'gelb: klappt teilweise', r: 'rot: kann ich noch nicht' };
+function checkTable() {
+  const mid = S.mid || {}, end = S.end || {};
+  return '<div class="tablewrap"><table class="check"><thead><tr><th>Nr.</th><th>Ich kann …</th><th>Start<small>selbst eingeschätzt</small></th><th>Mitte<small>Schnell-Check</small></th><th>Ende<small>Generalprobe</small></th></tr></thead><tbody>' +
+    SKILLS.map(k => '<tr><td><span class="num">' + k.id + '</span></td><td>' + k.s + '.</td>' +
+      '<td><button type="button" class="selfbtn" data-self="' + k.id + '" aria-label="Start, Nummer ' + k.id + ': ' + LNAME[S.self[k.id]] + '. Antippen zum Ändern.">' + lights(S.self[k.id]) + '</button></td>' +
+      '<td>' + lights(mid[k.id]) + '</td><td>' + lights(end[k.id]) + '</td></tr>').join('') +
+    '</tbody></table></div><p class="muted small">Grün = kann ich sicher, Gelb = klappt teilweise, Rot = kann ich noch nicht. Die Spalte Start kannst du antippen und ändern. Mitte und Ende füllt der Test-Check aus.</p>';
+}
+function bindCheckTable(root) {
+  root.addEventListener('click', ev => {
+    const b = ev.target.closest('[data-self]'); if (!b) return;
+    const k = b.dataset.self, order = ['g', 'y', 'r'];
+    S.self[k] = order[(order.indexOf(S.self[k]) + 1) % 3]; save();
+    b.innerHTML = lights(S.self[k]); b.setAttribute('aria-label', 'Start, Nummer ' + k + ': ' + LNAME[S.self[k]] + '. Antippen zum Ändern.');
+  });
+}
+
+/* ---------- Start ---------- */
+function viewHome() {
+  const dc = doneCount(), recs = Object.keys(S.best).length + (S.rallye ? 1 : 0);
+  const nextSt = STATIONS.filter(s => !(S.st[s.id] && S.st[s.id].done))[0] || STATIONS[0];
+  const block = '<span>142857</span><span class="alt">142857</span>';
+  show('<section class="hero"><div class="hero-text"><p class="eyebrow">Mathe Klasse 6 · Kapitel II · Brüche in Dezimalschreibweise</p><h1>Was passiert hinter dem Komma?</h1>' +
+    '<p class="lead">Manche Divisionen hören auf, andere laufen für immer weiter. Hier findest du heraus, warum das so ist, wirst schnell im Umrechnen und prüfst, ob du für den Test bereit bist.</p>' +
+    '<div class="row"><a class="btn big" href="#station-' + nextSt.id + '">' + (dc ? 'Weiter mit Station ' + nextSt.n : 'Mit Station 1 starten') + '</a><a class="btn ghost big" href="#test">Zum Test-Check</a></div></div>' +
+    '<div class="hero-art" aria-hidden="true"><div class="calc heroc"><div class="lcd"><span class="lcd-expr">1 : 7 =</span><span class="lcd-out">0,1428571</span></div><div class="tape"><div class="tape-run">' + block + block + block + block + block + '</div></div><p class="tape-cap">Der Rechner zeigt acht Ziffern. Die Division hört nie auf.</p></div></div></section>' +
+
+    '<section class="trio"><a class="way" href="#entdecken"><span class="way-n">1</span><h2>Entdecken</h2><p>Fünf kurze Stationen mit einer Idee: Schriftliches Dividieren ist eine Maschine, und der Rest ist ihr Gedächtnis.</p><p class="way-stat">' + dc + ' von ' + STATIONS.length + ' Stationen geschafft</p></a>' +
+    '<a class="way" href="#arena"><span class="way-n">2</span><h2>Arena</h2><p>60-Sekunden-Sprints gegen deinen Rekord, Duelle zu zweit an einem Gerät und die Reste-Rallye.</p><p class="way-stat">' + (recs ? recs + (recs === 1 ? ' Rekord' : ' Rekorde') + ' aufgestellt' : 'Noch kein Rekord') + '</p></a>' +
+    '<a class="way" href="#test"><span class="way-n">3</span><h2>Test-Check</h2><p>Die neun Punkte von deiner Checkliste, mit Ampel wie auf dem Arbeitsblatt. Jede Lösung wird erklärt.</p><p class="way-stat">' + (S.end ? 'Generalprobe gemacht' : S.mid ? 'Schnell-Check gemacht' : 'Noch nicht geprüft') + '</p></a></section>' +
+
+    '<section class="block"><h2>Dein Plan bis zum Test</h2><p class="lead">Vier Tage, jeden Tag 10 bis 15 Minuten. Wenn du weniger Zeit hast: Tag 3 und Tag 4 sind die wichtigsten.</p><ol class="plan">' +
+    '<li><strong>Tag 1</strong><span><a href="#station-maschine">Station 1</a> und <a href="#station-zweifuenf">Station 2</a>, danach ein Sprint im <a href="#arena-scanner">2-5-Scanner</a>.</span></li>' +
+    '<li><strong>Tag 2</strong><span><a href="#station-zoom">Station 3</a> und <a href="#station-strich">Station 4</a>, danach eine <a href="#arena-rallye">Reste-Rallye</a>.</span></li>' +
+    '<li><strong>Tag 3</strong><span><a href="#test-schnell">Schnell-Check</a>. Für jede gelbe oder rote Ampel einen Sprint in der passenden Disziplin.</span></li>' +
+    '<li><strong>Tag 4</strong><span><a href="#test-general">Generalprobe</a> mit Stift und Papier, danach den <a href="#spickzettel">Spickzettel</a> einmal laut vorlesen.</span></li></ol></section>' +
+
+    '<section class="block" id="homecheck"><h2>Deine Checkliste</h2>' + checkTable() + '</section>' +
+
+    '<section class="block"><details class="parents"><summary>For parents · 给家长</summary><div class="par-grid"><div lang="en"><h3>What this is</h3><p>A review and test-preparation app for chapter II (decimals) of the Grade 6 maths book, built around the teacher\'s nine-point checklist. It is written in German because the test asks for the German technical terms.</p>' +
+    '<h3>How to use it</h3><p>10 to 15 minutes a day. <strong>Entdecken</strong> explains the why in five short stations. <strong>Arena</strong> builds speed with 60-second sprints and a two-player duel on one device. You can play against your child: the questions are almost all numbers. <strong>Test-Check</strong> mirrors the teacher\'s sheet. The Start column is the self-rating from the worksheet, Mitte is filled in by the quick check and Ende by the dress rehearsal (Generalprobe).</p>' +
+    '<h3>Two differences from Chinese textbooks</h3><p>Germany writes a decimal comma (3,5) and marks repeating digits with a bar over all of them, where Chinese books put a dot over the first and last repeating digit. German long division is written on one line (26 : 8 = 3,25) with the working underneath. The test expects this layout.</p><p>Progress is stored only in this browser on this device.</p></div>' +
+    '<div lang="zh"><h3>这是什么</h3><p>针对六年级数学课本第二章（小数）的复习和备考小程序，按照老师发的九项清单（Checkliste）设计。界面用德语，因为考试要求使用德语的数学术语。</p>' +
+    '<h3>怎么用</h3><p>每天 10 到 15 分钟。<strong>Entdecken（探索）</strong>用五个小站讲清楚“为什么”。<strong>Arena（竞技场）</strong>练速度：60 秒冲刺，还有两个人在同一台设备上的对战。您可以和孩子比一比，题目几乎都是数字。<strong>Test-Check（考前检查）</strong>对应老师的清单：Start 一栏是孩子在练习纸上的自评，Mitte 由快速检查（Schnell-Check）填写，Ende 由总彩排（Generalprobe）填写。</p>' +
+    '<h3>和中国课本的两点不同</h3><p>德国用小数逗号（3,5）；循环节用一条横线盖住所有循环的数字，而中国课本是在循环节的首末数字上加点。德国的竖式除法写成一行（26 : 8 = 3,25），演算过程写在下面，考试要求这种写法。</p><p>学习进度只保存在这台设备的浏览器里。</p></div></div>' +
+    '<p class="muted small">Die Wortliste auf Deutsch, Chinesisch und Englisch steht im <a href="#spickzettel">Spickzettel</a>.</p></details></section>');
+  bindCheckTable($('#homecheck'));
+}
+
+/* ---------- Entdecken ---------- */
+function viewDiscover() {
+  show('<section class="page"><header class="page-head"><p class="eyebrow">Entdecken</p><h1>Fünf Stationen, eine Idee</h1><p class="lead">Jede Station dauert etwa fünf Minuten. Du beantwortest Fragen, probierst an einem Modell aus und nimmst am Ende einen Merkzettel und einen fertigen Erklärsatz für den Test mit.</p></header><div class="st-list">' +
+    STATIONS.map(s => {
+      const st = S.st[s.id] || {};
+      return '<a class="st-card" href="#station-' + s.id + '"><span class="st-n">' + s.n + '</span><div><h3>' + s.title + (s.bonus ? ' <span class="tag">Bonus</span>' : '') + '</h3><p>' + s.ask + '</p><p class="muted small">' + s.steps.length + ' Schritte · etwa ' + s.min + ' Minuten' + (st.done ? ' · <span class="okmark">✓ geschafft</span>' : st.step ? ' · angefangen' : '') + '</p></div></a>';
+    }).join('') + '</div></section>');
+}
+function viewStation(id) {
+  const st = stById(id); if (!st) { location.hash = '#entdecken'; return; }
+  const prog = S.st[id] = S.st[id] || { step: 0 };
+  let i = Math.min(prog.done ? 0 : prog.step || 0, st.steps.length - 1), maxSeen = prog.done ? st.steps.length : (prog.step || 0);
+  show('<section class="page"><p class="crumb"><a href="#entdecken">← Alle Stationen</a></p><header class="page-head tight"><p class="eyebrow">Station ' + st.n + ' von ' + STATIONS.length + (st.bonus ? ' · Bonus' : '') + '</p><h1>' + st.title + '</h1><p class="lead">' + st.ask + '</p></header>' +
+    '<nav class="dots" id="dots" aria-label="Schritte"></nav><div class="st-grid" id="stgrid"><div class="st-viz" id="stviz"></div><div class="st-side"><div class="st-text" id="sttext"></div><div id="stitem"></div><div class="st-nav" id="stnav"></div></div></div><div id="stsum"></div></section>');
+  const dots = $('#dots'), grid = $('#stgrid'), sum = $('#stsum');
+  function drawDots() {
+    dots.innerHTML = st.steps.map((_, k) => '<button type="button" class="dot' + (k === i ? ' cur' : '') + (k < maxSeen ? ' done' : '') + '" data-k="' + k + '"' + (k > maxSeen ? ' disabled' : '') + ' aria-label="Schritt ' + (k + 1) + '">' + (k + 1) + '</button>').join('') +
+      '<button type="button" class="dot fin' + (i === st.steps.length ? ' cur' : '') + '" data-k="' + st.steps.length + '"' + (maxSeen < st.steps.length ? ' disabled' : '') + ' aria-label="Merkzettel">Merkzettel</button>';
+  }
+  function step() {
+    runLeave(); sum.innerHTML = ''; grid.style.display = '';
+    const sp = st.steps[i];
+    grid.classList.toggle('noviz', !sp.viz);
+    const viz = mountViz($('#stviz'), sp.viz);
+    $('#sttext').innerHTML = '<p class="step-no">Schritt ' + (i + 1) + ' von ' + st.steps.length + '</p><p>' + T(sp.text) + '</p>';
+    const nav = $('#stnav'); nav.innerHTML = '';
+    mountItem($('#stitem'), sp.item, {
+      mode: 'learn', onDone: () => {
+        if (viz.reveal) viz.reveal();
+        maxSeen = Math.max(maxSeen, i + 1); prog.step = Math.max(prog.step || 0, i + 1); save(); drawDots();
+        nav.innerHTML = '<button type="button" class="btn big" id="stnext">' + (i + 1 < st.steps.length ? 'Weiter' : 'Zum Merkzettel') + '</button>';
+        $('#stnext').addEventListener('click', () => { i++; if (i < st.steps.length) step(); else summary(); });
+        $('#stnext').scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      }
+    });
+    drawDots();
+  }
+  function summary() {
+    runLeave(); i = st.steps.length; prog.done = true; prog.step = st.steps.length; save();
+    grid.style.display = 'none'; drawDots();
+    const nx = STATIONS[st.n] /* nächste Station */;
+    sum.innerHTML = '<div class="summary"><div class="merk"><h2>Merkzettel</h2><ul>' + st.merk.map(m => '<li>' + T(m) + '</li>').join('') + '</ul></div>' +
+      '<div class="say"><h2>So erklärst du es im Test</h2><p>' + T(st.say) + '</p></div>' +
+      '<div class="row"><a class="btn big" href="#' + st.next[0] + '">' + st.next[1] + '</a>' + (nx ? '<a class="btn ghost big" href="#station-' + nx.id + '">Weiter zu Station ' + nx.n + '</a>' : '<a class="btn ghost big" href="#test">Zum Test-Check</a>') + '</div></div>';
+    window.scrollTo(0, 0);
+  }
+  dots.addEventListener('click', ev => {
+    const b = ev.target.closest('.dot'); if (!b || b.disabled) return;
+    i = +b.dataset.k; if (i >= st.steps.length) summary(); else step();
+  });
+  step();
+}
+
+/* ---------- Test-Check ---------- */
+function viewTest() {
+  show('<section class="page"><header class="page-head"><p class="eyebrow">Test-Check</p><h1>Bin ich bereit?</h1><p class="lead">Die Aufgaben folgen den neun Punkten deiner Checkliste. Nach jeder Antwort siehst du die Lösung mit Erklärung. Leg Stift und Papier bereit, für die Divisionen brauchst du sie.</p></header>' +
+    '<div class="two"><article class="disc"><div class="disc-top"><h3>Schnell-Check</h3><span class="tag">11 Aufgaben · etwa 8 Minuten</span></div><p>Eine Aufgabe zu jedem Punkt der Checkliste, drei zu abbrechenden und periodischen Dezimalzahlen. Füllt die Spalte Mitte.</p><a class="btn" href="#test-schnell">Schnell-Check starten</a></article>' +
+    '<article class="disc"><div class="disc-top"><h3>Generalprobe</h3><span class="tag">28 Aufgaben · etwa 20 Minuten</span></div><p>Drei Aufgaben zu jedem Punkt, vier zum Schwerpunkt des Tests. Jedes Mal neu gemischt. Füllt die Spalte Ende.</p><a class="btn" href="#test-general">Generalprobe starten</a></article></div>' +
+    '<section class="block" id="testcheck"><h2>Deine Checkliste</h2>' + checkTable() + '</section></section>');
+  bindCheckTable($('#testcheck'));
+}
+function buildTest(kind) {
+  const out = [];
+  SKILLS.forEach(k => {
+    const all = CHECK.filter(c => c.k === k.id), quick = all.filter(c => c.quick), rest = shuffle(all.filter(c => !c.quick));
+    if (kind === 'schnell') quick.forEach(c => out.push(c));
+    else {
+      const n = k.id === 8 ? 4 : 3, take = shuffle(all).slice(0, n);
+      if (k.id === 8 && !take.some(c => c.t === 'per')) take[n - 1] = pick(all.filter(c => c.t === 'per'));
+      if (k.id === 8 && !take.some(c => c.t === 'multi' || c.t === 'cloze')) take[0] = pick(all.filter(c => c.t === 'multi' || c.t === 'cloze'));
+      take.forEach(c => out.push(c));
+    }
+  });
+  return out;
+}
+function viewTestRun(kind) {
+  const items = buildTest(kind), res = [], name = kind === 'schnell' ? 'Schnell-Check' : 'Generalprobe';
+  let i = 0;
+  show('<section class="page narrow"><p class="crumb"><a href="#test">← Test-Check</a></p><div id="trun"></div></section>');
+  const run = $('#trun');
+  function ask() {
+    const it = items[i], sk = SKILLS[it.k - 1];
+    run.innerHTML = '<div class="t-head"><p class="eyebrow">' + name + ' · Aufgabe ' + (i + 1) + ' von ' + items.length + '</p><div class="g-bar"><i style="width:' + (i / items.length * 100) + '%"></i></div><p class="t-skill"><span class="num">' + sk.id + '</span> Ich kann ' + ((sk.id === 5 || sk.id === 8) ? sk.s.charAt(0).toLowerCase() + sk.s.slice(1) : sk.s) + '.</p></div><div class="t-item" id="titem"></div><div class="st-nav" id="tnav"></div>';
+    mountItem($('#titem'), it, {
+      mode: 'test', onDone: (first, ok) => {
+        res.push({ it, ok });
+        $('#tnav').innerHTML = '<button type="button" class="btn big" id="tnext">' + (i + 1 < items.length ? 'Weiter' : 'Zur Auswertung') + '</button>';
+        $('#tnext').addEventListener('click', () => { i++; if (i < items.length) { ask(); window.scrollTo(0, 0); } else finish(); });
+        $('#tnext').scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      }
+    });
+  }
+  function finish() {
+    const col = {}, right = res.filter(r => r.ok).length;
+    SKILLS.forEach(k => {
+      const mine = res.filter(r => r.it.k === k.id), ok = mine.filter(r => r.ok).length;
+      col[k.id] = ok === mine.length ? 'g' : ok === 0 ? 'r' : (mine.length >= 3 && ok / mine.length < 0.5) ? 'r' : 'y';
+    });
+    if (kind === 'schnell') S.mid = col; else S.end = col;
+    save();
+    const weak = SKILLS.filter(k => col[k.id] !== 'g'), wrongs = res.filter(r => !r.ok);
+    run.innerHTML = '<div class="g-end left"><p class="eyebrow">' + name + ' · Auswertung</p><h1>' + right + ' von ' + items.length + ' richtig</h1>' +
+      '<p class="lead">' + (weak.length === 0 ? 'Alle neun Ampeln stehen auf Grün. Du bist bereit.' : weak.length <= 2 ? 'Fast alles sitzt. Diese Punkte übst du noch gezielt:' : 'Du weißt jetzt genau, woran du noch arbeiten kannst:') + '</p>' +
+      '<ul class="res-list">' + SKILLS.map(k => '<li class="' + col[k.id] + '">' + lights(col[k.id]) + '<div><p><span class="num">' + k.id + '</span> ' + k.s + '</p>' + (col[k.id] !== 'g' ? '<p class="res-go">' + k.go.map(g => '<a href="#' + g[0] + '">' + g[1] + '</a>').join(' · ') + '</p>' : '') + '</div></li>').join('') + '</ul>' +
+      (wrongs.length ? '<h2 class="h-sm">Deine Fehler noch einmal</h2><ul class="wrong-list">' + wrongs.map(w => '<li><span class="wq">' + T(w.it.q) + '</span><span class="wa"><strong>Richtig:</strong> ' + correctText(w.it) + '</span><span class="wa">' + T(w.it.ex) + '</span></li>').join('') + '</ul>' : '') +
+      '<div class="row"><a class="btn" href="#test">Zur Checkliste</a><a class="btn ghost" href="#spickzettel">Spickzettel ansehen</a></div></div>';
+    window.scrollTo(0, 0);
+  }
+  ask();
+}
+
+/* ---------- Spickzettel ---------- */
+function viewSpick() {
+  show('<section class="page"><header class="page-head"><p class="eyebrow">Spickzettel</p><h1>Alles auf einen Blick</h1><p class="lead">Lies ihn am Abend vor dem Test einmal laut durch. Mitnehmen darfst du ihn nur im Kopf.</p></header>' +
+    '<div class="spick">' + SPICK.map(s => '<article class="sp"><h3><span class="num">' + s.k + '</span>' + s.h + '</h3><ul>' + s.p.map(p => '<li>' + T(p) + '</li>').join('') + '</ul></article>').join('') + '</div>' +
+    '<section class="block"><h2>Brüche, die du auswendig kennen solltest</h2><div class="famous">' + FAMOUS_TABLE.map(f => '<div class="fam' + (terminates(f[0], f[1]) ? '' : ' p') + '"><span>' + T(f[0] + '/' + f[1]) + '</span><span>' + T(rep(f[0], f[1])) + '</span></div>').join('') + '</div><p class="muted small">Gelb markiert: periodische Dezimalzahlen.</p></section>' +
+    '<section class="block"><h2>Wortliste</h2><div class="tablewrap"><table class="words"><thead><tr><th>Deutsch</th><th>中文</th><th>English</th></tr></thead><tbody>' + WORDS.map(w => '<tr><td>' + w[0] + '</td><td lang="zh">' + w[1] + '</td><td lang="en">' + w[2] + '</td></tr>').join('') + '</tbody></table></div></section></section>');
+}
+
+/* ---------- Navigation ---------- */
+function route() {
+  const h = (location.hash || '#start').slice(1);
+  let tab = 'start';
+  if (h === 'entdecken') { tab = 'entdecken'; viewDiscover(); }
+  else if (h.indexOf('station-') === 0) { tab = 'entdecken'; viewStation(h.slice(8)); }
+  else if (h === 'arena') { tab = 'arena'; viewArena(); }
+  else if (h === 'arena-rallye') { tab = 'arena'; viewRallye(); }
+  else if (h.indexOf('arena-') === 0) { tab = 'arena'; viewSprint(h.slice(6)); }
+  else if (h.indexOf('duell-') === 0) { tab = 'arena'; viewDuel(h.slice(6)); }
+  else if (h === 'test') { tab = 'test'; viewTest(); }
+  else if (h === 'test-schnell') { tab = 'test'; viewTestRun('schnell'); }
+  else if (h === 'test-general') { tab = 'test'; viewTestRun('general'); }
+  else if (h === 'spickzettel') { tab = 'spickzettel'; viewSpick(); }
+  else viewHome();
+  $$('.nav a').forEach(a => { const on = a.dataset.tab === tab; a.classList.toggle('on', on); if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
+}
+function boot() {
+  main = document.getElementById('main');
+  load();
+  window.addEventListener('hashchange', route);
+  route();
+}
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
+
+</script>
+</body>
+</html>

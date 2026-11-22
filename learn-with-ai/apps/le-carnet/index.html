@@ -1,0 +1,2085 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Le Carnet Französisch Unité 1</title>
+<style>
+@font-face{font-family:"Bricolage Grotesque";font-style:normal;font-display:swap;font-weight:200 800;src:url(fonts/bricolage-grotesque-latin-ext-wght-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Bricolage Grotesque";font-style:normal;font-display:swap;font-weight:200 800;src:url(fonts/bricolage-grotesque-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Playwrite FR Moderne";font-style:normal;font-display:swap;font-weight:100 400;src:url(fonts/playwrite-fr-moderne-wght-normal.woff2) format("woff2")}
+/* Layout idea: a French school notebook (Seyès ruling, red margin) lying on a desk;
+   inks of the four-colour pen carry meaning: blue = work, green = right, red = correction, black = text. */
+:root{
+  --desk:#dde3f1;
+  --paper:#fdfdf8;
+  --ink:#1d2f86;        /* bleu */
+  --text:#1f2130;       /* noir */
+  --red:#d6382e;        /* rouge */
+  --green:#15895a;      /* vert */
+  --hi:#ffe45e;         /* surligneur */
+  --seyes:#c5cdf3;
+  --seyes-fine:#e8ebfa;
+  --margin:#f0a29c;
+  --soft:#eef1fb;
+  --line:#d5daee;
+  --muted:#5d6382;
+  --font-ui:"Bricolage Grotesque","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --font-hand:"Playwrite FR Moderne","Segoe Script","Bradley Hand",cursive;
+  --r:14px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--desk);color:var(--text);font-family:var(--font-ui);font-size:17px;line-height:1.45;min-height:100vh}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+h1,h2,h3{text-wrap:balance;margin:0}
+p{margin:0}
+#app{max-width:780px;margin:0 auto;padding:14px 16px 60px}
+.hand{font-family:var(--font-hand);font-weight:400}
+.fr{color:var(--ink);font-weight:600}
+.muted{color:var(--muted)}
+.small{font-size:14px}
+.hidden{display:none!important}
+a{color:var(--ink);font-weight:650}
+
+/* ---------- top bar (inside a station / game) ---------- */
+.bar{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.bar .back{border:0;background:var(--paper);border-radius:999px;padding:8px 14px;font-weight:650;box-shadow:0 1px 0 var(--line)}
+.bar .ttl{flex:1;min-width:0;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar .snd{border:0;background:var(--paper);border-radius:999px;width:40px;height:40px;font-size:18px;box-shadow:0 1px 0 var(--line)}
+.steps{display:flex;gap:5px;margin:0 2px 12px}
+.steps i{flex:1;height:6px;border-radius:3px;background:#c8cfe6}
+.steps i.on{background:var(--ink)}
+.steps i.now{background:var(--hi);box-shadow:inset 0 0 0 1.5px var(--ink)}
+
+/* ---------- paper sheets ---------- */
+.sheet{background:var(--paper);border-radius:var(--r);box-shadow:0 1px 0 #c3cae0,0 10px 24px -18px #26306b;padding:18px 18px 20px;position:relative}
+.sheet + .sheet{margin-top:14px}
+.seyes{
+  background-color:var(--paper);
+  background-image:
+    linear-gradient(90deg,transparent 43px,var(--margin) 43px,var(--margin) 45px,transparent 45px),
+    linear-gradient(var(--seyes) 1.5px,transparent 1.5px),
+    linear-gradient(var(--seyes-fine) 1px,transparent 1px),
+    linear-gradient(90deg,var(--seyes-fine) 1px,transparent 1px);
+  background-size:100% 100%,100% 32px,100% 8px,32px 100%;
+  background-position:0 0,0 14px,0 14px,13px 0;
+}
+
+/* ---------- home ---------- */
+.cover{padding:22px 18px 20px 62px;overflow:hidden}
+.cover h1{font-family:var(--font-hand);font-weight:400;font-size:38px;line-height:1.5;color:var(--ink)}
+.cover .sub{font-weight:650;margin-top:2px}
+.cover .hello{margin-top:10px;color:var(--muted)}
+.cover .tally{position:absolute;right:16px;top:16px;text-align:center;transform:rotate(6deg);border:3px double var(--red);color:var(--red);border-radius:10px;padding:6px 10px;font-weight:800;line-height:1.1;background:rgba(253,253,248,.85)}
+.cover .tally b{display:block;font-size:26px}
+.cover .tally span{font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.quick button{border:0;border-radius:var(--r);padding:14px 12px;text-align:left;background:var(--ink);color:#fff;min-height:92px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 10px 20px -16px #101a55}
+.quick button b{font-size:18px;line-height:1.15;white-space:nowrap}
+.quick button span{font-size:13.5px;opacity:.86}
+.quick button.alt{background:var(--paper);color:var(--text);box-shadow:0 1px 0 #c3cae0}
+.quick button.alt b{color:var(--ink)}
+.quick button.red{background:var(--red)}
+.h2{font-size:15px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:750;margin:24px 4px 10px}
+.stations{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.st{border:0;background:var(--paper);border-radius:var(--r);padding:14px 14px 14px 16px;text-align:left;display:grid;grid-template-columns:1fr 62px;gap:8px;align-items:center;box-shadow:0 1px 0 #c3cae0;position:relative;min-height:96px}
+.st:hover{box-shadow:0 1px 0 #c3cae0,0 0 0 2px var(--ink)}
+.st .no{font-size:12.5px;font-weight:750;color:var(--muted);letter-spacing:.06em}
+.st .t{font-weight:750;font-size:18px;color:var(--ink);line-height:1.2;margin:2px 0}
+.st .d{font-size:14px;color:var(--muted);line-height:1.3}
+.stamp{width:62px;height:62px;border-radius:50%;border:2px dashed #b9c0dd;display:grid;place-items:center;color:#aab1d0;font-weight:800;font-size:20px}
+.stamp.done{border:3px double var(--red);color:var(--red);transform:rotate(-9deg);font-size:10px;line-height:1.15;text-align:center;letter-spacing:.04em;text-transform:uppercase;background:radial-gradient(circle at 30% 30%,rgba(214,56,46,.07),transparent 60%)}
+.stamp.done b{display:block;font-size:14px;letter-spacing:.02em}
+.stamp.done.s3{border-color:var(--ink);color:var(--ink)}
+.parents{margin-top:22px}
+.parents summary{cursor:pointer;font-weight:700;color:var(--muted)}
+.parents p{margin-top:8px;font-size:15px}
+
+/* ---------- buttons ---------- */
+.btn{border:0;border-radius:999px;padding:12px 22px;font-weight:750;background:var(--ink);color:#fff;font-size:17px;box-shadow:0 3px 0 #101a55}
+.btn:active{transform:translateY(2px);box-shadow:0 1px 0 #101a55}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+.btn.go{background:var(--green);box-shadow:0 3px 0 #0b5c3b}
+.btn[disabled]{opacity:.4;cursor:default}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.row.end{justify-content:flex-end}
+.row.mid{justify-content:center}
+.mt{margin-top:14px}.mt2{margin-top:22px}
+
+/* ---------- chat ---------- */
+.chat{background:#e9edf9;border-radius:var(--r);padding:12px 12px 14px;min-height:340px;display:flex;flex-direction:column;gap:9px}
+.chat .grp{align-self:center;font-size:13px;color:var(--muted);background:var(--paper);border-radius:999px;padding:3px 12px}
+.msg{display:grid;grid-template-columns:34px 1fr;gap:8px;max-width:92%;align-items:end;animation:pop .22s ease-out}
+.msg .av{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;font-size:15px}
+.msg .bub{background:var(--paper);border-radius:16px 16px 16px 4px;padding:8px 12px 9px;cursor:pointer;box-shadow:0 1px 0 #cfd5ea}
+.msg .who{font-size:12.5px;font-weight:750;margin-bottom:1px}
+.msg .txt{font-size:17px}
+.msg .de{font-size:14px;color:var(--muted);border-top:1px dashed var(--line);margin-top:6px;padding-top:5px}
+.msg.me{align-self:flex-end;grid-template-columns:1fr}
+.msg.me .bub{background:var(--ink);color:#fff;border-radius:16px 16px 4px 16px;box-shadow:none}
+.msg.me .de{color:#cfd6ff;border-color:#5262b4}
+.typing{align-self:flex-start;background:var(--paper);border-radius:14px;padding:8px 14px;color:var(--muted);font-size:20px;letter-spacing:3px;line-height:1}
+.choice{background:var(--paper);border-radius:var(--r);padding:12px;border:2px solid var(--ink);animation:pop .22s ease-out}
+.choice .ask{font-weight:700;margin-bottom:8px}
+.choice button{display:block;width:100%;text-align:left;border:2px solid var(--line);background:#fff;border-radius:12px;padding:10px 12px;margin-top:7px;font-size:17px}
+.choice button:hover{border-color:var(--ink)}
+.choice button.no{border-color:var(--red);color:#8e8fa3;text-decoration:line-through;animation:shake .3s}
+.choice .fb{color:var(--red);font-size:15px;margin-top:8px;font-weight:600}
+.tap-tip{font-size:13.5px;color:var(--muted);text-align:center;margin-top:8px}
+@keyframes pop{from{transform:translateY(8px);opacity:.3}to{transform:none;opacity:1}}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+
+/* ---------- rule cards ---------- */
+.rule h3{font-size:22px;color:var(--ink);margin-bottom:8px}
+.rule p{margin:8px 0}
+.rule .kicker{font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:750;margin-bottom:4px}
+.rule table{border-collapse:collapse;width:100%;margin:10px 0;font-size:16.5px}
+.rule td,.rule th{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+.rule th{font-size:13px;color:var(--muted);font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.rule .tip{background:linear-gradient(transparent 12%,var(--hi) 12%,var(--hi) 88%,transparent 88%);padding:0 3px;font-weight:650}
+.rule .trap{border-left:4px solid var(--red);padding:6px 10px;margin:10px 0;background:#fdf1ef;border-radius:0 10px 10px 0}
+.rule .trap b{color:var(--red)}
+.rule .ok{border-left:4px solid var(--green);padding:6px 10px;margin:10px 0;background:#eef8f2;border-radius:0 10px 10px 0}
+.rule mark{background:var(--hi);padding:0;border-radius:2px;color:inherit}
+.rule s{color:#a2a7c0}
+.rule .u{color:var(--red);font-weight:750}
+.rule .g{color:var(--green);font-weight:750}
+.rule .boot tr.ou td{background:var(--soft)}
+.rule .count{display:flex;gap:6px;margin:12px 0;flex-wrap:wrap}
+.rule .count div{flex:1;min-width:70px;background:var(--soft);border-radius:12px;padding:8px 6px;text-align:center}
+.rule .count b{display:block;font-size:26px;color:var(--ink)}
+.rule .count span{font-size:13px;color:var(--muted);display:block;line-height:1.25}
+.rule .meter{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;align-items:center;margin:10px 0}
+.rule .meter .m{font-size:20px;letter-spacing:1px;white-space:nowrap}
+.rule .emo{display:grid;grid-template-columns:auto 1fr;gap:5px 12px;margin:10px 0;align-items:baseline}
+.rule .emo .e{font-size:24px}
+.pager{display:flex;justify-content:space-between;align-items:center;margin-top:14px}
+
+/* ---------- items ---------- */
+.prog{height:8px;background:#c8cfe6;border-radius:4px;overflow:hidden;margin-bottom:12px}
+.prog i{display:block;height:100%;background:var(--ink);width:0;transition:width .25s}
+.item .hint{font-size:14.5px;color:var(--muted);margin-bottom:6px}
+.item .q{font-size:22px;line-height:1.4;font-weight:600;margin:4px 0 14px}
+.item .q .cue{font-size:15px;color:var(--muted);font-weight:500}
+.gap{display:inline-block;min-width:64px;border-bottom:3px solid var(--ink);text-align:center;color:var(--ink);padding:0 4px;line-height:1.1}
+.gap.ok{color:var(--green);border-color:var(--green)}
+.opts{display:grid;gap:9px}
+.opts.two{grid-template-columns:1fr 1fr}
+.opt{border:2px solid var(--line);background:#fff;border-radius:14px;padding:12px 14px;font-size:18px;text-align:left;font-weight:600;min-height:52px}
+.opt:hover{border-color:var(--ink)}
+.opt.right{border-color:var(--green);background:#e9f7ef;color:#0c5a3a}
+.opt.wrong{border-color:var(--red);background:#fdecea;color:#932219}
+.opt[disabled]{cursor:default}
+.fbk{margin-top:14px;border-radius:14px;padding:12px 14px;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.fbk.good{background:#e3f5ea}
+.fbk.bad{background:#fde9e6}
+.fbk.near{background:#fff6c9}
+.fbk .msg2{flex:1;min-width:200px}
+.fbk .msg2 b{display:block}
+.fbk.good b{color:var(--green)}.fbk.bad b{color:var(--red)}.fbk.near b{color:#8a6a00}
+.fbk .sol{font-weight:700;color:var(--ink)}
+.tyrow{display:flex;gap:8px;flex-wrap:wrap}
+.tyin{flex:1;min-width:150px;font:inherit;font-size:20px;padding:10px 12px;border-radius:12px;border:2px solid var(--ink);background:#fff;color:var(--ink);font-weight:650}
+.acc{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}
+.acc button{border:1.5px solid var(--line);background:#fff;border-radius:8px;min-width:36px;height:36px;font-size:17px;font-weight:650;color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:2px solid var(--line);background:#fff;border-radius:12px;padding:8px 12px;font-size:18px;font-weight:600}
+.chip.used{opacity:.25}
+.chip.sel{border-color:var(--ink);background:var(--ink);color:#fff}
+.build{min-height:56px;border-bottom:3px solid var(--ink);margin-bottom:14px;padding-bottom:8px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.spot .w{display:inline-block;border:2px solid transparent;border-radius:10px;padding:2px 6px;margin:2px 1px;font-size:22px;font-weight:600;background:transparent;cursor:pointer}
+.spot .w:hover{border-color:var(--line)}
+.spot .w.bad{border-color:var(--red);color:var(--red);text-decoration:line-through}
+.spot .w.fix{border-color:var(--green);color:var(--green)}
+.letters{display:flex;flex-wrap:wrap;gap:4px;margin:10px 0 16px}
+.letters button{border:2px solid var(--line);background:#fff;border-radius:10px;min-width:40px;height:52px;font-size:26px;font-weight:650;color:var(--ink)}
+.letters button.mute{background:#e9ebf5;color:#a2a7c0;border-style:dashed;text-decoration:line-through}
+.letters button.ok{border-color:var(--green)}
+.letters button.miss{border-color:var(--red)}
+.letters .sp{width:14px}
+
+/* ---------- sprint / dice ---------- */
+.timer{height:10px;border-radius:5px;background:#c8cfe6;overflow:hidden}
+.timer i{display:block;height:100%;background:var(--red);width:100%}
+.hud{display:flex;justify-content:space-between;font-weight:750;margin:8px 0 14px}
+.bigq{text-align:center;margin:10px 0 18px}
+.bigq .p{font-size:34px;font-weight:800;color:var(--ink)}
+.bigq .v{font-size:17px;color:var(--muted)}
+.dice{display:flex;gap:12px;justify-content:center;margin:8px 0 18px}
+.die{background:#fff;border:2.5px solid var(--ink);border-radius:16px;min-width:120px;padding:14px 16px;text-align:center;font-size:24px;font-weight:800;color:var(--ink);box-shadow:0 4px 0 var(--ink)}
+.die small{display:block;font-size:12px;color:var(--muted);font-weight:650;letter-spacing:.06em;text-transform:uppercase}
+.die.roll{animation:roll .45s}
+@keyframes roll{0%{transform:rotate(0)}50%{transform:rotate(-8deg) translateY(-8px)}100%{transform:none}}
+
+/* ---------- studio / avatars ---------- */
+.studio{display:grid;grid-template-columns:230px 1fr;gap:16px;align-items:start}
+.studio .stage{position:sticky;top:8px;background:var(--soft);border-radius:var(--r);padding:8px;text-align:center}
+.studio .stage svg{width:100%;max-width:190px;height:auto}
+.ctl{display:grid;gap:10px}
+.ctl .grp{background:var(--soft);border-radius:12px;padding:8px 10px}
+.ctl .lab{font-size:12.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:750;margin-bottom:5px}
+.ctl .pick{display:flex;flex-wrap:wrap;gap:6px}
+.ctl .pick + .pick{margin-top:6px}
+.pk{border:2px solid var(--line);background:#fff;border-radius:999px;padding:5px 11px;font-size:15.5px;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.pk i{width:13px;height:13px;border-radius:50%;border:1.5px solid #1f2130;display:inline-block}
+.pk.on{border-color:var(--ink);background:var(--ink);color:#fff}
+.descr{margin-top:10px;font-size:17px}
+.descr li{margin:4px 0}
+.descr li.bad{color:var(--red);font-weight:700}
+.descr li.good{color:var(--green)}
+.brief{border-left:5px solid var(--ink);background:var(--soft);border-radius:0 12px 12px 0;padding:10px 12px;margin-bottom:12px}
+.brief ul{margin:6px 0 0;padding-left:20px}
+.gw-top{position:sticky;top:0;z-index:3;background:var(--paper);padding:8px 0 10px;border-bottom:1px solid var(--line)}
+.clues{margin:6px 0 0;padding-left:22px;font-size:17px}
+.clues li{margin:3px 0;cursor:pointer}
+.clues li.new{background:linear-gradient(transparent 12%,var(--hi) 12%,var(--hi) 88%,transparent 88%)}
+.clues .de{display:block;font-size:14px;color:var(--muted)}
+.hearts{font-size:20px;letter-spacing:2px}
+.gw{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:12px}
+.gw button{border:2px solid var(--line);background:#fff;border-radius:12px;padding:4px 2px 2px;position:relative}
+.gw button svg{width:100%;height:auto;display:block}
+.gw button.out{opacity:.28;background:#eceef6}
+.gw button.out::after{content:"";position:absolute;inset:8px;background:linear-gradient(to top right,transparent 47%,var(--red) 47%,var(--red) 53%,transparent 53%)}
+.gw button.win{border-color:var(--green);box-shadow:0 0 0 4px #bfe8d2}
+.gw button.nope{animation:shake .3s;border-color:var(--red)}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--text);color:#fff;padding:10px 16px;border-radius:12px;max-width:min(92vw,520px);font-size:15.5px;z-index:20;box-shadow:0 10px 30px -10px #000}
+
+/* ---------- finish ---------- */
+.finish{text-align:center;padding:26px 18px;overflow:hidden}
+.bigstamp{width:150px;height:150px;border-radius:50%;border:5px double var(--red);color:var(--red);display:grid;place-items:center;margin:6px auto 12px;transform:rotate(-10deg);animation:stamp .5s cubic-bezier(.2,1.6,.4,1) both;text-transform:uppercase;font-weight:800;letter-spacing:.08em;font-size:13px;line-height:1.3}
+.bigstamp b{display:block;font-size:26px;letter-spacing:.04em}
+@keyframes stamp{from{transform:scale(2.4) rotate(8deg);opacity:0}to{transform:rotate(-10deg);opacity:1}}
+.stars{font-size:34px;letter-spacing:6px;color:#e2a700}
+.stars .off{color:#cfd3e4}
+.memo{text-align:left;margin-top:16px}
+.memo h3{font-family:var(--font-hand);font-weight:400;color:var(--ink);font-size:22px;line-height:1.6}
+.memo ul{margin:6px 0 0;padding-left:22px}
+.memo li{margin:5px 0}
+.todo{margin-top:14px;text-align:left;border:2px dashed var(--ink);border-radius:12px;padding:10px 12px}
+.todo b{color:var(--ink)}
+
+/* ---------- test arena ---------- */
+.cloze{font-size:19px;line-height:2.25}
+.cloze .cue{color:var(--muted);font-size:14.5px}
+.cloze input{font:inherit;font-weight:650;color:var(--ink);border:0;border-bottom:3px solid var(--ink);background:var(--soft);border-radius:6px 6px 0 0;padding:0 6px;width:118px;height:34px;text-align:center}
+.cloze input.ok{border-color:var(--green);background:#e3f5ea;color:#0c5a3a}
+.cloze input.no{border-color:var(--red);background:#fde9e6;color:#932219;text-decoration:line-through}
+.cloze input.near{border-color:#c79a00;background:#fff6c9}
+.cloze .fix{color:var(--green);font-weight:750;margin-left:4px}
+.cloze .n{font-size:12px;color:var(--muted);vertical-align:super}
+.tf{display:grid;grid-template-columns:1fr auto;gap:8px 12px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line)}
+.tf .bt{display:flex;gap:6px}
+.tf .bt button{border:2px solid var(--line);background:#fff;border-radius:10px;padding:6px 12px;font-weight:700}
+.tf .bt button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.tf .bt button.right{background:var(--green);border-color:var(--green);color:#fff}
+.tf .bt button.wrong{background:var(--red);border-color:var(--red);color:#fff}
+.tf .corr{grid-column:1/-1;font-size:15px;color:var(--muted)}
+.readtxt{font-size:18px;line-height:1.6;background:var(--soft);border-radius:12px;padding:12px 14px}
+.score{font-size:44px;font-weight:800;color:var(--ink);line-height:1}
+.skills{display:grid;gap:6px;margin-top:10px;text-align:left}
+.skills .sk{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;background:var(--soft);border-radius:10px;padding:8px 12px}
+.skills .sk b.bad{color:var(--red)}.skills .sk b.good{color:var(--green)}
+textarea.write{width:100%;min-height:184px;font:inherit;font-size:18px;line-height:32px;padding:23px 12px 10px 58px;background-attachment:local;border:0;border-radius:12px;resize:vertical;color:var(--ink)}
+.bingo{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.bingo span{border:2px dashed var(--line);border-radius:999px;padding:4px 10px;font-size:14.5px;font-weight:650;color:var(--muted)}
+.bingo span.hit{border:2px solid var(--green);background:#e3f5ea;color:#0c5a3a}
+.flags{margin:8px 0;padding-left:20px}
+.flags li{margin:6px 0}
+.flags code{background:#fde9e6;color:#932219;border-radius:5px;padding:1px 5px;font-family:inherit;font-weight:700}
+.check label{display:flex;gap:8px;align-items:flex-start;margin:6px 0}
+.check input{width:20px;height:20px;margin-top:2px;accent-color:var(--green)}
+.menu{display:grid;gap:10px}
+.menu button{border:0;background:var(--paper);border-radius:var(--r);padding:14px 16px;text-align:left;box-shadow:0 1px 0 #c3cae0;display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:center}
+.menu button:hover{box-shadow:0 1px 0 #c3cae0,0 0 0 2px var(--ink)}
+.menu button b{font-size:18px;color:var(--ink)}
+.menu button span{font-size:14.5px;color:var(--muted);grid-column:1}
+.menu button em{font-style:normal;font-weight:750;color:var(--muted);grid-row:1/3;grid-column:2;font-size:14px}
+.name-in{font:inherit;font-size:20px;padding:10px 12px;border-radius:12px;border:2px solid var(--ink);width:100%;max-width:300px}
+
+@media (max-width:620px){
+  body{font-size:16.5px}
+  .cover{padding-left:58px}
+  .cover h1{font-size:30px}
+  .cover h1,.cover .sub{padding-right:88px}
+  .quick{grid-template-columns:1fr}
+  .quick button{min-height:0;flex-direction:row;align-items:center;gap:10px}
+  .stations{grid-template-columns:1fr}
+  .studio{grid-template-columns:1fr}
+  .studio .stage{display:grid;gap:10px;text-align:left;align-items:center;z-index:4;box-shadow:0 6px 12px -8px #26306b}
+  .studio .stage svg{max-width:92px}
+  .studio .stage{grid-template-columns:92px 1fr}
+  .studio .stage .descr{font-size:14.5px}
+  .gw{grid-template-columns:repeat(4,1fr);gap:6px}
+  .item .q{font-size:20px}
+  .opts.two{grid-template-columns:1fr}
+  .die{min-width:104px;font-size:21px}
+  .cloze input{width:104px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+</style>
+</head>
+<body>
+<div id="app"><noscript>Diese Seite braucht JavaScript.</noscript></div>
+<script>
+/* ===== Content: Band 2, Unité 1. All French here is original practice material on the unit's language points. ===== */
+const WHO = {
+  maelle:{n:"Maëlle", c:"#d6382e"},
+  nino:{n:"Nino", c:"#15895a"},
+  ines:{n:"Inès", c:"#b0591a"},
+  sacha:{n:"Sacha", c:"#7a3fb0"},
+  prof:{n:"Mme Petit", c:"#1f2130"}
+};
+
+const STATIONS = [];
+
+/* ---------- 1 · C'est la rentrée ---------- */
+STATIONS.push({
+  id:"rentree", no:1, t:"C'est la rentrée!", d:"Schule, Klassen, Stundenplan", min:5,
+  chat:[
+    {f:"maelle", fr:"Salut tout le monde! C'est la rentrée! 🎒", de:"Hallo zusammen! Die Schule geht wieder los!"},
+    {f:"nino", fr:"Oh non… Finies les vacances! 😭", de:"Oh nein … Die Ferien sind vorbei!"},
+    {f:"ines", fr:"Moi, je suis contente: je retrouve mes copains!", de:"Ich freue mich: Ich treffe meine Freunde wieder!"},
+    {f:"sacha", fr:"Bonjour! Je suis nouveau au collège. Je m'appelle Sacha.", de:"Hallo! Ich bin neu an der Schule. Ich heiße Sacha."},
+    {ask:"Sacha ist neu. Was antwortest du ihm?", o:[
+      {t:"Salut Sacha! Bienvenue en cinquième B!", ok:1, de:"Hallo Sacha! Willkommen in der 5e B!"},
+      {t:"Bonjour madame!", fb:"«Madame» sagst du zu einer erwachsenen Frau. Sacha ist ein Mitschüler."},
+      {t:"Au revoir, Sacha!", fb:"«Au revoir» heißt «Auf Wiedersehen». Du willst ihn doch begrüßen!"}]},
+    {f:"sacha", fr:"Merci{,n}! On est en quelle salle?", de:"Danke! In welchem Raum sind wir?"},
+    {f:"maelle", fr:"Salle 12. Regarde l'emploi du temps: à 10 heures, on a E.P.S. au gymnase.", de:"Raum 12. Schau auf den Stundenplan: Um 10 Uhr haben wir Sport in der Turnhalle."},
+    {f:"nino", fr:"Et à midi, on prend le repas à la cantine. 🍝 C'est ma matière préférée!", de:"Und mittags essen wir in der Kantine. Das ist mein Lieblingsfach!"},
+    {ask:"Achtung, falscher Freund! Was ist «le gymnase»?", o:[
+      {t:"die Turnhalle", ok:1, say:"le gymnase"},
+      {t:"das Gymnasium", fb:"Falle! Deine Schule heißt auf Französisch «le collège» (bis Klasse 9), danach «le lycée»."},
+      {t:"die Kantine", fb:"Die Kantine ist «la cantine»."}]},
+    {f:"ines", fr:"Vite! Le cours commence. On ne veut pas arriver en retard!", de:"Schnell! Der Unterricht fängt an. Wir wollen nicht zu spät kommen!"}
+  ],
+  rules:[
+    `<div class="kicker">Karte 1 · Klassen im Collège</div>
+     <h3>In Frankreich zählt man rückwärts</h3>
+     <p>Das Collège beginnt mit der <span class="fr">sixième</span> und endet mit der <span class="fr">troisième</span>. Wie ein Countdown bis zum Lycée.</p>
+     <div class="count">
+       <div><b>6<sup>e</sup></b><span class="fr">la sixième</span><span>11 Jahre · 6. Klasse</span></div>
+       <div><b>5<sup>e</sup></b><span class="fr">la cinquième</span><span>12 Jahre · 7. Klasse</span></div>
+       <div><b>4<sup>e</sup></b><span class="fr">la quatrième</span><span>13 Jahre · 8. Klasse</span></div>
+       <div><b>3<sup>e</sup></b><span class="fr">la troisième</span><span>14 Jahre · 9. Klasse</span></div>
+     </div>
+     <p>So sagst du es: <span class="fr">Je suis <mark>en</mark> cinquième.</span> (Ich bin in der 7. Klasse.)</p>
+     <div class="ok">Rechentrick: deutsche Klasse + französische Klasse = <b>12</b>. Also 7. Klasse → 5<sup>e</sup>.</div>`,
+    `<div class="kicker">Karte 2 · Vorbei!</div>
+     <h3>Fini, finie, finis, finies</h3>
+     <p><span class="fr">fini</span> heißt «vorbei, zu Ende». Es richtet sich nach dem Nomen dahinter. Man hört den Unterschied nicht, aber man schreibt ihn.</p>
+     <table>
+       <tr><td class="fr">Fin<mark>i</mark> le sport à la plage!</td><td>le sport: männlich</td></tr>
+       <tr><td class="fr">Fin<mark>ie</mark> la récré!</td><td>la récré: weiblich → +e</td></tr>
+       <tr><td class="fr">Fin<mark>is</mark> les repas dans la nature!</td><td>les repas: männlich, Mehrzahl → +s</td></tr>
+       <tr><td class="fr">Fin<mark>ies</mark> les vacances!</td><td>les vacances: weiblich, Mehrzahl → +es</td></tr>
+     </table>
+     <div class="trap"><b>Falle:</b> <span class="fr">le gymnase</span> ist die Turnhalle, nicht das Gymnasium.</div>`
+  ],
+  items:[
+    {t:"mc", k:"ecole", q:"Lina a 11 ans. Elle est en ___.", o:["sixième","cinquième","troisième"], a:0, w:"Mit 11 beginnt das Collège: la sixième (6. Klasse)."},
+    {t:"mc", k:"ecole", q:"Paul a 13 ans. Il est en ___.", o:["sixième","quatrième","cinquième"], a:1, w:"13 Jahre → la quatrième (8. Klasse). 8 + 4 = 12."},
+    {t:"mc", k:"ecole", q:"En Allemagne, tu es en «7. Klasse». En France, tu es en ___.", o:["septième","cinquième","troisième"], a:1, w:"7 + 5 = 12. Die 7. Klasse heißt la cinquième."},
+    {t:"mc", k:"ecole", q:"Emma a 14 ans: elle est en ___.", o:["troisième","quatrième","sixième"], a:0, w:"Letztes Jahr im Collège: la troisième (9. Klasse)."},
+    {t:"mc", k:"ecole", q:"___ les vacances!", o:["Fini","Finis","Finies"], a:2, w:"les vacances ist weiblich und Mehrzahl → Finies."},
+    {t:"mc", k:"ecole", q:"___ le sport à la plage!", o:["Fini","Finie","Finies"], a:0, w:"le sport ist männlich, Einzahl → Fini."},
+    {t:"mc", k:"ecole", q:"___ les repas dans la nature!", o:["Finie","Finis","Finies"], a:1, w:"le repas ist männlich; Mehrzahl → Finis."},
+    {t:"mc", k:"ecole", q:"On a E.P.S. On va ___.", o:["au gymnase","à la cantine","au CDI"], a:0, w:"E.P.S. ist Sport. Sport macht man in der Turnhalle: au gymnase."},
+    {t:"mc", k:"ecole", q:"À midi, les élèves prennent le repas ___.", o:["dans la cour","à la cantine","au gymnase"], a:1, w:"le repas = das Essen. Gegessen wird in der Kantine."},
+    {t:"mc", k:"ecole", q:"Lundi: maths, français, E.P.S. … C'est mon ___.", o:["emploi du temps","carnet de correspondance","résultat"], a:0, w:"un emploi du temps = ein Stundenplan."},
+    {t:"mc", k:"ecole", q:"Dans le ___, il y a des informations des profs pour les parents.", o:["gymnase","repas","carnet de correspondance"], a:2, w:"Das carnet de correspondance ist das Mitteilungsheft zwischen Lehrern und Eltern."},
+    {t:"mc", k:"ecole", q:"Après les vacances, les élèves ___ au collège.", o:["retourne","retournent","retournez"], a:1, w:"les élèves = ils → retournent."},
+    {t:"ty", k:"ecole", de:"der Schuljahresbeginn", q:"la ___", a:["rentrée"], w:"la rentrée, mit é und ée am Ende."},
+    {t:"ty", k:"ecole", de:"ein Schulfach", q:"une ___", a:["matière"], w:"une matière, mit è."},
+    {t:"or", k:"ecole", de:"Die Schüler gehen in den Klassenraum.", s:"Les élèves entrent dans la salle de cours ."},
+    {t:"or", k:"ecole", de:"Ich bin in der 7. Klasse.", s:"Je suis en cinquième ."}
+  ],
+  memo:["Collège: 6<sup>e</sup> → 5<sup>e</sup> → 4<sup>e</sup> → 3<sup>e</sup>. Deutsche + französische Klasse = 12.","<span class='fr'>Je suis en cinquième.</span>","<span class='fr'>le gymnase</span> = die Turnhalle. <span class='fr'>Finies les vacances!</span>"],
+  todo:"Sag heute Abend auf Französisch, in welcher Klasse du bist und welche drei Fächer du morgen hast."
+});
+
+/* ---------- 2 · Beau et nouveau ---------- */
+STATIONS.push({
+  id:"beau", no:2, t:"Beau et nouveau", d:"beau, bel, belle · nouveau, nouvel, nouvelle", min:6,
+  chat:[
+    {f:"nino", fr:"Regardez! J'ai un nouveau t-shirt. 😎", de:"Schaut mal! Ich habe ein neues T-Shirt."},
+    {f:"ines", fr:"Il est beau! Et moi, j'ai une nouvelle casquette.", de:"Es ist schön! Und ich habe eine neue Mütze."},
+    {f:"maelle", fr:"Elle est belle, ta casquette! Moi, j'ai un nouvel anorak.", de:"Sie ist schön, deine Mütze! Ich habe einen neuen Anorak."},
+    {f:"nino", fr:"Un nouvel anorak? Pourquoi pas «nouveau»?", de:"Ein «nouvel» Anorak? Warum nicht «nouveau»?"},
+    {f:"maelle", fr:"Parce que «anorak» commence par A. Écoute: «nouveau anorak»… c'est difficile! «Nouvel anorak», c'est facile.", de:"Weil «anorak» mit A anfängt. Hör mal: «nouveau anorak» … das ist schwer! «Nouvel anorak» ist leicht."},
+    {ask:"Sacha ist neu in der Klasse. Wie sagst du das?", o:[
+      {t:"C'est un nouvel élève.", ok:1, de:"Er ist ein neuer Schüler."},
+      {t:"C'est un nouveau élève.", fb:"o und é stoßen zusammen. Vor einem Vokal wird nouveau zu nouvel."},
+      {t:"C'est une nouvelle élève.", fb:"Das wäre eine neue Schülerin. Sacha ist ein Junge."}]},
+    {f:"sacha", fr:"Merci! Et vous avez tous un beau look pour la rentrée. 👍", de:"Danke! Und ihr habt alle ein schönes Outfit zum Schulanfang."},
+    {f:"ines", fr:"Regarde aussi mes nouvelles chaussures! Elles sont belles, non?", de:"Schau dir auch meine neuen Schuhe an! Sie sind schön, oder?"}
+  ],
+  rules:[
+    `<div class="kicker">Karte 1 · Die Formen</div>
+     <h3>beau und nouveau haben eine Extraform</h3>
+     <table>
+       <tr><th></th><th>schön</th><th>neu</th></tr>
+       <tr><td>männlich</td><td class="fr">un beau pull</td><td class="fr">un nouveau pull</td></tr>
+       <tr><td>männlich + Vokal / stummes h</td><td class="fr">un <mark>bel</mark> anorak</td><td class="fr">un <mark>nouvel</mark> ami</td></tr>
+       <tr><td>weiblich</td><td class="fr">une belle veste</td><td class="fr">une nouvelle veste</td></tr>
+       <tr><td>Mehrzahl männlich</td><td class="fr">des beau<mark>x</mark> pulls</td><td class="fr">des nouveau<mark>x</mark> amis</td></tr>
+       <tr><td>Mehrzahl weiblich</td><td class="fr">des belles vestes</td><td class="fr">des nouvelles vestes</td></tr>
+     </table>
+     <div class="ok">Das kennst du aus dem Englischen: <b>a</b> pullover, aber <b>an</b> anorak. Französisch macht dasselbe mit beau → <span class="fr">bel</span> und nouveau → <span class="fr">nouvel</span>.</div>`,
+    `<div class="kicker">Karte 2 · Drei Dinge, die Punkte bringen</div>
+     <h3>Davor, mit x, nur in der Einzahl</h3>
+     <p><span class="tip">1 · Davor.</span> beau und nouveau stehen <b>vor</b> dem Nomen. Farben stehen dahinter: <span class="fr">un beau pull rouge</span>.</p>
+     <p><span class="tip">2 · Mit x.</span> Mehrzahl männlich: <span class="fr">beaux, nouveaux</span>. Nie mit s.</p>
+     <p><span class="tip">3 · Nur Einzahl.</span> bel und nouvel gibt es nur in der Einzahl: <span class="fr">un nouvel ami</span>, aber <span class="fr">des nouveaux amis</span>.</p>
+     <div class="trap"><b>Falle:</b> <span class="fr">une année, une amie, une histoire</span> sind weiblich. Dann immer <span class="fr">nouvelle / belle</span>, egal welcher Buchstabe folgt.</div>
+     <p class="small muted">bel klingt genau wie belle, nouvel wie nouvelle.</p>`
+  ],
+  items:[
+    {t:"mc", k:"g1", q:"<span class='cue'>(beau)</span> un ___ t-shirt", o:["beau","bel","belle"], a:0, w:"t-shirt beginnt mit einem Konsonanten → beau."},
+    {t:"mc", k:"g1", q:"<span class='cue'>(beau)</span> un ___ anorak", o:["beau","bel","belle"], a:1, w:"männlich + Vokal → bel. Wie «an anorak»."},
+    {t:"mc", k:"g1", q:"<span class='cue'>(beau)</span> une ___ robe", o:["beau","bel","belle"], a:2, w:"une robe ist weiblich → belle."},
+    {t:"mc", k:"g1", q:"<span class='cue'>(beau)</span> des ___ chaussures", o:["beaux","bels","belles"], a:2, w:"les chaussures: weiblich, Mehrzahl → belles."},
+    {t:"mc", k:"g1", q:"<span class='cue'>(beau)</span> des ___ pulls", o:["beaus","beaux","bels"], a:1, w:"Mehrzahl männlich → beaux, mit x."},
+    {t:"mc", k:"g1", q:"<span class='cue'>(beau)</span> un ___ homme", o:["beau","bel","belle"], a:1, w:"Das h in homme ist stumm → bel homme."},
+    {t:"mc", k:"g1", q:"<span class='cue'>(beau)</span> des ___ anoraks", o:["bels","beaux","belles"], a:1, w:"bel gibt es nur in der Einzahl. Mehrzahl: beaux."},
+    {t:"mc", k:"g1", q:"<span class='cue'>(nouveau)</span> un ___ emploi du temps", o:["nouveau","nouvel","nouvelle"], a:1, w:"emploi beginnt mit Vokal → nouvel."},
+    {t:"mc", k:"g1", q:"<span class='cue'>(nouveau)</span> une ___ copine", o:["nouveau","nouvel","nouvelle"], a:2, w:"une copine ist weiblich → nouvelle."},
+    {t:"mc", k:"g1", q:"<span class='cue'>(nouveau)</span> des ___ livres", o:["nouveaux","nouveaus","nouvelles"], a:0, w:"le livre: männlich; Mehrzahl mit x → nouveaux."},
+    {t:"mc", k:"g1", q:"<span class='cue'>(nouveau)</span> un ___ élève", o:["nouveau","nouvel","nouveaux"], a:1, w:"élève beginnt mit Vokal → nouvel."},
+    {t:"mc", k:"g1", q:"<span class='cue'>(nouveau)</span> des ___ élèves", o:["nouvels","nouveaux","nouveau"], a:1, w:"Mehrzahl: nouveaux. nouvel gibt es nur in der Einzahl."},
+    {t:"mc", k:"g1", q:"<span class='cue'>(nouveau)</span> une ___ année", o:["nouvel","nouvelle","nouveau"], a:1, w:"une année ist weiblich → nouvelle, auch vor Vokal."},
+    {t:"mc", k:"g1", q:"<span class='cue'>(nouveau)</span> un ___ prof", o:["nouveau","nouvel","nouvelle"], a:0, w:"prof beginnt mit einem Konsonanten → nouveau."},
+    {t:"mc", k:"g1", q:"<span class='cue'>(nouveau)</span> des ___ matières", o:["nouveaux","nouvelles","nouvels"], a:1, w:"une matière: weiblich, Mehrzahl → nouvelles."},
+    {t:"mc", k:"g1", q:"<span class='cue'>(nouveau)</span> un ___ ordinateur", o:["nouveau","nouvelle","nouvel"], a:2, w:"ordinateur beginnt mit Vokal → nouvel."},
+    {t:"mc", k:"g1", q:"<span class='cue'>(beau)</span> une ___ histoire", o:["bel","belle","beau"], a:1, w:"une histoire ist weiblich → belle."},
+    {t:"ty", k:"g1", q:"Maëlle a un ___ <span class='cue'>(nouveau)</span> anorak.", a:["nouvel"], w:"männlich + Vokal → nouvel."},
+    {t:"ty", k:"g1", q:"Elles sont ___ <span class='cue'>(beau)</span>, tes chaussures!", a:["belles"], w:"elles = les chaussures: weiblich, Mehrzahl → belles."},
+    {t:"ty", k:"g1", q:"Il est ___ <span class='cue'>(beau)</span>, ton pantalon.", a:["beau"], w:"il = le pantalon: männlich, Einzahl → beau."},
+    {t:"ty", k:"g1", q:"J'ai des ___ <span class='cue'>(nouveau)</span> copains.", a:["nouveaux"], w:"Mehrzahl männlich → nouveaux, mit x."},
+    {t:"sp", k:"g1", s:"J'ai des nouvels amis .", bad:"nouvels", fix:"nouveaux", w:"nouvel gibt es nur in der Einzahl. Mehrzahl: des nouveaux amis."},
+    {t:"sp", k:"g1", s:"C'est un beau anorak .", bad:"beau", fix:"bel", w:"Vor Vokal: un bel anorak."},
+    {t:"sp", k:"g1", s:"Elle a une nouveau veste .", bad:"nouveau", fix:"nouvelle", w:"une veste ist weiblich → nouvelle."}
+  ],
+  memo:["Vor Vokal oder stummem h: <span class='fr'>un bel anorak, un nouvel élève</span> (wie a / an).","Mehrzahl männlich mit x: <span class='fr'>beaux, nouveaux</span>. Kein bel / nouvel in der Mehrzahl.","Weiblich immer <span class='fr'>belle / nouvelle</span>: <span class='fr'>une nouvelle année</span>."],
+  todo:"Such dir drei Dinge in deinem Zimmer und sag, ob sie neu oder schön sind: «J'ai un nouvel ordinateur. Il est beau!»"
+});
+
+/* ---------- 3 · Trop de devoirs ---------- */
+STATIONS.push({
+  id:"de", no:3, t:"Trop de devoirs!", d:"Mengen mit de · ne … plus", min:5,
+  chat:[
+    {f:"ines", fr:"Oh là là, on a beaucoup de devoirs aujourd'hui! 📚", de:"Oje, wir haben heute viele Hausaufgaben!"},
+    {f:"nino", fr:"Trop de devoirs! Et moi, j'ai peu de temps: j'ai foot à cinq heures.", de:"Zu viele Hausaufgaben! Und ich habe wenig Zeit: Um fünf habe ich Fußball."},
+    {f:"maelle", fr:"Moi, je n'ai pas de devoirs en maths. 😇", de:"Ich habe keine Hausaufgaben in Mathe."},
+    {f:"nino", fr:"Quoi?! La chance! Nous, pas de chance…", de:"Was?! Du Glückliche! Wir haben Pech …"},
+    {f:"sacha", fr:"Et moi, je n'ai plus de stylo. Tu as un stylo pour moi{,n}?", de:"Und ich habe keinen Füller mehr. Hast du einen Füller für mich?"},
+    {ask:"Du hast viele Stifte. Was antwortest du?", o:[
+      {t:"Oui, j'ai beaucoup de stylos!", ok:1, de:"Ja, ich habe viele Füller!"},
+      {t:"Oui, j'ai beaucoup des stylos!", fb:"Nach beaucoup steht immer nur de, nie des."},
+      {t:"Oui, j'ai beaucoup stylos!", fb:"Da fehlt der Kleber de. Denk an Englisch: a lot OF pens."}]},
+    {f:"sacha", fr:"Merci! Tu es sympa.", de:"Danke! Du bist nett."},
+    {f:"ines", fr:"Bon, on commence? Je ne veux plus parler de devoirs! 😅", de:"Also, fangen wir an? Ich will nicht mehr über Hausaufgaben reden!"}
+  ],
+  rules:[
+    `<div class="kicker">Karte 1 · Der Mengen-Kleber</div>
+     <h3>Menge + de + Nomen</h3>
+     <p>Im Deutschen sagst du «viele Hausaufgaben». Im Französischen brauchst du zwischen Menge und Nomen immer den Kleber <span class="fr">de</span>. Wie im Englischen: a lot <b>of</b> homework.</p>
+     <div class="meter">
+       <span class="m">📚📚📚📚📚📚📚</span><span><span class="fr">trop <mark>de</mark> livres</span> · zu viele</span>
+       <span class="m">📚📚📚📚📚</span><span><span class="fr">beaucoup <mark>de</mark> livres</span> · viele</span>
+       <span class="m">📚</span><span><span class="fr">peu <mark>de</mark> livres</span> · wenige</span>
+       <span class="m">∅</span><span><span class="fr">ne … pas <mark>de</mark> livres</span> · keine</span>
+       <span class="m">📚 → ∅</span><span><span class="fr">ne … plus <mark>de</mark> livres</span> · keine mehr</span>
+     </div>
+     <div class="trap"><b>Falle:</b> nach einer Menge nie <span class="fr">des, du, de la, les</span>. Nur <span class="fr">de</span>.</div>`,
+    `<div class="kicker">Karte 2 · Zwei Feinheiten</div>
+     <h3>d' vor Vokal und die Klammer ne … plus</h3>
+     <p><span class="tip">d' vor Vokal oder stummem h:</span> <span class="fr">beaucoup <mark>d'</mark>amis · pas <mark>d'</mark>idée · trop <mark>d'</mark>histoires</span></p>
+     <p><span class="tip">ne … pas und ne … plus</span> klammern das Verb ein:</p>
+     <table>
+       <tr><td class="fr">Je <mark>n'</mark>ai <mark>pas</mark> de stylo.</td><td>Ich habe keinen Füller.</td></tr>
+       <tr><td class="fr">Je <mark>n'</mark>ai <mark>plus</mark> de stylo.</td><td>Ich habe keinen Füller mehr.</td></tr>
+       <tr><td class="fr">Elle <mark>ne</mark> mange <mark>plus</mark> de viande.</td><td>Sie isst kein Fleisch mehr.</td></tr>
+     </table>
+     <p class="small muted">Merksätze zum Mitnehmen: <span class="fr">Pas de chance!</span> (Pech!) · <span class="fr">Il y a beaucoup de monde.</span> (Da sind viele Leute.)</p>`
+  ],
+  items:[
+    {t:"mc", k:"de", q:"👫👫👫👫 J'ai ___ amis.", o:["beaucoup d'","beaucoup de","beaucoup des"], a:0, w:"amis beginnt mit Vokal → beaucoup d'amis."},
+    {t:"mc", k:"de", q:"J'ai foot, j'ai musique, j'ai des devoirs… J'ai ___ temps pour moi.", o:["beaucoup de","peu de","peu du"], a:1, w:"Viel los → wenig Zeit: peu de temps."},
+    {t:"mc", k:"de", q:"Huit heures de cours aujourd'hui! On a ___ cours!", o:["trop de","trop des","peu de"], a:0, w:"Acht Stunden sind zu viel: trop de cours."},
+    {t:"mc", k:"de", q:"Mon stylo? Il est où? Zut, je n'ai ___ stylo!", o:["plus de","plus du","plus un"], a:0, w:"Er war da, jetzt ist er weg: ne … plus de."},
+    {t:"mc", k:"de", q:"Léa ne mange ___ viande. Elle n'aime plus ça.", o:["plus de la","plus de","plus des"], a:1, w:"ne … plus de + Nomen ohne Artikel."},
+    {t:"mc", k:"de", q:"Il n'y a pas ___ élèves dans la cour.", o:["de","des","d'"], a:2, w:"élèves beginnt mit Vokal → pas d'élèves."},
+    {t:"mc", k:"de", q:"Tu as beaucoup ___ devoirs?", o:["des","de","les"], a:1, w:"Nach beaucoup immer de."},
+    {t:"mc", k:"de", q:"Il fait beau, mais j'ai cours: pas ___ chance!", o:["de","de la","du"], a:0, w:"Fester Ausdruck: Pas de chance! = Pech!"},
+    {t:"mc", k:"de", q:"Au concert, il y a beaucoup ___ monde.", o:["du","de","des"], a:1, w:"beaucoup de monde = viele Leute."},
+    {t:"ty", k:"de", de:"Ich habe viele Hausaufgaben.", q:"J'ai ___ devoirs.", a:["beaucoup de"], w:"viele = beaucoup de."},
+    {t:"ty", k:"de", de:"Wir haben keine Zeit.", q:"Nous n'avons ___ temps.", a:["pas de"], w:"keine = ne … pas de."},
+    {t:"ty", k:"de", de:"Er hat zu viele Bücher.", q:"Il a ___ livres.", a:["trop de"], w:"zu viele = trop de."},
+    {t:"ty", k:"de", de:"Ich habe keinen Füller mehr.", q:"Je n'ai ___ stylo.", a:["plus de"], w:"kein … mehr = ne … plus de."},
+    {t:"ty", k:"de", de:"Sie hat wenige Ideen.", q:"Elle a ___ idées.", a:["peu d'"], w:"wenige = peu de; vor Vokal peu d'."},
+    {t:"sp", k:"de", s:"Elle a beaucoup des copines .", bad:"des", fix:"de", w:"Nach beaucoup nur de."},
+    {t:"sp", k:"de", s:"Nous n'avons pas des devoirs .", bad:"des", fix:"de", w:"ne … pas de: keine Hausaufgaben."},
+    {t:"sp", k:"de", s:"Il a trop de amis .", bad:"de", fix:"d'", w:"Vor Vokal wird de zu d'."},
+    {t:"or", k:"de", de:"Wir haben zu viele Hausaufgaben.", s:"Nous avons trop de devoirs ."},
+    {t:"or", k:"de", de:"Ich habe keinen Füller mehr.", s:"Je n'ai plus de stylo ."}
+  ],
+  memo:["Menge + <span class='fr'>de</span>: <span class='fr'>beaucoup de, trop de, peu de, pas de, plus de</span>.","Nie des / du / de la nach einer Menge. Vor Vokal: <span class='fr'>d'</span>.","<span class='fr'>Je n'ai plus de stylo.</span> = Ich habe keinen Füller mehr."],
+  todo:"Schau in deine Schultasche und sag drei Sätze: «J'ai beaucoup de …», «J'ai peu de …», «Je n'ai pas de …»."
+});
+
+/* ---------- 4 · Je veux, je peux ---------- */
+STATIONS.push({
+  id:"vp", no:4, t:"Je veux, je peux", d:"vouloir und pouvoir", min:6,
+  chat:[
+    {f:"maelle", fr:"On fait une vidéo pour la fête du collège! Qui veut chanter? 🎤", de:"Wir machen ein Video für das Schulfest! Wer will singen?"},
+    {f:"nino", fr:"Moi, je veux chanter! Mais… je ne peux pas danser. 😅", de:"Ich will singen! Aber … ich kann nicht tanzen."},
+    {f:"ines", fr:"Sacha et moi, nous voulons filmer. Nous pouvons prendre mon portable.", de:"Sacha und ich wollen filmen. Wir können mein Handy nehmen."},
+    {f:"sacha", fr:"Vous pouvez arriver à quatre heures?", de:"Könnt ihr um vier Uhr da sein?"},
+    {f:"nino", fr:"Oui! Et les profs, ils peuvent regarder la vidéo aussi?", de:"Ja! Und die Lehrer, können die das Video auch anschauen?"},
+    {f:"maelle", fr:"Bien sûr, s'ils veulent! Et toi{,n}, tu veux faire la vidéo avec nous?", de:"Klar, wenn sie wollen! Und du, willst du das Video mit uns machen?"},
+    {ask:"Du bist dabei! Was sagst du?", o:[
+      {t:"Oui, je veux bien!", ok:1, de:"Ja, gerne!"},
+      {t:"Oui, je veut bien!", fb:"Bei je endet die Form auf x: je veux. Mit t ist es il / elle / on veut."},
+      {t:"Oui, je voulons bien!", fb:"voulons gehört zu nous. Bei je: je veux."}]},
+    {f:"maelle", fr:"Super! On peut commencer demain, si tu veux.", de:"Super! Wir können morgen anfangen, wenn du willst."}
+  ],
+  rules:[
+    `<div class="kicker">Karte 1 · Die Formen</div>
+     <h3>eu – eu – eu, dann ou – ou, dann wieder eu</h3>
+     <table class="boot">
+       <tr><th></th><th>vouloir</th><th>pouvoir</th></tr>
+       <tr class="eu"><td>je</td><td class="fr">v<mark>eu</mark>x</td><td class="fr">p<mark>eu</mark>x</td></tr>
+       <tr class="eu"><td>tu</td><td class="fr">v<mark>eu</mark>x</td><td class="fr">p<mark>eu</mark>x</td></tr>
+       <tr class="eu"><td>il / elle / on</td><td class="fr">v<mark>eu</mark>t</td><td class="fr">p<mark>eu</mark>t</td></tr>
+       <tr class="ou"><td>nous</td><td class="fr">v<b class="u">ou</b>lons</td><td class="fr">p<b class="u">ou</b>vons</td></tr>
+       <tr class="ou"><td>vous</td><td class="fr">v<b class="u">ou</b>lez</td><td class="fr">p<b class="u">ou</b>vez</td></tr>
+       <tr class="eu"><td>ils / elles</td><td class="fr">v<mark>eu</mark>lent</td><td class="fr">p<mark>eu</mark>vent</td></tr>
+     </table>
+     <p><span class="tip">nous und vous</span> sehen aus wie der Infinitiv: v<b>ou</b>loir → v<b>ou</b>lons, p<b>ou</b>voir → p<b>ou</b>vez. Alle anderen haben <b>eu</b>.</p>
+     <div class="ok">Endungen in der Einzahl: <b>x – x – t</b>. Je veu<b>x</b>, tu veu<b>x</b>, il veu<b>t</b>.</div>
+     <p class="small muted">vouloir = wollen · pouvoir = können, dürfen</p>`,
+    `<div class="kicker">Karte 2 · Im Satz</div>
+     <h3>Das zweite Verb bleibt im Infinitiv</h3>
+     <table>
+       <tr><td class="fr">Je veux <mark>chanter</mark>.</td><td>Ich will singen.</td></tr>
+       <tr><td class="fr">On peut <mark>regarder</mark> un film?</td><td>Können wir einen Film schauen?</td></tr>
+       <tr><td class="fr">Je <mark>ne</mark> peux <mark>pas</mark> danser.</td><td>ne … pas klammert veux / peux ein.</td></tr>
+     </table>
+     <p>Anders als im Deutschen steht der Infinitiv <b>direkt</b> hinter veux / peux, nicht am Satzende: <span class="fr">Je veux <u>manger</u> une pizza.</span></p>
+     <div class="trap"><b>Falle bei «wenn»:</b> <span class="fr">si + il = <mark>s'il</mark> veut</span>, <span class="fr">si + ils = <mark>s'ils</mark> veulent</span>. Aber: <span class="fr">si elle veut</span>, <span class="fr">si tu veux</span>, <span class="fr">si on veut</span> ohne Apostroph.</div>`
+  ],
+  sprint:{verbs:["vouloir","pouvoir"], secs:45},
+  items:[
+    {t:"ty", k:"vp", q:"Madame, on ___ <span class='cue'>(pouvoir)</span> regarder un film?", a:["peut"], w:"on → peut, mit t."},
+    {t:"ty", k:"vp", q:"Bien sûr, si vous ___ <span class='cue'>(vouloir)</span>.", a:["voulez"], w:"vous → voulez, mit ou wie im Infinitiv."},
+    {t:"ty", k:"vp", q:"Les élèves de 6<sup>e</sup> ___ <span class='cue'>(pouvoir)</span> faire la sortie avec nous?", a:["peuvent"], w:"les élèves = ils → peuvent."},
+    {t:"ty", k:"vp", q:"Je ne ___ <span class='cue'>(vouloir)</span> plus parler de devoirs.", a:["veux"], w:"je → veux, mit x."},
+    {t:"ty", k:"vp", q:"Nous ___ <span class='cue'>(pouvoir)</span> rester copines.", a:["pouvons"], w:"nous → pouvons."},
+    {t:"ty", k:"vp", q:"Mes parents ne ___ <span class='cue'>(vouloir)</span> pas.", a:["veulent"], w:"mes parents = ils → veulent."},
+    {t:"ty", k:"vp", q:"Tu ___ <span class='cue'>(vouloir)</span> un tuyau?", a:["veux"], w:"tu → veux, mit x."},
+    {t:"ty", k:"vp", q:"Inès ___ <span class='cue'>(pouvoir)</span> lire mon texte.", a:["peut"], w:"Inès = elle → peut."},
+    {t:"mc", k:"vp", q:"Wir können zusammen essen, wenn du willst.", o:["On peut manger ensemble, si tu veux.","On veut manger ensemble, si tu peux.","On peut mangeons ensemble, si tu veux."], a:0, w:"können = pouvoir, wollen = vouloir. Das zweite Verb bleibt im Infinitiv: manger."},
+    {t:"mc", k:"vp", q:"Lukas peut jouer avec nous, ___ veut.", o:["si il","s'il","s'elle"], a:1, w:"si + il → s'il."},
+    {t:"mc", k:"vp", q:"Emma peut chanter, ___ veut.", o:["s'elle","si elle","s'il"], a:1, w:"Nur vor il / ils gibt es den Apostroph. Also: si elle."},
+    {t:"mc", k:"vp", q:"Ich will nicht tanzen.", o:["Je ne veux pas danser.","Je veux ne pas danse.","Je ne veux danser pas."], a:0, w:"ne … pas klammert veux ein, danach der Infinitiv."},
+    {t:"or", k:"vp", de:"Ich kann nicht zu spät kommen.", s:"Je ne peux pas arriver en retard ."},
+    {t:"or", k:"vp", de:"Wir wollen ein Video machen.", s:"Nous voulons faire une vidéo ."}
+  ],
+  memo:["<span class='fr'>je veux, tu veux, il veut · nous voulons, vous voulez · ils veulent</span>","pouvoir geht genauso: <span class='fr'>peux, peux, peut, pouvons, pouvez, peuvent</span>.","Danach Infinitiv: <span class='fr'>Je veux chanter.</span> Und: <span class='fr'>s'il veut</span>, aber <span class='fr'>si elle veut</span>."],
+  todo:"Frag heute jemanden auf Französisch: «Tu veux …?» oder «On peut …?» und warte auf die Antwort."
+});
+
+/* ---------- 5 · Les émotions ---------- */
+STATIONS.push({
+  id:"emo", no:5, t:"Ça va? Les émotions", d:"Gefühle und Meinung sagen", min:6,
+  chat:[
+    {f:"ines", fr:"Demain, on a une interro de maths. J'ai un peu peur… 😨", de:"Morgen schreiben wir einen Mathetest. Ich habe ein bisschen Angst …"},
+    {f:"nino", fr:"Moi, je suis en colère! On a trop de devoirs ET une interro! 😠", de:"Ich bin wütend! Wir haben zu viele Hausaufgaben UND einen Test!"},
+    {f:"maelle", fr:"Et moi, je suis triste parce que ma copine Lou est dans un autre collège maintenant. 😢", de:"Und ich bin traurig, weil meine Freundin Lou jetzt auf einer anderen Schule ist."},
+    {f:"sacha", fr:"Je trouve que c'est dommage. Mais vous pouvez rester copines!", de:"Ich finde das schade. Aber ihr könnt Freundinnen bleiben!"},
+    {f:"maelle", fr:"Oui, j'espère… Et toi{,n}, ça va?", de:"Ja, hoffentlich … Und du, wie geht's?"},
+    {ask:"Dir geht es gut: Du hast neue Freunde. Was schreibst du?", o:[
+      {t:"Je suis content(e) parce que j'ai des nouveaux copains!", ok:1, de:"Ich bin froh, weil ich neue Freunde habe!"},
+      {t:"Je suis colère.", fb:"Es heißt être EN colère. Und das bedeutet wütend."},
+      {t:"J'ai contente.", fb:"Froh IST man: je suis content(e). Nur Angst HAT man: j'ai peur."}]},
+    {f:"nino", fr:"Cool! Tu as l'air en forme. 💪", de:"Cool! Du siehst fit aus."},
+    {f:"ines", fr:"Je pense que ça va aller pour l'interro. On apprend ensemble?", de:"Ich denke, das wird schon mit dem Test. Lernen wir zusammen?"}
+  ],
+  rules:[
+    `<div class="kicker">Karte 1 · Mes sentiments</div>
+     <h3>Sein oder haben?</h3>
+     <div class="emo">
+       <span class="e">😊</span><span><span class="fr">Je <mark>suis</mark> content / contente.</span> · Ich bin froh.</span>
+       <span class="e">😢</span><span><span class="fr">Je <mark>suis</mark> triste.</span> · Ich bin traurig.</span>
+       <span class="e">😠</span><span><span class="fr">Je <mark>suis en</mark> colère.</span> · Ich bin wütend.</span>
+       <span class="e">😨</span><span><span class="fr">J'<mark>ai</mark> (un peu) peur.</span> · Ich habe (ein bisschen) Angst.</span>
+       <span class="e">😕</span><span><span class="fr">C'est dommage.</span> · Das ist schade.</span>
+     </div>
+     <div class="ok">Wie im Deutschen: froh, traurig, wütend <b>ist</b> man (être). Angst <b>hat</b> man (avoir).</div>
+     <p><span class="tip">Warum?</span> Mit <span class="fr">parce que</span>: <span class="fr">Je suis triste <mark>parce que</mark> mon ami est dans un autre collège.</span></p>
+     <p><span class="tip">Wie sieht jemand aus?</span> <span class="fr">Il a l'air content. Elle a l'air content<mark>e</mark>.</span> Das Adjektiv richtet sich nach der Person.</p>`,
+    `<div class="kicker">Karte 2 · Meinung und Wunsch</div>
+     <h3>que = dass. Der Satz bleibt gerade.</h3>
+     <table>
+       <tr><td class="fr">Je trouve <mark>que</mark> c'est dommage.</td><td>Ich finde, dass das schade ist.</td></tr>
+       <tr><td class="fr">Je pense <mark>que</mark> c'est important.</td><td>Ich denke, dass das wichtig ist.</td></tr>
+       <tr><td class="fr">J'espère <mark>que</mark> tu es en forme.</td><td>Ich hoffe, dass du fit bist.</td></tr>
+     </table>
+     <p>Im Deutschen wandert das Verb ans Ende («dass das schade <u>ist</u>»). Im Französischen nicht: nach <span class="fr">que</span> geht der Satz ganz normal weiter. Und kein Komma vor <span class="fr">que</span>.</p>
+     <div class="trap"><b>Akzent-Wechsel bei préférer:</b> <span class="fr">je préf<mark>è</mark>re, tu préf<mark>è</mark>res, il préf<mark>è</mark>re, ils préf<mark>è</mark>rent</span>, aber <span class="fr">nous préf<b>é</b>rons, vous préf<b>é</b>rez</span>.</div>`
+  ],
+  items:[
+    {t:"mc", k:"emo", q:"😢 Ton ami va dans un autre collège.", o:["Je suis triste.","Je suis en forme.","Je suis content."], a:0, w:"triste = traurig."},
+    {t:"mc", k:"emo", q:"😠 Trop de devoirs et pas de récré!", o:["C'est super!","Je suis en colère!","Je suis contente!"], a:1, w:"être en colère = wütend sein."},
+    {t:"mc", k:"emo", q:"😨 Demain, il y a un test très important.", o:["J'ai un peu peur.","Je suis un peu peur.","C'est génial."], a:0, w:"Angst HAT man: avoir peur."},
+    {t:"mc", k:"emo", q:"😊 Tu retrouves tes copains après les vacances.", o:["Je suis en colère.","C'est nul.","Je suis content(e)!"], a:2, w:"content / contente = froh, zufrieden."},
+    {t:"mc", k:"emo", q:"😕 Il n'y a plus de places pour le concert.", o:["C'est dommage!","C'est top!","Pourquoi pas?"], a:0, w:"C'est dommage = Das ist schade."},
+    {t:"mc", k:"emo", q:"Je suis ___ colère.", o:["à","en","de"], a:1, w:"être en colère."},
+    {t:"mc", k:"emo", q:"J'___ peur.", o:["ai","suis","es"], a:0, w:"avoir peur: j'ai peur."},
+    {t:"mc", k:"emo", q:"Inès a l'air ___.", o:["content","contente","contents"], a:1, w:"Inès ist ein Mädchen → contente."},
+    {t:"mc", k:"emo", q:"Nino a l'air ___.", o:["fatigué","fatiguée","fatigués"], a:0, w:"Nino ist ein Junge → fatigué."},
+    {t:"mc", k:"emo", q:"Les profs ont l'air ___.", o:["content","contente","contents"], a:2, w:"les profs: Mehrzahl → contents."},
+    {t:"mc", k:"emo", q:"Je ___ la piscine.", o:["préfére","préfère","prefère"], a:1, w:"je préfère: erst é, dann è."},
+    {t:"mc", k:"emo", q:"Nous ___ le cinéma.", o:["préférons","préfèrons","préferons"], a:0, w:"Bei nous und vous bleibt é: nous préférons."},
+    {t:"mc", k:"emo", q:"On va au cinéma? – Non, je préfère ___ à la piscine.", o:["vais","aller","allons"], a:1, w:"Nach préférer steht der Infinitiv: aller."},
+    {t:"ty", k:"emo", de:"Ich hoffe, dass du fit bist.", q:"J'___ que tu es en forme.", a:["espère"], w:"espérer → j'espère, mit è."},
+    {t:"ty", k:"emo", de:"Ich finde, dass das schade ist.", q:"Je ___ que c'est dommage.", a:["trouve"], w:"trouver que = finden, dass."},
+    {t:"or", k:"emo", de:"Ich finde, dass das schade ist.", s:"Je trouve que c'est dommage ."},
+    {t:"or", k:"emo", de:"Ich hoffe, dass du fit bist.", s:"J'espère que tu es en forme ."},
+    {t:"or", k:"emo", de:"Ich bin traurig, weil ich zu viele Hausaufgaben habe.", s:"Je suis triste parce que j'ai trop de devoirs ."}
+  ],
+  memo:["<span class='fr'>Je suis content(e) / triste / en colère.</span> Aber: <span class='fr'>J'ai peur.</span>","<span class='fr'>Je trouve que … / Je pense que … / J'espère que …</span> Danach normaler Satz, kein Komma.","<span class='fr'>Elle a l'air contente.</span> · <span class='fr'>je préfère</span>, aber <span class='fr'>nous préférons</span>."],
+  todo:"Wie war dein Tag? Sag einen Satz mit Gefühl und Grund: «Je suis … parce que …»."
+});
+
+/* ---------- 6 · Le look-studio ---------- */
+STATIONS.push({
+  id:"look", no:6, t:"Le look-studio", d:"Kleidung und Farben", min:7,
+  chat:[
+    {f:"nino", fr:"Demain, c'est la photo de classe! 📸 Qu'est-ce que vous portez?", de:"Morgen ist Klassenfoto! Was zieht ihr an?"},
+    {f:"ines", fr:"Moi, je porte ma robe verte et mes chaussures blanches.", de:"Ich trage mein grünes Kleid und meine weißen Schuhe."},
+    {f:"maelle", fr:"Moi, un jean, une chemise blanche et ma veste rouge.", de:"Ich eine Jeans, ein weißes Hemd und meine rote Jacke."},
+    {f:"nino", fr:"Et moi, je porte mon pull orange et ma casquette!", de:"Und ich trage meinen orangefarbenen Pulli und meine Mütze!"},
+    {f:"maelle", fr:"Une casquette pour la photo? Non, Nino! 😂", de:"Eine Mütze fürs Foto? Nein, Nino!"},
+    {f:"sacha", fr:"Moi, je ne porte pas de pull. Je préfère les t-shirts. Et toi{,n}?", de:"Ich trage keinen Pulli. Ich mag T-Shirts lieber. Und du?"},
+    {ask:"Du ziehst eine blaue Jacke an. Was schreibst du?", o:[
+      {t:"Je porte une veste bleue.", ok:1, de:"Ich trage eine blaue Jacke."},
+      {t:"Je porte une bleue veste.", fb:"Farben stehen im Französischen hinter dem Nomen: une veste bleue."},
+      {t:"Je porte une veste bleu.", fb:"une veste ist weiblich. Die Farbe bekommt ein e: bleue."}]},
+    {f:"ines", fr:"Stylé! On va avoir une belle photo.", de:"Schick! Wir werden ein schönes Foto haben."}
+  ],
+  rules:[
+    `<div class="kicker">Karte 1 · Les vêtements</div>
+     <h3>Lern das un / une gleich mit</h3>
+     <table>
+       <tr><th>un …</th><th>une …</th><th>des …</th></tr>
+       <tr><td class="fr">un pull<br>un t-shirt<br>un pantalon<br>un jean<br>un anorak</td>
+           <td class="fr">une veste<br>une chemise<br>une jupe<br>une robe<br>une casquette</td>
+           <td class="fr">des chaussures (f.)<br>des lunettes (f.)</td></tr>
+     </table>
+     <div class="trap"><b>Drei falsche Freunde:</b><br>
+       <span class="fr">une veste</span> = eine Jacke (keine Weste)<br>
+       <span class="fr">une robe</span> = ein Kleid (keine Robe)<br>
+       <span class="fr">une chemise</span> = ein Hemd · <span class="fr">un chemisier</span> = eine Bluse</div>
+     <p><span class="fr">des lunettes</span> steht immer in der Mehrzahl, wie englisch <i>glasses</i>.</p>
+     <p class="small muted">porter = tragen · <span class="fr">Je porte un pull.</span> · Auch: <span class="fr">un masque</span> (eine Maske, männlich!)</p>`,
+    `<div class="kicker">Karte 2 · Les couleurs</div>
+     <h3>Die Farbe steht dahinter und passt sich an</h3>
+     <table>
+       <tr><th>un pull …</th><th>une veste …</th><th>des pulls …</th><th>des chaussures …</th></tr>
+       <tr class="fr"><td>vert</td><td>vert<mark>e</mark></td><td>vert<mark>s</mark></td><td>vert<mark>es</mark></td></tr>
+       <tr class="fr"><td>bleu</td><td>bleu<mark>e</mark></td><td>bleu<mark>s</mark></td><td>bleu<mark>es</mark></td></tr>
+       <tr class="fr"><td>noir</td><td>noir<mark>e</mark></td><td>noir<mark>s</mark></td><td>noir<mark>es</mark></td></tr>
+       <tr class="fr"><td>blanc</td><td>blan<mark>che</mark></td><td>blanc<mark>s</mark></td><td>blan<mark>ches</mark></td></tr>
+       <tr class="fr"><td>gris</td><td>gris<mark>e</mark></td><td>gris</td><td>gris<mark>es</mark></td></tr>
+       <tr class="fr"><td>rouge</td><td>rouge</td><td>rouge<mark>s</mark></td><td>rouge<mark>s</mark></td></tr>
+     </table>
+     <p><span class="tip">Endet die Farbe schon auf -e</span> (rouge, jaune, rose), kommt nur in der Mehrzahl ein s dazu.</p>
+     <div class="ok"><b>Ändern sich nie:</b> <span class="fr">orange</span> und <span class="fr">marron</span>. Also: <span class="fr">des lunettes orange, des chaussures marron</span>. Auch <span class="fr">chic</span> bleibt immer gleich.</div>`
+  ],
+  studio:{feats:["top","bottom","shoes","casquette","lunettes"], briefs:[
+    {g:"f", skin:1, hairLen:"long", hairCol:"brun", eyes:"marron", lunettes:null, top:{t:"veste",c:"rouge"}, bottom:{t:"jean",c:"bleu"}, shoes:"blanc", casquette:null},
+    {g:"m", skin:2, hairLen:"court", hairCol:"noir", eyes:"marron", lunettes:null, top:{t:"pull",c:"vert"}, bottom:{t:"pantalon",c:"noir"}, shoes:"orange", casquette:"bleu"},
+    {g:"f", skin:0, hairLen:"court", hairCol:"blond", eyes:"bleu", lunettes:"rouge", top:{t:"robe",c:"jaune"}, bottom:null, shoes:"noir", casquette:null}
+  ]},
+  items:[
+    {t:"mc", k:"look", q:"Elle porte une veste ___.", o:["vert","verte","verts"], a:1, w:"une veste ist weiblich → verte."},
+    {t:"mc", k:"look", q:"Il porte des chaussures ___.", o:["blancs","blanche","blanches"], a:2, w:"les chaussures: weiblich, Mehrzahl → blanches."},
+    {t:"mc", k:"look", q:"J'ai un pull ___.", o:["gris","grise","grises"], a:0, w:"un pull ist männlich → gris."},
+    {t:"mc", k:"look", q:"Tu as des lunettes ___?", o:["oranges","orange","orangées"], a:1, w:"orange ändert sich nie."},
+    {t:"mc", k:"look", q:"«une chemise» ist …", o:["ein Hemd","eine Bluse","eine Jacke"], a:0, w:"une chemise = ein Hemd. Die Bluse heißt un chemisier."},
+    {t:"mc", k:"look", q:"eine Jacke", o:["une veste","une robe","un chemisier"], a:0, w:"une veste = eine Jacke. Falscher Freund!"},
+    {t:"mc", k:"look", q:"ein Kleid", o:["une jupe","une robe","une veste"], a:1, w:"une robe = ein Kleid; une jupe = ein Rock."},
+    {t:"mc", k:"look", q:"Elle porte ___ lunettes.", o:["une","des","un"], a:1, w:"Die Brille steht immer in der Mehrzahl: des lunettes."},
+    {t:"mc", k:"look", q:"eine schwarze Hose", o:["un noir pantalon","un pantalon noire","un pantalon noir"], a:2, w:"Farbe hinter das Nomen; un pantalon ist männlich → noir."},
+    {t:"ty", k:"look", q:"Elle porte une robe ___ <span class='cue'>(blanc)</span>.", a:["blanche"], w:"blanc → weiblich blanche."},
+    {t:"ty", k:"look", q:"Il a des chaussures ___ <span class='cue'>(noir)</span>.", a:["noires"], w:"weiblich, Mehrzahl → noires."},
+    {t:"ty", k:"look", q:"J'ai une casquette ___ <span class='cue'>(bleu)</span>.", a:["bleue"], w:"une casquette ist weiblich → bleue."},
+    {t:"or", k:"look", de:"Ich trage einen roten Pulli und eine Jeans.", s:"Je porte un pull rouge et un jean .", alt:["Je porte un jean et un pull rouge ."]}
+  ],
+  memo:["Farbe hinter das Nomen und anpassen: <span class='fr'>une veste verte, des chaussures blanches</span>.","<span class='fr'>orange</span> und <span class='fr'>marron</span> ändern sich nie.","<span class='fr'>une veste</span> = Jacke · <span class='fr'>une robe</span> = Kleid · <span class='fr'>une chemise</span> = Hemd · <span class='fr'>des lunettes</span> = Brille."],
+  todo:"Beschreib dein Outfit von heute in zwei Sätzen: «Aujourd'hui, je porte …»."
+});
+
+/* ---------- 7 · Qui est-ce? ---------- */
+STATIONS.push({
+  id:"qui", no:7, t:"Qui est-ce?", d:"Personen beschreiben", min:7,
+  chat:[
+    {f:"nino", fr:"Il y a un nouveau prof d'histoire-géo! Il est comment?", de:"Es gibt einen neuen Lehrer für Geschichte und Erdkunde! Wie ist er so?"},
+    {f:"ines", fr:"Il est jeune et il a l'air sympa. Il a les cheveux noirs et il porte des lunettes orange.", de:"Er ist jung und sieht nett aus. Er hat schwarze Haare und trägt eine orangefarbene Brille."},
+    {f:"nino", fr:"Il a les cheveux longs ou courts?", de:"Hat er lange oder kurze Haare?"},
+    {f:"ines", fr:"Courts. Et il a les yeux marron.", de:"Kurze. Und er hat braune Augen."},
+    {f:"maelle", fr:"Et notre prof de maths, Mme Morel? Elle est rousse, non?", de:"Und unsere Mathelehrerin, Frau Morel? Sie ist rothaarig, oder?"},
+    {ask:"Mme Morel hat lange rote Haare. Wie beschreibst du sie?", o:[
+      {t:"Oui, elle a les cheveux longs et roux.", ok:1, de:"Ja, sie hat lange rote Haare."},
+      {t:"Oui, elle a les cheveux longs et rouges.", fb:"Rote Haare heißen roux. Rouge passt nur, wenn sie knallrot gefärbt sind."},
+      {t:"Oui, elle est les cheveux longs et roux.", fb:"Haare HAT man: elle a les cheveux …"}]},
+    {f:"sacha", fr:"Et elle porte toujours une veste verte. C'est une femme très drôle!", de:"Und sie trägt immer eine grüne Jacke. Sie ist eine sehr witzige Frau!"},
+    {f:"maelle", fr:"Bon, on joue? Je décris une personne et vous devinez qui c'est! 🕵️", de:"Also, spielen wir? Ich beschreibe eine Person und ihr ratet, wer es ist!"}
+  ],
+  rules:[
+    `<div class="kicker">Karte 1 · Décrire quelqu'un</div>
+     <h3>Drei Verben reichen</h3>
+     <table>
+       <tr><td><b class="fr">être</b><br><span class="small muted">sein</span></td><td class="fr">C'est un homme / une femme / un garçon / une fille.<br>Il est grand, petit, jeune, drôle, sympa.</td></tr>
+       <tr><td><b class="fr">avoir</b><br><span class="small muted">haben</span></td><td class="fr">Elle a <mark>les</mark> cheveux longs.<br>Elle a <mark>les</mark> yeux verts.<br>Elle a l'air sympa.</td></tr>
+       <tr><td><b class="fr">porter</b><br><span class="small muted">tragen</span></td><td class="fr">Il porte un jean, une veste noire et des lunettes.</td></tr>
+     </table>
+     <div class="ok">Bei Haaren und Augen immer <span class="fr">les</span>: <span class="fr">Il a <b>les</b> cheveux noirs.</span></div>`,
+    `<div class="kicker">Karte 2 · Cheveux et yeux</div>
+     <h3>Mehrzahl, also Adjektiv mit s</h3>
+     <table>
+       <tr><td>Länge</td><td class="fr">les cheveux long<mark>s</mark> · court<mark>s</mark></td></tr>
+       <tr><td>Farbe</td><td class="fr">noir<mark>s</mark> · brun<mark>s</mark> · blond<mark>s</mark> · rou<mark>x</mark></td></tr>
+       <tr><td>Augen</td><td class="fr">les yeux bleu<mark>s</mark> · vert<mark>s</mark> · marron</td></tr>
+     </table>
+     <div class="trap"><b>Falle 1:</b> rote Haare sind <span class="fr">roux</span>, nicht rouges.<br><b>Falle 2:</b> <span class="fr">marron</span> bekommt nie ein s: <span class="fr">les yeux marron</span>.<br><b>Falle 3:</b> ein Auge = <span class="fr">un œil</span>, zwei Augen = <span class="fr">des yeux</span>.</div>
+     <p><span class="tip">Kurz geht auch:</span> <span class="fr">Il est blond / brun / roux. Elle est blonde / brune / rousse.</span></p>`
+  ],
+  studio:{feats:["hair","eyes","lunettes","top","bottom","shoes"], briefs:[
+    {g:"m", skin:0, hairLen:"court", hairCol:"roux", eyes:"vert", lunettes:null, top:{t:"tshirt",c:"bleu"}, bottom:{t:"jean",c:"bleu"}, shoes:"rouge", casquette:null},
+    {g:"f", skin:2, hairLen:"long", hairCol:"noir", eyes:"marron", lunettes:"orange", top:{t:"chemise",c:"blanc"}, bottom:{t:"jupe",c:"gris"}, shoes:"noir", casquette:null}
+  ]},
+  guess:{rounds:["f","m"]},
+  items:[
+    {t:"mc", k:"qui", de:"rote Haare", q:"Elle a les cheveux ___.", o:["rouges","roux","rousse"], a:1, w:"les cheveux roux. rousse sagst du über die Person: Elle est rousse."},
+    {t:"mc", k:"qui", q:"Il a les yeux ___.", o:["marrons","marron","marronne"], a:1, w:"marron ändert sich nie."},
+    {t:"mc", k:"qui", q:"Elle a ___ cheveux blonds.", o:["le","la","les"], a:2, w:"Haare sind Mehrzahl: les cheveux."},
+    {t:"mc", k:"qui", q:"Emma n'a pas les cheveux longs. Elle a les cheveux ___.", o:["court","courts","courte"], a:1, w:"les cheveux: männlich, Mehrzahl → courts."},
+    {t:"mc", k:"qui", q:"Léo ___ grand et drôle.", o:["est","a","porte"], a:0, w:"Eigenschaften: être. Il est grand."},
+    {t:"mc", k:"qui", q:"Léo ___ les yeux bleus.", o:["est","a","porte"], a:1, w:"Augen und Haare: avoir."},
+    {t:"mc", k:"qui", q:"Aujourd'hui, Léo ___ un jean et un pull.", o:["porte","est","portes"], a:0, w:"Kleidung: porter. il → porte."},
+    {t:"mc", k:"qui", q:"Mme Morel a les cheveux roux. Elle est ___.", o:["roux","rouge","rousse"], a:2, w:"Über eine Frau: Elle est rousse."},
+    {t:"mc", k:"qui", q:"un œil, deux ___", o:["œils","yeux","yeuxs"], a:1, w:"Unregelmäßig: un œil, des yeux."},
+    {t:"ty", k:"qui", q:"Il a les cheveux ___ <span class='cue'>(brun)</span>.", a:["bruns"], w:"Mehrzahl → bruns."},
+    {t:"ty", k:"qui", q:"Elle a les yeux ___ <span class='cue'>(vert)</span>.", a:["verts"], w:"les yeux: Mehrzahl → verts."},
+    {t:"ty", k:"qui", q:"Elle est ___ <span class='cue'>(blond)</span>.", a:["blonde"], w:"Über ein Mädchen: blonde."},
+    {t:"or", k:"qui", de:"Er hat kurze schwarze Haare.", s:"Il a les cheveux courts et noirs .", alt:["Il a les cheveux noirs et courts ."]},
+    {t:"or", k:"qui", de:"Das ist eine Frau, die eine Brille trägt.", s:"C'est une femme qui porte des lunettes ."}
+  ],
+  memo:["<span class='fr'>être</span> + Eigenschaft · <span class='fr'>avoir</span> + les cheveux / les yeux · <span class='fr'>porter</span> + Kleidung.","<span class='fr'>les cheveux longs et roux</span> · <span class='fr'>les yeux marron</span> (ohne s).","<span class='fr'>Il est roux. Elle est rousse.</span> Rot bei Haaren ist nie rouge."],
+  todo:"Beschreib jemanden aus deiner Familie in drei Sätzen. Die anderen raten, wer es ist."
+});
+
+/* ---------- 8 · qui, que, où ---------- */
+STATIONS.push({
+  id:"rel", no:8, t:"qui, que, où", d:"Relativsätze", min:7,
+  chat:[
+    {f:"nino", fr:"Devinette! 🤔 C'est un endroit où on mange à midi.", de:"Rätsel! Das ist ein Ort, wo man mittags isst."},
+    {f:"ines", fr:"La cantine! À moi: c'est une personne qui travaille au collège et qui donne des devoirs.", de:"Die Kantine! Ich bin dran: Das ist eine Person, die in der Schule arbeitet und Hausaufgaben aufgibt."},
+    {f:"maelle", fr:"Un prof! 😄 À moi: c'est une matière que j'adore et que Nino déteste.", de:"Ein Lehrer! Ich bin dran: Das ist ein Fach, das ich liebe und das Nino hasst."},
+    {f:"nino", fr:"Les maths!!! 😱", de:"Mathe!!!"},
+    {f:"sacha", fr:"À toi{,n}! Complète: «C'est un vêtement … on porte quand il fait froid.»", de:"Du bist dran! Ergänze: «Das ist ein Kleidungsstück, … man trägt, wenn es kalt ist.»"},
+    {ask:"Welches Wort fehlt?", o:[
+      {t:"qu'", ok:1, bub:"C'est un vêtement qu'on porte quand il fait froid.", de:"Das ist ein Kleidungsstück, das man trägt, wenn es kalt ist."},
+      {t:"qui", fb:"Nach der Lücke steht on. Das ist schon das Subjekt, also brauchst du que. Vor Vokal: qu'."},
+      {t:"où", fb:"où passt nur zu einem Ort. Ein Kleidungsstück ist kein Ort."}]},
+    {f:"sacha", fr:"Bravo! C'est un anorak… ou un pull.", de:"Bravo! Das ist ein Anorak … oder ein Pulli."}
+  ],
+  rules:[
+    `<div class="kicker">Karte 1 · Der Blick-nach-rechts-Trick</div>
+     <h3>Schau, was nach der Lücke kommt</h3>
+     <table>
+       <tr><td><b class="fr">qui</b></td><td>danach kommt gleich ein <b>Verb</b></td><td class="fr">un prof <mark>qui</mark> <u>aime</u> le rap</td></tr>
+       <tr><td><b class="fr">que</b></td><td>danach kommt erst ein <b>Subjekt</b> (je, tu, on, Nino, les élèves …)</td><td class="fr">un prof <mark>que</mark> <u>les élèves</u> aiment</td></tr>
+       <tr><td><b class="fr">où</b></td><td>das Wort davor ist ein <b>Ort</b>, und dort passiert etwas</td><td class="fr">la salle <mark>où</mark> on a cours</td></tr>
+     </table>
+     <div class="ok">Deutsche Probe mit einem männlichen Wort: <b>der</b> → <span class="fr">qui</span> · <b>den</b> → <span class="fr">que</span> · <b>wo</b> → <span class="fr">où</span>.<br>
+     «ein Lehrer, <b>der</b> Rap mag» → qui · «ein Lehrer, <b>den</b> die Schüler mögen» → que</div>
+     <p class="small muted">Im Französischen steht vor qui, que, où kein Komma.</p>`,
+    `<div class="kicker">Karte 2 · Zwei Fallen</div>
+     <h3>qu' und der Ort, der kein «wo» ist</h3>
+     <p><span class="tip">que wird vor Vokal zu qu':</span> <span class="fr">un pull <mark>qu'</mark>il porte · un film <mark>qu'</mark>on regarde · une matière <mark>qu'</mark>Inès adore</span></p>
+     <p><span class="tip">qui bleibt immer qui:</span> <span class="fr">une fille qui écrit · un ami qui arrive</span></p>
+     <div class="trap"><b>Falle:</b> Ein Ort braucht nicht automatisch où.<br>
+       <span class="fr">Lyon est la ville <mark>où</mark> j'habite.</span> Ich wohne <b>dort</b> → où.<br>
+       <span class="fr">Lyon est la ville <mark>que</mark> je préfère.</span> Ich mag <b>sie</b> am liebsten → que.</div>
+     <p>Damit kannst du Wörter umschreiben, die dir fehlen: <span class="fr">C'est quelqu'un qui … · C'est quelque chose qu'on … · C'est un endroit où …</span></p>`
+  ],
+  items:[
+    {t:"rd", k:"rel", q:"C'est un endroit ___ on fait du sport au collège.", p:"où", ans:"le gymnase", o:["le gymnase","la cantine","le CDI"], w:"un endroit ist ein Ort, dort macht man Sport → où."},
+    {t:"rd", k:"rel", q:"C'est quelqu'un ___ enregistre la musique.", p:"qui", ans:"un ingénieur du son", o:["un ingénieur du son","un nouvel élève","un cousin"], w:"Nach der Lücke kommt gleich das Verb enregistre → qui."},
+    {t:"rd", k:"rel", q:"C'est un travail ___ on fait à la maison après les cours.", p:"qu'", ans:"les devoirs", o:["les devoirs","le repas","la récré"], w:"Nach der Lücke steht on (Subjekt) → que, vor Vokal qu'."},
+    {t:"rd", k:"rel", q:"C'est quelque chose ___ on porte pour bien lire.", p:"qu'", ans:"des lunettes", o:["des lunettes","des chaussures","un masque"], w:"on ist das Subjekt → qu'on."},
+    {t:"rd", k:"rel", q:"C'est un endroit ___ les élèves mangent à midi.", p:"où", ans:"la cantine", o:["la cantine","le gymnase","la salle de cours"], w:"Ort, an dem etwas passiert → où."},
+    {t:"rd", k:"rel", q:"C'est un plan ___ montre tes cours du lundi au vendredi.", p:"qui", ans:"l'emploi du temps", o:["l'emploi du temps","le carnet de correspondance","le blog"], w:"Nach der Lücke kommt das Verb montre → qui."},
+    {t:"rd", k:"rel", q:"C'est un vêtement ___ tu portes quand il fait froid.", p:"que", ans:"un anorak", o:["un anorak","un t-shirt","une jupe"], w:"tu ist das Subjekt → que."},
+    {t:"rd", k:"rel", q:"C'est une chose ___ Nino porte sur la tête.", p:"que", ans:"une casquette", o:["une casquette","une chaussure","un pantalon"], n:"la tête = der Kopf", w:"Nino ist das Subjekt → que."},
+    {t:"rd", k:"rel", q:"C'est une personne ___ est nouvelle dans la classe.", p:"qui", ans:"une nouvelle élève", o:["une nouvelle élève","une ingénieure du son","une cousine"], w:"Nach der Lücke kommt das Verb est → qui."},
+    {t:"rd", k:"rel", q:"C'est un petit carnet ___ les profs écrivent des informations pour les parents.", p:"où", ans:"le carnet de correspondance", o:["le carnet de correspondance","l'emploi du temps","le livre de maths"], w:"Die Lehrer schreiben dort hinein → où."},
+    {t:"mc", k:"rel", q:"Le sport ___ je préfère, c'est le foot.", o:["qui","que","où"], a:1, w:"Nach der Lücke steht je (Subjekt) → que."},
+    {t:"mc", k:"rel", q:"M. Roche est un prof ___ on aime bien.", o:["qu'","qui","que"], a:0, w:"on ist das Subjekt → que; vor Vokal qu'on."},
+    {t:"mc", k:"rel", q:"J'ai une copine ___ a toujours des idées géniales.", o:["que","où","qui"], a:2, w:"Gleich danach das Verb a → qui."},
+    {t:"mc", k:"rel", q:"Le CDI est une salle ___ j'aime bien lire.", o:["où","qui","que"], a:0, w:"Dort lese ich gern → où."},
+    {t:"mc", k:"rel", q:"Lyon est la ville ___ j'habite.", o:["que","où","qui"], a:1, w:"Ich wohne dort → où."},
+    {t:"mc", k:"rel", q:"Lyon est la ville ___ je préfère.", o:["où","qui","que"], a:2, w:"Ich mag SIE am liebsten: Objekt → que. Kein «dort»."},
+    {t:"mc", k:"rel", q:"C'est une prof ___ les élèves adorent.", o:["qui","que","où"], a:1, w:"les élèves ist das Subjekt → que. (… die die Schüler lieben)"},
+    {t:"mc", k:"rel", q:"C'est une prof ___ adore ses élèves.", o:["qui","que","où"], a:0, w:"Gleich danach das Verb adore → qui. (… die ihre Schüler liebt)"},
+    {t:"mc", k:"rel", q:"Voilà la vidéo ___ nous regardons en classe.", o:["où","qui","que"], a:2, w:"nous ist das Subjekt → que."},
+    {t:"ty", k:"rel", q:"J'ai un ami ___ écrit un blog.", a:["qui"], w:"Danach kommt das Verb écrit → qui."},
+    {t:"ty", k:"rel", q:"C'est une matière ___ Inès déteste.", a:["qu'"], w:"Inès ist das Subjekt → que; vor dem Vokal I wird es qu'."},
+    {t:"ty", k:"rel", q:"Voilà le magasin ___ j'achète mes vêtements.", a:["où"], w:"Dort kaufe ich ein → où, mit Akzent."},
+    {t:"ty", k:"rel", q:"C'est un look ___ je trouve bien.", a:["que"], w:"je ist das Subjekt → que."},
+    {t:"or", k:"rel", de:"Das ist ein Lehrer, den die Schüler gern mögen.", s:"C'est un prof que les élèves aiment bien ."},
+    {t:"or", k:"rel", de:"Das ist ein Mädchen, das Lieder schreibt.", s:"C'est une fille qui écrit des chansons ."}
+  ],
+  memo:["Nach der Lücke ein Verb → <span class='fr'>qui</span>. Erst ein Subjekt → <span class='fr'>que</span>. Ort, an dem etwas passiert → <span class='fr'>où</span>.","Vor Vokal: <span class='fr'>qu'il, qu'elle, qu'on</span>. <span class='fr'>qui</span> wird nie gekürzt.","Probe: der → qui · den → que · wo → où."],
+  todo:"Denk dir ein Rätsel aus: «C'est un endroit où …» oder «C'est quelqu'un qui …» und stell es jemandem."
+});
+
+/* ---------- 9 · Lire et écrire ---------- */
+STATIONS.push({
+  id:"lire", no:9, t:"Lire et écrire", d:"lire, écrire, décrire", min:6,
+  chat:[
+    {f:"maelle", fr:"Qu'est-ce que vous lisez en ce moment?", de:"Was lest ihr gerade?"},
+    {f:"ines", fr:"Moi, je lis des mangas. 📖 Et mes parents lisent des livres sur les animaux.", de:"Ich lese Mangas. Und meine Eltern lesen Bücher über Tiere."},
+    {f:"nino", fr:"Moi, je ne lis pas… j'écris! J'écris un rap pour la fête du collège. 🎤", de:"Ich lese nicht … ich schreibe! Ich schreibe einen Rap für das Schulfest."},
+    {f:"sacha", fr:"Cool! Nous écrivons le texte ensemble, si tu veux.", de:"Cool! Wir schreiben den Text zusammen, wenn du willst."},
+    {f:"nino", fr:"D'accord! Et vous, les filles, vous écrivez aussi?", de:"Einverstanden! Und ihr Mädchen, schreibt ihr auch?"},
+    {f:"maelle", fr:"Non. Nous, nous lisons ton rap. Et si c'est nul, on rigole! 😜", de:"Nein. Wir lesen deinen Rap. Und wenn er schlecht ist, lachen wir!"},
+    {f:"nino", fr:"Très drôle… Et toi{,n}, tu écris des histoires?", de:"Sehr witzig … Und du, schreibst du Geschichten?"},
+    {ask:"Du schreibst manchmal Geschichten. Was antwortest du?", o:[
+      {t:"Oui, j'écris parfois des histoires.", ok:1, de:"Ja, ich schreibe manchmal Geschichten."},
+      {t:"Oui, j'écrit parfois des histoires.", fb:"Bei je und tu endet die Form auf s: j'écris. Mit t ist es il / elle / on écrit."},
+      {t:"Oui, je écrivons parfois des histoires.", fb:"écrivons gehört zu nous. Und vor Vokal wird je zu j'."}]},
+    {f:"nino", fr:"Génial! Je veux lire tes histoires.", de:"Super! Ich will deine Geschichten lesen."}
+  ],
+  rules:[
+    `<div class="kicker">Karte 1 · lire und écrire</div>
+     <h3>Einzahl: s – s – t. Mehrzahl: ein neuer Buchstabe.</h3>
+     <table>
+       <tr><th></th><th>lire · lesen</th><th>écrire · schreiben</th></tr>
+       <tr><td>je / j'</td><td class="fr">li<mark>s</mark></td><td class="fr">écri<mark>s</mark></td></tr>
+       <tr><td>tu</td><td class="fr">li<mark>s</mark></td><td class="fr">écri<mark>s</mark></td></tr>
+       <tr><td>il / elle / on</td><td class="fr">li<mark>t</mark></td><td class="fr">écri<mark>t</mark></td></tr>
+       <tr><td>nous</td><td class="fr">li<b class="u">s</b>ons</td><td class="fr">écri<b class="u">v</b>ons</td></tr>
+       <tr><td>vous</td><td class="fr">li<b class="u">s</b>ez</td><td class="fr">écri<b class="u">v</b>ez</td></tr>
+       <tr><td>ils / elles</td><td class="fr">li<b class="u">s</b>ent</td><td class="fr">écri<b class="u">v</b>ent</td></tr>
+     </table>
+     <div class="ok">In der Einzahl klingen alle drei Formen gleich: [li] und [ekri]. In der Mehrzahl taucht bei lire ein <b>s</b> auf (wie in le<b>s</b>en) und bei écrire ein <b>v</b>.</div>`,
+    `<div class="kicker">Karte 2 · Gleich mitlernen</div>
+     <h3>décrire und drei Verben mit Besonderheit</h3>
+     <p><span class="tip">décrire</span> (beschreiben) geht genau wie écrire: <span class="fr">je décris, il décrit, nous décrivons, ils décrivent</span>.</p>
+     <p><span class="tip">Befehle:</span> <span class="fr">Lis! Lisez! · Écris! Écrivez! · Décrivez l'image!</span></p>
+     <table>
+       <tr><td class="fr">partager</td><td class="fr">nous partag<mark>e</mark>ons</td><td>wie nous mangeons</td></tr>
+       <tr><td class="fr">apprendre</td><td class="fr">nous appre<mark>n</mark>ons, ils appre<mark>nn</mark>ent</td><td>wie prendre</td></tr>
+       <tr><td class="fr">préférer</td><td class="fr">je préf<mark>è</mark>re, nous préf<mark>é</mark>rons</td><td>Akzent wechselt</td></tr>
+     </table>
+     <div class="trap"><b>Falle:</b> <span class="fr">j'écris</span> mit Apostroph, nie «je écris».</div>`
+  ],
+  dice:{verbs:["lire","écrire","décrire","lire","écrire","partager","apprendre","préférer"], n:8},
+  items:[
+    {t:"ty", k:"le", q:"Qu'est-ce que tu ___ <span class='cue'>(lire)</span>?", a:["lis"], w:"tu → lis."},
+    {t:"ty", k:"le", q:"Inès ___ <span class='cue'>(écrire)</span> un message à Lou.", a:["écrit"], w:"Inès = elle → écrit, mit t."},
+    {t:"ty", k:"le", q:"Les élèves ___ <span class='cue'>(lire)</span> des livres en anglais.", a:["lisent"], w:"ils → lisent, mit s in der Mitte."},
+    {t:"ty", k:"le", q:"Vous ___ <span class='cue'>(écrire)</span> d'abord les textes?", a:["écrivez"], w:"vous → écrivez, mit v."},
+    {t:"ty", k:"le", q:"Nous ___ <span class='cue'>(lire)</span> un texte en cours.", a:["lisons"], w:"nous → lisons."},
+    {t:"ty", k:"le", q:"Mes copains ___ <span class='cue'>(écrire)</span> des poèmes.", a:["écrivent"], w:"ils → écrivent."},
+    {t:"ty", k:"le", q:"Tu ___ <span class='cue'>(décrire)</span> ton prof?", a:["décris"], w:"décrire geht wie écrire: tu décris."},
+    {t:"ty", k:"le", q:"___ <span class='cue'>(décrire, vous)</span> l'image!", a:["Décrivez"], w:"Befehl an vous: Décrivez!"},
+    {t:"mc", k:"le", q:"___ un message à mon cousin.", o:["J'écris","Je écris","J'écrit"], a:0, w:"je + Vokal → j'; Endung bei je: s."},
+    {t:"mc", k:"le", q:"Mes parents ___ beaucoup.", o:["lirent","lisent","lient"], a:1, w:"ils lisent, mit s."},
+    {t:"mc", k:"le", q:"Elles ___ à leurs amis.", o:["écrivent","écrient","écrisent"], a:0, w:"elles écrivent, mit v."},
+    {t:"mc", k:"le", q:"Nous ___ nos vidéos avec la classe.", o:["partagons","partageons","partagent"], a:1, w:"Vor -ons braucht das g ein e: partageons (wie mangeons)."},
+    {t:"mc", k:"le", q:"Ils ___ leurs leçons.", o:["apprendent","apprenent","apprennent"], a:2, w:"apprendre geht wie prendre: ils apprennent, mit nn."},
+    {t:"or", k:"le", de:"Was lest ihr?", s:"Qu'est-ce que vous lisez ?"}
+  ],
+  memo:["<span class='fr'>je lis, tu lis, il lit · nous lisons, vous lisez, ils lisent</span>","<span class='fr'>j'écris, tu écris, il écrit · nous écrivons, vous écrivez, ils écrivent</span>","<span class='fr'>décrire</span> geht wie écrire. <span class='fr'>nous partageons · ils apprennent · je préfère</span>."],
+  todo:"Was liest du gerade? Sag es auf Französisch: «En ce moment, je lis …»."
+});
+
+/* ---------- 10 · Tu ou vous? ---------- */
+STATIONS.push({
+  id:"ton", no:10, t:"Tu ou vous?", d:"Der richtige Ton", min:4,
+  chat:[
+    {f:"prof", fr:"Bonjour à tous! Demain, vous avez une interro de français. N'oubliez pas vos livres!", de:"Guten Tag zusammen! Morgen schreibt ihr einen Französischtest. Vergesst eure Bücher nicht!"},
+    {f:"nino", fr:"Oh non, j'ai le seum… 😩", de:"Oh nein, ich bin so mies drauf …"},
+    {f:"ines", fr:"Nino! Mme Petit est dans le groupe! 🙈", de:"Nino! Frau Petit ist in der Gruppe!"},
+    {f:"nino", fr:"Pardon, madame! Je suis un peu triste, voilà.", de:"Entschuldigung, Madame! Ich bin nur ein bisschen traurig."},
+    {ask:"Du hast eine Frage an Mme Petit. Wie schreibst du?", o:[
+      {t:"Excusez-moi, madame, j'ai une question. Vous pouvez répéter l'heure, s'il vous plaît?", ok:1, de:"Entschuldigen Sie, Madame, ich habe eine Frage. Können Sie bitte die Uhrzeit wiederholen?"},
+      {t:"Salut! Tu peux répéter l'heure, stp?", fb:"Salut, tu und stp passen zu Freunden. Erwachsene siezt du: vous, s'il vous plaît."},
+      {t:"Hé, c'est quand, l'interro?", fb:"Zu locker für eine Lehrerin. Beginne mit «Excusez-moi, madame …»."}]},
+    {f:"prof", fr:"Bien sûr{,n}: l'interro est demain à neuf heures. Bonne chance à tous!", de:"Natürlich: Der Test ist morgen um neun Uhr. Viel Glück euch allen!"},
+    {f:"maelle", fr:"Merci, madame! Bonne soirée!", de:"Danke, Madame! Schönen Abend!"},
+    {f:"nino", fr:"Elle est trop sympa, Mme Petit. Je kiffe!", de:"Sie ist so nett, die Frau Petit. Find ich mega!"},
+    {f:"ines", fr:"NINO!!! 😂", de:"NINO!!!"}
+  ],
+  rules:[
+    `<div class="kicker">Karte 1 · Mit wem sprichst du?</div>
+     <h3>Zwei Stile, je nach Person</h3>
+     <table>
+       <tr><th>Freunde, Familie</th><th>Erwachsene, die du nicht gut kennst</th></tr>
+       <tr class="fr"><td>Salut!</td><td>Bonjour, madame / monsieur.</td></tr>
+       <tr class="fr"><td>tu</td><td>vous</td></tr>
+       <tr class="fr"><td>Ça va?</td><td>Comment allez-vous?</td></tr>
+       <tr class="fr"><td>s'il te plaît (stp)</td><td>s'il vous plaît (svp)</td></tr>
+       <tr class="fr"><td>À plus!</td><td>Au revoir. Bonne journée!</td></tr>
+     </table>
+     <div class="ok">Vor dem Schreiben oder Sprechen kurz überlegen: Wer liest oder hört das? Danach wählst du Begrüßung, tu oder vous und den Wortschatz.</div>`,
+    `<div class="kicker">Karte 2 · La langue des jeunes</div>
+     <h3>Nur unter Freunden</h3>
+     <table>
+       <tr><th>Jugendsprache</th><th>Standard</th></tr>
+       <tr><td class="fr">J'ai le seum.</td><td class="fr">Je suis triste. / Je suis en colère.</td></tr>
+       <tr><td class="fr">Tu kiffes ce rap?</td><td class="fr">Tu aimes bien ce rap?</td></tr>
+       <tr><td class="fr">C'est stylé!</td><td class="fr">C'est très chic.</td></tr>
+       <tr><td class="fr">C'est trop bien.</td><td class="fr">C'est très bien.</td></tr>
+       <tr><td class="fr">dsl</td><td class="fr">désolé(e)</td></tr>
+     </table>
+     <p class="small muted">Verstehen sollst du diese Wörter. In einer Klassenarbeit schreibst du die Standard-Form, außer es ist eine Nachricht an Freunde.</p>`
+  ],
+  items:[
+    {t:"mc", k:"ton", fix:1, q:"«Salut! Ça va?»", o:["an Freunde","an Erwachsene"], a:0, w:"Salut ist locker."},
+    {t:"mc", k:"ton", fix:1, q:"«Bonjour madame. Comment allez-vous?»", o:["an Freunde","an Erwachsene"], a:1, w:"madame und vous: höflich."},
+    {t:"mc", k:"ton", fix:1, q:"«Excusez-moi, vous pouvez répéter, s'il vous plaît?»", o:["an Freunde","an Erwachsene"], a:1, w:"Excusez-moi, vous, s'il vous plaît: höflich."},
+    {t:"mc", k:"ton", fix:1, q:"«C'est trop stylé!»", o:["an Freunde","an Erwachsene"], a:0, w:"stylé ist Umgangssprache."},
+    {t:"mc", k:"ton", fix:1, q:"«J'ai le seum.»", o:["an Freunde","an Erwachsene"], a:0, w:"avoir le seum ist Jugendsprache."},
+    {t:"mc", k:"ton", fix:1, q:"«Monsieur, est-ce que je peux poser une question?»", o:["an Freunde","an Erwachsene"], a:1, w:"Monsieur als Anrede: höflich."},
+    {t:"mc", k:"ton", fix:1, q:"«Tu kiffes ce rap?»", o:["an Freunde","an Erwachsene"], a:0, w:"kiffer ist Jugendsprache für aimer bien."},
+    {t:"mc", k:"ton", fix:1, q:"«Au revoir, madame. Bonne journée!»", o:["an Freunde","an Erwachsene"], a:1, w:"Höfliche Verabschiedung."},
+    {t:"mc", k:"ton", fix:1, q:"«À plus! 😎»", o:["an Freunde","an Erwachsene"], a:0, w:"À plus! = Bis später! (locker)"},
+    {t:"mc", k:"ton", fix:1, q:"«Tu peux répéter, stp?»", o:["an Freunde","an Erwachsene"], a:0, w:"tu und stp: unter Freunden."},
+    {t:"mc", k:"ton", q:"«J'ai le seum» heißt in Standard-Französisch:", o:["Je suis triste.","Je suis content.","J'ai faim."], a:0, w:"avoir le seum = schlecht drauf sein."},
+    {t:"mc", k:"ton", q:"«Tu kiffes ce rap?» heißt:", o:["Tu écris ce rap?","Tu aimes bien ce rap?","Tu détestes ce rap?"], a:1, w:"kiffer = aimer bien."},
+    {t:"mc", k:"ton", q:"«dsl» ist die Abkürzung für:", o:["d'accord","dans la salle","désolé(e)"], a:2, w:"dsl = désolé(e) = tut mir leid."},
+    {t:"mc", k:"ton", q:"Du schreibst deiner Lehrerin. Welches «bitte»?", o:["s'il vous plaît","s'il te plaît","stp"], a:0, w:"Zu vous gehört s'il vous plaît."}
+  ],
+  memo:["Freunde: <span class='fr'>Salut, tu, stp, À plus!</span>","Erwachsene: <span class='fr'>Bonjour madame / monsieur, vous, s'il vous plaît, Au revoir.</span>","<span class='fr'>J'ai le seum</span> und <span class='fr'>Je kiffe</span> nur unter Freunden."],
+  todo:"Schreib zwei Mini-Nachrichten mit derselben Frage: eine an einen Freund, eine an deine Lehrerin."
+});
+
+/* ---------- 11 · Bonus: Lettres muettes ---------- */
+STATIONS.push({
+  id:"son", no:11, bonus:1, t:"Chut! Lettres muettes", d:"Bonus: stumme Buchstaben", min:4,
+  rules:[
+    `<div class="kicker">Bonus · Aussprache</div>
+     <h3>Am Wortende ist vieles stumm</h3>
+     <p>Diese Buchstaben schreibst du am Wortende, sprichst sie aber meistens nicht: <span class="fr"><mark>-s -t -d -x -p</mark></span> und das <span class="fr"><mark>-e</mark></span> ohne Akzent.</p>
+     <table>
+       <tr><td class="fr">peti<s>t</s> · gran<s>d</s> · tro<s>p</s> · rou<s>x</s> · le repa<s>s</s></td></tr>
+       <tr><td class="fr">ils lis<s>ent</s> · ils veul<s>ent</s></td></tr>
+     </table>
+     <p><span class="tip">Die Verb-Endung -ent</span> bei ils / elles ist komplett stumm. <span class="fr">il lit</span> und <span class="fr">ils lisent</span> unterscheidest du beim Hören nur am s in der Mitte, das wie ein weiches s klingt.</p>
+     <div class="ok">Ein <span class="fr">-e</span> am Ende ist selbst stumm, macht aber den Konsonanten davor hörbar: <span class="fr">vert</span> (t stumm) → <span class="fr">verte</span> (t hörbar). So hörst du, ob etwas weiblich ist.</div>
+     <p class="small muted">Das h spricht man im Französischen nie: <span class="fr">un homme, l'histoire</span>.</p>`
+  ],
+  items:[
+    {t:"sl", k:"son", m:"peti(t)", w:"Das t am Ende ist stumm."},
+    {t:"sl", k:"son", m:"petit(e)", w:"Nur das e ist stumm. Das t davor hörst du jetzt."},
+    {t:"sl", k:"son", m:"gran(d)", w:"Das d am Ende ist stumm."},
+    {t:"sl", k:"son", m:"beaucou(p)", w:"Das p am Ende ist stumm: [boku]."},
+    {t:"sl", k:"son", m:"tro(p)", w:"Das p ist stumm: [tro]."},
+    {t:"sl", k:"son", m:"cheveu(x)", w:"Das x ist stumm."},
+    {t:"sl", k:"son", m:"ver(t)", w:"Das t ist stumm."},
+    {t:"sl", k:"son", m:"vert(e)", w:"Nur das e ist stumm, das t hörst du."},
+    {t:"sl", k:"son", m:"rou(x)", w:"Das x ist stumm: [ru]."},
+    {t:"sl", k:"son", m:"il(s) lis(ent)", w:"Das s von ils und die ganze Endung -ent sind stumm."},
+    {t:"sl", k:"son", m:"tu veu(x)", w:"Das x ist stumm."},
+    {t:"sl", k:"son", m:"il peu(t)", w:"Das t ist stumm. veux, veut, peux und peut enden alle auf denselben Laut."},
+    {t:"sl", k:"son", m:"le repa(s)", w:"Das s am Ende ist stumm."},
+    {t:"sl", k:"son", m:"(h)omm(e)", w:"h ist immer stumm, das e am Ende auch: [om]."},
+    {t:"sl", k:"son", m:"il(s) veul(ent)", w:"Das s von ils und die Endung -ent sind stumm."},
+    {t:"sl", k:"son", m:"le retar(d)", w:"Das d am Ende ist stumm."}
+  ],
+  memo:["Am Wortende meist stumm: <span class='fr'>-s, -t, -d, -x, -p, -e</span>.","Die Endung <span class='fr'>-ent</span> bei ils / elles hört man nicht.","<span class='fr'>vert</span> → <span class='fr'>verte</span>: Das e macht das t hörbar."],
+  todo:"Lies die Sätze aus einer Chat-Story laut vor und achte auf die stummen Enden."
+});
+
+/* ---------- verbs ---------- */
+const VERBS = {
+  "vouloir":["veux","veux","veut","voulons","voulez","veulent"],
+  "pouvoir":["peux","peux","peut","pouvons","pouvez","peuvent"],
+  "lire":["lis","lis","lit","lisons","lisez","lisent"],
+  "écrire":["écris","écris","écrit","écrivons","écrivez","écrivent"],
+  "décrire":["décris","décris","décrit","décrivons","décrivez","décrivent"],
+  "partager":["partage","partages","partage","partageons","partagez","partagent"],
+  "apprendre":["apprends","apprends","apprend","apprenons","apprenez","apprennent"],
+  "préférer":["préfère","préfères","préfère","préférons","préférez","préfèrent"]
+};
+const VERB_DE = {"vouloir":"wollen","pouvoir":"können","lire":"lesen","écrire":"schreiben","décrire":"beschreiben","partager":"teilen","apprendre":"lernen","préférer":"lieber mögen"};
+const PRON = [["je"],["tu"],["il","elle","on"],["nous"],["vous"],["ils","elles"]];
+
+/* ---------- skills (for feedback after tests) ---------- */
+const SKILLS = {
+  ecole:{n:"Schule und Klassen", st:"rentree"},
+  g1:{n:"beau / nouveau", st:"beau"},
+  de:{n:"Mengen mit de", st:"de"},
+  vp:{n:"vouloir / pouvoir", st:"vp"},
+  emo:{n:"Gefühle und Meinung", st:"emo"},
+  look:{n:"Kleidung und Farben", st:"look"},
+  qui:{n:"Personen beschreiben", st:"qui"},
+  rel:{n:"qui, que, où", st:"rel"},
+  le:{n:"lire / écrire", st:"lire"},
+  ton:{n:"Der richtige Ton", st:"ton"},
+  son:{n:"Stumme Buchstaben", st:"son"},
+  dire:{n:"Sagen können", st:null},
+  lesen:{n:"Leseverstehen", st:null}
+};
+
+/* ---------- Test-Arena ---------- */
+const REL = "qui / que / où", DE3 = "de / d' / des";
+const CLOZE = [
+ {id:"c1", t:"La rentrée de Sacha", txt:
+  `C'est la rentrée. Sacha est le {nouvel|nouveau|g1|élève beginnt mit Vokal → nouvel.} élève de la 5<sup>e</sup> B. Il porte un {bel|beau|g1|anorak beginnt mit Vokal → bel.} anorak bleu et des {nouvelles|nouveau|g1|les chaussures: weiblich, Mehrzahl → nouvelles.} chaussures. Dans la classe, il y a un garçon {qui|${REL}|rel|Danach kommt das Verb s'appelle → qui.} s'appelle Nino. Nino {veut|vouloir|vp|il → veut.} montrer le collège à Sacha: «Tu {veux|vouloir|vp|tu → veux.} voir la cantine? C'est l'endroit {où|${REL}|rel|Ort, an dem man isst → où.} on mange à midi.» «Oui, mais nous ne {pouvons|pouvoir|vp|nous → pouvons.} pas arriver en retard en cours!» En cours de français, les élèves {lisent|lire|le|ils → lisent.} un texte. Après, ils {écrivent|écrire|le|ils → écrivent.} un message à une classe allemande. Sacha a beaucoup {d'|${DE3}|de|Nach beaucoup steht de; vor Vokal d'.}idées. Mme Petit est une prof {que|${REL}|rel|les élèves ist das Subjekt → que.} les élèves aiment bien. Sacha est content: il a déjà des {nouveaux|nouveau|g1|Mehrzahl männlich → nouveaux.} amis.`},
+ {id:"c2", t:"Le concert du collège", txt:
+  `Samedi, il y a un concert dans la salle {où|${REL}|rel|Dort haben sie Musik → où.} les élèves ont musique. Inès et Maëlle {veulent|vouloir|vp|elles → veulent.} chanter une {belle|beau|g1|une chanson ist weiblich → belle.} chanson. Nino {écrit|écrire|le|il → écrit.} un rap {qui|${REL}|rel|Danach kommt das Verb parle → qui.} parle de la cantine. «Vous {pouvez|pouvoir|vp|vous → pouvez.} lire mon texte?», demande Nino. Les filles {lisent|lire|le|elles → lisent.} le rap et rigolent: «Il est drôle, ton texte!» Mais il y a un problème: Nino n'a pas {de|${DE3}|de|ne … pas de + Nomen.} micro. «Je {peux|pouvoir|vp|je → peux.} demander à mon père», propose Sacha. «C'est un ingénieur du son {que|${REL}|rel|tout le monde ist das Subjekt → que.} tout le monde adore.» Le soir du concert, il y a beaucoup {de|${DE3}|de|beaucoup de monde = viele Leute.} monde. Nino porte un {nouvel|nouveau|g1|anorak beginnt mit Vokal → nouvel.} anorak et un {beau|beau|g1|pantalon: männlich, beginnt mit Konsonant → beau.} pantalon noir. Tout le monde est content: c'est un {bel|beau|g1|évènement beginnt mit Vokal → bel.} évènement!`},
+ {id:"c3", t:"Un message pour Lou", txt:
+  `Salut Lou! Tu vas bien? J'espère que tu aimes ton {nouveau|nouveau|g1|collège: männlich, beginnt mit Konsonant → nouveau.} collège. Ici, nous avons une {nouvelle|nouveau|g1|une prof ist weiblich → nouvelle.} prof de maths. C'est une femme {qui|${REL}|rel|Danach kommt das Verb a → qui.} a toujours des idées géniales. Mais on a trop {de|${DE3}|de|trop de + Nomen.} devoirs! Sacha, le nouveau, a déjà beaucoup {d'|${DE3}|de|Vor Vokal wird de zu d'.}amis. En cours de français, nous {lisons|lire|le|nous → lisons.} un livre {que|${REL}|rel|j' ist das Subjekt → que.} j'adore. Et moi, j'{écris|écrire|le|j' → écris.} des histoires pour le blog de la classe. Tu {peux|pouvoir|vp|tu → peux.} lire mon blog, si tu {veux|vouloir|vp|tu → veux.}. Mes parents {veulent|vouloir|vp|ils → veulent.} aller à Nantes en octobre. Nous {pouvons|pouvoir|vp|nous → pouvons.} passer un week-end ensemble! Je voudrais voir la ville {où|${REL}|rel|Dort wohnst du → où.} tu habites maintenant. Tu as des {belles|beau|g1|les photos: weiblich, Mehrzahl → belles.} photos de ta classe? Bises, Maëlle`}
+];
+
+const READS = [
+ {id:"r1", t:"Un message de Lou", txt:
+  `Salut Maëlle! Ça va? Moi, je suis dans mon nouveau collège à Nantes. Les profs ont l'air sympas, surtout la prof d'histoire-géo. Elle est jeune, elle a les cheveux courts et roux et elle porte toujours des lunettes vertes. C'est une prof qui aime la musique: dans son cours, on peut écouter du rap! Mais j'ai trop de devoirs et peu de temps pour le sport. Dans ma classe, il y a une fille qui s'appelle Jade. Elle écrit des chansons et moi, je lis ses textes. Je trouve que c'est génial! Mais je suis un peu triste parce que tu n'es pas là. J'espère que tu peux bientôt passer un week-end à Nantes! Bises, Lou`,
+  q:[
+   {s:"Lou est dans un nouveau collège.", v:1},
+   {s:"La prof d'histoire-géo a les cheveux longs.", v:0, c:"Elle a les cheveux courts."},
+   {s:"La prof porte des lunettes vertes.", v:1},
+   {s:"Lou a beaucoup de temps pour le sport.", v:0, c:"Elle a peu de temps pour le sport."},
+   {s:"Jade écrit des chansons.", v:1},
+   {s:"Lou est en colère.", v:0, c:"Elle est un peu triste."}
+  ]},
+ {id:"r2", t:"Une prof qui fait des podcasts", txt:
+  `Au collège Jean-Moulin, il y a une prof que tout le monde adore: Mme Diallo, la professeure de français. Elle est petite, elle a les cheveux noirs et elle porte souvent une veste orange. Mme Diallo a une idée géniale: ses élèves n'écrivent pas de textes dans leurs cahiers, ils enregistrent des podcasts! Dans la salle où ils travaillent, il y a des micros et des ordinateurs. Les élèves lisent leurs histoires et un ingénieur du son, qui est le père d'un élève, enregistre tout. «Mes élèves veulent parler, alors ils peuvent parler!», explique Mme Diallo. Les parents écoutent les podcasts à la maison et ils trouvent que c'est super.`,
+  q:[
+   {s:"Mme Diallo est prof d'histoire-géo.", v:0, c:"Elle est professeure de français."},
+   {s:"Elle porte souvent une veste orange.", v:1},
+   {s:"Les élèves écrivent beaucoup de textes dans leurs cahiers.", v:0, c:"Ils n'écrivent pas de textes dans leurs cahiers, ils enregistrent des podcasts."},
+   {s:"L'ingénieur du son est le père d'un élève.", v:1},
+   {s:"Les parents n'aiment pas les podcasts.", v:0, c:"Ils trouvent que c'est super."}
+  ]}
+];
+
+const DIRE = [
+ {t:"or", k:"dire", de:"Sag, dass du für das neue Schuljahr bereit bist.", s:"Je suis prêt(e) pour la nouvelle année ."},
+ {t:"mc", k:"dire", q:"Sag, dass jemand Pech hat.", o:["Pas de chance!","Pas de problème!","La chance!"], a:0, w:"Pas de chance! = Pech!"},
+ {t:"or", k:"dire", de:"Sag, dass deine Lieblingsfächer Sport und Englisch sind.", s:"Mes matières préférées sont le sport et l'anglais .", alt:["Mes matières préférées sont l'anglais et le sport ."]},
+ {t:"or", k:"dire", de:"Wünsch es dir: Ich hoffe, dass ihr eure neue Klasse mögt.", s:"J'espère que vous aimez votre nouvelle classe ."},
+ {t:"mc", k:"dire", q:"Sag, dass du einverstanden bist: «Wenn du willst!»", o:["Si tu peux!","Si tu veux!","S'il te plaît!"], a:1, w:"wollen = vouloir → Si tu veux!"},
+ {t:"or", k:"dire", de:"Beschreibe: Das ist ein witziger Mann, der rote Haare hat.", s:"C'est un homme drôle qui a les cheveux roux ."},
+ {t:"or", k:"dire", de:"Sag, dass die Ferien vorbei sind.", s:"Les vacances sont finies ."},
+ {t:"or", k:"dire", de:"Sag, dass du kein Fleisch mehr isst.", s:"Je ne mange plus de viande ."},
+ {t:"or", k:"dire", de:"Sag, dass du lieber ins Schwimmbad gehst.", s:"Je préfère aller à la piscine ."},
+ {t:"mc", k:"dire", q:"Frag deine Lehrerin höflich, ob ihr einen Film schauen könnt.", o:["Madame, on peut regarder un film, s'il vous plaît?","Madame, on veut regarder un film, stp!","Madame, tu peux regarder un film?"], a:0, w:"können = pouvoir; zur Lehrerin: s'il vous plaît."},
+ {t:"or", k:"dire", de:"Er trägt eine Brille, eine blaue Jacke und weiße Schuhe.", s:"Il porte des lunettes, une veste bleue et des chaussures blanches .", alt:["Il porte des lunettes, des chaussures blanches et une veste bleue ."]},
+ {t:"or", k:"dire", de:"Sag, dass du wütend bist, weil du zu viele Hausaufgaben hast.", s:"Je suis en colère parce que j'ai trop de devoirs ."},
+ {t:"mc", k:"dire", q:"Sag deine Meinung: «Ich finde, dass das schade ist.»", o:["Je trouve que c'est dommage.","Je trouve, que c'est dommage est.","Je trouve c'est dommage que."], a:0, w:"trouver que + normaler Satz, ohne Komma."},
+ {t:"mc", k:"dire", q:"Sag, dass die Online-Gespräche spät abends vorbei sind.", o:["Finies les conversations en ligne tard le soir!","Fini les conversation en ligne tard le soir!","Finis la conversation en ligne tard le soir!"], a:0, w:"les conversations: weiblich, Mehrzahl → Finies."}
+];
+
+const WRITE = [
+ {id:"w1", t:"Quelqu'un que j'aime bien",
+  task:"Stell eine Person vor, die du magst (Freund, Freundin, Verwandte, Star). Schreib 5 bis 7 Sätze: Wer ist sie? Wie sieht sie aus? Was trägt sie oft? Warum magst du sie?",
+  plan:["Wer? Name, Alter, Klasse oder Beruf","Aussehen: Größe, Haare, Augen","Kleidung: Was trägt die Person oft?","Warum magst du sie? (parce que …)"],
+  box:["C'est … / Je présente …","Il / Elle a … ans.","Il / Elle est grand(e), petit(e), drôle, sympa …","Il / Elle a les cheveux … et les yeux …","Il / Elle porte souvent …","C'est quelqu'un qui …","J'aime bien … parce que / parce qu' …"],
+  bingo:[["être","\\b(est|suis|sont|c'est)\\b"],["les cheveux","les cheveux"],["les yeux","les yeux"],["porter","\\bport(e|es|ons|ez|ent)\\b"],["qui","\\bqui\\b"],["que / qu'","__QUE__"],["parce que","parce qu"],["Farbe","\\b(rouges?|bleue?s?|verte?s?|jaunes?|noire?s?|blanc|blanche|blancs|blanches|grise?s?|roses?|orange|marron|bruns?|blonde?s?|roux|rousse)\\b"]],
+  model:"Je présente mon cousin Felix. Il a quinze ans et il est en troisième. C'est un garçon drôle qui a toujours des idées géniales. Il est grand, il a les cheveux courts et blonds et les yeux verts. Il porte souvent un jean, un pull gris et des chaussures blanches. Le sport qu'il préfère, c'est le foot. J'aime bien Felix parce qu'il est sympa et parce qu'on rigole beaucoup ensemble."},
+ {id:"w2", t:"Quoi de neuf à la rentrée?",
+  task:"Schreib einer französischen Freundin oder einem Freund eine Nachricht (5 bis 7 Sätze): Was ist neu an deiner Schule? Wie fühlst du dich und warum? Was hoffst du?",
+  plan:["Begrüßung (Freund: Salut …!)","Neu: Lehrer, Mitschüler, Stundenplan, Fächer","Gefühl und Grund (parce que …)","Wunsch oder Frage, dann Gruß (Bises, …)"],
+  box:["Salut …! Ça va?","Je suis en … maintenant.","Nous avons un nouveau / un nouvel / une nouvelle …","Il y a beaucoup de … / trop de … / peu de …","Je suis content(e) / triste / en colère parce que …","Je trouve que … / J'espère que …","Tu peux … si tu veux. · Bises, …"],
+  bingo:[["nouveau / nouvelle","\\bnouve(au|aux|l|lle|lles)\\b"],["Menge + de","\\b(beaucoup|trop|peu|pas|plus) d['e]"],["Gefühl","\\b(contente?s?|triste|en colère|peur|dommage)\\b"],["parce que","parce qu"],["trouve / pense / espère que","\\b(trouve|pense|espère) qu"],["vouloir / pouvoir","\\b(veux|veut|voulons|voulez|veulent|peux|peut|pouvons|pouvez|peuvent)\\b"],["qui / que / où","\\b(qui|où)\\b|__QUE__"]],
+  model:"Salut Emma! Ça va? Ici, c'est la rentrée. Je suis en cinquième maintenant. Nous avons un nouvel emploi du temps et une nouvelle prof d'anglais qui est très sympa. Dans ma classe, il y a deux nouveaux élèves. Je suis content parce que je retrouve mes copains, mais nous avons trop de devoirs et j'ai peu de temps pour le sport. Je trouve que c'est dommage! Et toi? J'espère que tu aimes ta nouvelle classe. Tu peux écrire bientôt, si tu veux. Bises, Tim"}
+];
+
+/* typical slips at this level: [regex, hint] – hints, not verdicts */
+const FLAGS = [
+ ["\\b(beaucoup|trop|peu) (des|du|de la|les)\\b","Nach einer Menge steht nur de oder d'."],
+ ["\\b(je|tu) (veut|peut)\\b","Bei je und tu: veux / peux mit x."],
+ ["\\b(il|elle|on) (veux|peux)\\b","Bei il / elle / on: veut / peut mit t."],
+ ["\\b(ils|elles) (veut|peut|veux|peux|lit|écrit)\\b","Bei ils / elles: veulent, peuvent, lisent, écrivent."],
+ ["\\b(je lit|j'écrit|tu lit|tu écrit|je écris)\\b","je lis, tu lis · j'écris, tu écris."],
+ ["\\b(il|elle|je|tu) (est|suis|es) \\d+ ans\\b","Alter mit avoir: Il a 12 ans."],
+ ["\\bcheveux (noir|brun|blond|long|court)(?![a-zé])","les cheveux ist Mehrzahl: Das Adjektiv braucht ein s."],
+ ["\\bcheveux( longs| courts)?( et)? rouges?\\b","Rote Haare heißen roux."],
+ ["\\byeux (marrons|bleu|vert)(?![a-zé])","les yeux bleus / verts, aber marron ohne s."],
+ ["\\b(que|parce que) (il|ils|elle|elles|on|un|une)\\b","Vor Vokal: qu'il, qu'elle, qu'on, parce qu'il …"],
+ ["\\bsi ils?\\b","si + il wird zu s'il, si + ils zu s'ils."],
+ ["\\bqui (je|j'|tu|il|elle|on|nous|vous|ils|elles)\\b","Nach qui kommt direkt ein Verb. Meinst du que?"],
+ ["\\bje suis (un peu )?peur\\b","Angst hat man: j'ai peur."],
+ ["\\bj'ai (triste|contente?|en colère)\\b","Gefühle mit être: je suis triste / content(e) / en colère."],
+ ["\\bje suis colère\\b","Es heißt: je suis en colère."],
+ ["\\bun (beau|nouveau) [aeiouéèêh]","Vor Vokal oder stummem h: bel / nouvel."],
+ ["\\bune (beau|nouveau|bel|nouvel)\\b","Weiblich: belle / nouvelle."],
+ ["\\b(nouvels|bels|beaus|nouveaus)\\b","Mehrzahl männlich: beaux / nouveaux."],
+ ["\\b(aime|adore|déteste|préfère) (sport|musique|foot|rap|histoire|maths|français|anglais)\\b","Im Französischen mit Artikel: J'aime le sport, la musique, les maths."],
+ ["\\b(une|un|la|le) lunettes?\\b","Die Brille steht immer in der Mehrzahl: des lunettes."],
+ ["\\bune? (rouge|bleue?|verte?|noire?|blanc|blanche|jaune|grise?) (pull|veste|robe|jupe|pantalon|chemise|casquette|anorak|t-shirt|jean)","Farben stehen hinter dem Nomen: une veste rouge."]
+];
+const SELFCHECK = [
+ "Passt jedes Verb zu seinem Subjekt? (ils portent, nous avons)",
+ "Sind die Adjektive angepasst? (une veste verte, les cheveux courts)",
+ "Steht nach Mengen nur de? (beaucoup de devoirs)",
+ "Stimmen die Apostrophe? (j'ai, qu'il, s'il, d'amis)",
+ "Sind die Akzente da? (é, è, ç, où)",
+ "Großbuchstabe am Satzanfang, Punkt am Ende?"
+];
+
+const PARENTS = {
+ en:"Each station takes 4 to 7 minutes: a short chat story in French, one or two rule cards explained in German, then a game. Tapping any chat message shows the German meaning and reads the French aloud. Progress is saved only in this browser. For test week: one or two stations a day, then the Generalprobe in the Test-Arena, and the Fehler-Kiste to replay whatever went wrong. The content follows Band 2, Unité 1 (school words, beau / nouveau, quantities with de, vouloir / pouvoir, feelings, describing people, qui / que / où, lire / écrire), with new sentences instead of the book's texts.",
+ zh:"每一站只需 4 到 7 分钟：先看一段法语聊天小故事，再看一两张用德语讲解的规则卡，最后玩一个小游戏。点击任何一条聊天消息可以看到德语意思并听法语朗读。学习进度只保存在当前浏览器里。考试周建议：每天一到两站，然后做 Test-Arena 里的 Generalprobe（模拟测验），再用 Fehler-Kiste（错题箱）把做错的题重练一遍。内容对应第二册第一单元（学校词汇、beau / nouveau、带 de 的数量表达、vouloir / pouvoir、表达情绪、描述人物、qui / que / où、lire / écrire），句子都是新编的，不是照搬课文。"
+};
+
+/* ===== state ===== */
+const KEY = "carnet-fr-b2-v1";
+function defState(){ return {name:"", asked:false, st:{}, box:{}, best:{}, snd:true, days:[], drafts:{}, tests:{}}; }
+let S = defState();
+try { S = Object.assign(defState(), JSON.parse(localStorage.getItem(KEY) || "{}")); } catch(e){}
+function save(){ try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e){} }
+
+/* ===== helpers ===== */
+const app = document.getElementById("app");
+const DBG = window.__dbg = {};
+const $ = (s, r) => (r || document).querySelector(s);
+const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+function h(html){ const t = document.createElement("template"); t.innerHTML = html.trim(); return t.content.firstElementChild; }
+function esc(s){ return String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+function shuffle(a){ a = a.slice(); for(let i = a.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+function pick(a){ return a[Math.floor(Math.random() * a.length)]; }
+function sample(a, n){ return shuffle(a).slice(0, n); }
+function norm(s){ return String(s).trim().toLowerCase().replace(/[’`´]/g, "'").replace(/\s+/g, " ").replace(/[.!?]+$/,"").trim(); }
+function bare(s){ return norm(s).normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/œ/g, "oe"); }
+function today(){ const d = new Date(); return d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(); }
+function fillName(s){ return s.replace(/\{,n\}/g, S.name ? ", " + S.name : ""); }
+function starsHtml(n){ return '<span class="stars" aria-label="' + n + ' von 3 Sternen">' + [1,2,3].map(i => i <= n ? "★" : '<span class="off">★</span>').join("") + "</span>"; }
+function starsFor(right, total){ if(!total) return 3; const r = right / total; return r >= 0.9 ? 3 : r >= 0.7 ? 2 : 1; }
+let toastT = null;
+function toast(msg, ms){ $$(".toast").forEach(x => x.remove()); const t = h('<div class="toast" role="status">' + msg + "</div>"); document.body.appendChild(t); clearTimeout(toastT); toastT = setTimeout(() => t.remove(), ms || 2600); }
+
+/* ===== speech ===== */
+const TTS = {ok: "speechSynthesis" in window, voice: null};
+function pickVoice(){ if(!TTS.ok) return; try { const vs = speechSynthesis.getVoices(); TTS.voice = vs.find(v => /^fr[-_]FR/i.test(v.lang)) || vs.find(v => /^fr/i.test(v.lang)) || null; } catch(e){} }
+if(TTS.ok){ pickVoice(); try { speechSynthesis.onvoiceschanged = pickVoice; } catch(e){} }
+function plain(s){ return String(s).replace(/<[^>]+>/g, " ").replace(/\([^)]*\)/g, " ").replace(/[\u{1F000}-\u{1FAFF}\u{2190}-\u{27BF}\u{FE0F}\u{200D}]/gu, " ").replace(/[«»…]/g, " ").replace(/\s+/g, " ").trim(); }
+function speak(t){ if(!S.snd || !TTS.ok) return; try { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(plain(t)); u.lang = "fr-FR"; if(TTS.voice) u.voice = TTS.voice; u.rate = 0.9; speechSynthesis.speak(u); } catch(e){} }
+function hush(){ if(TTS.ok){ try { speechSynthesis.cancel(); } catch(e){} } }
+
+/* ===== item registry ===== */
+const ITEMS = {};
+STATIONS.forEach(st => (st.items || []).forEach((it, i) => { it.id = st.id + "-" + i; it.st = st.id; ITEMS[it.id] = it; }));
+DIRE.forEach((it, i) => { it.id = "dire-" + i; ITEMS[it.id] = it; });
+function markItem(it, ok){
+  if(!it || !it.id) return;
+  if(!ok) S.box[it.id] = 2;
+  else if(S.box[it.id]){ S.box[it.id]--; if(S.box[it.id] <= 0) delete S.box[it.id]; }
+  save();
+}
+function boxIds(){ return Object.keys(S.box).filter(id => ITEMS[id]); }
+
+/* ===== routing ===== */
+let cleanup = null;
+function setView(node, hash){
+  if(cleanup){ try { cleanup(); } catch(e){} cleanup = null; }
+  hush(); $$(".toast").forEach(x => x.remove());
+  app.innerHTML = ""; app.appendChild(node); window.scrollTo(0, 0);
+}
+let lastRouted = null;
+function curHash(){ return (location.hash || "").replace("#", ""); }
+function routeTo(k){
+  lastRouted = k;
+  if(k === "test") return viewTest();
+  if(k === "regeln") return viewSheet();
+  if(k.indexOf("station-") === 0){ const st = STATIONS.find(s => s.id === k.slice(8)); if(st) return viewStation(st); }
+  lastRouted = ""; viewHome();
+}
+function nav(k){ try { if(curHash() !== k) location.hash = k; } catch(e){} routeTo(k); }
+function route(){ routeTo(curHash()); }
+window.addEventListener("hashchange", () => { if(curHash() !== lastRouted) routeTo(curHash()); });
+
+function topBar(title, onBack){
+  const b = h('<div class="bar"><button class="back" type="button">← Carnet</button><div class="ttl"></div><button class="snd" type="button" aria-label="Ton an oder aus"></button></div>');
+  $(".ttl", b).innerHTML = title;
+  $(".back", b).onclick = onBack || (() => nav(""));
+  const s = $(".snd", b);
+  const paint = () => { s.textContent = S.snd ? "🔊" : "🔇"; s.title = S.snd ? "Vorlesen ist an" : "Vorlesen ist aus"; };
+  paint(); s.onclick = () => { S.snd = !S.snd; save(); paint(); if(!S.snd) hush(); };
+  if(!TTS.ok) s.classList.add("hidden");
+  return b;
+}
+
+/* ===== home ===== */
+function viewHome(){
+  const done = STATIONS.filter(s => S.st[s.id] && S.st[s.id].done).length;
+  const nBox = boxIds().length;
+  const v = h('<div></div>');
+  v.appendChild(h(`<section class="sheet seyes cover">
+      <div class="tally"><b>${done}/${STATIONS.length}</b><span>Stempel</span></div>
+      <h1>Le Carnet</h1>
+      <p class="sub">Französisch · Band 2 · Unité 1: La rentrée</p>
+      <p class="hello">${S.name ? "Salut, " + esc(S.name) + "!" : "Salut!"} Such dir eine Station aus. Jede dauert nur ein paar Minuten.</p>
+    </section>`));
+  if(!S.asked){
+    const n = h(`<section class="sheet"><b>Wie heißt du?</b> <span class="muted small">Die Chat-Gruppe spricht dich dann mit Namen an. Der Name bleibt auf diesem Gerät.</span>
+      <form class="row mt"><input class="name-in" id="nm" maxlength="14" autocomplete="off" placeholder="Vorname oder Spitzname"><button class="btn" type="submit">Speichern</button><button class="btn ghost" type="button" id="skip">Ohne Namen</button></form></section>`);
+    $("form", n).onsubmit = e => { e.preventDefault(); S.name = $("#nm", n).value.trim().replace(/[<>{}]/g, ""); S.asked = true; save(); viewHome(); };
+    $("#skip", n).onclick = () => { S.asked = true; save(); viewHome(); };
+    v.appendChild(n);
+  }
+  const q = h(`<div class="quick">
+      <button type="button" id="q-mix"><b>Tagesmix</b><span>10 Aufgaben quer durch alles · 4 Min</span></button>
+      <button type="button" id="q-test" class="red"><b>Test-Arena</b><span>Generalprobe für die Klassenarbeit</span></button>
+      <button type="button" id="q-box" class="alt"><b>Fehler-Kiste</b><span>${nBox ? nBox + (nBox === 1 ? " Aufgabe wartet" : " Aufgaben warten") + " auf Revanche" : "Leer. Stark!"}</span></button>
+    </div>`);
+  $("#q-mix", q).onclick = viewMix; $("#q-test", q).onclick = () => nav("test"); $("#q-box", q).onclick = viewBox;
+  v.appendChild(q);
+  v.appendChild(h('<h2 class="h2">Stationen</h2>'));
+  const grid = h('<div class="stations"></div>');
+  STATIONS.forEach(st => {
+    const p = S.st[st.id];
+    const b = h(`<button class="st" type="button"><span><span class="no">${st.bonus ? "BONUS" : "STATION " + st.no} · ${st.min} MIN</span><br><span class="t">${st.t}</span><br><span class="d">${st.d}</span></span>
+      ${p && p.done ? `<span class="stamp done s${p.stars}"><span><b>${"★".repeat(p.stars)}</b>validé</span></span>` : `<span class="stamp">${st.no}</span>`}</button>`);
+    b.onclick = () => nav("station-" + st.id);
+    grid.appendChild(b);
+  });
+  v.appendChild(grid);
+  const r = h('<div class="row mt2"><button class="btn ghost" type="button">Spickzettel: alle Regeln auf einen Blick</button></div>');
+  $("button", r).onclick = () => nav("regeln");
+  v.appendChild(r);
+  v.appendChild(h(`<details class="parents sheet"><summary>For parents · 给家长</summary><p>${PARENTS.en}</p><p lang="zh">${PARENTS.zh}</p></details>`));
+  setView(v, "");
+}
+
+/* ===== station flow ===== */
+function viewStation(st){
+  const steps = [];
+  if(st.chat) steps.push(["Chat", chatStep]);
+  if(st.rules) steps.push(["Regel", rulesStep]);
+  if(st.sprint) steps.push(["Sprint", sprintStep]);
+  if(st.dice) steps.push(["Würfel", diceStep]);
+  if(st.studio) steps.push(["Studio", studioStep]);
+  if(st.guess) steps.push(["Rätsel", guessStep]);
+  if(st.items) steps.push(["Training", itemsStep]);
+  let i = 0, right = 0, total = 0;
+  const v = h('<div></div>');
+  v.appendChild(topBar((st.bonus ? "Bonus" : "Station " + st.no) + " · " + st.t));
+  const dots = h('<div class="steps" aria-hidden="true"></div>'); v.appendChild(dots);
+  const host = h('<section class="sheet"></section>'); v.appendChild(host);
+  function show(){
+    hush(); $$(".toast").forEach(x => x.remove());
+    dots.innerHTML = steps.map((s, k) => `<i class="${k < i ? "on" : k === i ? "now" : ""}"></i>`).join("");
+    host.className = "sheet"; host.innerHTML = "";
+    if(i >= steps.length) return finish();
+    steps[i][1](host, st, res => { if(res){ right += res.right || 0; total += res.total || 0; } i++; show(); window.scrollTo(0, 0); });
+  }
+  function finish(){
+    const stars = starsFor(right, total);
+    const prev = S.st[st.id] || {};
+    S.st[st.id] = {done:true, stars:Math.max(prev.stars || 0, stars), n:(prev.n || 0) + 1};
+    if(S.days.indexOf(today()) < 0) S.days.push(today());
+    save();
+    host.className = "sheet finish";
+    host.innerHTML = `<div class="bigstamp"><span>Station ${st.no}<b>validé</b>${today().split("-").reverse().join(".")}</span></div>
+      ${starsHtml(stars)}
+      <p class="mt">${total ? right + " von " + total + " Punkten. " : ""}${stars === 3 ? "Sauber gelöst!" : stars === 2 ? "Gut gemacht! Mit einer zweiten Runde holst du den dritten Stern." : "Geschafft! Schau dir den Merkzettel an und spiel die Station morgen noch einmal."}</p>
+      <div class="memo"><h3>À retenir</h3><ul>${st.memo.map(m => "<li>" + m + "</li>").join("")}</ul></div>
+      <div class="todo"><b>Mini-Mission für heute:</b> ${st.todo}</div>
+      <div class="row mid mt2"><button class="btn" id="home">Zurück zum Carnet</button><button class="btn ghost" id="again">Nochmal spielen</button></div>`;
+    $("#home", host).onclick = () => nav("");
+    $("#again", host).onclick = () => viewStation(st);
+  }
+  setView(v, "station-" + st.id);
+  show();
+}
+
+/* ----- chat ----- */
+function chatStep(host, st, done){
+  host.innerHTML = `<div class="chat" aria-live="polite"><div class="grp">Groupe · La 5<sup>e</sup> B</div></div>
+    <p class="tap-tip">Tippe auf eine Nachricht: Du siehst die Übersetzung und hörst sie noch einmal.</p>
+    <div class="row end mt"><button class="btn" id="nx" type="button">Weiter</button></div>`;
+  const box = $(".chat", host), nx = $("#nx", host);
+  let i = 0;
+  function bubble(m, me){
+    const w = WHO[m.f] || {};
+    const fr = fillName(m.fr);
+    const n = h(`<div class="msg ${me ? "me" : ""}">${me ? "" : `<div class="av" style="background:${w.c}">${w.n[0]}</div>`}<div class="bub" tabindex="0" role="button"><div class="who" style="color:${me ? "#cfd6ff" : w.c}">${me ? (S.name ? esc(S.name) : "Toi") : w.n}</div><div class="txt" lang="fr">${fr}</div>${m.de ? `<div class="de hidden">${m.de}</div>` : ""}</div></div>`);
+    const tog = () => { const d = $(".de", n); if(d) d.classList.toggle("hidden"); speak(m.spk || fr); };
+    $(".bub", n).onclick = tog;
+    $(".bub", n).onkeydown = e => { if(e.key === "Enter" || e.key === " "){ e.preventDefault(); tog(); } };
+    box.appendChild(n); speak(m.spk || fr);
+    n.scrollIntoView({block:"nearest", behavior:"smooth"});
+  }
+  function ask(m){
+    nx.classList.add("hidden");
+    const c = h(`<div class="choice"><div class="ask">${m.ask}</div><div class="os"></div><div class="fb hidden"></div></div>`);
+    shuffle(m.o).forEach(o => {
+      const b = h('<button type="button"></button>'); b.textContent = o.t;
+      b.onclick = () => {
+        if(o.ok){
+          c.remove(); nx.classList.remove("hidden");
+          if(o.say) bubble({fr: o.say + " = " + o.t, spk: o.say}, true);
+          else bubble({fr: o.bub || o.t, de: o.de}, true);
+          nx.focus();
+        } else { b.classList.add("no"); b.disabled = true; const f = $(".fb", c); f.textContent = o.fb; f.classList.remove("hidden"); }
+      };
+      $(".os", c).appendChild(b);
+    });
+    box.appendChild(c); c.scrollIntoView({block:"nearest", behavior:"smooth"});
+  }
+  function next(){
+    if(i >= st.chat.length) return done();
+    const m = st.chat[i++];
+    if(m.ask) ask(m); else bubble(m);
+    if(i >= st.chat.length) nx.textContent = "Weiter zur Regel →";
+  }
+  nx.onclick = next; next();
+}
+
+/* ----- rule cards ----- */
+function rulesStep(host, st, done){
+  let i = 0;
+  function show(){
+    host.innerHTML = `<div class="rule">${st.rules[i]}</div><div class="pager"><button class="btn ghost" id="pv" type="button" ${i ? "" : "disabled"}>Zurück</button><span class="muted small">${i + 1} / ${st.rules.length}</span><button class="btn" id="nx" type="button">${i < st.rules.length - 1 ? "Nächste Karte" : "Verstanden, los!"}</button></div>`;
+    $("#pv", host).onclick = () => { i--; show(); };
+    $("#nx", host).onclick = () => { if(i < st.rules.length - 1){ i++; show(); window.scrollTo(0, 0); } else done(); };
+  }
+  show();
+}
+
+/* ----- generic item runner ----- */
+function itemsStep(host, st, done){
+  const n = (st.sprint || st.dice || st.studio || st.guess) ? 6 : 9;
+  runItems(host, pickItems(st.items, n), {}, done);
+}
+function pickItems(pool, n){
+  // prefer a mix of types, and anything in the Fehler-Kiste first
+  const inBox = shuffle(pool.filter(it => S.box[it.id]));
+  const rest = shuffle(pool.filter(it => !S.box[it.id]));
+  return shuffle(inBox.concat(rest).slice(0, n));
+}
+function accBar(input){
+  const bar = h('<div class="acc" aria-label="Sonderzeichen"></div>');
+  "é è ê à â ç ù û î ô œ '".split(" ").forEach(ch => {
+    const b = h('<button type="button"></button>'); b.textContent = ch;
+    b.onmousedown = e => e.preventDefault();
+    b.onclick = () => { const el = typeof input === "function" ? input() : input; if(!el) return; const s = el.selectionStart == null ? el.value.length : el.selectionStart, e2 = el.selectionEnd == null ? s : el.selectionEnd; el.value = el.value.slice(0, s) + ch + el.value.slice(e2); el.focus(); try { el.setSelectionRange(s + ch.length, s + ch.length); } catch(e){} el.dispatchEvent(new Event("input")); };
+    bar.appendChild(b);
+  });
+  return bar;
+}
+function gapHtml(q, fill, ok){ return q.replace("___", `<span class="gap ${ok ? "ok" : ""}">${fill || "&nbsp;"}</span>`).replace("'</span> ", "'</span>"); }
+function sayOf(it, ans){ if(it.t === "or") return it.s; if(it.q && it.q.indexOf("___") >= 0 && !/^(ein|eine|der|die|das)\b/i.test(ans || "")) return it.q.replace("___", " " + ans + " ").replace(/' /g, "'"); return null; }
+
+function runItems(host, items, opts, done){
+  let idx = 0, right = 0; const res = [];
+  const wrap = h('<div><div class="prog"><i></i></div><div class="item"></div></div>');
+  host.innerHTML = ""; host.appendChild(wrap);
+  const area = $(".item", wrap), bar = $(".prog i", wrap);
+  function finishItem(it, ok, near, solution, extra){
+    if(ok) right++;
+    res.push({it, ok}); markItem(it, ok);
+    const cls = ok ? (near ? "near" : "good") : "bad";
+    const head = ok ? (near ? "Fast perfekt!" : pick(["Richtig!", "Genau!", "Bravo!", "Super!", "Très bien!"])) : pick(["Noch nicht.", "Knapp daneben.", "Schau mal:"]);
+    const f = h(`<div class="fbk ${cls}" role="status"><div class="msg2"><b>${head}</b>${solution && (!ok || near) ? `<span class="sol" lang="fr">${solution}</span><br>` : ""}<span>${extra || ""} ${it.w || ""}</span></div><button class="btn ${ok ? "go" : ""}" type="button">Weiter</button></div>`);
+    area.appendChild(f);
+    const b = $("button", f); b.onclick = next; b.focus();
+    f.scrollIntoView({block:"nearest", behavior:"smooth"});
+  }
+  function next(){ idx++; show(); }
+  function show(){
+    bar.style.width = (idx / items.length * 100) + "%";
+    if(idx >= items.length) return done({right, total: items.length, res});
+    const it = items[idx]; DBG.item = it;
+    area.innerHTML = "";
+    ({mc: rMC, ty: rTY, or: rOR, sp: rSP, rd: rRD, sl: rSL})[it.t](it);
+  }
+  function rMC(it){
+    area.innerHTML = `<div class="hint">${it.fix ? "An wen geht diese Nachricht?" : it.de ? "Auf Französisch: <b>" + it.de + "</b>" : it.q.indexOf("___") >= 0 ? "Was passt in die Lücke?" : "Wähle die passende Antwort."}</div><div class="q" lang="fr">${gapHtml(it.q)}</div><div class="opts ${it.fix ? "two" : ""}"></div>`;
+    const order = it.fix ? it.o.map((_, i) => i) : shuffle(it.o.map((_, i) => i));
+    order.forEach(i => {
+      const b = h('<button class="opt" type="button"></button>'); b.innerHTML = it.o[i];
+      b.onclick = () => {
+        const ok = i === it.a;
+        $$(".opt", area).forEach(x => x.disabled = true);
+        b.classList.add(ok ? "right" : "wrong");
+        if(!ok) $$(".opt", area)[order.indexOf(it.a)].classList.add("right");
+        if(it.q.indexOf("___") >= 0 && it.o[it.a].length < 26) $(".q", area).innerHTML = gapHtml(it.q, it.o[it.a], true);
+        const A = it.o[it.a], german = /[äöüß]/.test(A) || /^(ein|eine|der|die|das|an) /i.test(A);
+        if(it.q.indexOf("___") >= 0) speak(it.q.replace("___", " " + A + " ").replace(/' /g, "'")); else if(it.fix) speak(it.q); else if(!german) speak(A);
+        finishItem(it, ok, false, null);
+      };
+      $(".opts", area).appendChild(b);
+    });
+  }
+  function rTY(it){
+    area.innerHTML = `<div class="hint">${it.de ? "Auf Französisch: <b>" + it.de + "</b>" : "Schreib die richtige Form in die Lücke."}</div><div class="q" lang="fr">${gapHtml(it.q)}</div>
+      <form class="tyrow"><input class="tyin" id="ans" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" lang="fr" aria-label="Deine Antwort"><button class="btn" type="submit">Prüfen</button></form>`;
+    const inp = $("#ans", area); area.appendChild(accBar(inp)); inp.focus();
+    $("form", area).onsubmit = e => {
+      e.preventDefault(); if(inp.disabled) return;
+      const v = norm(inp.value); if(!v) return;
+      const ok = it.a.some(a => norm(a) === v), near = !ok && it.a.some(a => bare(a) === bare(v));
+      inp.disabled = true; $$(".acc button, .tyrow button", area).forEach(b => b.disabled = true);
+      $(".q", area).innerHTML = gapHtml(it.q, it.a[0], true);
+      const say = sayOf(it, it.a[0]); if(say) speak(say);
+      finishItem(it, ok || near, near, it.a[0], near ? "Achte auf Akzent und Apostroph." : "");
+    };
+  }
+  function rOR(it){
+    const toks = it.s.split(" ");
+    const tail = /^[.!?]$/.test(toks[toks.length - 1]) ? toks.pop() : "";
+    const disp = toks.map((t, i) => i === 0 && !/^(Inès|Nino|Sacha|Maëlle|Lyon|Mme|M\.)/.test(t) ? t[0].toLowerCase() + t.slice(1) : t);
+    area.innerHTML = `<div class="hint">Bau den Satz: <b>${it.de}</b></div><div class="build" lang="fr" aria-label="Dein Satz"></div><div class="chips" lang="fr"></div><div class="row end mt"><button class="btn" id="ck" type="button" disabled>Prüfen</button></div>`;
+    const build = $(".build", area), chips = $(".chips", area), ck = $("#ck", area);
+    const chosen = [];
+    shuffle(disp.map((t, i) => i)).forEach(i => {
+      const c = h('<button class="chip" type="button"></button>'); c.textContent = disp[i];
+      c.onclick = () => {
+        if(c.classList.contains("used") || ck.dataset.done) return;
+        c.classList.add("used"); chosen.push(i);
+        const b = h('<button class="chip sel" type="button"></button>'); b.textContent = disp[i];
+        b.onclick = () => { if(ck.dataset.done) return; chosen.splice(chosen.indexOf(i), 1); b.remove(); c.classList.remove("used"); ck.disabled = true; };
+        build.appendChild(b); ck.disabled = chosen.length !== disp.length;
+      };
+      chips.appendChild(c);
+    });
+    ck.onclick = () => {
+      ck.dataset.done = 1; ck.classList.add("hidden");
+      const got = norm(chosen.map(i => disp[i]).join(" "));
+      const targets = [it.s].concat(it.alt || []).map(s => norm(s.replace(/ [.!?]$/, "")));
+      const ok = targets.indexOf(got) >= 0;
+      const sol = toks.join(" ") + tail;
+      speak(sol);
+      finishItem(it, ok, false, sol);
+    };
+  }
+  function rSP(it){
+    const toks = it.s.split(" ");
+    area.innerHTML = `<div class="hint">Fehler-Detektiv: Ein Wort ist falsch. Tippe es an.</div><div class="q spot" lang="fr"></div>`;
+    const q = $(".q", area);
+    toks.forEach(t => {
+      if(/^[.!?]$/.test(t)){ q.appendChild(document.createTextNode(t)); return; }
+      const b = h('<button class="w" type="button"></button>'); b.textContent = t;
+      b.onclick = () => {
+        if(q.dataset.done) return; q.dataset.done = 1;
+        const ok = t === it.bad;
+        $$(".w", q).forEach(x => { if(x.textContent === it.bad){ x.classList.add("bad"); x.insertAdjacentHTML("afterend", ` <span class="w fix">${it.fix}</span>`); } });
+        const sol = it.s.replace(" " + it.bad + " ", " " + it.fix + " ").replace(/ ([.!?])$/, "$1").replace(/' /g, "'");
+        speak(sol);
+        finishItem(it, ok, false, sol);
+      };
+      q.appendChild(b);
+    });
+  }
+  function rRD(it){
+    area.innerHTML = `<div class="hint">Devinette, Teil 1: Welches Wort verbindet den Satz?</div><div class="q" lang="fr">${gapHtml(it.q)}</div>${it.n ? `<p class="small muted">${it.n}</p>` : ""}<div class="opts" id="o1" style="grid-template-columns:repeat(3,1fr)"></div><div id="p2"></div>`;
+    let ok1 = false;
+    [["qui",["qui"]],["que / qu'",["que","qu'"]],["où",["où"]]].forEach(([lab, vals]) => {
+      const b = h('<button class="opt" type="button" style="text-align:center"></button>'); b.textContent = lab;
+      b.onclick = () => {
+        ok1 = vals.indexOf(it.p) >= 0;
+        $$("#o1 .opt", area).forEach(x => { x.disabled = true; if(x.textContent.indexOf(it.p === "qu'" ? "que" : it.p) === 0) x.classList.add("right"); });
+        if(!ok1) b.classList.add("wrong");
+        $(".q", area).innerHTML = gapHtml(it.q, it.p, true).replace("qu'</span> ", "qu'</span>");
+        speak(it.q.replace("___", it.p).replace("qu' ", "qu'"));
+        part2();
+      };
+      $("#o1", area).appendChild(b);
+    });
+    function part2(){
+      const p2 = $("#p2", area);
+      p2.innerHTML = `<div class="hint mt">${ok1 ? "Richtig. " : ""}${it.w}<br><b>Teil 2: Und was ist das?</b></div><div class="opts"></div>`;
+      shuffle(it.o).forEach(o => {
+        const b = h('<button class="opt" type="button"></button>'); b.textContent = o;
+        b.onclick = () => {
+          const ok2 = o === it.ans;
+          $$(".opt", p2).forEach(x => { x.disabled = true; if(x.textContent === it.ans) x.classList.add("right"); });
+          if(!ok2) b.classList.add("wrong");
+          speak(it.ans);
+          finishItem(Object.assign({}, it, {w: ""}), ok1 && ok2, false, null, ok1 && ok2 ? "" : ok2 ? "Das Rätsel stimmt, aber achte auf qui / que / où." : "Lösung: " + it.ans + ".");
+        };
+        $(".opts", p2).appendChild(b);
+      });
+      p2.scrollIntoView({block:"nearest", behavior:"smooth"});
+    }
+  }
+  function rSL(it){
+    const chars = []; let mute = false; const want = new Set();
+    for(const ch of it.m){ if(ch === "("){ mute = true; continue; } if(ch === ")"){ mute = false; continue; } if(mute && ch !== " ") want.add(chars.length); chars.push(ch); }
+    const word = chars.join("");
+    area.innerHTML = `<div class="hint">Welche Buchstaben hörst du <b>nicht</b>? Tippe alle stummen Buchstaben an.</div><div class="letters" lang="fr"></div><div class="row end"><button class="btn ghost" id="hear" type="button">🔊 Anhören</button><button class="btn" id="ck" type="button">Prüfen</button></div>`;
+    const L = $(".letters", area), sel = new Set();
+    chars.forEach((ch, i) => {
+      if(ch === " "){ L.appendChild(h('<span class="sp"></span>')); return; }
+      const b = h('<button type="button"></button>'); b.textContent = ch; b.dataset.i = i;
+      b.onclick = () => { if(L.dataset.done) return; if(sel.has(i)) sel.delete(i); else sel.add(i); b.classList.toggle("mute"); };
+      L.appendChild(b);
+    });
+    const hear = $("#hear", area); if(!TTS.ok) hear.classList.add("hidden");
+    hear.onclick = () => { const was = S.snd; S.snd = true; speak(word); S.snd = was; };
+    $("#ck", area).onclick = () => {
+      L.dataset.done = 1; $("#ck", area).classList.add("hidden");
+      const ok = sel.size === want.size && [...sel].every(i => want.has(i));
+      $$("button", L).forEach(b => { const i = +b.dataset.i; b.classList.toggle("mute", want.has(i)); if(want.has(i) !== sel.has(i)) b.classList.add("miss"); else if(want.has(i)) b.classList.add("ok"); });
+      speak(word);
+      finishItem(it, ok, false, null);
+    };
+  }
+  show();
+}
+
+/* ===== avatars ===== */
+const COL = {
+  rouge:{m:"rouge",f:"rouge",mp:"rouges",fp:"rouges",de:"rot",hex:"#e0392f"},
+  bleu:{m:"bleu",f:"bleue",mp:"bleus",fp:"bleues",de:"blau",hex:"#2f6fde"},
+  vert:{m:"vert",f:"verte",mp:"verts",fp:"vertes",de:"grün",hex:"#2f9e5b"},
+  jaune:{m:"jaune",f:"jaune",mp:"jaunes",fp:"jaunes",de:"gelb",hex:"#f5c81f"},
+  noir:{m:"noir",f:"noire",mp:"noirs",fp:"noires",de:"schwarz",hex:"#2a2a36"},
+  blanc:{m:"blanc",f:"blanche",mp:"blancs",fp:"blanches",de:"weiß",hex:"#ffffff"},
+  gris:{m:"gris",f:"grise",mp:"gris",fp:"grises",de:"grau",hex:"#9aa1ad"},
+  rose:{m:"rose",f:"rose",mp:"roses",fp:"roses",de:"rosa",inv:1,hex:"#f58ab5"},
+  orange:{m:"orange",f:"orange",mp:"orange",fp:"orange",de:"orangefarben",hex:"#f58a1f"}
+};
+const GARM = {
+  tshirt:{fr:"t-shirt",g:"m",de:"T-Shirt",dg:"n"}, pull:{fr:"pull",g:"m",de:"Pulli",dg:"m"}, veste:{fr:"veste",g:"f",de:"Jacke",dg:"f"},
+  chemise:{fr:"chemise",g:"f",de:"Hemd",dg:"n"}, robe:{fr:"robe",g:"f",de:"Kleid",dg:"n"}, anorak:{fr:"anorak",g:"m",de:"Anorak",dg:"m"},
+  pantalon:{fr:"pantalon",g:"m",de:"Hose",dg:"f"}, jean:{fr:"jean",g:"m",de:"Jeans",dg:"f"}, jupe:{fr:"jupe",g:"f",de:"Rock",dg:"m"},
+  casquette:{fr:"casquette",g:"f",de:"Mütze",dg:"f"}
+};
+const HAIR = {noir:{fr:"noirs",de:"schwarze",hex:"#23202b"}, brun:{fr:"bruns",de:"braune",hex:"#6b4226"}, blond:{fr:"blonds",de:"blonde",hex:"#f0cf6a"}, roux:{fr:"roux",de:"rote",hex:"#d9622b"}};
+const EYES = {bleu:{fr:"bleus",de:"blaue",hex:"#2f7df0"}, vert:{fr:"verts",de:"grüne",hex:"#2f9e5b"}, marron:{fr:"marron",de:"braune",hex:"#7a4a22"}};
+const SKIN = ["#f8d7bb","#eab98f","#c48a5c","#8d5a3b"];
+const CLOTH_COLS = ["rouge","bleu","vert","jaune","noir","blanc","gris","rose","orange"];
+const INK = "#1f2130";
+
+function avatarSVG(a){
+  const sk = SKIN[a.skin || 0], hc = HAIR[a.hairCol].hex, o = `stroke="${INK}" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"`;
+  const top = a.top, tc = COL[top.c].hex, sc = COL[a.shoes].hex;
+  let s = `<svg viewBox="0 0 100 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Figur">`;
+  if(top.t === "anorak") s += `<ellipse cx="50" cy="42" rx="26" ry="25" fill="${tc}" ${o}/>`;
+  if(a.hairLen === "long") s += `<path d="M27,38 C24,10 76,10 73,38 L76,72 Q69,77 63,72 L63,42 L37,42 L37,72 Q31,77 24,72 Z" fill="${hc}" ${o}/>`;
+  // legs / bottom
+  if(top.t === "robe"){
+    s += `<rect x="38" y="122" width="8" height="24" fill="${sk}" ${o}/><rect x="54" y="122" width="8" height="24" fill="${sk}" ${o}/>`;
+  } else if(a.bottom.t === "jupe"){
+    s += `<rect x="38" y="118" width="8" height="28" fill="${sk}" ${o}/><rect x="54" y="118" width="8" height="28" fill="${sk}" ${o}/>`;
+    s += `<path d="M33,98 L67,98 L73,124 L27,124 Z" fill="${COL[a.bottom.c].hex}" ${o}/>`;
+  } else {
+    const bc = a.bottom.t === "jean" ? "#5b86cf" : COL[a.bottom.c].hex;
+    s += `<path d="M33,98 L67,98 L67,146 L52,146 L50,112 L48,146 L33,146 Z" fill="${bc}" ${o}/>`;
+    if(a.bottom.t === "jean") s += `<path d="M36,104 q5,5 10,0 M54,104 q5,5 10,0 M36,140 h10 M54,140 h10" fill="none" stroke="#f3d27a" stroke-width="1.3"/>`;
+  }
+  // shoes
+  s += `<ellipse cx="38" cy="150" rx="11" ry="6" fill="${sc}" ${o}/><ellipse cx="62" cy="150" rx="11" ry="6" fill="${sc}" ${o}/>`;
+  // arms
+  const long = top.t !== "tshirt" && top.t !== "robe";
+  s += `<rect x="19" y="62" width="10" height="42" rx="5" fill="${long ? tc : sk}" ${o}/><rect x="71" y="62" width="10" height="42" rx="5" fill="${long ? tc : sk}" ${o}/>`;
+  s += `<circle cx="24" cy="105" r="5" fill="${sk}" ${o}/><circle cx="76" cy="105" r="5" fill="${sk}" ${o}/>`;
+  if(!long) s += `<rect x="19" y="62" width="10" height="17" rx="5" fill="${tc}" ${o}/><rect x="71" y="62" width="10" height="17" rx="5" fill="${tc}" ${o}/>`;
+  // neck
+  s += `<rect x="45" y="52" width="10" height="12" fill="${sk}" ${o}/>`;
+  // torso
+  if(top.t === "robe") s += `<path d="M30,60 L70,60 L67,98 L76,128 L24,128 L33,98 Z" fill="${tc}" ${o}/>`;
+  else s += `<path d="M29,60 L71,60 L68,${top.t === "anorak" ? 106 : 102} L32,${top.t === "anorak" ? 106 : 102} Z" fill="${tc}" ${o}/>`;
+  if(top.t === "tshirt" || top.t === "robe") s += `<path d="M43,60 Q50,68 57,60 Z" fill="${sk}" ${o}/>`;
+  if(top.t === "pull") s += `<path d="M42,60 Q50,67 58,60" fill="none" ${o} stroke-width="3"/><path d="M32,97 H68 M19,98 h10 M71,98 h10" fill="none" ${o}/>`;
+  if(top.t === "veste") s += `<path d="M43,60 L50,84 L57,60 Z" fill="#fff" ${o}/><path d="M50,84 V102" fill="none" ${o}/><circle cx="54" cy="90" r="1.4" fill="${INK}"/><circle cx="54" cy="97" r="1.4" fill="${INK}"/>`;
+  if(top.t === "chemise") s += `<path d="M43,60 L50,67 L57,60 L60,66 L50,69 L40,66 Z" fill="#fff" ${o}/><path d="M50,69 V102" fill="none" ${o}/><circle cx="50" cy="77" r="1.3" fill="${INK}"/><circle cx="50" cy="85" r="1.3" fill="${INK}"/><circle cx="50" cy="93" r="1.3" fill="${INK}"/>`;
+  if(top.t === "anorak") s += `<path d="M50,60 V106" fill="none" ${o} stroke-dasharray="2.5 2"/><path d="M31,76 H69 M32,90 H68" fill="none" ${o} stroke-width="1"/>`;
+  // head
+  s += `<circle cx="29" cy="38" r="3.5" fill="${sk}" ${o}/><circle cx="71" cy="38" r="3.5" fill="${sk}" ${o}/><circle cx="50" cy="36" r="21" fill="${sk}" ${o}/>`;
+  s += `<path d="M28.5,38 C25,10 75,10 71.5,38 C68,31 60,29.5 50,30.5 C40,29.5 32,31 28.5,38 Z" fill="${hc}" ${o}/>`;
+  // face
+  const ec = EYES[a.eyes].hex;
+  s += `<ellipse cx="42" cy="40" rx="4.2" ry="4.4" fill="#fff" stroke="${INK}" stroke-width=".9"/><ellipse cx="58" cy="40" rx="4.2" ry="4.4" fill="#fff" stroke="${INK}" stroke-width=".9"/>`;
+  s += `<circle cx="42" cy="40" r="3" fill="${ec}"/><circle cx="58" cy="40" r="3" fill="${ec}"/><circle cx="42" cy="40" r="1.1" fill="${INK}"/><circle cx="58" cy="40" r="1.1" fill="${INK}"/><circle cx="43" cy="39" r=".7" fill="#fff"/><circle cx="59" cy="39" r=".7" fill="#fff"/>`;
+  s += `<path d="M44,49 Q50,54 56,49" fill="none" ${o}/>`;
+  if(a.lunettes){ const lc = COL[a.lunettes].hex; s += `<g fill="none" stroke="${lc}" stroke-width="2.6"><circle cx="42" cy="40" r="7"/><circle cx="58" cy="40" r="7"/><path d="M49,40 h2 M35,39 L29,37 M65,39 L71,37"/></g>`; }
+  if(a.casquette){ const cc = COL[a.casquette].hex; s += `<path d="M28,30 C28,9 72,9 72,30 Z" fill="${cc}" ${o}/><path d="M60,30 H90 Q91,24 76,23 L60,24 Z" fill="${cc}" ${o}/>`; }
+  return s + "</svg>";
+}
+
+/* ----- describing an avatar in French and German ----- */
+function deAdj(c, dg){ const k = COL[c]; return k.inv ? k.de : k.de + ({m:"en", f:"e", n:"es", p:"e"})[dg]; }
+function deArt(dg){ return ({m:"einen", f:"eine", n:"ein"})[dg]; }
+function frGarm(t, c){ const g = GARM[t]; return (g.g === "m" ? "un " : "une ") + g.fr + (t === "jean" ? "" : " " + COL[c][g.g]); }
+function deGarm(t, c){ const g = GARM[t]; return t === "jean" ? "eine Jeans" : deArt(g.dg) + " " + deAdj(c, g.dg) + " " + g.de; }
+function describe(a, feats){
+  const P = a.g === "f" ? "Elle" : "Il", D = a.g === "f" ? "Sie" : "Er", out = [];
+  out.push({k:"g", fr: a.g === "f" ? "C'est une fille." : "C'est un garçon.", de: a.g === "f" ? "Das ist ein Mädchen." : "Das ist ein Junge."});
+  if(feats.indexOf("hair") >= 0) out.push({k:"hair", fr:`${P} a les cheveux ${a.hairLen === "long" ? "longs" : "courts"} et ${HAIR[a.hairCol].fr}.`, de:`${D} hat ${a.hairLen === "long" ? "lange" : "kurze"} ${HAIR[a.hairCol].de} Haare.`});
+  if(feats.indexOf("eyes") >= 0) out.push({k:"eyes", fr:`${P} a les yeux ${EYES[a.eyes].fr}.`, de:`${D} hat ${EYES[a.eyes].de} Augen.`});
+  if(feats.indexOf("lunettes") >= 0) out.push(a.lunettes ? {k:"lunettes", fr:`${P} porte des lunettes ${COL[a.lunettes].fp}.`, de:`${D} trägt eine ${deAdj(a.lunettes, "f")} Brille.`} : {k:"lunettes", fr:`${P} ne porte pas de lunettes.`, de:`${D} trägt keine Brille.`});
+  if(feats.indexOf("casquette") >= 0) out.push(a.casquette ? {k:"casquette", fr:`${P} porte une casquette ${COL[a.casquette].f}.`, de:`${D} trägt eine ${deAdj(a.casquette, "f")} Mütze.`} : {k:"casquette", fr:`${P} ne porte pas de casquette.`, de:`${D} trägt keine Mütze.`});
+  if(feats.indexOf("top") >= 0){
+    const sh = `des chaussures ${COL[a.shoes].fp}`, shd = `${deAdj(a.shoes, "p")} Schuhe`;
+    if(a.top.t === "robe") out.push({k:"outfit", fr:`${P} porte ${frGarm("robe", a.top.c)} et ${sh}.`, de:`${D} trägt ${deGarm("robe", a.top.c)} und ${shd}.`});
+    else out.push({k:"outfit", fr:`${P} porte ${frGarm(a.top.t, a.top.c)}, ${frGarm(a.bottom.t, a.bottom.c)} et ${sh}.`, de:`${D} trägt ${deGarm(a.top.t, a.top.c)}, ${deGarm(a.bottom.t, a.bottom.c)} und ${shd}.`});
+  }
+  return out;
+}
+function sameOn(a, b, k){
+  if(k === "g") return true;
+  if(k === "hair") return a.hairLen === b.hairLen && a.hairCol === b.hairCol;
+  if(k === "eyes") return a.eyes === b.eyes;
+  if(k === "lunettes") return (a.lunettes || null) === (b.lunettes || null);
+  if(k === "casquette") return (a.casquette || null) === (b.casquette || null);
+  if(k === "outfit"){
+    if(a.top.t !== b.top.t || a.top.c !== b.top.c || a.shoes !== b.shoes) return false;
+    if(b.top.t === "robe") return true;
+    return a.bottom.t === b.bottom.t && (b.bottom.t === "jean" || a.bottom.c === b.bottom.c);
+  }
+  return true;
+}
+
+/* ----- studio: free play, then build-from-description ----- */
+function studioStep(host, st, done){
+  const feats = st.studio.feats, briefs = st.studio.briefs;
+  let mode = -1, av = null, tries = 0, right = 0;
+  function blank(t){
+    const a = JSON.parse(JSON.stringify(t));
+    if(feats.indexOf("hair") >= 0){ a.hairLen = t.hairLen === "long" ? "court" : "long"; a.hairCol = t.hairCol === "brun" ? "blond" : "brun"; }
+    if(feats.indexOf("eyes") >= 0) a.eyes = t.eyes === "bleu" ? "marron" : "bleu";
+    if(feats.indexOf("lunettes") >= 0) a.lunettes = t.lunettes ? null : null;
+    if(feats.indexOf("casquette") >= 0) a.casquette = null;
+    a.top = {t: t.top.t === "tshirt" ? "pull" : "tshirt", c:"gris"}; a.bottom = {t:"pantalon", c:"gris"}; a.shoes = t.shoes === "gris" ? "noir" : "gris";
+    return a;
+  }
+  function start(m){
+    mode = m; tries = 0;
+    if(m < 0) av = {g:"f", skin:1, hairLen:"long", hairCol:"roux", eyes:"vert", lunettes:null, top:{t:"veste",c:"vert"}, bottom:{t:"jean",c:"bleu"}, shoes:"blanc", casquette:null};
+    else av = blank(briefs[m]);
+    draw();
+  }
+  function row(items, cur, on){
+    const d = h('<div class="pick"></div>');
+    items.forEach(([val, lab, hex]) => {
+      const b = h(`<button class="pk ${val === cur ? "on" : ""}" type="button">${hex ? `<i style="background:${hex}"></i>` : ""}<span lang="fr">${lab}</span></button>`);
+      b.onclick = () => { on(val); if(val !== null && val !== "") speak(lab); draw(true); };
+      d.appendChild(b);
+    });
+    return d;
+  }
+  function group(label, rows){ const g = h(`<div class="grp"><div class="lab">${label}</div></div>`); rows.forEach(r => g.appendChild(r)); return g; }
+  function draw(keep){
+    const y = window.scrollY;
+    const free = mode < 0, T = free ? null : briefs[mode];
+    DBG.brief = T; DBG.setAv = t => { av = JSON.parse(JSON.stringify(t)); draw(); };
+    host.innerHTML = "";
+    const brief = h('<div class="brief"></div>');
+    if(free) brief.innerHTML = `<b>Look-Studio.</b> Probier alles aus. Der Satz unter der Figur ändert sich mit. Achte auf die Endungen der Farben.`;
+    else brief.innerHTML = `<b>Auftrag ${mode + 1} von ${briefs.length}.</b> Lies die Beschreibung und bau die Person genau so. <ul lang="fr">${describe(T, feats).filter(d => d.k !== "g" || true).map(d => `<li data-k="${d.k}" title="${esc(d.de)}">${d.fr}</li>`).join("")}</ul><button class="pk mt" id="tr" type="button">Übersetzung zeigen</button><div id="trd" class="small muted hidden">${describe(T, feats).map(d => d.de).join(" ")}</div>`;
+    host.appendChild(brief);
+    const S2 = h('<div class="studio"><div class="stage"><div class="fig"></div><div class="side"></div></div><div class="ctl"></div></div>');
+    $(".fig", S2).innerHTML = avatarSVG(av);
+    if(free) $(".side", S2).innerHTML = `<ul class="descr" lang="fr" style="list-style:none;padding:0;margin:0">${describe(av, feats).filter(d => d.k !== "g").map(d => `<li>${d.fr}</li>`).join("")}</ul>`;
+    const ctl = $(".ctl", S2);
+    if(free) ctl.appendChild(group("Qui?", [row([["f","une fille"],["m","un garçon"]], av.g, v => av.g = v)]));
+    if(feats.indexOf("hair") >= 0) ctl.appendChild(group("Les cheveux", [row([["long","longs"],["court","courts"]], av.hairLen, v => av.hairLen = v), row(Object.keys(HAIR).map(k => [k, HAIR[k].fr, HAIR[k].hex]), av.hairCol, v => av.hairCol = v)]));
+    if(feats.indexOf("eyes") >= 0) ctl.appendChild(group("Les yeux", [row(Object.keys(EYES).map(k => [k, EYES[k].fr, EYES[k].hex]), av.eyes, v => av.eyes = v)]));
+    if(feats.indexOf("lunettes") >= 0){
+      const rows = [row([[false,"pas de lunettes"],[true,"des lunettes"]], !!av.lunettes, v => av.lunettes = v ? (av.lunettes || "noir") : null)];
+      if(av.lunettes) rows.push(row(["noir","rouge","bleu","vert","orange"].map(c => [c, COL[c].fp, COL[c].hex]), av.lunettes, v => av.lunettes = v));
+      ctl.appendChild(group("Les lunettes", rows));
+    }
+    if(feats.indexOf("top") >= 0){
+      const tg = GARM[av.top.t].g;
+      ctl.appendChild(group("En haut", [row(["tshirt","pull","veste","chemise","anorak","robe"].map(t => [t, (GARM[t].g === "m" ? "un " : "une ") + GARM[t].fr]), av.top.t, v => { av.top.t = v; if(v !== "robe" && !av.bottom) av.bottom = {t:"pantalon", c:"gris"}; }), row(CLOTH_COLS.map(c => [c, COL[c][tg], COL[c].hex]), av.top.c, v => av.top.c = v)]));
+    }
+    if(feats.indexOf("bottom") >= 0 && av.top.t !== "robe"){
+      const rows = [row(["pantalon","jean","jupe"].map(t => [t, (GARM[t].g === "m" ? "un " : "une ") + GARM[t].fr]), av.bottom.t, v => av.bottom.t = v)];
+      if(av.bottom.t !== "jean") rows.push(row(CLOTH_COLS.map(c => [c, COL[c][GARM[av.bottom.t].g], COL[c].hex]), av.bottom.c, v => av.bottom.c = v));
+      ctl.appendChild(group("En bas", rows));
+    }
+    if(feats.indexOf("shoes") >= 0) ctl.appendChild(group("Les chaussures", [row(CLOTH_COLS.map(c => [c, COL[c].fp, COL[c].hex]), av.shoes, v => av.shoes = v)]));
+    if(feats.indexOf("casquette") >= 0){
+      const rows = [row([[false,"pas de casquette"],[true,"une casquette"]], !!av.casquette, v => av.casquette = v ? (av.casquette || "rouge") : null)];
+      if(av.casquette) rows.push(row(CLOTH_COLS.map(c => [c, COL[c].f, COL[c].hex]), av.casquette, v => av.casquette = v));
+      ctl.appendChild(group("La casquette", rows));
+    }
+    host.appendChild(S2);
+    const foot = h('<div class="row end mt"></div>');
+    if(free){ const b = h('<button class="btn" type="button">Zu den Aufträgen →</button>'); b.onclick = () => { start(0); window.scrollTo(0, 0); }; foot.appendChild(b); }
+    else { const b = h('<button class="btn" type="button">Vergleichen</button>'); b.onclick = check; foot.appendChild(b); }
+    host.appendChild(foot);
+    const tr = $("#tr", host); if(tr) tr.onclick = () => $("#trd", host).classList.toggle("hidden");
+    $$(".brief li", host).forEach(li => li.onclick = () => speak(li.textContent));
+    if(keep) window.scrollTo(0, y);
+  }
+  function check(){
+    const T = briefs[mode]; tries++;
+    const ds = describe(T, feats); let bad = 0;
+    $$(".brief li", host).forEach(li => { const ok = sameOn(av, T, li.dataset.k); li.className = ok ? "good" : "bad"; if(!ok) bad++; });
+    $(".brief ul", host).classList.add("descr");
+    if(!bad){
+      if(tries === 1) right++;
+      toast(tries === 1 ? "Parfait! Beim ersten Versuch." : "Jetzt stimmt alles.");
+      const foot = $(".row.end", host); foot.innerHTML = "";
+      const b = h(`<button class="btn go" type="button">${mode < briefs.length - 1 ? "Nächster Auftrag →" : "Weiter →"}</button>`);
+      b.onclick = () => { if(mode < briefs.length - 1){ start(mode + 1); window.scrollTo(0, 0); } else done({right, total: briefs.length}); };
+      foot.appendChild(b); $(".brief", host).scrollIntoView({block:"nearest", behavior:"smooth"}); b.focus();
+    } else {
+      toast(bad === 1 ? "Ein Satz stimmt noch nicht. Er ist rot markiert." : bad + " Sätze stimmen noch nicht. Sie sind rot markiert.");
+      $(".brief", host).scrollIntoView({block:"nearest", behavior:"smooth"});
+    }
+  }
+  start(-1);
+}
+
+/* ----- Qui est-ce? ----- */
+function randAvatar(g){
+  const tt = g === "f" ? pick(["tshirt","pull","veste","robe","pull","veste"]) : pick(["tshirt","pull","veste"]);
+  const bt = g === "f" ? pick(["jean","pantalon","jupe"]) : pick(["jean","pantalon"]);
+  return {g, skin: Math.floor(Math.random() * 4), hairLen: g === "f" ? pick(["long","long","court"]) : pick(["court","court","long"]), hairCol: pick(Object.keys(HAIR)), eyes:"marron",
+    lunettes: Math.random() < 0.4 ? "noir" : null, casquette: Math.random() < 0.3 ? pick(["rouge","bleu","vert","jaune"]) : null,
+    top:{t: tt, c: pick(["rouge","bleu","vert","jaune","orange","rose","blanc"])}, bottom:{t: bt, c: pick(["noir","gris","vert","rouge"])}, shoes: pick(["noir","blanc","rouge","vert","orange"])};
+}
+function gwClues(T){
+  const P = T.g === "f" ? "Elle" : "Il", D = T.g === "f" ? "Sie" : "Er", N = T.g === "f" ? "une fille" : "un garçon", c = [];
+  c.push({fr:`${P} a les cheveux ${T.hairLen === "long" ? "longs" : "courts"}.`, de:`${D} hat ${T.hairLen === "long" ? "lange" : "kurze"} Haare.`, ok: a => a.hairLen === T.hairLen});
+  const short = {brun:["brun","brune"], blond:["blond","blonde"], roux:["roux","rousse"]}[T.hairCol];
+  c.push(short && Math.random() < 0.5 ? {fr:`${P} est ${short[T.g === "f" ? 1 : 0]}.`, de:`${D} hat ${HAIR[T.hairCol].de} Haare.`, ok: a => a.hairCol === T.hairCol} : {fr:`${P} a les cheveux ${HAIR[T.hairCol].fr}.`, de:`${D} hat ${HAIR[T.hairCol].de} Haare.`, ok: a => a.hairCol === T.hairCol});
+  c.push(T.lunettes ? {fr:`${P} porte des lunettes.`, de:`${D} trägt eine Brille.`, ok: a => !!a.lunettes} : {fr:`${P} ne porte pas de lunettes.`, de:`${D} trägt keine Brille.`, ok: a => !a.lunettes});
+  c.push(T.casquette ? {fr:`C'est ${N} qui porte une casquette ${COL[T.casquette].f}.`, de:`Das ist ${T.g === "f" ? "ein Mädchen, das" : "ein Junge, der"} eine ${deAdj(T.casquette, "f")} Mütze trägt.`, ok: a => a.casquette === T.casquette} : {fr:`${P} ne porte pas de casquette.`, de:`${D} trägt keine Mütze.`, ok: a => !a.casquette});
+  const tg = GARM[T.top.t];
+  c.push(Math.random() < 0.5 ? {fr:`${P} porte ${frGarm(T.top.t, T.top.c)}.`, de:`${D} trägt ${deGarm(T.top.t, T.top.c)}.`, ok: a => a.top.t === T.top.t && a.top.c === T.top.c}
+    : {fr:`${tg.g === "m" ? "Le" : "La"} ${tg.fr} qu'${P.toLowerCase()} porte est ${COL[T.top.c][tg.g]}.`, de:`${({m:"Der",f:"Die",n:"Das"})[tg.dg]} ${tg.de}, ${({m:"den",f:"die",n:"das"})[tg.dg]} ${D.toLowerCase()} trägt, ist ${COL[T.top.c].de}.`, ok: a => a.top.t === T.top.t && a.top.c === T.top.c});
+  if(T.top.t !== "robe") c.push({fr:`${P} porte ${frGarm(T.bottom.t, T.bottom.c)}.`, de:`${D} trägt ${deGarm(T.bottom.t, T.bottom.c)}.`, ok: a => a.top.t !== "robe" && a.bottom.t === T.bottom.t && (T.bottom.t === "jean" || a.bottom.c === T.bottom.c)});
+  c.push({fr:`${P} a des chaussures ${COL[T.shoes].fp}.`, de:`${D} hat ${deAdj(T.shoes, "p")} Schuhe.`, ok: a => a.shoes === T.shoes});
+  return shuffle(c);
+}
+function gwSet(g){
+  for(let guard = 0; guard < 60; guard++){
+    const T = randAvatar(g), clues = gwClues(T), all = [T];
+    const mut = a => { const b = JSON.parse(JSON.stringify(a)); const r = randAvatar(g); const k = pick(["hairLen","hairCol","lunettes","casquette","top","bottom","shoes"]); b[k] = r[k]; b.skin = r.skin; return b; };
+    let tries = 0;
+    while(all.length < 12 && tries++ < 400){
+      let c = all.length < 4 ? mut(T) : all.length < 7 ? mut(mut(mut(T))) : randAvatar(g);
+      if(c.top.t === "robe") c.bottom = c.bottom || {t:"jupe", c:"noir"};
+      if(clues.every(q => q.ok(c))) continue;
+      if(all.some(x => JSON.stringify(x) === JSON.stringify(c))) continue;
+      all.push(c);
+    }
+    if(all.length === 12) return {T, clues, all: shuffle(all)};
+  }
+  return null;
+}
+function guessStep(host, st, done){
+  const rounds = st.guess.rounds; let r = 0, right = 0;
+  function round(){
+    let set = null; while(!set) set = gwSet(rounds[r]); let shown = 1, hearts = 3, over = false; DBG.gw = set;
+    const out = new Set();
+    host.innerHTML = `<div class="gw-top"><div class="row" style="justify-content:space-between"><b>Runde ${r + 1} von ${rounds.length} · ${rounds[r] === "f" ? "Qui est la fille?" : "Qui est le garçon?"}</b><span class="hearts" aria-label="Versuche"></span></div>
+      <p class="small muted">Lies die Hinweise. Tippe alle weg, die nicht passen, bis nur eine Person übrig ist.</p>
+      <ol class="clues" lang="fr"></ol><div class="row mt"><button class="btn ghost" id="more" type="button">Nächster Hinweis</button><button class="btn go hidden" id="nx" type="button">Weiter →</button></div></div><div class="gw"></div>`;
+    const ol = $(".clues", host), grid = $(".gw", host), more = $("#more", host), nx = $("#nx", host);
+    function hearts_(){ $(".hearts", host).textContent = "♥".repeat(hearts) + "♡".repeat(3 - hearts); }
+    function clues(){
+      ol.innerHTML = "";
+      set.clues.slice(0, shown).forEach((c, i) => { const li = h(`<li class="${i === shown - 1 ? "new" : ""}">${c.fr}<span class="de hidden">${c.de}</span></li>`); li.onclick = () => { $(".de", li).classList.toggle("hidden"); speak(c.fr); }; ol.appendChild(li); });
+      more.disabled = shown >= set.clues.length;
+      if(shown >= set.clues.length) more.textContent = "Alle Hinweise sind da";
+    }
+    function end(win){
+      over = true; more.classList.add("hidden"); nx.classList.remove("hidden");
+      $$("button", grid).forEach((b, i) => { if(set.all[i] === set.T) b.classList.add("win"); else b.classList.add("out"); });
+      right += win ? hearts : 0;
+      toast(win ? "Gefunden! Lies die Hinweise noch einmal laut." : "Die gesuchte Person ist grün markiert. Vergleiche sie mit den Hinweisen.", 3800);
+      shown = set.clues.length; clues(); nx.focus();
+    }
+    set.all.forEach((a, i) => {
+      const b = h(`<button type="button" aria-label="Person ${i + 1}">${avatarSVG(a)}</button>`);
+      b.onclick = () => {
+        if(over || out.has(i)) return;
+        const seen = set.clues.slice(0, shown);
+        if(a === set.T){ hearts--; hearts_(); b.classList.add("nope"); setTimeout(() => b.classList.remove("nope"), 400); toast("Stopp! Diese Person passt zu allen Hinweisen. Lies noch einmal genau."); if(hearts <= 0) end(false); return; }
+        if(seen.every(q => q.ok(a))){ b.classList.add("nope"); setTimeout(() => b.classList.remove("nope"), 400); toast("Noch nicht sicher: Zu den bisherigen Hinweisen passt diese Person noch. Hol dir den nächsten Hinweis."); return; }
+        out.add(i); b.classList.add("out");
+        if(out.size === set.all.length - 1) end(true);
+      };
+      grid.appendChild(b);
+    });
+    more.onclick = () => { if(shown < set.clues.length){ shown++; clues(); speak(set.clues[shown - 1].fr); } };
+    nx.onclick = () => { r++; if(r < rounds.length){ round(); window.scrollTo(0, 0); } else done({right, total: rounds.length * 3}); };
+    hearts_(); clues();
+  }
+  round();
+}
+
+/* ----- verb sprint ----- */
+function verbQ(verbs){
+  const v = pick(verbs), pi = Math.floor(Math.random() * 6), p = pick(PRON[pi]), form = VERBS[v][pi];
+  const shown = p === "je" && /^[aeiouéèh]/.test(form) ? "j'" : p;
+  return {v, pi, p: shown, form};
+}
+function sprintStep(host, st, done){
+  const verbs = st.sprint.verbs, secs = st.sprint.secs;
+  host.innerHTML = `<div class="rule"><div class="kicker">Sprint · ${secs} Sekunden</div><h3>Welche Form passt?</h3><p>Du siehst ein Pronomen und ein Verb. Tippe so schnell du kannst die richtige Form an. Jede richtige Antwort zählt, Serien bringen Extra-Punkte.</p>${S.best[st.id] ? `<p class="muted">Dein Rekord: <b>${S.best[st.id]}</b> Punkte</p>` : ""}</div><div class="row end mt"><button class="btn" id="go" type="button">Start</button></div>`;
+  $("#go", host).onclick = run;
+  function run(){
+    let t = secs * 10, score = 0, streak = 0, okN = 0, lock = false, q = null; const miss = [];
+    host.innerHTML = `<div class="timer"><i></i></div><div class="hud"><span>Punkte: <b id="sc">0</b></span><span id="stk"></span></div><div class="bigq"><div class="p" lang="fr"></div><div class="v"></div></div><div class="opts two" lang="fr"></div>`;
+    const bar = $(".timer i", host);
+    const iv = setInterval(() => { if(lock) return; t--; bar.style.width = (t / (secs * 10) * 100) + "%"; if(t <= 0) end(); }, 100);
+    cleanup = () => clearInterval(iv);
+    function ask(){
+      let n; do { n = verbQ(verbs); } while(q && n.v === q.v && n.pi === q.pi); q = n; DBG.q = q;
+      $(".bigq .p", host).textContent = q.p + (q.p === "j'" ? "" : " ") + "…";
+      $(".bigq .v", host).textContent = q.v + " · " + VERB_DE[q.v];
+      const forms = Array.from(new Set(VERBS[q.v])).filter(f => f !== q.form);
+      const os = shuffle([q.form].concat(sample(forms, 3)));
+      const box = $(".opts", host); box.innerHTML = "";
+      os.forEach(f => {
+        const b = h('<button class="opt" type="button" style="text-align:center;font-size:22px"></button>'); b.textContent = f;
+        b.onclick = () => {
+          if(lock) return;
+          if(f === q.form){ streak++; okN++; score += streak >= 5 ? 2 : 1; b.classList.add("right"); lock = true; setTimeout(() => { lock = false; ask(); }, 180); }
+          else { streak = 0; miss.push(q); b.classList.add("wrong"); $$(".opt", box).forEach(x => { if(x.textContent === q.form) x.classList.add("right"); }); lock = true; setTimeout(() => { lock = false; ask(); }, 1300); }
+          $("#sc", host).textContent = score; $("#stk", host).textContent = streak >= 3 ? "Serie: " + streak + (streak >= 5 ? " · doppelte Punkte" : "") : "";
+        };
+        box.appendChild(b);
+      });
+    }
+    function end(){
+      clearInterval(iv); cleanup = null;
+      const best = Math.max(S.best[st.id] || 0, score), rec = score > (S.best[st.id] || 0); S.best[st.id] = best; save();
+      const uniq = []; miss.forEach(m => { if(!uniq.some(u => u.v === m.v && u.pi === m.pi)) uniq.push(m); });
+      host.innerHTML = `<div class="finish" style="padding:8px 0"><div class="score">${score}</div><p class="muted">Punkte${rec ? " · neuer Rekord!" : " · Rekord: " + best}</p><p class="mt">${okN} richtig, ${miss.length} falsch.</p>
+        ${uniq.length ? `<div class="memo"><h3>Noch mal anschauen</h3><ul lang="fr">${uniq.map(m => `<li>${m.p}${m.p === "j'" ? "" : " "}<b>${m.form}</b> <span class="muted">(${m.v})</span></li>`).join("")}</ul></div>` : ""}
+        <div class="row mid mt2"><button class="btn ghost" id="re" type="button">Noch ein Sprint</button><button class="btn" id="nx" type="button">Weiter →</button></div></div>`;
+      $("#re", host).onclick = run;
+      $("#nx", host).onclick = () => done({right: okN, total: okN + miss.length});
+    }
+    ask();
+  }
+}
+
+/* ----- verb dice (typed) ----- */
+function diceStep(host, st, done){
+  const n = st.dice.n; let i = 0, right = 0; const used = {};
+  function roll(){
+    if(i >= n) return done({right, total: n});
+    let q, g = 0; do { q = verbQ(st.dice.verbs); } while(used[q.v + q.pi] && g++ < 30); used[q.v + q.pi] = 1; DBG.q = q;
+    host.innerHTML = `<div class="prog"><i style="width:${i / n * 100}%"></i></div><div class="hint">Würfel-Runde ${i + 1} von ${n}: Schreib die passende Form.</div>
+      <div class="dice" lang="fr"><div class="die roll"><small>Pronomen</small>${q.p}</div><div class="die roll"><small>Verb</small>${q.v}</div></div>
+      <form class="tyrow"><input class="tyin" id="ans" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" lang="fr" aria-label="Verbform"><button class="btn" type="submit">Prüfen</button></form><div id="fb"></div>`;
+    const inp = $("#ans", host); $("form", host).after(accBar(inp)); inp.focus();
+    $("form", host).onsubmit = e => {
+      e.preventDefault(); if(inp.disabled) return; const v = norm(inp.value); if(!v) return;
+      const v2 = v.replace(/^(je|j'|tu|il|elle|on|nous|vous|ils|elles)\s*/, "");
+      const ok = v2 === q.form, near = !ok && bare(v2) === bare(q.form);
+      inp.disabled = true; $$(".acc button, .tyrow button", host).forEach(b => b.disabled = true);
+      if(ok || near) right++;
+      const full = q.p + (q.p === "j'" ? "" : " ") + q.form; speak(full);
+      const row = VERBS[q.v];
+      const f = h(`<div class="fbk ${ok ? "good" : near ? "near" : "bad"}"><div class="msg2"><b>${ok ? "Richtig!" : near ? "Fast perfekt! Achte auf den Akzent." : "Noch nicht."}</b><span class="sol" lang="fr">${full}</span>${ok ? "" : `<br><span class="small" lang="fr">${row[0]}, ${row[1]}, ${row[2]}, ${row[3]}, ${row[4]}, ${row[5]}</span>`}</div><button class="btn ${ok ? "go" : ""}" type="button">${i < n - 1 ? "Würfeln" : "Weiter"}</button></div>`);
+      $("#fb", host).appendChild(f); $("button", f).onclick = () => { i++; roll(); }; $("button", f).focus();
+    };
+  }
+  roll();
+}
+
+/* ===== summaries, Tagesmix, Fehler-Kiste, Spickzettel ===== */
+function summaryView(title, r, againFn, extra){
+  const stars = starsFor(r.right, r.total);
+  const wrong = (r.res || []).filter(x => !x.ok).length;
+  const v = h('<div></div>'); v.appendChild(topBar(title));
+  v.appendChild(h(`<section class="sheet finish">${starsHtml(stars)}<div class="score mt">${r.right} / ${r.total}</div>
+    <p class="mt">${wrong ? wrong + (wrong === 1 ? " Aufgabe liegt" : " Aufgaben liegen") + " jetzt in der Fehler-Kiste. Hol sie dir morgen zurück." : "Alles richtig. Die Fehler-Kiste bleibt leer."}</p>${extra || ""}
+    <div class="row mid mt2"><button class="btn" id="home" type="button">Zurück zum Carnet</button><button class="btn ghost" id="again" type="button">Noch eine Runde</button></div></section>`));
+  $("#home", v).onclick = () => nav("");
+  $("#again", v).onclick = againFn;
+  setView(v);
+}
+function viewMix(){
+  const doneSt = STATIONS.filter(s => S.st[s.id] && S.st[s.id].done);
+  const pool = (doneSt.length >= 2 ? doneSt : STATIONS).reduce((a, s) => a.concat(s.items || []), []).concat(DIRE);
+  const fromBox = sample(boxIds().map(id => ITEMS[id]), 4);
+  const rest = sample(pool.filter(it => fromBox.indexOf(it) < 0), 10 - fromBox.length);
+  const v = h('<div></div>'); v.appendChild(topBar("Tagesmix"));
+  const host = h('<section class="sheet"></section>'); v.appendChild(host);
+  setView(v);
+  if(S.days.indexOf(today()) < 0){ S.days.push(today()); save(); }
+  runItems(host, shuffle(fromBox.concat(rest)), {}, r => summaryView("Tagesmix", r, viewMix));
+}
+function viewBox(){
+  const ids = boxIds();
+  const v = h('<div></div>'); v.appendChild(topBar("Fehler-Kiste"));
+  const host = h('<section class="sheet"></section>'); v.appendChild(host);
+  setView(v);
+  if(!ids.length){ host.innerHTML = `<div class="finish"><h3>Die Kiste ist leer.</h3><p class="mt muted">Hier landen Aufgaben, die du falsch beantwortet hast. Wenn du sie zweimal richtig löst, verschwinden sie wieder.</p><div class="row mid mt2"><button class="btn" type="button">Zurück zum Carnet</button></div></div>`; $("button", host).onclick = () => nav(""); return; }
+  runItems(host, sample(ids.map(id => ITEMS[id]), 10), {}, r => summaryView("Fehler-Kiste", r, viewBox, `<p class="muted small">Noch in der Kiste: ${boxIds().length}. Eine Aufgabe verschwindet, wenn du sie zweimal richtig löst.</p>`));
+}
+function viewSheet(){
+  const v = h('<div></div>'); v.appendChild(topBar("Spickzettel"));
+  v.appendChild(h('<section class="sheet seyes cover" style="padding-top:16px;padding-bottom:14px"><h1 style="font-size:28px">Spickzettel</h1><p class="sub">Alle Regelkarten von Unité 1. Gut für den Abend vor der Arbeit.</p></section>'));
+  STATIONS.forEach((st, i) => {
+    const d = h(`<details class="sheet" ${i === 0 ? "open" : ""}><summary style="cursor:pointer;font-weight:750;color:var(--ink);font-size:18px">${st.bonus ? "Bonus" : st.no} · ${st.t} <span class="muted small" style="font-weight:500">${st.d}</span></summary></details>`);
+    st.rules.forEach(r => d.appendChild(h(`<div class="rule" style="margin-top:14px;padding-top:12px;border-top:1px dashed var(--line)">${r}</div>`)));
+    d.appendChild(h(`<div class="memo"><h3>À retenir</h3><ul>${st.memo.map(m => "<li>" + m + "</li>").join("")}</ul></div>`));
+    v.appendChild(d);
+  });
+  setView(v, "regeln");
+}
+
+/* ===== Test-Arena ===== */
+function viewTest(){
+  const v = h('<div></div>'); v.appendChild(topBar("Test-Arena"));
+  const last = S.tests.last;
+  v.appendChild(h(`<section class="sheet seyes cover" style="padding-top:16px;padding-bottom:14px"><h1 style="font-size:28px">Test-Arena</h1><p class="sub">So ähnlich sehen Aufgaben in einer Klassenarbeit aus.</p>${last ? `<p class="hello">Letzte Generalprobe: ${last.pts} von ${last.max} Punkten (${last.day}).</p>` : ""}</section>`));
+  const m = h('<div class="menu mt"></div>');
+  const add = (title, sub, tag, fn, cls) => { const b = h(`<button type="button" ${cls ? `style="${cls}"` : ""}><b>${title}</b><em>${tag}</em><span>${sub}</span></button>`); b.onclick = fn; m.appendChild(b); };
+  add("Generalprobe", "Lückentext, Lesetext und «Sagen können» am Stück, mit Auswertung nach Themen.", "10 Min", () => runGeneral(), "box-shadow:0 0 0 2.5px var(--red)");
+  v.appendChild(m);
+  v.appendChild(h('<h2 class="h2">Einzeln üben</h2>'));
+  const m2 = h('<div class="menu"></div>');
+  const add2 = (title, sub, tag, fn) => { const b = h(`<button type="button"><b>${title}</b><em>${tag}</em><span>${sub}</span></button>`); b.onclick = fn; m2.appendChild(b); };
+  CLOZE.forEach(c => add2("Lückentext: " + c.t, "Grammatik gemischt, selbst schreiben.", "5 Min", () => soloPart("Lückentext", host => clozePart(host, c, r => soloDone("Lückentext", r, viewTest)))));
+  READS.forEach(c => add2("Lesen: " + c.t, "Text lesen, dann vrai oder faux.", "3 Min", () => soloPart("Lesen", host => readPart(host, c, r => soloDone("Lesen", r, viewTest)))));
+  add2("Sagen können", "Was sagst du in dieser Situation?", "3 Min", () => soloPart("Sagen können", host => runItems(host, sample(DIRE, 6), {}, r => soloDone("Sagen können", {pts: r.right, max: r.total, sk: skillTally(r.res)}, viewTest))));
+  WRITE.forEach(w => add2("Schreiben: " + w.t, "Schreibwerkstatt mit Bingo, Fehler-Scanner und Beispieltext.", "10 Min", () => viewWrite(w)));
+  v.appendChild(m2);
+  setView(v, "test");
+}
+function soloPart(title, fn){
+  const v = h('<div></div>'); v.appendChild(topBar(title, () => viewTest()));
+  $(".back", v).textContent = "← Test-Arena";
+  const host = h('<section class="sheet"></section>'); v.appendChild(host); setView(v); fn(host);
+}
+function skillTally(res){ const sk = {}; (res || []).forEach(x => { const k = x.it.k || "dire"; sk[k] = sk[k] || [0, 0]; sk[k][1]++; if(x.ok) sk[k][0]++; }); return sk; }
+function mergeSk(a, b){ Object.keys(b).forEach(k => { a[k] = a[k] || [0, 0]; a[k][0] += b[k][0]; a[k][1] += b[k][1]; }); return a; }
+function skillsHtml(sk){
+  const keys = Object.keys(sk).sort((a, b) => sk[a][0] / sk[a][1] - sk[b][0] / sk[b][1]);
+  return `<div class="skills">${keys.map(k => { const [r, t] = sk[k], good = r / t >= 0.8, s = SKILLS[k] || {n: k}; return `<div class="sk"><span>${s.n}${!good && s.st ? ` <a href="#station-${s.st}" class="small">Station üben</a>` : ""}</span><b class="${good ? "good" : "bad"}">${Math.round(r * 10) / 10} / ${t}</b></div>`; }).join("")}</div>`;
+}
+function verdict(p){ return p >= 0.85 ? "Du bist bereit für die Arbeit. Wiederhole am Vorabend nur noch den Spickzettel." : p >= 0.6 ? "Fast. Üb die rot markierten Themen noch einmal, dann sitzt es." : "Da geht noch was. Spiel die rot markierten Stationen und komm morgen wieder."; }
+function soloDone(title, r, back){
+  const v = h('<div></div>'); v.appendChild(topBar(title, back)); $(".back", v).textContent = "← Test-Arena";
+  v.appendChild(h(`<section class="sheet finish"><div class="score">${Math.round(r.pts * 10) / 10} / ${r.max}</div><p class="mt">${verdict(r.pts / r.max)}</p>${skillsHtml(r.sk)}<div class="row mid mt2"><button class="btn" type="button">Zurück zur Test-Arena</button></div></section>`));
+  $(".finish .btn", v).onclick = back; setView(v);
+}
+
+/* ----- parts ----- */
+function clozePart(host, c, done){
+  const gaps = [];
+  const html = c.txt.replace(/\{([^|}]+)\|([^|}]+)\|([^|}]+)\|([^}]+)\}/g, (m, a, cue, k, w) => { gaps.push({a, cue, k, w}); const i = gaps.length - 1; return `<span class="cue">(${cue})</span> <input data-i="${i}" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" lang="fr" aria-label="Lücke ${i + 1}" id="gap-${i}"><sup class="n">${i + 1}</sup>`; });
+  host.innerHTML = `<div class="rule"><div class="kicker">Lückentext</div><h3>${c.t}</h3><p class="muted small">Setz das Wort in Klammern in der richtigen Form ein. Bei mehreren Wörtern in der Klammer wählst du das passende aus.</p></div><div class="cloze mt" lang="fr">${html}</div><div id="accs"></div><div class="row end mt"><button class="btn" id="ck" type="button">Abgeben</button></div><div id="out"></div>`;
+  let last = $("input", host);
+  $$(".cloze input", host).forEach(inp => inp.onfocus = () => last = inp);
+  $("#accs", host).appendChild(accBar(() => last));
+  $("#ck", host).onclick = () => {
+    const empty = $$(".cloze input", host).filter(i => !i.value.trim());
+    if(empty.length && !$("#ck", host).dataset.warned){ $("#ck", host).dataset.warned = 1; toast(empty.length + " Lücken sind noch leer. Tippe noch einmal auf Abgeben, wenn du trotzdem fertig bist."); empty[0].focus(); return; }
+    let pts = 0; const sk = {}, notes = [];
+    $$(".cloze input", host).forEach(inp => {
+      const g = gaps[+inp.dataset.i], v = norm(inp.value), ok = v === norm(g.a), near = !ok && v && bare(v) === bare(g.a);
+      inp.disabled = true; inp.classList.add(ok ? "ok" : near ? "near" : "no");
+      sk[g.k] = sk[g.k] || [0, 0]; sk[g.k][1]++; sk[g.k][0] += ok ? 1 : near ? 0.5 : 0; pts += ok ? 1 : near ? 0.5 : 0;
+      if(!ok){ inp.insertAdjacentHTML("afterend", `<span class="fix">${g.a}</span>`); notes.push(`<li><b>${+inp.dataset.i + 1}.</b> <span class="fr">${g.a}</span>: ${near ? "Fast. Akzent oder Apostroph fehlt. " : ""}${g.w}</li>`); }
+    });
+    $("#ck", host).classList.add("hidden"); $("#accs", host).classList.add("hidden");
+    $("#out", host).innerHTML = `<div class="fbk ${pts === gaps.length ? "good" : "near"} mt"><div class="msg2"><b>${Math.round(pts * 10) / 10} von ${gaps.length} Punkten</b>${notes.length ? "Schau dir die Korrekturen an:" : "Fehlerfrei!"}</div><button class="btn" type="button">Weiter</button></div>${notes.length ? `<ul class="flags">${notes.join("")}</ul>` : ""}`;
+    $("#out button", host).onclick = () => done({pts, max: gaps.length, sk});
+    $("#out", host).scrollIntoView({block:"nearest", behavior:"smooth"});
+  };
+}
+function readPart(host, c, done){
+  host.innerHTML = `<div class="rule"><div class="kicker">Leseverstehen</div><h3>${c.t}</h3><p class="muted small">Lies zuerst den ganzen Text. Du musst nicht jedes Wort kennen.</p></div><div class="readtxt mt" lang="fr">${c.txt}</div><h3 class="mt2" style="font-size:18px">Vrai ou faux?</h3><div id="qs" lang="fr"></div><div class="row end mt"><button class="btn" id="ck" type="button" disabled>Abgeben</button></div><div id="out"></div>`;
+  const ans = {};
+  c.q.forEach((q, i) => {
+    const r = h(`<div class="tf"><span>${q.s}</span><span class="bt"><button type="button" data-v="1">vrai</button><button type="button" data-v="0">faux</button></span></div>`);
+    $$("button", r).forEach(b => b.onclick = () => { if($("#ck", host).classList.contains("hidden")) return; ans[i] = +b.dataset.v; $$("button", r).forEach(x => x.classList.toggle("on", x === b)); $("#ck", host).disabled = Object.keys(ans).length < c.q.length; });
+    $("#qs", host).appendChild(r);
+  });
+  $("#ck", host).onclick = () => {
+    let pts = 0;
+    $$(".tf", host).forEach((r, i) => { const q = c.q[i], ok = ans[i] === q.v; if(ok) pts++; $$("button", r).forEach(b => { b.disabled = true; if(+b.dataset.v === q.v) b.classList.add("right"); else if(b.classList.contains("on")) b.classList.add("wrong"); b.classList.remove("on"); }); if(!q.v) r.appendChild(h(`<span class="corr">Richtig ist: <span class="fr">${q.c}</span></span>`)); });
+    $("#ck", host).classList.add("hidden");
+    $("#out", host).innerHTML = `<div class="fbk ${pts === c.q.length ? "good" : "near"} mt"><div class="msg2"><b>${pts} von ${c.q.length} Punkten</b>${pts === c.q.length ? "Alles verstanden!" : "Such die Stelle im Text, an der die Antwort steht."}</div><button class="btn" type="button">Weiter</button></div>`;
+    $("#out button", host).onclick = () => done({pts, max: c.q.length, sk: {lesen: [pts, c.q.length]}});
+    $("#out", host).scrollIntoView({block:"nearest", behavior:"smooth"});
+  };
+}
+function runGeneral(){
+  const n = (S.tests.n || 0); const c = CLOZE[n % CLOZE.length], rd = READS[n % READS.length];
+  const parts = ["Lückentext", "Lesen", "Sagen können"]; let i = 0, pts = 0, max = 0; const sk = {};
+  const v = h('<div></div>'); v.appendChild(topBar("Generalprobe", () => viewTest())); $(".back", v).textContent = "← Test-Arena";
+  const dots = h('<div class="steps" aria-hidden="true"></div>'); v.appendChild(dots);
+  const host = h('<section class="sheet"></section>'); v.appendChild(host); setView(v);
+  const got = r => { pts += r.pts; max += r.max; mergeSk(sk, r.sk); i++; step(); window.scrollTo(0, 0); };
+  function step(){
+    dots.innerHTML = parts.map((p, k) => `<i class="${k < i ? "on" : k === i ? "now" : ""}"></i>`).join("");
+    if(i === 0) clozePart(host, c, got);
+    else if(i === 1) readPart(host, rd, got);
+    else if(i === 2) runItems(host, sample(DIRE, 4), {}, r => got({pts: r.right, max: r.total, sk: skillTally(r.res)}));
+    else {
+      S.tests.n = n + 1; S.tests.last = {pts: Math.round(pts * 10) / 10, max, day: today().split("-").reverse().join(".")}; save();
+      host.className = "sheet finish";
+      host.innerHTML = `<div class="bigstamp"><span>Generalprobe<b>${Math.round(pts / max * 100)}%</b>${S.tests.last.day}</span></div><div class="score">${S.tests.last.pts} / ${max}</div><p class="mt">${verdict(pts / max)}</p><div class="memo"><h3>Tes résultats</h3></div>${skillsHtml(sk)}
+        <div class="row mid mt2"><button class="btn" id="b1" type="button">Zurück zur Test-Arena</button><button class="btn ghost" id="b2" type="button">Zum Carnet</button></div>`;
+      $("#b1", host).onclick = () => viewTest(); $("#b2", host).onclick = () => nav("");
+    }
+  }
+  step();
+}
+
+/* ----- Schreibwerkstatt ----- */
+function viewWrite(w){
+  const v = h('<div></div>'); v.appendChild(topBar("Schreibwerkstatt", () => viewTest())); $(".back", v).textContent = "← Test-Arena";
+  const s = h(`<section class="sheet"><div class="rule"><div class="kicker">Schreiben</div><h3 lang="fr">${w.t}</h3><p>${w.task}</p>
+      <p><span class="tip">Erst planen:</span></p><ol style="margin:4px 0 8px;padding-left:22px">${w.plan.map(p => "<li>" + p + "</li>").join("")}</ol>
+      <details><summary style="cursor:pointer;font-weight:700;color:var(--ink)">Satzbaukasten öffnen</summary><ul lang="fr" class="fr" style="margin:6px 0;padding-left:22px">${w.box.map(p => "<li>" + p + "</li>").join("")}</ul></details></div>
+      <p class="small muted mt">Schreib-Bingo: Jedes Feld leuchtet, sobald du die Struktur benutzt.</p><div class="bingo"></div>
+      <textarea class="write seyes" id="txt" lang="fr" spellcheck="false" autocapitalize="sentences" aria-label="Dein Text" placeholder="Écris ici…"></textarea><div id="accs"></div>
+      <div class="row end mt"><span class="muted small" id="wc"></span><button class="btn" id="ck" type="button">Fertig, prüfen</button></div><div id="out"></div></section>`);
+  v.appendChild(s); setView(v);
+  const ta = $("#txt", s), bingo = $(".bingo", s);
+  ta.value = S.drafts[w.id] || "";
+  $("#accs", s).appendChild(accBar(ta));
+  w.bingo.forEach(([lab]) => bingo.appendChild(h(`<span>${lab}</span>`)));
+  const low = () => ta.value.toLowerCase().replace(/[’`´]/g, "'");
+  const hasQue = t => /\b(que\b|qu')/.test(t.replace(/parce qu(e|')|est-ce qu(e|')|qu'est-ce/g, " "));
+  function paint(){
+    const t = low(); let hits = 0;
+    w.bingo.forEach(([lab, re], i) => { let hit; if(re === "__QUE__") hit = hasQue(t); else if(re.indexOf("__QUE__") >= 0) hit = new RegExp(re.replace("|__QUE__", ""), "i").test(t) || hasQue(t); else hit = new RegExp(re, "i").test(t); bingo.children[i].classList.toggle("hit", hit); if(hit) hits++; });
+    const words = t.trim() ? t.trim().split(/\s+/).length : 0;
+    $("#wc", s).textContent = words + " Wörter · Bingo " + hits + " / " + w.bingo.length;
+    S.drafts[w.id] = ta.value; save();
+    return {hits, words};
+  }
+  ta.oninput = paint; paint();
+  $("#ck", s).onclick = () => {
+    const {hits, words} = paint(), t = low();
+    if(words < 12){ toast("Schreib erst ein paar Sätze, mindestens fünf. Der Satzbaukasten hilft dir."); ta.focus(); return; }
+    const found = [];
+    FLAGS.forEach(([re, hint]) => { const m = t.match(new RegExp(re, "i")); if(m) found.push(`<li><code>${esc(m[0])}</code> ${hint}</li>`); });
+    $("#out", s).innerHTML = `<div class="fbk ${found.length ? "near" : "good"} mt"><div class="msg2"><b>Bingo: ${hits} von ${w.bingo.length}</b>${hits === w.bingo.length ? "Alle Strukturen benutzt. Das gibt in der Arbeit Sprachpunkte." : "Versuch, noch ein graues Feld einzubauen."}</div></div>
+      <div class="rule mt"><div class="kicker">Fehler-Scanner</div>${found.length ? `<p>Diese Stellen solltest du prüfen. Verbessere sie oben im Text und tippe wieder auf «Fertig, prüfen».</p><ul class="flags">${found.join("")}</ul>` : `<p>Der Scanner findet keinen der typischen Fehler. Er sieht aber nicht alles: Geh jetzt die Checkliste durch.</p>`}
+      <div class="kicker mt">Checkliste</div><div class="check">${SELFCHECK.map((c, i) => `<label><input type="checkbox" id="sc-${i}"><span>${c}</span></label>`).join("")}</div>
+      <details class="mt"><summary style="cursor:pointer;font-weight:700;color:var(--ink)">Beispieltext zum Vergleichen</summary><p class="readtxt mt" lang="fr">${w.model}</p><p class="small muted mt">Dein Text muss nicht so aussehen. Achte darauf, welche Strukturen der Beispieltext benutzt.</p></details></div>`;
+    $("#out", s).scrollIntoView({block:"start", behavior:"smooth"});
+  };
+}
+
+/* ===== boot ===== */
+route();
+
+</script>
+</body>
+</html>
