@@ -57,20 +57,4 @@ A concept that used to take a textbook chapter and a patient teacher can now bec
 
 <p class="lw-note">Learning does not stop at science. Languages, math, and tech skills, for kids and grown-ups alike.</p>
 
-<div class="lw-more">
-  <div class="lw-jump">
-    <a href="{{ '/learn-with-ai/more-fun/#chinese' | relative_url }}">Learning Chinese</a>
-    <a href="{{ '/learn-with-ai/more-fun/#french' | relative_url }}">Learning French</a>
-    <a href="{{ '/learn-with-ai/more-fun/#german-adults' | relative_url }}">Learning German (for adults)</a>
-    <a href="{{ '/learn-with-ai/more-fun/#german-students' | relative_url }}">Learning German (for students)</a>
-    <a href="{{ '/learn-with-ai/more-fun/#math' | relative_url }}">Learning Math</a>
-    <a href="{{ '/learn-with-ai/more-fun/#tech' | relative_url }}">Learning tech skills</a>
-  </div>
-  {%
-    include button.html
-    link="learn-with-ai/more-fun/"
-    text="Go to More fun"
-    icon="fa-solid fa-arrow-right"
-    flip=true
-  %}
-</div>
+<p class="lw-more"><a href="{{ '/learn-with-ai/more-fun/' | relative_url }}">Explore More fun <i class="fa-solid fa-arrow-right"></i></a></p>

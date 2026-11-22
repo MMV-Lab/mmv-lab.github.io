@@ -102,10 +102,13 @@
 
 # ---------- More fun: Learning French ----------
 
-- title: Coming soon
+- title: Le Carnet
+  subtitle: "French · Unité 1: La rentrée"
   group: fun-french
-  icon: fa-solid fa-language
-  description: An interactive app on this topic is in the making.
+  link: learn-with-ai/apps/le-carnet/
+  image: images/learn_le_carnet.png
+  icon: fa-solid fa-book-open
+  description: Eleven short stations for school French, from back-to-school vocabulary and adjectives like beau and nouveau to vouloir, pouvoir, and relative clauses, with a daily mix and a test arena. Explanations in German.
 
 - title: Coming soon
   group: fun-french
@@ -138,10 +141,13 @@
 
 # ---------- More fun: Learning Math ----------
 
-- title: Coming soon
+- title: Komma-Labor
+  subtitle: "Math, grade 6 · fractions as decimals"
   group: fun-math
-  icon: fa-solid fa-square-root-variable
-  description: An interactive app on this topic is in the making.
+  link: learn-with-ai/apps/komma-labor/
+  image: images/learn_komma_labor.png
+  icon: fa-solid fa-calculator
+  description: What happens behind the decimal point? Find out why some divisions stop and others go on forever, race 60-second sprints against your own record, and check whether you are ready for the test. In German.
 
 - title: Coming soon
   group: fun-math
@@ -150,12 +156,18 @@
 
 # ---------- More fun: Learning tech skills ----------
 
-- title: Coming soon
+- title: Vom Zettel zur Bühne
+  subtitle: PowerPoint in seven stations
   group: fun-tech
-  icon: fa-solid fa-laptop-code
-  description: An interactive app on this topic is in the making.
+  link: learn-with-ai/apps/powerpoint-trainer/
+  image: images/learn_powerpoint_trainer.png
+  icon: fa-solid fa-person-chalkboard
+  description: Build a school talk about the octopus, from the first note on paper to the stage, on a simplified model of the PowerPoint window. It teaches the thinking behind good slides rather than a catalogue of buttons. In German.
 
-- title: Coming soon
+- title: Dein Werkzeugkasten
+  subtitle: Tools for school and the web
   group: fun-tech
-  icon: fa-solid fa-laptop-code
-  description: An interactive app on this topic is in the making.
+  link: learn-with-ai/apps/werkzeugkasten/
+  image: images/learn_werkzeugkasten.png
+  icon: fa-solid fa-toolbox
+  description: Three short missions for grades 6 and 7. How a chatbot arrives at its answers and why it can be wrong, the study methods that do best in research, and how to structure a talk. In German.

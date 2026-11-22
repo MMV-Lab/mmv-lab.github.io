@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vom Zettel zur Bühne</title>
+<style>
+/* fonts are served from the fonts/ folder next to this file; nothing is loaded from other sites */
+@font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/atkinson-hyperlegible-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/atkinson-hyperlegible-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/atkinson-hyperlegible-latin-ext-700-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Atkinson Hyperlegible";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/atkinson-hyperlegible-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Bricolage Grotesque";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/bricolage-grotesque-latin-ext-600-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Bricolage Grotesque";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/bricolage-grotesque-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Bricolage Grotesque";font-style:normal;font-weight:800;font-display:swap;src:url(fonts/bricolage-grotesque-latin-ext-800-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Bricolage Grotesque";font-style:normal;font-weight:800;font-display:swap;src:url(fonts/bricolage-grotesque-latin-800-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{
+  /* a guided trip from a paper note to the stage: route strip of nine stops on top, a model PowerPoint window on the left, the thinking card on the right */
+  --bg:#eef2f7; --surface:#ffffff; --ink:#131a24; --ink-2:#465264; --ink-3:#6f7b8c; --line:#d5dce6; --desk:#e7dfd0;
+  --accent:#c8372d; --accent-ink:#ffffff; --good:#1a8f4c; --bad:#c8372d; --hl:#ffb300;
+  --r0:#6f7b8c; --r1:#2a78d6; --r2:#e2622d; --r3:#12996a; --r4:#b98200; --r5:#d5568a; --r6:#6250d6; --r7:#c8372d; --r8:#0f7f8f;
+  --display:"Bricolage Grotesque","Arial Narrow",system-ui,sans-serif;
+  --body:"Atkinson Hyperlegible","Segoe UI","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#10151c; --surface:#1a212b; --ink:#eef2f6; --ink-2:#b9c2ce; --ink-3:#8f9aaa; --line:#2c3644; --desk:#2b2620;
+    --accent:#f0705f; --accent-ink:#1c0c09; --good:#3fc27a; --bad:#f0705f; --hl:#ffb300;
+    --r0:#8f9aaa; --r1:#5a9cf0; --r2:#f08552; --r3:#35c08f; --r4:#e0a82a; --r5:#ea7fa9; --r6:#9c8ff0; --r7:#f0705f; --r8:#3fb8c8;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#10151c; --surface:#1a212b; --ink:#eef2f6; --ink-2:#b9c2ce; --ink-3:#8f9aaa; --line:#2c3644; --desk:#2b2620;
+  --accent:#f0705f; --accent-ink:#1c0c09; --good:#3fc27a; --bad:#f0705f; --hl:#ffb300;
+  --r0:#8f9aaa; --r1:#5a9cf0; --r2:#f08552; --r3:#35c08f; --r4:#e0a82a; --r5:#ea7fa9; --r6:#9c8ff0; --r7:#f0705f; --r8:#3fb8c8;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance;line-height:1.12}
+p{margin:0}
+button{font:inherit;color:var(--ink);cursor:pointer}
+button:disabled{cursor:default}
+:focus-visible{outline:3px solid var(--hl);outline-offset:2px}
+.app{max-width:1180px;margin:0 auto;padding:14px 16px 28px;display:flex;flex-direction:column;gap:12px}
+.top{display:flex;align-items:baseline;justify-content:space-between;gap:8px 14px;flex-wrap:wrap}
+.top h1{font-weight:800;font-size:clamp(1.5rem,5vw,2rem)}
+.top h1 small{font-family:var(--body);font-weight:400;font-size:.9375rem;color:var(--ink-2);margin-left:8px;white-space:nowrap}
+.tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.tools label{display:flex;align-items:center;gap:6px;color:var(--ink-2);font-size:.875rem}
+.tools input{accent-color:var(--accent);width:16px;height:16px}
+.btn{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px 16px;font-weight:700}
+.btn:hover:not(:disabled){border-color:var(--ink-3)}
+.btn:disabled{opacity:.45}
+.btn.pri{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+
+/* route strip */
+.route{position:relative;display:flex;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:8px 6px 10px;overflow-x:auto;scrollbar-width:none}
+.route button{flex:1 0 auto;min-width:0;border:0;background:none;border-radius:8px;padding:2px 7px 12px;font-family:var(--display);font-weight:600;font-size:.875rem;color:var(--ink-2);position:relative;white-space:nowrap}
+.route button::after{content:"";position:absolute;left:50%;bottom:0;width:11px;height:11px;border-radius:50%;transform:translateX(-50%);background:var(--surface);border:3px solid var(--rc)}
+.route button.on{color:var(--ink)}
+.route button.done::before{content:"✓ ";color:var(--good)}
+.route button.on::after{background:var(--rc);box-shadow:0 0 0 4px color-mix(in srgb,var(--rc) 25%,transparent)}
+
+/* stage */
+.stage{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(290px,1fr);gap:12px;align-items:start}
+.screenwrap{position:relative;min-width:0;border:1px solid var(--line);border-radius:14px;background:var(--surface);padding:6px}
+.screen{container-type:inline-size;position:relative;border-radius:9px;overflow:hidden;background:#fff;color:#222}
+.cursor{position:absolute;left:0;top:0;width:24px;height:24px;pointer-events:none;opacity:0;z-index:6;transition:transform .95s cubic-bezier(.5,.05,.2,1),opacity .25s}
+.cursor.on{opacity:1}
+.cursor svg{width:100%;height:100%;filter:drop-shadow(0 1px 2px rgba(0,0,0,.5))}
+.cursor.click::before{content:"";position:absolute;left:-12px;top:-12px;width:30px;height:30px;border-radius:50%;border:3px solid var(--hl);animation:ping .45s ease-out}
+@keyframes ping{0%{transform:scale(.3);opacity:1}100%{transform:scale(1.6);opacity:0}}
+.tag{position:absolute;z-index:5;display:none;background:var(--hl);color:#241b00;font-weight:700;font-size:.8125rem;line-height:1.3;padding:3px 10px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.28);max-width:min(78%,320px);pointer-events:none}
+.tag.tip{background:#1d2530;color:#fff;font-weight:400;padding:7px 11px}
+.tag.tip b{display:block;color:var(--hl)}
+.tag.yes{background:var(--good);color:#fff}
+.hl{outline:3px solid var(--hl)!important;outline-offset:1px;position:relative;z-index:3;animation:ring 1.15s ease-out infinite}
+@keyframes ring{0%{box-shadow:0 0 0 0 rgba(255,179,0,.75)}100%{box-shadow:0 0 0 13px rgba(255,179,0,0)}}
+
+/* card */
+.card{background:var(--surface);border:1px solid var(--line);border-top:8px solid var(--rc,var(--r0));border-radius:16px;padding:14px 18px 16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.motto{display:flex;flex-direction:column;gap:2px;padding-bottom:10px;border-bottom:1px dashed var(--line)}
+.motto span{font-size:.8125rem;color:var(--rc);font-weight:700}
+.motto strong{font-family:var(--display);font-weight:800;font-size:1.2rem;line-height:1.15}
+.kind{align-self:flex-start;font-size:.8125rem;font-weight:700;padding:1px 10px;border-radius:999px;border:1.5px solid currentColor}
+.k-denk{color:var(--r4)} .k-klick{color:var(--r1)} .k-du{color:var(--r5)} .k-nein{color:var(--bad)}
+.card h2{font-weight:800;font-size:1.45rem;animation:drop .4s cubic-bezier(.2,1.4,.4,1) both}
+@keyframes drop{0%{transform:translateY(-10px);opacity:0}100%{transform:none;opacity:1}}
+.card p{max-width:60ch}
+.why{background:color-mix(in srgb,var(--r4) 13%,var(--surface));border-left:4px solid var(--r4);border-radius:8px;padding:8px 12px}
+.why b{color:var(--r4)}
+.path{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;font-size:.875rem;color:var(--ink-2)}
+.path b{color:var(--ink)}
+kbd{font-family:var(--body);font-size:.8125rem;border:1px solid var(--line);border-bottom-width:3px;border-radius:6px;padding:0 7px;background:var(--bg);color:var(--ink);white-space:nowrap}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{text-align:left;background:var(--surface);border:2px solid var(--line);border-radius:12px;padding:10px 13px;min-height:44px}
+.opt:hover{border-color:var(--ink-3)}
+.opt.ok{border-color:var(--good);background:color-mix(in srgb,var(--good) 14%,var(--surface));font-weight:700}
+.opt.no{border-color:var(--bad);color:var(--ink-3);text-decoration:line-through}
+.fb{border-radius:10px;padding:9px 12px;border-left:5px solid var(--line);background:var(--bg)}
+.fb:empty{display:none}
+.fb.good{border-left-color:var(--good)} .fb.bad{border-left-color:var(--bad)}
+.fb b{display:block}
+.cta{display:flex;gap:8px;flex-wrap:wrap}
+.legend{display:flex;flex-direction:column;gap:6px;font-size:.9375rem}
+.legend span{display:flex;gap:8px;align-items:center}
+.legend i{flex:none;width:18px;height:18px;border-radius:5px;outline:3px solid var(--hl);outline-offset:1px}
+.score{font-family:var(--display);font-weight:800;font-size:2.4rem;line-height:1;font-variant-numeric:tabular-nums}
+
+/* controls */
+.ctrl{display:flex;align-items:center;gap:12px;justify-content:space-between;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:8px 10px;position:sticky;bottom:8px;z-index:8}
+.dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.dots i{width:11px;height:11px;border-radius:50%;background:var(--line)}
+.dots i.on{background:var(--rc,var(--accent))}
+body.quiz .ctrl{display:none}
+.foot{font-size:.8125rem;color:var(--ink-3);display:flex;flex-direction:column;gap:6px}
+.foot summary{cursor:pointer;font-weight:700;color:var(--ink-2)}
+.foot details p{margin-top:6px;max-width:70ch}
+@media (max-width:820px){
+  .stage{grid-template-columns:minmax(0,1fr)}
+  .app{padding:10px 10px 20px;gap:10px}
+}
+@media (max-width:820px) and (min-height:640px){
+  .screenwrap{position:sticky;top:6px;z-index:7;box-shadow:0 6px 18px rgba(0,0,0,.18)}
+}
+
+/* ===== model PowerPoint window (fixed light colours, sizes in cqw of .screen) ===== */
+.ppt{--ui:#f3f2f1;--uiline:#d2d0ce;--uiacc:#c43e1c;background:var(--ui);color:#252423;font-family:"Segoe UI",system-ui,sans-serif;display:flex;flex-direction:column;--ft:1.9cqw;--fb:1.72cqw;--fn:1.8cqw;--rbw:13.4cqw;--ric:4.8cqw}
+@container (max-width:600px){.ppt{--ft:2.85cqw;--fb:2.5cqw;--fn:2.7cqw;--rbw:15.3cqw;--ric:6cqw}}
+.tbar{display:flex;align-items:center;gap:1.6cqw;padding:.8cqw 1.6cqw;background:var(--uiacc);color:#fff;font-size:var(--fn)}
+.tbar .fn{flex:1;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tbar button{border:0;background:none;color:#fff;padding:.3cqw;border-radius:.6cqw;display:flex}
+.tbar svg{width:3cqw;height:3cqw}
+.tabs{display:flex;flex-wrap:wrap;padding:0 .8cqw}
+.tab{border:0;background:none;font-size:var(--ft);padding:.9cqw 1.1cqw .6cqw;border-bottom:.5cqw solid transparent;color:#252423;border-radius:0;white-space:nowrap}
+.tab.on{border-bottom-color:var(--uiacc);font-weight:700;color:var(--uiacc)}
+.rib{display:flex;gap:.5cqw;background:#fff;border-block:1px solid var(--uiline);padding:.9cqw 1cqw;min-height:calc(var(--ric) + 7.5cqw);align-items:flex-start;position:relative}
+.rb{flex:none;border:0;background:none;border-radius:.9cqw;display:flex;flex-direction:column;align-items:center;gap:.5cqw;padding:.8cqw .4cqw;width:var(--rbw);font-size:var(--fb);line-height:1.15;color:#252423;hyphens:auto;overflow-wrap:anywhere;text-align:center}
+.rb svg{width:var(--ric);height:var(--ric);fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.rb:hover{background:#edebe9}
+.rb.act{background:#fbe3da}
+.sw{display:flex;gap:.5cqw;height:var(--ric);align-items:center}
+.sw i{width:calc(var(--ric)*.8);height:calc(var(--ric)*.56);border:1px solid #999;border-radius:.3cqw;background:#fff}
+.sw i:nth-child(2){background:linear-gradient(90deg,#0b7285 22%,#f2fafa 22%)}
+.sw i:nth-child(3){background:#2b2b40}
+.rb.wide{width:calc(var(--rbw)*1.5)}
+.drop{position:absolute;left:var(--rbw);top:100%;z-index:4;background:#fff;border:1px solid var(--uiline);box-shadow:0 .6cqw 2cqw rgba(0,0,0,.25);padding:1.2cqw;display:grid;grid-template-columns:repeat(3,15cqw);gap:1.2cqw;font-size:var(--fb);animation:drop .25s both}
+.drop div{display:flex;flex-direction:column;gap:.5cqw;text-align:center;padding:.6cqw;border-radius:.6cqw}
+.drop div.cur{background:#fbe3da}
+.drop .sl{border:1px solid var(--uiline)}
+.work{display:grid;grid-template-columns:15cqw minmax(0,1fr);background:#e3e1df}
+.thumbs{background:var(--ui);padding:1.2cqw 1cqw;display:flex;flex-direction:column;gap:1cqw;border-right:1px solid var(--uiline)}
+.th{display:grid;grid-template-columns:1.7cqw minmax(0,1fr);gap:.5cqw;align-items:start;font-size:1.5cqw;color:#605e5c}
+.th .sl{border:1px solid var(--uiline)}
+.th.on .sl{outline:.5cqw solid var(--uiacc)}
+.th.pop{animation:pop .45s cubic-bezier(.2,1.5,.4,1) both}
+.th.flip .sl{animation:flip .6s both}
+@keyframes pop{0%{transform:scale(.3);opacity:0}100%{transform:none;opacity:1}}
+@keyframes flip{0%{transform:rotateY(90deg)}100%{transform:none}}
+.canvas{padding:2.6cqw;display:flex;align-items:center;min-width:0}
+.canvas .sl{width:100%;box-shadow:0 .3cqw 1.4cqw rgba(0,0,0,.22)}
+.notes{background:#fff;border-top:1px solid var(--uiline);padding:1cqw 1.6cqw;font-size:var(--fn);min-height:calc(var(--fn)*3.4);color:#605e5c;line-height:1.3}
+.notes.has{color:#252423}
+
+/* ===== slides (sizes in cqw of the slide itself) ===== */
+.sl{container-type:inline-size;aspect-ratio:16/9;background:#fff;position:relative;overflow:hidden;color:#222;font-family:"Segoe UI",system-ui,sans-serif;text-align:left}
+.sl-in{position:absolute;inset:0;padding:5cqw 6cqw 4cqw;display:flex;flex-direction:column;gap:2.2cqw}
+.ph{border:.25cqw dashed transparent;border-radius:.5cqw;padding:.5cqw 1cqw}
+.edit .ph.empty,.showph .ph{border-color:#a19f9d}
+.ph.empty{color:#8a8886}
+.mini .ph.empty{color:transparent}
+.pt{font-size:6.2cqw;font-weight:700;line-height:1.12;transform-origin:left center}
+.ps{font-size:3.3cqw}
+.lay-title .sl-in{justify-content:center;text-align:center;padding-inline:9cqw}
+.lay-title .pt{font-size:8.4cqw;transform-origin:center}
+.body{flex:1;display:flex;gap:3cqw;min-height:0}
+.pc{flex:1;font-size:3.3cqw;line-height:1.28;min-width:0;transform-origin:left top}
+.big .pc{font-size:4.5cqw}
+.grow .pc{animation:grow .5s cubic-bezier(.2,1.4,.4,1) both}
+@keyframes grow{0%{transform:scale(.74)}100%{transform:none}}
+.pc ul{margin:0;padding-left:1.15em;display:flex;flex-direction:column;gap:1.3cqw}
+.pc li{position:relative}
+.pc li.wait{visibility:hidden}
+.para{font-size:2.5cqw;line-height:1.36}
+.fade{animation:fadein .6s both}
+.enter{animation:fadein .5s both}
+.enter.slow{animation-duration:1.5s}
+@keyframes fadein{0%{opacity:0}100%{opacity:1}}
+.pic{flex:0 0 36%;position:relative;display:flex;align-items:center;justify-content:center;min-width:0}
+.pic.big{flex-basis:42%}
+.pic svg{width:100%;height:auto;max-height:100%;display:block}
+.pic.popin svg{animation:pop .5s cubic-bezier(.2,1.5,.4,1) both}
+.pic.bad svg{transform:scale(1.25,.52)}
+.pic.to-bad svg{animation:tobad .7s both}
+.pic.from-bad svg{animation:frombad .7s cubic-bezier(.2,1.4,.4,1) both}
+@keyframes tobad{0%{transform:none}100%{transform:scale(1.25,.52)}}
+@keyframes frombad{0%{transform:scale(1.25,.52)}100%{transform:none}}
+.selbox{position:absolute;inset:0;border:.3cqw solid #666;pointer-events:none}
+.selbox i{position:absolute;width:2cqw;height:2cqw;border-radius:50%;background:#fff;border:.3cqw solid #666;transform:translate(-50%,-50%)}
+.src{position:absolute;right:3cqw;bottom:1.6cqw;font-size:1.9cqw;color:#555}
+.deco{position:absolute;font-size:6cqw;animation:pop .4s cubic-bezier(.2,1.5,.4,1) both}
+.gv,.gh{position:absolute;border:0 dashed #e03131;animation:fadein .4s both}
+.gv{left:7.1cqw;top:0;bottom:0;border-left-width:.35cqw}
+.gh{left:0;right:0;top:13.6cqw;border-top-width:.35cqw}
+.num{position:absolute;left:-8.4cqw;top:.3cqw;font-size:2cqw;background:#fff;border:.2cqw solid #888;color:#444;padding:0 .7cqw;line-height:1.3}
+li.wild{animation:wild 1.5s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes wild{0%{transform:translate(70cqw,-30cqw) rotate(900deg) scale(.2);opacity:0}60%{transform:translate(-4cqw,3cqw) rotate(-20deg) scale(1.3);opacity:1}80%{transform:translate(2cqw,-2cqw) rotate(8deg)}100%{transform:none}}
+li.calm{animation:fadein .35s both}
+/* themes */
+.th-meer{background:#f2fafa;color:#12343b}
+.th-meer::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2.4cqw;background:#0b7285}
+.th-meer .pt{color:#0b5563}
+.th-meer li::marker{color:#e4572e}
+.th-meer.lay-title{background:#0b5563;color:#e6fafa}
+.th-meer.lay-title .pt{color:#fff}
+.th-meer.lay-title::before{background:#e4572e}
+.chaos{background:linear-gradient(135deg,#fff200,#ff7bd5 55%,#5ce1ff)}
+.chaos .pt{font-family:"Comic Sans MS","Chalkboard SE",cursive;color:#e00000;text-shadow:.5cqw .5cqw 0 #00c2ff;font-style:italic}
+.chaos li:nth-child(1){font-family:"Times New Roman",serif;color:#1b00d8;font-size:1.25em}
+.chaos li:nth-child(2){font-family:"Courier New",monospace;color:#0a7d00;text-decoration:underline}
+.chaos li:nth-child(3){font-family:Impact,fantasy;color:#8a00b8}
+.chaos li:nth-child(4){font-family:"Comic Sans MS","Chalkboard SE",cursive;color:#d14a00;font-style:italic}
+.chaos.lay-title .ps{font-family:Impact,fantasy;color:#1b00d8}
+.lowc .pt,.lowc .pc{color:#f1e7a2}
+.pt{--cr:rotate(-3deg) translate(5cqw,1cqw)}
+.pc{--cr:translate(6cqw,2cqw) rotate(2deg)}
+.pic{--cr:translate(-2cqw,-7cqw) rotate(5deg)}
+.crooked .pt,.crooked .pc,.crooked .pic{transform:var(--cr)}
+.to-crook .pt,.to-crook .pc,.to-crook .pic{animation:tocrook .6s both}
+.from-crook .pt,.from-crook .pc,.from-crook .pic{animation:fromcrook .6s cubic-bezier(.2,1.4,.4,1) both}
+@keyframes tocrook{0%{transform:none}100%{transform:var(--cr)}}
+@keyframes fromcrook{0%{transform:var(--cr)}100%{transform:none}}
+
+/* ===== other scenes ===== */
+.scene{aspect-ratio:16/10;position:relative;overflow:hidden;font-family:var(--body)}
+.intro{background:linear-gradient(180deg,#fdf6e3,#f3e7c9);display:flex;align-items:center;justify-content:center;gap:2.5cqw;padding:4cqw}
+.intro .step{display:flex;flex-direction:column;align-items:center;gap:1.6cqw;width:25cqw;font-family:var(--display);font-weight:800;font-size:3.4cqw;color:#3a2f1c;animation:pop .5s cubic-bezier(.2,1.5,.4,1) both}
+.intro .step:nth-child(3){animation-delay:.35s}.intro .step:nth-child(5){animation-delay:.7s}
+.intro .arrow{font-size:5cqw;color:#a08b5c;font-weight:800}
+.intro .box{width:100%;aspect-ratio:16/11;display:flex;align-items:center;justify-content:center}
+.sticky{background:#ffe066;color:#3a2f1c;box-shadow:0 .5cqw 1.2cqw rgba(0,0,0,.2);font-family:var(--display);font-weight:600;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.15}
+.intro .sticky{width:62%;aspect-ratio:1;transform:rotate(-5deg);font-size:2.4cqw;padding:1.5cqw}
+.intro .sl{width:100%;box-shadow:0 .5cqw 1.4cqw rgba(0,0,0,.25)}
+.buehne{width:100%;height:100%;background:#1c2233;border-radius:1cqw;position:relative;overflow:hidden}
+.buehne::before{content:"";position:absolute;left:28%;top:-10%;width:60%;height:120%;background:linear-gradient(180deg,rgba(255,224,130,.75),rgba(255,224,130,0));clip-path:polygon(40% 0,60% 0,100% 100%,0 100%)}
+.buehne i{position:absolute;left:52%;bottom:12%;width:9%;aspect-ratio:1/2.6;background:#ffb300;border-radius:50% 50% 12% 12%/22% 22% 6% 6%}
+.buehne b{position:absolute;left:12%;top:22%;width:30%;aspect-ratio:16/9;background:#f2fafa;border-left:.7cqw solid #0b7285}
+.paper{background:var(--desk);padding:4cqw 5cqw;display:flex;flex-direction:column;gap:3cqw}
+.pad{background:#fffef8;color:#27303d;border-radius:1cqw;box-shadow:0 .6cqw 1.6cqw rgba(0,0,0,.18);padding:2.5cqw 3.5cqw;display:flex;flex-direction:column;gap:1.2cqw;min-height:27cqw;background-image:linear-gradient(#fffef8 calc(100% - 1px),#c9dcf2 0);background-size:100% 5.2cqw;border-left:1.2cqw solid #e98b7a}
+.pad h3{font-size:3.6cqw;font-weight:800;line-height:5.2cqw}
+.pad .ln{font-size:2.85cqw;line-height:5.2cqw;display:flex;gap:1.5cqw;animation:fadein .5s both;margin-top:-1.2cqw}
+.pad .ln b{flex:none;color:#b3402f}
+.stickies{display:flex;gap:2.2cqw;justify-content:center;flex:1;align-items:center}
+.stickies .sticky{width:14.5cqw;aspect-ratio:1;font-size:2.5cqw;padding:1cqw;animation:pop .45s cubic-bezier(.2,1.5,.4,1) both}
+.stickies .sticky:nth-child(odd){transform:rotate(-4deg)}.stickies .sticky:nth-child(even){transform:rotate(3deg);background:#ffd0a8}
+.show{background:#000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:2cqw;color:#bbb;font-size:2.6cqw}
+.show .sl{width:92%}
+.spot{width:16cqw;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(255,224,130,.9),rgba(255,224,130,0) 70%);display:flex;align-items:flex-end;justify-content:center}
+.spot i{width:26%;aspect-ratio:1/2.4;background:#ffb300;border-radius:50% 50% 12% 12%/22% 22% 6% 6%;margin-bottom:22%}
+.pres{background:#1f1f1f;color:#eee;display:grid;grid-template-columns:1.55fr 1fr;gap:2.5cqw;padding:3cqw;font-size:2.2cqw}
+.pres .lab{color:var(--hl);font-weight:700;font-size:2cqw;margin-bottom:.6cqw}
+.pres .col{display:flex;flex-direction:column;gap:2cqw;min-width:0}
+.pres .clock{font-size:4.2cqw;font-weight:700;font-variant-numeric:tabular-nums}
+.pres .nt{font-size:2.6cqw;line-height:1.35}
+.final{background:var(--surface);color:var(--ink);padding:3cqw 4cqw;display:flex;flex-direction:column;justify-content:center;gap:1.3cqw;aspect-ratio:auto;min-height:62.5cqw}
+.final .row{display:grid;grid-template-columns:5cqw 17cqw 1fr;gap:1.5cqw;align-items:center;font-size:2.7cqw;animation:pop .4s both;border-radius:1.2cqw;padding:1cqw 1.4cqw;background:color-mix(in srgb,var(--rc) 12%,var(--surface))}
+.final .row b{font-family:var(--display);font-weight:800;font-size:3.6cqw;color:var(--rc)}
+.final .row span{color:var(--rc);font-weight:700}
+.final .row strong{font-family:var(--display);font-weight:600;line-height:1.15}
+@container (max-width:600px){.final .row{font-size:3.3cqw;grid-template-columns:4.5cqw 1fr}.final .row span{display:none}}
+.ab{background:var(--desk);padding:4cqw;display:grid;grid-template-columns:1fr 1fr;gap:3cqw;align-items:center}
+.ab button{border:0;background:none;padding:0;display:flex;flex-direction:column;gap:1cqw;align-items:stretch;font-family:var(--display);font-weight:800;font-size:4cqw;color:#3a2f1c;border-radius:1cqw}
+.ab .sl{box-shadow:0 .5cqw 1.4cqw rgba(0,0,0,.25);outline:.6cqw solid transparent}
+.ab button.ok .sl{outline-color:var(--good)}
+.ab button.no{opacity:.45}
+.shake{animation:shake .3s}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01s!important;animation-iteration-count:1!important;transition-duration:.01s!important}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <h1>Vom Zettel zur Bühne<small>PowerPoint in sieben Stationen</small></h1>
+    <div class="tools">
+      <label><input type="checkbox" id="auto"> Automatisch weiter</label>
+      <button class="btn" id="quizBtn" type="button">Knopf-Quiz</button>
+    </div>
+  </header>
+  <nav class="route" id="route" aria-label="Stationen"></nav>
+  <main class="stage">
+    <div class="screenwrap" id="wrap">
+      <div class="screen" id="screen"></div>
+      <div class="cursor" id="cursor"><svg viewBox="0 0 24 24"><path d="M4 2l15 11-7 1 4 8-3 1.4-4-8-5 5z" fill="#fff" stroke="#111" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+      <div class="tag" id="tag"></div>
+    </div>
+    <aside class="card" id="card" aria-live="polite"></aside>
+  </main>
+  <footer class="ctrl">
+    <button class="btn" id="prev" type="button">Zurück</button>
+    <div class="dots" id="dots"></div>
+    <button class="btn pri" id="next" type="button">Weiter</button>
+  </footer>
+  <div class="foot">
+    <p>Das Fenster ist ein vereinfachtes Modell zum Üben. Dein PowerPoint sieht je nach Version etwas anders aus, die Namen der Registerkarten sind aber fast überall gleich.</p>
+    <details><summary>给家长 · For parents</summary>
+      <p lang="zh">这个页面用德语写成，按德语版 PowerPoint 的菜单名称讲解。它不是按钮大全，而是带孩子走一遍做演示文稿的思路：先在纸上想清楚（听众、一句话核心信息、顺序），再搭框架、写要点、配图、统一设计、克制地用动画，最后练习和上台。黄色光圈表示“点这里”，右侧卡片解释“为什么”。每站结尾有一个小任务，右上角还有“按钮测验”。贯穿全程的例子是一份关于章鱼的口头报告。</p>
+      <p lang="en">This page is in German and uses the menu names of the German PowerPoint. It is not a button catalogue: it walks your child through the way of thinking behind a good deck. Plan on paper first (audience, one-sentence message, order), then build the skeleton, write keywords, add a picture, keep one design, use animation sparingly, and finally rehearse and present. The yellow ring shows where to click, the card explains why. Every station ends with a small task, and the button quiz sits at the top right. The running example is a school talk about the octopus.</p>
+    </details>
+  </div>
+</div>
+<script>
+"use strict";
+/* ================= helpers ================= */
+const $ = id => document.getElementById(id);
+function h(tag, attrs, ...kids){
+  const e = document.createElement(tag);
+  for (const k in (attrs||{})){
+    const v = attrs[k];
+    if (v == null || v === false) continue;
+    if (k === 'class') e.className = v;
+    else if (k === 'html') e.innerHTML = v;
+    else if (k.startsWith('on')) e.addEventListener(k.slice(2), v);
+    else e.setAttribute(k, v === true ? '' : v);
+  }
+  for (const c of kids.flat()){ if (c != null && c !== false) e.append(c.nodeType ? c : document.createTextNode(c)); }
+  return e;
+}
+const clone = o => JSON.parse(JSON.stringify(o));
+const calmMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ================= the model ribbon ================= */
+const IC = {
+  neu:'<rect x="3" y="7" width="14" height="10" rx="1"/><path d="M19 2v6M16 5h6" stroke="#c43e1c" stroke-width="2.2"/>',
+  layout:'<rect x="3" y="5" width="18" height="14" rx="1"/><path d="M6 9h12M6 12h5v4H6zM13 12h5v4h-5z"/>',
+  size:'<text x="1" y="19" font-size="17" font-weight="700" fill="currentColor" stroke="none">A</text><text x="14" y="19" font-size="11" font-weight="700" fill="currentColor" stroke="none">A</text>',
+  fett:'<text x="6" y="19" font-size="19" font-weight="900" fill="currentColor" stroke="none">F</text>',
+  list:'<circle cx="5" cy="7" r="1.3" fill="currentColor"/><circle cx="5" cy="12" r="1.3" fill="currentColor"/><circle cx="5" cy="17" r="1.3" fill="currentColor"/><path d="M9 7h11M9 12h11M9 17h11"/>',
+  anordnen:'<rect x="4" y="4" width="10" height="10" fill="#f6c9b8"/><rect x="10" y="10" width="10" height="10" fill="#fff"/>',
+  bilder:'<rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="8" cy="10" r="1.6"/><path d="M4 18l5-5 3 3 3-4 5 6"/>',
+  formen:'<circle cx="9" cy="10" r="5.5"/><rect x="11" y="11" width="9" height="9" fill="#fff"/>',
+  pikto:'<path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6-5.3-3-5.3 3 1.2-6L3.4 9.3l6-.7z"/>',
+  diagramm:'<path d="M4 20V4M4 20h16"/><rect x="7" y="12" width="3" height="8" fill="currentColor"/><rect x="12" y="8" width="3" height="12" fill="currentColor"/><rect x="17" y="14" width="3" height="6" fill="currentColor"/>',
+  textfeld:'<rect x="3" y="5" width="18" height="14" rx="1" stroke-dasharray="2 2"/><text x="8" y="17" font-size="12" font-weight="700" fill="currentColor" stroke="none">A</text>',
+  varianten:'<rect x="4" y="4" width="7" height="7" fill="#0b7285" stroke="none"/><rect x="13" y="4" width="7" height="7" fill="#e4572e" stroke="none"/><rect x="4" y="13" width="7" height="7" fill="#f2b705" stroke="none"/><rect x="13" y="13" width="7" height="7" fill="#5f3dc4" stroke="none"/>',
+  groesse:'<rect x="2" y="6" width="20" height="12" rx="1"/><path d="M6 12h12M6 12l2.5-2.5M6 12l2.5 2.5M18 12l-2.5-2.5M18 12l-2.5 2.5"/>',
+  designer:'<path d="M11 3l1.8 5.2L18 10l-5.2 1.8L11 17l-1.8-5.2L4 10l5.2-1.8z"/><path d="M19 14l.8 2.2 2.2.8-2.2.8L19 20l-.8-2.2L16 17l2.2-.8z"/>',
+  ohne:'<circle cx="12" cy="12" r="8"/><path d="M6.5 17.5l11-11"/>',
+  stern:'<path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6-5.3-3-5.3 3 1.2-6L3.4 9.3l6-.7z" fill="#2f9e44" stroke="#2f9e44"/>',
+  sternf:'<path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6-5.3-3-5.3 3 1.2-6L3.4 9.3l6-.7z" fill="#2f9e44" fill-opacity=".3" stroke="#2f9e44" stroke-dasharray="2 2.5"/>',
+  sternflug:'<path d="M12 9l1.9 4 4.3.5-3.2 3 .9 4.3L12 18.6l-3.9 2.2.9-4.3-3.2-3 4.3-.5z" fill="#2f9e44" stroke="#2f9e44"/><path d="M12 2v5M9.5 4.5L12 2l2.5 2.5"/>',
+  bereich:'<rect x="3" y="4" width="18" height="16" rx="1"/><path d="M14 4v16M16 8h3M16 12h3M16 16h3"/>',
+  tfade:'<rect x="3" y="5" width="12" height="9" fill="#c8c6c4" stroke="none"/><rect x="9" y="10" width="12" height="9" fill="#605e5c" fill-opacity=".75" stroke="none"/>',
+  tpush:'<rect x="3" y="6" width="18" height="12" rx="1"/><path d="M8 12h9M13 8l4 4-4 4"/>',
+  tmorph:'<circle cx="7" cy="12" r="4"/><rect x="14" y="8" width="8" height="8"/><path d="M11.4 12h2.2"/>',
+  alle:'<rect x="7" y="9" width="14" height="10" rx="1" fill="#fff"/><path d="M5 16V7h13M3 13V4h13"/>',
+  play:'<rect x="2" y="4" width="20" height="13" rx="1"/><path d="M10 7.5v6l5-3z" fill="currentColor"/><path d="M8 21h8"/>',
+  playc:'<rect x="2" y="4" width="20" height="13" rx="1"/><path d="M12 7.5v6l5-3z" fill="currentColor"/><path d="M6.5 8v5M8 21h8"/>',
+  uhr:'<circle cx="12" cy="13" r="8"/><path d="M12 8v5l3 2M9 2h6"/>',
+  referent:'<rect x="2" y="4" width="13" height="9" rx="1"/><rect x="17" y="4" width="5" height="4"/><path d="M17 11h5M17 14h5M2 17h13M2 20h9"/>',
+  normal:'<rect x="2" y="4" width="20" height="16" rx="1"/><path d="M8 4v16M4 8h2M4 12h2M4 16h2"/>',
+  gliederung:'<path d="M4 6h3M10 6h10M4 12h3M10 12h10M4 18h3M10 18h10"/>',
+  sortierung:'<rect x="3" y="5" width="5" height="4"/><rect x="10" y="5" width="5" height="4"/><rect x="17" y="5" width="4" height="4"/><rect x="3" y="13" width="5" height="4"/><rect x="10" y="13" width="5" height="4"/><rect x="17" y="13" width="4" height="4"/>',
+  notizen:'<rect x="5" y="2" width="14" height="20" rx="1"/><rect x="8" y="5" width="8" height="6"/><path d="M8 14h8M8 17h8"/>',
+  master:'<rect x="3" y="3" width="13" height="9" rx="1"/><rect x="8" y="12" width="13" height="9" rx="1" fill="#fff"/>',
+  save:'<path d="M4 4h13l3 3v13H4z"/><path d="M8 4v5h7V4M8 20v-6h8v6"/>',
+  undo:'<path d="M8 6L4 10l4 4"/><path d="M4 10h10a5 5 0 0 1 0 10h-3"/>'
+};
+// tab: [label, [[id, label, icon, tip], ...]]
+const R = {
+  start:['Start',[
+    ['neu','Neue Folie','neu','Fügt eine neue Folie hinter der aktuellen ein. Tastatur: Strg + M.'],
+    ['layout','Layout','layout','Wählt den Bauplan der Folie: wo Titel, Text und Bilder sitzen.'],
+    ['size','Schriftgrad','size','Macht den markierten Text größer oder kleiner. Für Folien: mindestens 24 Punkt.'],
+    ['fett','Fett','fett','Macht markierten Text fett. Sparsam einsetzen, nur für das Wichtigste.'],
+    ['list','Aufzählungszeichen','list','Macht aus Zeilen eine Liste mit Punkten davor.'],
+    ['anordnen','Anordnen','anordnen','Richtet Dinge aus, verteilt sie gleichmäßig oder legt sie nach vorn und hinten.']]],
+  einf:['Einfügen',[
+    ['neu','Neue Folie','neu','Fügt eine neue Folie hinter der aktuellen ein. Tastatur: Strg + M.'],
+    ['bilder','Bilder','bilder','Holt ein Bild von deinem Gerät oder aus dem Internet auf die Folie.'],
+    ['formen','Formen','formen','Zeichnet Pfeile, Kreise, Rechtecke und Sprechblasen.'],
+    ['pikto','Piktogramme','pikto','Einfache Symbolbilder, zum Beispiel ein Fisch oder eine Uhr.'],
+    ['diagramm','Diagramm','diagramm','Macht aus Zahlen ein Balken-, Linien- oder Kreisdiagramm.'],
+    ['textfeld','Textfeld','textfeld','Ein freies Textfeld. Gut für kleine Beschriftungen wie eine Bildquelle. Für normalen Text nimmst du die Platzhalter.']]],
+  entw:['Entwurf',[
+    ['designs','Designs','designs','Fertige Kombinationen aus Farben und Schriften. Ein Klick gilt für alle Folien.'],
+    ['varianten','Varianten','varianten','Dasselbe Design in anderen Farben.'],
+    ['groesse','Foliengröße','groesse','Stellt das Format ein. Breitbild (16:9) passt zu den meisten Beamern und Bildschirmen.'],
+    ['designer','Designer','designer','Schlägt fertige Anordnungen für deine Folie vor. Prüfe immer, ob der Vorschlag zum Inhalt passt.']]],
+  ueb:['Übergänge',[
+    ['ohne','Ohne','ohne','Kein Übergang: Die nächste Folie ist einfach da. Oft die beste Wahl.'],
+    ['verblassen','Verblassen','tfade','Die alte Folie blendet sanft in die neue über.'],
+    ['schieben','Schieben','tpush','Die neue Folie schiebt die alte aus dem Bild.'],
+    ['morphen','Morphen','tmorph','Dinge, die auf beiden Folien vorkommen, gleiten an ihren neuen Platz.'],
+    ['alle','Auf alle anwenden','alle','Überträgt den gewählten Übergang auf alle Folien.']]],
+  anim:['Animationen',[
+    ['ohne','Ohne','ohne','Entfernt die Animation vom markierten Objekt.'],
+    ['erscheinen','Erscheinen','stern','Das Objekt ist beim nächsten Klick einfach da. Ruhig und klar.'],
+    ['verblassen','Verblassen','sternf','Das Objekt blendet sanft ein.'],
+    ['einfliegen','Einfliegen','sternflug','Das Objekt fliegt von außen herein. Schnell zu viel des Guten.'],
+    ['bereich','Animationsbereich','bereich','Zeigt eine Liste aller Animationen der Folie. Dort änderst du die Reihenfolge.']]],
+  show:['Bildschirmpräsentation',[
+    ['beginn','Von Beginn an','play','Startet den Vortrag bei der ersten Folie. Tastatur: F5.'],
+    ['aktuell','Ab aktueller Folie','playc','Startet bei der Folie, die du gerade ausgewählt hast. Tastatur: Umschalt + F5.'],
+    ['zeiten','Neue Einblendezeiten testen','uhr','Probedurchlauf mit Stoppuhr: zeigt, wie lange du pro Folie brauchst.'],
+    ['referent','Referentenansicht','referent','Mit Beamer siehst du Notizen, nächste Folie und Uhr. Die Klasse sieht nur die Folie.']]],
+  ans:['Ansicht',[
+    ['normal','Normal','normal','Die Arbeitsansicht: Folien links, die aktuelle Folie groß in der Mitte.'],
+    ['gliederung','Gliederungsansicht','gliederung','Zeigt nur die Texte aller Folien. Gut, um den roten Faden zu prüfen.'],
+    ['sortierung','Foliensortierung','sortierung','Alle Folien als kleine Bilder. Zum Umsortieren einfach ziehen.'],
+    ['notizen','Notizenseite','notizen','Zeigt eine Folie zusammen mit ihren Notizen als Seite.'],
+    ['master','Folienmaster','master','Die Vorlage hinter allen Folien. Eine Änderung dort gilt überall.']]]
+};
+const TABS = Object.keys(R);
+const BTN = {};
+TABS.forEach(t => R[t][1].forEach(([id,label,ic,tip]) => BTN[t+'.'+id] = {tab:t, label, tip}));
+const ZONE = {'zone.thumbs':'Folienübersicht','zone.canvas':'Arbeitsfläche','zone.ribbon':'Menüband','zone.notes':'Notizen','ph.title':'Platzhalter','h.side':'Seitenpunkt','h.corner':'Eckpunkt','bar.save':'Speichern'};
+const tabOf = id => id && BTN[id] ? BTN[id].tab : null;
+const labelOf = id => BTN[id] ? BTN[id].label : ZONE[id] || '';
+
+/* ================= slides ================= */
+function okto(ink){
+  return '<svg viewBox="0 0 200 180" aria-hidden="true">' +
+    (ink ? '<g fill="#2b2b40" opacity=".88"><circle cx="164" cy="48" r="24"/><circle cx="186" cy="28" r="13"/><circle cx="184" cy="70" r="15"/><circle cx="150" cy="24" r="12"/></g>' : '') +
+    '<g fill="none" stroke="#e4572e" stroke-width="12" stroke-linecap="round"><path d="M66 92Q26 98 14 138"/><path d="M74 100Q44 124 38 162"/><path d="M84 106Q66 138 68 170"/><path d="M94 108Q90 140 96 168"/><path d="M106 108Q114 140 112 166"/><path d="M116 106Q134 136 134 168"/><path d="M126 100Q156 122 160 158"/><path d="M134 92Q174 96 186 134"/></g>' +
+    '<ellipse cx="100" cy="66" rx="50" ry="46" fill="#e4572e"/><circle cx="82" cy="72" r="10" fill="#fff"/><circle cx="118" cy="72" r="10" fill="#fff"/><circle cx="84" cy="74" r="4.5" fill="#222"/><circle cx="120" cy="74" r="4.5" fill="#222"/><path d="M90 92q10 7 20 0" fill="none" stroke="#7a2412" stroke-width="3" stroke-linecap="round"/></svg>';
+}
+const NONE = new Set();
+function slideEl(sl, theme, o){
+  o = o || {};
+  const f = o.fresh || NONE, p = o.prev || {};
+  const cls = ['sl', 'th-'+theme, 'lay-'+sl.lay];
+  if (o.edit) cls.push('edit'); if (o.mini) cls.push('mini'); if (o.showph) cls.push('showph');
+  for (const k of ['chaos','lowc','big','crooked']) if (sl[k]) cls.push(k);
+  if (o.anim){
+    if (sl.crooked && !p.crooked) cls.push('to-crook');
+    if (!sl.crooked && p.crooked) cls.push('from-crook');
+    if (sl.big && !p.big) cls.push('grow');
+  }
+  if (o.enter) cls.push('enter'); if (o.slow) cls.push('slow');
+  const inn = h('div', {class:'sl-in'});
+  const txt = (c, key, val, prompt, id) => {
+    const e = h('div', {class:'ph '+c+(val ? '' : ' empty'), 'data-id': id || null});
+    if (!val) e.textContent = prompt; else if (f.has(key) && o.type) e.dataset.type = val; else e.textContent = val;
+    return e;
+  };
+  if (sl.lay !== 'blank') inn.append(txt('pt', 'title', sl.title, 'Titel hinzufügen', o.edit ? 'ph.title' : null));
+  if (sl.lay === 'title') inn.append(txt('ps', 'sub', sl.sub, 'Untertitel hinzufügen'));
+  if (sl.lay === 'content' || sl.lay === 'two'){
+    const has = sl.para || (sl.bullets && sl.bullets.length);
+    const pc = h('div', {class:'ph pc'+(has ? '' : ' empty')});
+    if (sl.para) pc.append(h('p', {class:'para'+(f.has('para') ? ' fade' : '')}, sl.para));
+    else if (has){
+      const play = o.play || null;
+      pc.append(h('ul', null, sl.bullets.map((t, i) => {
+        const span = h('span');
+        const li = h('li', {class: play, style: play ? 'animation-delay:'+(play === 'wild' ? i*.4 : .7+i*.9)+'s' : null}, span);
+        if (f.has('bullets') && o.type && !play){ span.dataset.type = t; li.classList.add('wait'); } else span.textContent = t;
+        if (o.edit && sl.anim === 'calm') li.append(h('span', {class:'num'}, String(i+1)));
+        return li;
+      })));
+    } else pc.textContent = 'Text hinzufügen';
+    const body = h('div', {class:'body'}, pc);
+    if (sl.lay === 'two'){
+      if (sl.img){
+        const pic = h('div', {class:'pic'+(sl.imgbig ? ' big' : '')+(sl.bad ? ' bad' : '')+(f.has('img') ? ' popin' : '')+(o.anim && sl.bad && !p.bad ? ' to-bad' : '')+(o.anim && !sl.bad && p.bad ? ' from-bad' : ''), html: okto(sl.img === 'ink')});
+        if (sl.sel && o.edit){
+          const box = h('div', {class:'selbox'});
+          [[0,0],[50,0],[100,0],[100,50,'h.side'],[100,100,'h.corner'],[50,100],[0,100],[0,50]].forEach(([x,y,id]) => box.append(h('i', {style:'left:'+x+'%;top:'+y+'%', 'data-id': id || null})));
+          pic.append(box);
+        }
+        body.append(pic);
+      } else body.append(h('div', {class:'ph pc empty'}, 'Text hinzufügen'));
+    }
+    inn.append(body);
+  }
+  const el = h('div', {class: cls.join(' ')}, inn);
+  if (sl.src) el.append(h('div', {class:'src'+(f.has('src') ? ' fade' : '')}, sl.src));
+  if (sl.clutter) [['⭐',5,60],['😀',80,6],['🌸',52,74],['⚡',30,80],['❤️',88,64]].forEach(([c,x,y], i) => el.append(h('span', {class:'deco', style:'left:'+x+'%;top:'+y+'%;animation-delay:'+(f.has('clutter') ? i*.15 : 0)+'s'}, c)));
+  if (sl.guides) el.append(h('i', {class:'gv'}), h('i', {class:'gh'}));
+  return el;
+}
+
+/* ================= scenes ================= */
+const FK = ['title','sub','para','bullets','img','src','notes','anim','clutter'];
+const SCENES = {
+  intro(){
+    return h('div', {class:'scene intro'},
+      h('div', {class:'step'}, h('div', {class:'box'}, h('div', {class:'sticky'}, 'Was will ich sagen?')), 'Zettel'),
+      h('span', {class:'arrow'}, '→'),
+      h('div', {class:'step'}, h('div', {class:'box'}, slideEl({lay:'title', title:'Der Oktopus', sub:'Ein Tier mit drei Herzen'}, 'meer', {mini:1})), 'Folien'),
+      h('span', {class:'arrow'}, '→'),
+      h('div', {class:'step'}, h('div', {class:'box'}, h('div', {class:'buehne'}, h('b'), h('i'))), 'Bühne'));
+  },
+  paper(s, o){
+    const pv = o.prev && o.prev.scene === 'paper' ? o.prev.paper : (o.prev ? {lines:[], notes:[]} : null);
+    const old = (i, arr) => !pv || i < pv[arr].length;
+    return h('div', {class:'scene paper'},
+      h('div', {class:'pad'}, h('h3', null, 'Mein Referat: Der Oktopus'),
+        s.paper.lines.map((l, i) => h('div', {class:'ln', style: old(i,'lines') ? 'animation:none' : null}, h('b', null, l.q), l.a))),
+      h('div', {class:'stickies'}, s.paper.notes.map((n, i) => h('div', {class:'sticky', style: old(i,'notes') ? 'animation:none' : 'animation-delay:'+(i*.28)+'s'}, n))));
+  },
+  ppt(s, o){
+    const sl = s.slides[s.cur] || {lay:'blank'};
+    const pv = o.prev && o.prev.scene === 'ppt' ? o.prev : null;
+    const ps = pv && pv.cur === s.cur && pv.slides[s.cur] ? pv.slides[s.cur] : null;
+    const f = new Set();
+    if (ps) for (const k of FK){ const v = sl[k]; if (v && (!Array.isArray(v) || v.length) && JSON.stringify(v) !== JSON.stringify(ps[k])) f.add(k); }
+    const themed = !!pv && (pv.theme !== s.theme || !!(pv.slides[0]||{}).chaos !== !!(s.slides[0]||{}).chaos);
+    const rib = h('div', {class:'rib'}, R[s.tab][1].map(b => {
+      const id = s.tab+'.'+b[0];
+      const btn = h('button', {class:'rb'+(b[2] === 'designs' ? ' wide' : ''), type:'button', 'data-id':id, lang:'de', onclick(){ onBtn(id, btn); }});
+      if (b[2] === 'designs') btn.append(h('span', {class:'sw'}, h('i'), h('i'), h('i')));
+      else btn.append(h('span', {html:'<svg viewBox="0 0 24 24" aria-hidden="true">'+IC[b[2]]+'</svg>'}).firstChild);
+      btn.append(h('span', null, b[1]));
+      return btn;
+    }));
+    if (s.drop === 'layout') rib.append(h('div', {class:'drop'}, [['title','Titelfolie'],['content','Titel und Inhalt'],['two','Zwei Inhalte'],['only','Nur Titel'],['blank','Leer']].map(([k, n]) =>
+      h('div', {class: sl.lay === k ? 'cur' : null}, slideEl({lay:k}, 'plain', {mini:1, showph:1}), n))));
+    const top = h('div', {'data-id':'zone.ribbon'},
+      h('div', {class:'tabs'}, TABS.map(t => h('button', {class:'tab'+(t === s.tab ? ' on' : ''), type:'button', onclick(){ uiTab(t); }}, R[t][0]))), rib);
+    const nOld = pv ? pv.slides.length : 99;
+    const thumbs = h('div', {class:'thumbs', 'data-id':'zone.thumbs'}, s.slides.map((x, i) =>
+      h('div', {class:'th'+(i === s.cur ? ' on' : '')+(i >= nOld ? ' pop' : themed ? ' flip' : ''), style:'animation-delay:'+(i >= nOld ? (i-nOld)*.3 : themed ? i*.12 : 0)+'s'},
+        h('span', null, String(i+1)), slideEl(x, s.theme, {mini:1}))));
+    const main = slideEl(sl, s.theme, {edit:1, fresh:f, prev:ps, anim:!!ps, type:!!ps && !calmMotion, enter:(!!o.prev && !ps) || themed, slow:!!s.trans && !!pv && !ps, play: f.has('anim') ? sl.anim : null});
+    const notes = h('div', {class:'notes'+(sl.notes ? ' has' : ''), 'data-id':'zone.notes'});
+    if (!sl.notes) notes.textContent = 'Klicken Sie, um Notizen hinzuzufügen';
+    else if (f.has('notes') && !calmMotion) notes.dataset.type = sl.notes; else notes.textContent = sl.notes;
+    const ib = k => h('button', {type:'button', 'data-id':'bar.'+k, 'aria-label': k === 'save' ? 'Speichern' : 'Rückgängig', html:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">'+IC[k]+'</svg>',
+      onclick(e){ showTag(e.currentTarget, k === 'save' ? 'Sichert deine Datei. Tastatur: Strg + S.' : 'Nimmt den letzten Schritt zurück. Tastatur: Strg + Z.', 'tip', k === 'save' ? 'Speichern' : 'Rückgängig'); }});
+    return h('div', {class:'ppt'},
+      h('div', {class:'tbar'}, ib('save'), ib('undo'), h('span', {class:'fn'}, 'Oktopus-Referat')),
+      top, h('div', {class:'work'}, thumbs, h('div', {class:'canvas', 'data-id':'zone.canvas'}, main)), notes);
+  },
+  show(s){
+    if (s.show.black) return h('div', {class:'scene show'}, h('div', {class:'spot'}, h('i')), 'Bildschirm schwarz: Alle schauen zu dir.');
+    const sl = s.slides[s.show.i];
+    return h('div', {class:'scene show'}, slideEl(sl, s.theme, {enter:1, slow:1, play: sl.anim === 'calm' ? 'calm' : null}));
+  },
+  pres(s){
+    return h('div', {class:'scene pres'},
+      h('div', {class:'col'}, h('div', null, h('div', {class:'lab'}, 'Aktuelle Folie (sieht auch die Klasse)'), slideEl(s.slides[1], s.theme, {})),
+        h('div', {class:'clock'}, '0:48')),
+      h('div', {class:'col'}, h('div', null, h('div', {class:'lab'}, 'Nächste Folie'), slideEl(s.slides[2], s.theme, {mini:1})),
+        h('div', null, h('div', {class:'lab'}, 'Deine Notizen'), h('div', {class:'nt'}, s.slides[1].notes))));
+  },
+  final(){
+    return h('div', {class:'scene final'}, STATIONS.slice(1, 8).map((st, i) =>
+      h('div', {class:'row', style:'--rc:var('+st.c+');animation-delay:'+(i*.12)+'s'}, h('b', null, String(i+1)), h('span', null, st.name), h('strong', null, st.motto))));
+  }
+};
+function sceneAB(ab, picked){
+  const one = k => {
+    const b = h('button', {type:'button', class: picked ? (k === ab.good ? 'ok' : 'no') : null, 'aria-label':'Folie '+k.toUpperCase(), onclick(){ pickAB(k, b); }},
+      slideEl(ab[k].sl, ab[k].theme, {}), k.toUpperCase());
+    return b;
+  };
+  return h('div', {class:'scene ab'}, one('a'), one('b'));
+}
+
+/* ================= the lesson ================= */
+const TXT = {
+  wall1:'Der Oktopus gehört zu den Weichtieren und hat acht Arme, die mit Saugnäpfen besetzt sind. Außerdem besitzt er drei Herzen, und sein Blut ist blau, weil es Kupfer enthält. Er hat keinen einzigen Knochen und kann sich deshalb durch sehr enge Spalten zwängen.',
+  wall2:'Wenn Gefahr droht, kann der Oktopus in Sekunden seine Farbe wechseln und sich so tarnen. Außerdem stößt er eine dunkle Tintenwolke aus und flieht dann mit Rückstoß durchs Wasser.',
+  b1:['8 Arme mit Saugnäpfen','3 Herzen','Blaues Blut','Kein Knochen'],
+  b2:['Farbwechsel in Sekunden','Tintenwolke','Flucht mit Rückstoß'],
+  b3:['Körper: 8 Arme, 3 Herzen, kein Knochen','Tricks: Farbe, Tinte, Rückstoß']
+};
+const S0 = () => ({scene:'intro', paper:{lines:[], notes:[]}, tab:'start', cur:0, theme:'plain', slides:[], drop:null, show:null, trans:false});
+const STATIONS = [
+{id:'start', name:'Start', c:'--r0', motto:'', beats:[
+  {k:'denk', h:'Gute Folien beginnen im Kopf',
+   p:['PowerPoint hat Hunderte Knöpfe. Für ein gutes Referat brauchst du nur wenige davon, und vor allem eine gute Denkweise.','In sieben Stationen baust du ein Referat über den Oktopus: vom ersten Zettel bis zum Auftritt vor der Klasse.'],
+   legend:1}
+]},
+{id:'plan', name:'Plan', c:'--r1', motto:'Erst denken, dann klicken.', beats:[
+  {k:'denk', h:'PowerPoint bleibt noch zu', p:'Viele öffnen PowerPoint und klicken sofort los. Profis nehmen zuerst Zettel und Stift. Drei Fragen kommen vor der ersten Folie.',
+   do(s){ s.scene = 'paper'; }},
+  {k:'denk', h:'Frage 1: Für wen?', p:'Deine Klasse weiß noch wenig über den Oktopus. Also: einfache Wörter und Fakten, die überraschen.',
+   why:'Wer sein Publikum kennt, weiß, was er erklären muss und was er weglassen kann.',
+   do(s){ s.paper.lines.push({q:'Für wen?', a:'Meine Klasse 6b'}); }},
+  {k:'denk', h:'Frage 2: Was sollen sie am Ende wissen?', p:'Schreib es in einem einzigen Satz auf. Das ist deine Kernbotschaft.',
+   why:'Die Kernbotschaft ist dein Sieb: Was nicht dazu passt, kommt nicht auf die Folien.',
+   do(s){ s.paper.lines.push({q:'Kernbotschaft:', a:'Der Oktopus hat einen erstaunlichen Körper und clevere Tricks.'}); }},
+  {k:'denk', h:'Frage 3: Wie viel Zeit?', p:'Du hast fünf Minuten. Faustregel: etwa eine Folie pro Minute, also rund fünf Folien.',
+   why:'Zu viele Folien heißt hetzen. Lieber wenige Folien und Zeit zum Erzählen.',
+   do(s){ s.paper.lines.push({q:'Zeit:', a:'5 Minuten, also etwa 5 Folien'}); }},
+  {k:'denk', h:'Der rote Faden auf Haftnotizen', p:'Jede Haftnotiz wird später eine Folie. Schieb sie hin und her, bis die Reihenfolge wie eine Geschichte klingt: Anfang, Mitte, Schluss.',
+   why:'Auf Papier ist Umsortieren eine Sache von Sekunden. In fertigen Folien tut es weh.',
+   do(s){ s.paper.notes = ['Titel','Körper','Tricks','Das Wichtigste','Fragen?']; }},
+  {k:'du', h:'Kurz nachgedacht', p:'Du bekommst ein neues Referat-Thema. Was machst du zuerst?',
+   quiz:[{t:'PowerPoint öffnen und ein schönes Design aussuchen.', fb:'Das Design kommt erst an Station 5. Ohne Inhalt weißt du noch nicht, was du gestalten sollst.'},
+         {t:'Kernbotschaft und Reihenfolge auf Papier planen.', ok:1, fb:'Genau. Mit einem Plan weißt du bei jeder Folie, was sie zeigen soll.'},
+         {t:'Zehn Bilder aus dem Internet herunterladen.', fb:'Bilder suchst du erst, wenn du weißt, was sie zeigen sollen.'}]}
+]},
+{id:'geruest', name:'Gerüst', c:'--r2', motto:'Eine Folie, ein Gedanke.', beats:[
+  {k:'klick', h:'Links: alle Folien', p:'Jetzt öffnest du PowerPoint. Links siehst du alle Folien in klein. Hier wechselst du zwischen ihnen und ziehst sie in eine andere Reihenfolge.',
+   at:'zone.thumbs', do(s){ s.scene = 'ppt'; s.slides = [{lay:'title'}]; s.cur = 0; }},
+  {k:'klick', h:'Mitte: die Arbeitsfläche', p:'Hier liegt die Folie, an der du gerade arbeitest. Was du hier siehst, sieht später deine Klasse.', at:'zone.canvas'},
+  {k:'klick', h:'Oben: das Menüband', p:'Die Werkzeuge sind in Registerkarten sortiert. Ihre Reihenfolge passt zur Arbeit: erst einfügen, dann gestalten, dann bewegen, zum Schluss vortragen.',
+   why:'Du musst nicht jeden Knopf kennen. Wenn du weißt, was du tun willst, findest du die passende Registerkarte.', at:'zone.ribbon'},
+  {k:'klick', h:'In den Platzhalter schreiben', p:'Die gestrichelten Rahmen heißen Platzhalter. Klick hinein und tippe los.',
+   at:'ph.title', do(s){ s.slides[0].title = 'Der Oktopus'; s.slides[0].sub = 'Ein Tier mit drei Herzen · Mia, Klasse 6b'; }},
+  {k:'klick', h:'Eine neue Folie', p:'Ein Klick, und die nächste Folie ist da. Sie bringt zwei Platzhalter mit: einen für den Titel, einen für den Inhalt.',
+   at:'start.neu', path:'Start › Neue Folie', key:'Strg + M', do(s){ s.slides.push({lay:'content'}); s.cur = 1; }},
+  {k:'klick', h:'Das Layout ist der Bauplan', p:'Jede Folie hat ein Layout. Es legt fest, wo Titel, Text und Bilder sitzen. Hier wählst du ein anderes aus.',
+   why:'Nutze die Platzhalter des Layouts statt loser Textfelder. Dann sitzt auf jeder Folie alles an derselben Stelle, und ein neues Design passt später automatisch.',
+   at:'start.layout', path:'Start › Layout', do(s){ s.drop = 'layout'; }},
+  {k:'denk', h:'Erst das Gerüst, dann der Inhalt', p:'Leg für jede Haftnotiz eine Folie an und schreib nur den Titel darauf. Links wächst dein roter Faden.',
+   why:'So merkst du früh, ob die Reihenfolge stimmt. Später umzubauen kostet viel mehr Zeit.',
+   do(s){ s.drop = null; s.slides[1].title = 'Ein besonderer Körper';
+     s.slides.push({lay:'content', title:'Clevere Tricks'}, {lay:'content', title:'Das Wichtigste in Kürze'}, {lay:'title', title:'Danke! Habt ihr Fragen?', sub:''}); }},
+  {k:'du', h:'Jetzt du', p:'Dir fällt noch etwas ein: Was frisst ein Oktopus eigentlich? Füge dafür eine neue Folie ein.',
+   try:['start.neu','einf.neu'], ok:'Die neue Folie hängt jetzt hinter der aktuellen.',
+   do(s){ s.slides.splice(2, 0, {lay:'content', title:'Was frisst er?'}); s.cur = 2; }},
+  {k:'denk', h:'Passt das zur Kernbotschaft?', p:'Was der Oktopus frisst, ist spannend. Aber deine Botschaft handelt von Körper und Tricks. Also: Folie links anklicken und mit der Taste Entf wieder löschen.',
+   why:'Weglassen ist die schwierigste und wichtigste Arbeit beim Präsentieren.', key:'Entf',
+   do(s){ s.slides.splice(2, 1); s.cur = 1; }}
+]},
+{id:'inhalt', name:'Inhalt', c:'--r3', motto:'Die Folie zeigt Stichwörter. Die Sätze sprichst du.', beats:[
+  {k:'nein', h:'Die Textwand', p:'So sehen viele Folien aus: ganze Sätze in kleiner Schrift. Das Problem: Deine Klasse kann nicht gleichzeitig lesen und dir zuhören.',
+   do(s){ s.scene = 'ppt'; s.tab = 'start'; s.cur = 1; s.slides[1].para = TXT.wall1; }},
+  {k:'klick', h:'Kürzen auf Stichwörter', p:'Von jedem Satz bleibt nur das Wichtigste übrig. Drei bis fünf Stichpunkte pro Folie reichen.',
+   why:'Die Folie ist für die Augen der Klasse da. Die ganzen Sätze kommen aus deinem Mund.',
+   at:'start.list', path:'Start › Aufzählungszeichen', do(s){ s.slides[1].para = ''; s.slides[1].bullets = TXT.b1; }},
+  {k:'klick', h:'Groß genug für die letzte Reihe', p:'Stell die Schrift auf mindestens 24 Punkt. Titel dürfen noch größer sein.',
+   why:'Passt der Text dann nicht mehr auf die Folie? Schreib nicht kleiner. Kürze, oder mach zwei Folien daraus.',
+   at:'start.size', path:'Start › Schriftgrad', do(s){ s.slides[1].big = true; }},
+  {k:'klick', h:'Dein Spickzettel: die Notizen', p:'Was du erzählen willst, schreibst du unter die Folie in die Notizen. Beim Vortrag kannst du sie sehen, die Klasse nicht. Wie das geht, zeigt Station 7.',
+   at:'zone.notes', do(s){ s.slides[1].notes = 'Saugnäpfe: können fühlen und schmecken. Blut ist blau, weil Kupfer drin ist.'; }},
+  {k:'du', h:'Jetzt du: Welche Folie ist besser?', p:'Zweimal derselbe Inhalt für die Folie »Clevere Tricks«. Tippe die Folie an, mit der deine Klasse dir besser zuhören kann.',
+   ab:{a:{sl:{lay:'content', title:'Clevere Tricks', para:TXT.wall2}, theme:'plain'}, b:{sl:{lay:'content', title:'Clevere Tricks', bullets:TXT.b2, big:true}, theme:'plain'}, good:'b',
+       ok:'Drei Stichpunkte, große Schrift. Den Rest erzählst du.', miss:'Hier müsste die Klasse zwei lange Sätze lesen, während du sprichst. Schau dir die andere an.'},
+   do(s){ s.slides[2].bullets = TXT.b2; s.slides[2].big = true; s.slides[3].bullets = TXT.b3; s.slides[3].big = true; }}
+]},
+{id:'bild', name:'Bild', c:'--r4', motto:'Zeig es, statt es zu beschreiben.', beats:[
+  {k:'klick', h:'Ein Bild einfügen', p:'Wie sieht ein Oktopus aus? Ein Bild zeigt das in einer Sekunde. Mit Wörtern bräuchtest du viel länger.',
+   why:'Frag dich bei jeder Folie: Was kann ich zeigen, statt es aufzuschreiben?',
+   at:'einf.bilder', path:'Einfügen › Bilder', do(s){ s.scene = 'ppt'; s.cur = 1; const x = s.slides[1]; x.lay = 'two'; x.img = 'okto'; x.sel = true; }},
+  {k:'nein', h:'An der Seite ziehen', p:'Du willst das Bild größer machen und ziehst an einem Punkt an der Seite. Das Ergebnis: ein plattgedrückter Oktopus.',
+   at:'h.side', do(s){ s.slides[1].bad = true; }},
+  {k:'klick', h:'An der Ecke ziehen', p:'Zieh immer an einem Eckpunkt. Dann wachsen Höhe und Breite gemeinsam, und das Bild behält seine Form.',
+   at:'h.corner', do(s){ s.slides[1].bad = false; s.slides[1].imgbig = true; }},
+  {k:'denk', h:'Woher ist das Bild?', p:'Bilder aus dem Internet gehören jemandem. Nimm nur Bilder, die du verwenden darfst, und schreib die Quelle klein dazu. Bei eigenen Fotos oder Zeichnungen schreibst du das auch hin.',
+   at:'einf.textfeld', path:'Einfügen › Textfeld', do(s){ s.slides[1].sel = false; s.slides[1].src = 'Bild: eigene Zeichnung'; }},
+  {k:'nein', h:'Deko lenkt ab', p:'Sterne, Smileys und Blümchen machen die Folie voll. Sie erklären aber nichts über den Oktopus.',
+   do(s){ s.slides[1].clutter = true; }},
+  {k:'denk', h:'Jedes Teil braucht eine Aufgabe', p:'Weg mit der Deko. Ein großes, klares Bild, das zum Inhalt passt, wirkt stärker als fünf kleine.',
+   why:'Prüffrage für alles auf der Folie: Würde etwas fehlen, wenn ich es lösche? Wenn nicht, dann lösche es.',
+   do(s){ s.slides[1].clutter = false; }},
+  {k:'du', h:'Jetzt du', p:'Auch die Folie »Clevere Tricks« soll ein Bild bekommen: der Oktopus mit seiner Tintenwolke. Wo klickst du?',
+   pre(s){ s.cur = 2; s.tab = 'start'; }, try:['einf.bilder'], ok:'Richtig: Registerkarte Einfügen, dann Bilder.',
+   do(s){ s.tab = 'einf'; const x = s.slides[2]; x.lay = 'two'; x.img = 'ink'; x.imgbig = true; x.src = 'Bild: eigene Zeichnung'; }}
+]},
+{id:'design', name:'Design', c:'--r5', motto:'Einheitlich schlägt kunterbunt.', beats:[
+  {k:'nein', h:'Kunterbunt', p:'Jede Zeile eine andere Schrift, dazu ein Regenbogen im Hintergrund. Das sieht nach viel Arbeit aus, macht das Zuschauen aber anstrengend.',
+   do(s){ s.scene = 'ppt'; s.tab = 'entw'; s.cur = 1; s.slides.forEach(x => x.chaos = true); }},
+  {k:'klick', h:'Ein Design für alle Folien', p:'Ein Klick auf ein Design, und alle Folien bekommen dieselben Farben und Schriften. Schau links: Alle fünf ändern sich zusammen.',
+   why:'Sieht jede Folie gleich aus, muss sich die Klasse nicht jedes Mal neu zurechtfinden. Sie achtet auf den Inhalt.',
+   at:'entw.designs', path:'Entwurf › Designs', do(s){ s.slides.forEach(x => x.chaos = false); s.theme = 'meer'; }},
+  {k:'nein', h:'Hellgelb auf Hell', p:'Diese Schriftfarbe sieht am eigenen Bildschirm vielleicht noch hübsch aus. Am Beamer in der letzten Reihe ist sie unsichtbar.',
+   do(s){ s.slides[1].lowc = true; }},
+  {k:'denk', h:'Kontrast', p:'Dunkle Schrift auf hellem Grund oder helle Schrift auf dunklem Grund. Test: Geh drei Schritte vom Bildschirm weg. Kannst du noch alles lesen?',
+   do(s){ s.slides[1].lowc = false; }},
+  {k:'nein', h:'Schief und krumm', p:'Titel, Text und Bild sitzen irgendwo. Das wirkt unordentlich, auch wenn man nicht sofort merkt, warum.',
+   do(s){ s.tab = 'start'; s.slides[1].crooked = true; }},
+  {k:'klick', h:'Ausrichten', p:'Beim Verschieben zeigt PowerPoint rote gestrichelte Hilfslinien, sobald zwei Dinge auf einer Linie liegen. Mit »Anordnen« richtest du mehrere Dinge auf einmal aus.',
+   why:'Gleiche Kanten geben dem Auge Halt. Titel und Text beginnen an derselben Linie.',
+   at:'start.anordnen', path:'Start › Anordnen › Ausrichten', do(s){ s.slides[1].crooked = false; s.slides[1].guides = true; }},
+  {k:'denk', h:'Die Logik dahinter: der Folienmaster', p:'Hinter allen Folien liegt eine Vorlage, der Master. Wer dort die Schrift der Titel ändert, ändert sie auf jeder Folie zugleich.',
+   why:'Einmal festlegen, überall gültig. Darum Platzhalter und Designs statt Handarbeit auf jeder einzelnen Folie.',
+   at:'ans.master', path:'Ansicht › Folienmaster', do(s){ s.slides[1].guides = false; }},
+  {k:'du', h:'Jetzt du: Welche Folie wirkt ruhiger?', p:'Derselbe Inhalt, zwei Gestaltungen. Tippe die Folie an, bei der du schneller verstehst, worum es geht.',
+   ab:{a:{sl:{lay:'two', title:'Clevere Tricks', bullets:TXT.b2, big:true, img:'ink', imgbig:true}, theme:'meer'}, b:{sl:{lay:'two', title:'Clevere Tricks', bullets:TXT.b2, big:true, img:'ink', chaos:true, clutter:true}, theme:'plain'}, good:'a',
+       ok:'Zwei Farben, eine Schrift, viel freier Platz. Der Inhalt steht im Mittelpunkt.', miss:'Hier kämpfen Farben, Schriften und Deko um Aufmerksamkeit. Schau dir die andere an.'}}
+]},
+{id:'bewegung', name:'Bewegung', c:'--r6', motto:'Bewegung nur, wenn sie beim Verstehen hilft.', beats:[
+  {k:'nein', h:'Der Wirbelsturm', p:'Jeder Punkt fliegt, dreht sich und hüpft herein. Lustig! Aber woran erinnert sich die Klasse danach? An den Wirbel, nicht an den Inhalt.',
+   do(s){ s.scene = 'ppt'; s.tab = 'anim'; s.cur = 1; s.slides[1].anim = 'wild'; }},
+  {k:'klick', h:'Erscheinen, Punkt für Punkt', p:'Markiere den Text und wähle »Erscheinen«. Jetzt kommt bei jedem Klick ein Stichpunkt dazu. Die kleinen Zahlen zeigen die Reihenfolge.',
+   why:'So liest niemand voraus. Die Klasse sieht immer genau das, worüber du gerade sprichst.',
+   at:'anim.erscheinen', path:'Animationen › Erscheinen', do(s){ s.slides[1].anim = 'calm'; }},
+  {k:'klick', h:'Ein ruhiger Übergang', p:'Übergänge bestimmen, wie eine Folie zur nächsten wechselt. »Verblassen« blendet sanft über.',
+   at:'ueb.verblassen', path:'Übergänge › Verblassen', do(s){ s.trans = true; s.cur = 2; }},
+  {k:'klick', h:'Für alle gleich', p:'Mit einem Klick gilt derselbe Übergang für jede Folie.',
+   why:'Ein Übergang für alles, oder gar keiner. Wechselnde Effekte lenken ab.',
+   at:'ueb.alle', path:'Übergänge › Auf alle anwenden', do(s){ s.cur = 1; }},
+  {k:'denk', h:'Die Prüffrage', p:'Frag dich bei jeder Bewegung: Hilft sie beim Verstehen? Wenn nicht, weg damit. Mit »Ohne« entfernst du eine Animation wieder.',
+   at:'anim.ohne', path:'Animationen › Ohne', do(s){ s.trans = false; }},
+  {k:'du', h:'Kurz nachgedacht', p:'Welche Bewegung hat einen guten Grund?',
+   quiz:[{t:'Der Titel dreht sich dreimal, weil das cool aussieht.', fb:'Cool, aber der Titel wird dadurch nicht verständlicher.'},
+         {t:'Jede Folie bekommt einen anderen Übergang, damit es abwechslungsreich bleibt.', fb:'Abwechslung bei den Effekten lenkt vom Inhalt ab.'},
+         {t:'Die Stichpunkte erscheinen nacheinander, passend zu dem, was ich gerade erzähle.', ok:1, fb:'Genau. Diese Bewegung hilft der Klasse, dir zu folgen.'}]}
+]},
+{id:'auftritt', name:'Auftritt', c:'--r7', motto:'Die Folien sind dein Bühnenbild. Der Star bist du.', beats:[
+  {k:'klick', h:'Vorhang auf', p:'Jetzt füllt die erste Folie den ganzen Bildschirm. Weiter geht es mit Mausklick, Leertaste oder Pfeiltaste. Mit Esc kommst du zurück.',
+   at:'show.beginn', path:'Bildschirmpräsentation › Von Beginn an', key:'F5', pre(s){ s.scene = 'ppt'; s.cur = 0; }, do(s){ s.scene = 'show'; s.show = {i:0}; }},
+  {k:'klick', h:'Klick für Klick', p:'Erst kommt die Folie, dann bei jedem Klick ein Stichpunkt. Du bestimmst das Tempo, nicht die Folie.',
+   do(s){ s.show = {i:1}; }},
+  {k:'klick', h:'Die Referentenansicht', p:'Am Beamer sieht die Klasse nur die Folie. Auf deinem Bildschirm siehst du mehr: deine Notizen, die nächste Folie und die Uhr.',
+   why:'Du musst nichts auswendig lernen und dich nie zur Wand umdrehen.',
+   path:'Bildschirmpräsentation › Referentenansicht', key:'Alt + F5', do(s){ s.scene = 'pres'; }},
+  {k:'denk', h:'Üben: laut und mit Uhr', p:'Trag dein Referat mindestens zweimal laut vor und stopp die Zeit. PowerPoint hat dafür eine eingebaute Stoppuhr. Je nach Version heißt der Knopf etwas anders.',
+   why:'Erst beim lauten Sprechen merkst du, wo du hängen bleibst und ob fünf Minuten reichen.',
+   at:'show.zeiten', path:'Bildschirmpräsentation › Neue Einblendezeiten testen', pre(s){ s.scene = 'ppt'; s.cur = 1; }},
+  {k:'klick', h:'Sicher ist sicher', p:'Speichere oft. Nimm die Datei auf einem USB-Stick mit und zusätzlich als PDF (Datei › Speichern unter, Dateityp PDF). Läuft in der Schule etwas nicht, hast du einen Plan B.',
+   at:'bar.save', key:'Strg + S'},
+  {k:'denk', h:'Blick zur Klasse', p:'Sprich zu den Menschen, nicht zur Wand. Kurz auf die Folie schauen, dann wieder in die Gesichter. Profi-Trick: Die Punkt-Taste macht den Bildschirm schwarz. Dann schauen alle nur auf dich.',
+   key:'Punkt (.)', do(s){ s.scene = 'show'; s.show = {black:1}; }},
+  {k:'du', h:'Jetzt du', p:'Die Klasse wartet. Starte deine Präsentation von der ersten Folie.',
+   pre(s){ s.scene = 'ppt'; s.tab = 'start'; s.cur = 0; }, try:['show.beginn'], ok:'Vorhang auf! Auf der Tastatur geht das mit F5.',
+   do(s){ s.scene = 'show'; s.show = {i:0}; }}
+]},
+{id:'ziel', name:'Ziel', c:'--r8', motto:'', beats:[
+  {k:'denk', h:'Geschafft!', p:['Sieben Stationen, sieben Leitsätze. Welcher Knopf wo liegt, kannst du jederzeit nachschauen. Die Denkweise nimmst du mit in jedes Referat.','Dein nächster Schritt: Bau dein nächstes Referat in genau dieser Reihenfolge. Fang mit dem Zettel an.'],
+   do(s){ s.scene = 'final'; }, finale:1}
+]}
+];
+STATIONS.forEach((st, i) => st.label = i > 0 && i < 8 ? 'Station ' + i + ' · ' + st.name : st.name);
+const FLAT = [], FIRST = [];
+STATIONS.forEach((st, si) => { FIRST[si] = FLAT.length; st.beats.forEach((b, bi) => FLAT.push({b, si, bi})); });
+const KIND = {denk:'Denkweise', klick:'Klick', du:'Jetzt du', nein:'Lieber nicht'};
+const TASKS = [
+  ['Du brauchst eine weitere Folie.', ['start.neu','einf.neu']],
+  ['Die Folie soll einen anderen Bauplan bekommen, zum Beispiel mit zwei Spalten.', ['start.layout']],
+  ['Du willst ein Foto auf die Folie holen.', ['einf.bilder']],
+  ['Du willst einen Pfeil zeichnen.', ['einf.formen']],
+  ['Alle Folien sollen dieselben Farben und Schriften bekommen.', ['entw.designs']],
+  ['Die Stichpunkte sollen nacheinander erscheinen, ruhig und ohne Flug.', ['anim.erscheinen']],
+  ['Eine Animation soll wieder weg.', ['anim.ohne']],
+  ['Derselbe Übergang soll für alle Folien gelten.', ['ueb.alle']],
+  ['Du willst den Vortrag bei der ersten Folie starten.', ['show.beginn']],
+  ['Du willst alle Folien als kleine Bilder sehen und umsortieren.', ['ans.sortierung']],
+  ['Die Schrift ist zu klein für die letzte Reihe.', ['start.size']],
+  ['Die Schrift aller Titel soll sich an einer einzigen Stelle ändern lassen.', ['ans.master']],
+  ['Beim Vortrag willst du deine Notizen und die nächste Folie sehen.', ['show.referent']],
+  ['Aus deinen Zahlen soll ein Balkendiagramm werden.', ['einf.diagramm']],
+  ['Du willst prüfen, ob dein roter Faden stimmt, und nur die Texte aller Folien sehen.', ['ans.gliederung']],
+  ['Unter das Bild soll eine kleine Quellenangabe.', ['einf.textfeld']]
+];
+
+/* ================= engine ================= */
+const screen = $('screen'), wrap = $('wrap'), cursor = $('cursor'), tag = $('tag');
+let pos = 0, solved = true, miss = 0, fbEl = null, shown = null, gen = 0, timers = [], quiz = null, auto = false;
+const done = new Set(), cache = [];
+const KEY = 'zettel-buehne-v1';
+let save = {seen:[], best:0};
+try { const s = JSON.parse(localStorage.getItem(KEY)); if (s && Array.isArray(s.seen)) save = s; } catch(e){}
+const persist = () => { try { localStorage.setItem(KEY, JSON.stringify(save)); } catch(e){} };
+
+function pre(i){
+  const s = i ? post(i-1) : S0(), b = FLAT[i].b;
+  s.drop = s.drop || null;
+  if (b.pre) b.pre(s);
+  if (tabOf(b.at)) s.tab = tabOf(b.at);
+  return s;
+}
+function post(i){
+  if (!cache[i]){ const s = pre(i), b = FLAT[i].b; if (b.do) b.do(s); cache[i] = s; }
+  return clone(cache[i]);
+}
+const later = (ms, fn) => timers.push(setTimeout(fn, calmMotion ? Math.min(ms, 60) : ms));
+function clearT(){ timers.forEach(clearTimeout); timers = []; }
+const find = id => screen.querySelector('[data-id="'+id+'"]');
+
+function draw(s, o){
+  o = o || {}; gen++;
+  shown = {s, o};
+  screen.replaceChildren(o.ab ? sceneAB(o.ab, o.picked) : SCENES[s.scene](s, o));
+  hideTag();
+  if (o.hl){ const t = find(o.hl); if (t){ t.classList.add('hl'); showTag(t, labelOf(o.hl)); } }
+  runTyping();
+}
+function runTyping(){
+  const my = gen, els = [...screen.querySelectorAll('[data-type]')];
+  let i = 0;
+  (function nextEl(){
+    if (my !== gen || i >= els.length) return;
+    const el = els[i++], txt = el.dataset.type, w = el.closest('.wait');
+    if (w) w.classList.remove('wait');
+    let n = 0;
+    (function tick(){ if (my !== gen) return; n += 2; el.textContent = txt.slice(0, n); if (n < txt.length) setTimeout(tick, 22); else setTimeout(nextEl, 140); })();
+  })();
+}
+function showTag(el, text, kind, title){
+  tag.className = 'tag' + (kind ? ' '+kind : '');
+  tag.replaceChildren(title ? h('b', null, title) : '', text);
+  tag.style.display = 'block';
+  const w = wrap.getBoundingClientRect(), r = el.getBoundingClientRect();
+  const tw = tag.offsetWidth, th = tag.offsetHeight;
+  let x = r.left - w.left + r.width/2 - tw/2;
+  x = Math.max(4, Math.min(x, w.width - tw - 4));
+  let y = r.bottom - w.top + 7;
+  if (r.height > w.height * .45) y = r.top - w.top + 8;
+  else if (y + th > w.height - 2) y = r.top - w.top - th - 7;
+  tag.style.left = x + 'px'; tag.style.top = Math.max(2, y) + 'px';
+}
+function hideTag(){ tag.style.display = 'none'; }
+function pointAt(id){
+  const el = find(id); if (!el){ hideCursor(); return; }
+  const w = wrap.getBoundingClientRect(), r = el.getBoundingClientRect();
+  const x = r.left - w.left + r.width * .5, y = r.top - w.top + Math.min(r.height * .5, 60);
+  cursor.style.transform = 'translate('+x+'px,'+y+'px)';
+  cursor.classList.add('on');
+}
+function hideCursor(){ cursor.classList.remove('on', 'click'); }
+function clickFx(){ cursor.classList.remove('click'); void cursor.offsetWidth; cursor.classList.add('click'); }
+function setFb(good, title, text){ if (!fbEl) return; fbEl.className = 'fb ' + (good ? 'good' : 'bad'); fbEl.replaceChildren(h('b', null, title), text || ''); }
+
+function uiTab(t){
+  if (!shown || shown.s.scene !== 'ppt' || shown.o.ab) return;
+  hideCursor(); shown.s.tab = t; shown.s.drop = null;
+  draw(shown.s, Object.assign({}, shown.o, {prev:null}));
+}
+function onBtn(id, el){
+  const info = BTN[id];
+  if (quiz){ quizClick(id, el); return; }
+  const b = FLAT[pos].b;
+  if (b.try && !solved){
+    if (b.try.includes(id)){
+      el.classList.add('act'); showTag(el, 'Richtig!', 'yes');
+      later(700, () => { markSolved(); draw(post(pos), {prev: pre(pos)}); setFb(true, 'Geschafft!', b.ok); });
+    } else {
+      miss++;
+      showTag(el, info.tip, 'tip', info.label);
+      const want = BTN[b.try[0]];
+      if (miss >= 3){ later(1400, () => { uiTab(want.tab); const t = find(b.try[0]); if (t){ t.classList.add('hl'); showTag(t, want.label); } }); setFb(false, 'Hier ist er.', 'Der gesuchte Knopf leuchtet jetzt gelb.'); }
+      else setFb(false, 'Noch nicht.', miss >= 2 ? 'Tipp: Schau in die Registerkarte »' + R[want.tab][0] + '«.' : 'Überleg: Was willst du tun? Welche Registerkarte passt dazu?');
+    }
+    return;
+  }
+  showTag(el, info.tip, 'tip', info.label);
+}
+function pickAB(k, btn){
+  const b = FLAT[pos].b;
+  if (solved || !b.ab) return;
+  if (k === b.ab.good){ markSolved(); draw(shown.s, {ab:b.ab, picked:true}); setFb(true, 'Gute Wahl!', b.ab.ok); }
+  else { btn.classList.remove('shake'); void btn.offsetWidth; btn.classList.add('shake'); setFb(false, 'Schau noch mal hin.', b.ab.miss); }
+}
+function markSolved(){ solved = true; done.add(pos); $('next').disabled = pos >= FLAT.length-1; if (auto) queueAuto(); }
+
+function renderCard(){
+  const {b, si} = FLAT[pos], st = STATIONS[si], c = $('card');
+  c.style.setProperty('--rc', 'var('+st.c+')');
+  const kids = [];
+  if (st.motto) kids.push(h('div', {class:'motto'}, h('span', null, st.label), h('strong', null, st.motto)));
+  kids.push(h('span', {class:'kind k-'+b.k}, KIND[b.k]), h('h2', null, b.h));
+  [].concat(b.p).forEach(p => kids.push(h('p', null, p)));
+  if (b.why) kids.push(h('p', {class:'why'}, h('b', null, 'Warum? '), b.why));
+  if (b.path || b.key) kids.push(h('div', {class:'path'}, b.path ? h('span', null, 'Wo: ', h('b', null, b.path)) : null, b.key ? h('span', null, 'Taste: ', h('kbd', null, b.key)) : null));
+  fbEl = null;
+  if (b.quiz){
+    const list = h('div', {class:'opts'});
+    b.quiz.forEach(o => { const btn = h('button', {class:'opt'+(solved && o.ok ? ' ok' : ''), type:'button', onclick(){
+      if (solved || btn.classList.contains('no')) return;
+      if (o.ok){ btn.classList.add('ok'); markSolved(); setFb(true, 'Richtig!', o.fb); }
+      else { btn.classList.add('no'); setFb(false, 'Noch nicht.', o.fb); }
+    }}, o.t); list.append(btn); });
+    kids.push(list);
+  }
+  if (b.try && !solved) kids.push(h('p', {class:'path'}, 'Tippe links im Fenster auf die passende Registerkarte und dann auf den Knopf.'));
+  if (b.try || b.ab || b.quiz) kids.push(fbEl = h('div', {class:'fb', role:'status'}));
+  if (b.legend) kids.push(h('div', {class:'legend'},
+    h('span', null, h('i'), 'Gelb leuchtet, wo geklickt wird.'),
+    h('span', null, h('span', {class:'kind k-denk'}, 'Denkweise'), 'erklärt, warum.'),
+    h('span', null, h('span', {class:'kind k-du'}, 'Jetzt du'), 'heißt: selbst ausprobieren.'),
+    h('span', null, 'Du kannst im Fenster jederzeit auf Registerkarten und Knöpfe tippen und nachlesen, was sie tun.')));
+  if (b.finale) kids.push(h('div', {class:'cta'},
+    h('button', {class:'btn pri', type:'button', onclick: startQuiz}, 'Knopf-Quiz starten'),
+    h('button', {class:'btn', type:'button', onclick(){ freePlay(); }}, 'Frei ausprobieren'),
+    h('button', {class:'btn', type:'button', onclick(){ go(0, true); }}, 'Von vorn')));
+  c.replaceChildren(...kids);
+  if (solved && (b.try || b.ab)) setFb(true, 'Geschafft!', b.ok || b.ab.ok);
+}
+function chrome(){
+  const {si, bi} = FLAT[pos], st = STATIONS[si];
+  document.body.classList.toggle('quiz', !!quiz);
+  [...$('route').children].forEach((el, i) => { el.classList.toggle('on', !quiz && i === si); el.classList.toggle('done', save.seen.includes(i)); if (i === si && !quiz){ const r = $('route'); r.scrollLeft = el.offsetLeft - r.clientWidth/2 + el.offsetWidth/2; } });
+  const d = $('dots'); d.style.setProperty('--rc', 'var('+st.c+')');
+  d.replaceChildren(...st.beats.map((_, k) => h('i', {class: k <= bi ? 'on' : null})));
+  d.setAttribute('aria-label', 'Schritt '+(bi+1)+' von '+st.beats.length);
+  $('prev').disabled = pos === 0;
+  $('next').disabled = !solved || pos >= FLAT.length-1;
+  $('next').textContent = pos === 0 ? 'Los geht es' : bi === st.beats.length-1 && pos < FLAT.length-1 ? 'Nächste Station' : 'Weiter';
+}
+function queueAuto(){
+  if (!auto || quiz || !solved || pos >= FLAT.length-1) return;
+  const b = FLAT[pos].b, n = [].concat(b.p).join(' ').length + (b.why || '').length;
+  later(3200 + n*48, () => go(pos+1, true));
+}
+function go(i, animate){
+  clearT(); hideCursor(); quiz = null;
+  const from = FLAT[pos].si;
+  pos = Math.max(0, Math.min(i, FLAT.length-1));
+  const {b, si} = FLAT[pos];
+  if (si > from && !save.seen.includes(from)){ save.seen.push(from); persist(); }
+  if (si === STATIONS.length-1 && !save.seen.includes(si)){ save.seen.push(si); persist(); }
+  try { const want = si ? STATIONS[si].id : ''; if ((location.hash || '').slice(1) !== want) location.hash = want; } catch(e){}
+  miss = 0;
+  const inter = !!(b.try || b.quiz || b.ab);
+  solved = !inter || done.has(pos);
+  chrome(); renderCard();
+  const before = pre(pos), after = post(pos);
+  if (b.ab) draw(before, {ab:b.ab, picked:solved});
+  else if (b.try && !solved) draw(before, {live:true});
+  else if (animate && b.at && !inter){
+    draw(before, {hl:b.at});
+    if (find(b.at) && b.do){
+      pointAt(b.at);
+      later(1300, () => { clickFx(); later(330, () => { draw(after, {hl:b.at, prev:before}); if (!find(b.at)) hideCursor(); queueAuto(); }); });
+    } else { draw(after, {hl:b.at, prev:before}); pointAt(b.at); queueAuto(); }
+  } else { draw(after, {hl:b.at, prev: animate ? before : null}); queueAuto(); }
+}
+
+/* ---------- button quiz and free play ---------- */
+function finalState(){ const s = post(FLAT.length-2); s.scene = 'ppt'; s.tab = 'start'; s.cur = 1; s.show = null; return s; }
+function startQuiz(){
+  clearT(); hideCursor();
+  const t = TASKS.slice(); for (let k = t.length-1; k > 0; k--){ const j = Math.floor(Math.random()*(k+1)); [t[k], t[j]] = [t[j], t[k]]; }
+  quiz = {tasks:t.slice(0, 8), i:0, miss:0, score:0};
+  quizStep();
+}
+function quizCard(...kids){
+  const c = $('card'); c.style.setProperty('--rc', 'var(--r8)');
+  c.replaceChildren(h('div', {class:'motto'}, h('span', null, 'Knopf-Quiz'), h('strong', null, 'Erst überlegen: Was will ich tun?')), ...kids);
+}
+function quizStep(){
+  chrome(); quiz.miss = 0;
+  const q = quiz.tasks[quiz.i];
+  draw(finalState(), {live:true});
+  quizCard(h('span', {class:'kind k-du'}, 'Aufgabe ' + (quiz.i+1) + ' von ' + quiz.tasks.length), h('h2', null, q[0]), h('p', null, 'Wo klickst du? Wähle zuerst die Registerkarte, dann den Knopf.'),
+    fbEl = h('div', {class:'fb', role:'status'}), h('div', {class:'cta'}, h('button', {class:'btn', type:'button', onclick(){ go(pos, false); }}, 'Quiz beenden')));
+}
+function quizClick(id, el){
+  const q = quiz.tasks[quiz.i], info = BTN[id];
+  if (quiz.lock) return;
+  if (q[1].includes(id)){
+    if (!quiz.miss) quiz.score++;
+    el.classList.add('act'); showTag(el, 'Richtig!', 'yes'); quiz.lock = true;
+    later(950, () => { quiz.lock = false; quiz.i++; if (quiz.i < quiz.tasks.length) quizStep(); else quizEnd(); });
+  } else {
+    quiz.miss++;
+    showTag(el, info.tip, 'tip', info.label);
+    const want = BTN[q[1][0]];
+    setFb(false, 'Noch nicht.', quiz.miss >= 2 ? 'Tipp: Der Knopf heißt »' + want.label + '« und liegt in der Registerkarte »' + R[want.tab][0] + '«.' : 'Das war »' + info.label + '«. Überleg, zu welcher Registerkarte deine Aufgabe passt.');
+  }
+}
+function quizEnd(){
+  save.best = Math.max(save.best || 0, quiz.score); persist();
+  const n = quiz.tasks.length, sc = quiz.score;
+  hideTag();
+  quizCard(h('span', {class:'kind k-du'}, 'Ergebnis'), h('div', {class:'score'}, sc + ' von ' + n), h('p', null, 'Aufgaben auf Anhieb gelöst. ' + (sc === n ? 'Perfekt! Du findest jeden Knopf.' : sc >= n-2 ? 'Stark! Fast alles gleich gefunden.' : 'Guter Anfang. Mit jeder Runde findest du die Knöpfe schneller.')),
+    h('div', {class:'cta'}, h('button', {class:'btn pri', type:'button', onclick: startQuiz}, 'Noch eine Runde'), h('button', {class:'btn', type:'button', onclick(){ go(pos, false); }}, 'Zurück zu den Stationen')));
+}
+function freePlay(){
+  clearT(); hideCursor();
+  draw(finalState(), {live:true});
+  const c = $('card');
+  c.replaceChildren(h('span', {class:'kind k-du'}, 'Frei ausprobieren'), h('h2', null, 'Dein fertiges Referat'), h('p', null, 'Tippe auf die Registerkarten und Knöpfe. Zu jedem Knopf erscheint, was er tut.'),
+    h('div', {class:'cta'}, h('button', {class:'btn', type:'button', onclick(){ go(pos, false); }}, 'Zurück')));
+}
+
+/* ---------- wiring ---------- */
+$('route').append(...STATIONS.map((st, i) => h('button', {type:'button', style:'--rc:var('+st.c+')', onclick(){ go(FIRST[i], true); }}, st.name)));
+$('next').addEventListener('click', () => { if (solved && pos < FLAT.length-1) go(pos+1, true); });
+$('prev').addEventListener('click', () => { if (pos > 0) go(pos-1, false); });
+$('quizBtn').addEventListener('click', startQuiz);
+$('auto').addEventListener('change', e => { auto = e.target.checked; if (auto) queueAuto(); else clearT(); });
+window.addEventListener('hashchange', () => {
+  const id = (location.hash || '').slice(1), si = Math.max(0, STATIONS.findIndex(s => s.id === id));
+  if (si !== FLAT[pos].si) go(FIRST[si], true);
+});
+let rz = 0;
+window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { hideTag(); hideCursor(); }, 120); });
+function boot(data){
+  const id = (location.hash || '').slice(1), si = STATIONS.findIndex(s => s.id === id);
+  if (data && typeof data.pos === 'number' && data.pos > 0) go(data.pos, false);
+  else go(si > 0 ? FIRST[si] : 0, true);
+}
+if (window.claude && window.claude.hot){
+  window.claude.hot.snapshot(() => ({pos}));
+  if (window.claude.hot.ready) window.claude.hot.ready(boot); else boot(window.claude.hot.data || {});
+} else boot({});
+</script>
+</body>
+</html>
